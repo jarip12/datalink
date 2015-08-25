@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825072428) do
+ActiveRecord::Schema.define(version: 20150825075654) do
+
+  create_table "deposits", force: :cascade do |t|
+    t.date     "deposit_day"
+    t.date     "receive_day"
+    t.float    "amount",      limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "house_purchases", force: :cascade do |t|
+    t.date     "trade_date"
+    t.string   "trade_type",    limit: 255
+    t.string   "house_type",    limit: 255
+    t.string   "house_address", limit: 255
+    t.string   "house_amount",  limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.date     "start_day"
+    t.date     "end_day"
+    t.string   "loan_type",     limit: 255
+    t.string   "description",   limit: 255
+    t.float    "amount",        limit: 24
+    t.boolean  "repay_on_time"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",        limit: 255,   null: false
@@ -37,6 +66,13 @@ ActiveRecord::Schema.define(version: 20150825072428) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "realname",               limit: 255
+    t.string   "id_card",                limit: 255
+    t.string   "sex",                    limit: 255
+    t.string   "mobile",                 limit: 255
+    t.date     "birth_daty"
+    t.date     "death_daty"
+    t.string   "address",                limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

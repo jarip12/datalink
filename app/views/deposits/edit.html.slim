@@ -1,0 +1,7 @@
+h1 = t('action.edit') + Deposit.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @deposit
+'|
+= link_to t('action.back'), deposits_path

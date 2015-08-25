@@ -1,0 +1,23 @@
+h1 = Deposit.model_name.human
+
+table.table.table-striped
+  tr
+    th = Deposit.human_attribute_name("deposit_day")
+    th = Deposit.human_attribute_name("receive_day")
+    th = Deposit.human_attribute_name("amount")
+    th
+    th
+    th
+
+  - @deposits.each do |deposit|
+    tr
+      td = deposit.deposit_day
+      td = deposit.receive_day
+      td = deposit.amount
+      td = link_to t('action.show'), deposit
+      td = link_to t('action.edit'), edit_deposit_path(deposit)
+      td = link_to t('action.delete'), deposit, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + Deposit.model_name.human), new_deposit_path

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :deposits
+  resources :house_purchases
+  resources :loans
   devise_for :users
   mount RailsSettingsUi::Engine, at: 'settings'
   # The priority is based upon order of creation: first created -> highest priority.

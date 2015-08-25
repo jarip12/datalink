@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong = Deposit.human_attribute_name("deposit_day") + ':'
+  = @deposit.deposit_day
+p
+  strong = Deposit.human_attribute_name("receive_day") + ':'
+  = @deposit.receive_day
+p
+  strong = Deposit.human_attribute_name("amount") + ':'
+  = @deposit.amount
+
+= link_to t('action.edit'), edit_deposit_path(@deposit)
+'|
+= link_to t('action.back'), deposits_path

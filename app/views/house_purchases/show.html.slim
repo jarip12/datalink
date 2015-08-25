@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong = HousePurchase.human_attribute_name("trade_date") + ':'
+  = @house_purchase.trade_date
+p
+  strong = HousePurchase.human_attribute_name("trade_type") + ':'
+  = @house_purchase.trade_type
+p
+  strong = HousePurchase.human_attribute_name("house_type") + ':'
+  = @house_purchase.house_type
+p
+  strong = HousePurchase.human_attribute_name("house_address") + ':'
+  = @house_purchase.house_address
+p
+  strong = HousePurchase.human_attribute_name("house_amount") + ':'
+  = @house_purchase.house_amount
+
+= link_to t('action.edit'), edit_house_purchase_path(@house_purchase)
+'|
+= link_to t('action.back'), house_purchases_path

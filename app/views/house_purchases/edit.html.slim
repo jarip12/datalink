@@ -1,0 +1,7 @@
+h1 = t('action.edit') + HousePurchase.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @house_purchase
+'|
+= link_to t('action.back'), house_purchases_path

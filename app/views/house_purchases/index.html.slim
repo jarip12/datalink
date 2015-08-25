@@ -1,0 +1,27 @@
+h1 = HousePurchase.model_name.human
+
+table.table.table-striped
+  tr
+    th = HousePurchase.human_attribute_name("trade_date")
+    th = HousePurchase.human_attribute_name("trade_type")
+    th = HousePurchase.human_attribute_name("house_type")
+    th = HousePurchase.human_attribute_name("house_address")
+    th = HousePurchase.human_attribute_name("house_amount")
+    th
+    th
+    th
+
+  - @house_purchases.each do |house_purchase|
+    tr
+      td = house_purchase.trade_date
+      td = house_purchase.trade_type
+      td = house_purchase.house_type
+      td = house_purchase.house_address
+      td = house_purchase.house_amount
+      td = link_to t('action.show'), house_purchase
+      td = link_to t('action.edit'), edit_house_purchase_path(house_purchase)
+      td = link_to t('action.delete'), house_purchase, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + HousePurchase.model_name.human), new_house_purchase_path

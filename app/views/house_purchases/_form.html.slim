@@ -1,0 +1,12 @@
+= simple_form_for(@house_purchase) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :trade_date
+    = f.input :trade_type
+    = f.input :house_type
+    = f.input :house_address
+    = f.input :house_amount
+
+  .form-actions
+    = f.button :submit

@@ -103,3 +103,12 @@ group :test do
   gem 'simplecov'
   gem 'timecop'
 end
+
+group :development, :test do
+end
+
+group :development do
+end
+
+group :test do
+end

@@ -1,0 +1,10 @@
+= simple_form_for(@deposit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :deposit_day
+    = f.input :receive_day
+    = f.input :amount
+
+  .form-actions
+    = f.button :submit

@@ -1,8 +1,58 @@
+---
 zh-CN:
   action:
-    new: 新建
-    edit: 编辑
-    show: 查看
-    delete: 删除
-    back: 返回
-    confirm_delete: 确认删除
+    back: "返回"
+    new: "创建"
+    show: "查看"
+    edit: "编辑"
+    delete: "删除"
+    confirm_delete: "确认删除"
+    created:
+      successfully: "创建成功"
+    updated:
+      successfully: "更新成功"
+    destroyed:
+      successfully: "删除成功"
+  activerecord:
+    models:
+      loan: 信贷
+      house_purchase: 购房
+      deposit: 提存
+    attributes:
+      loan:
+        start_day: 开始时间
+        end_day: 结束时间
+        loan_type: 公证类型
+        description: 信贷描述
+        amount: 信贷金额
+        repay_on_time: 是否按期归还
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      house_purchase:
+        trade_date: 交易时间
+        trade_type: 交易类型
+        house_type: 房屋类型
+        house_address: 房屋地址
+        house_amount: 购房金额
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      deposit:
+        deposit_day: 提存日期
+        receive_day: 受领日期
+        amount: 提存金额
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+  helpers:
+    submit:
+      loan:
+        create: "创建"
+        update: "更新"
+      house_purchase:
+        create: "创建"
+        update: "更新"
+      deposit:
+        create: "创建"
+        update: "更新"

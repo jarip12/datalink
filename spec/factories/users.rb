@@ -15,6 +15,13 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  realname               :string(255)
+#  id_card                :string(255)
+#  sex                    :string(255)
+#  mobile                 :string(255)
+#  birth_daty             :date
+#  death_daty             :date
+#  address                :string(255)
 #
 
 FactoryGirl.define do
