@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825081235) do
+ActiveRecord::Schema.define(version: 20150825081624) do
 
   create_table "deposits", force: :cascade do |t|
     t.date     "deposit_day"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20150825081235) do
     t.date     "graduation_day"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "family_relations", force: :cascade do |t|
+    t.integer  "my_id",            limit: 4
+    t.string   "relation_name",    limit: 255
+    t.string   "relation_id_card", limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "house_purchases", force: :cascade do |t|

@@ -21,6 +21,7 @@ zh-CN:
       education: education
       work_experience: work_experience
       notary: notary
+      family_relation: family_relation
     attributes:
       loan:
         start_day: "开始时间"
@@ -71,6 +72,13 @@ zh-CN:
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
+      family_relation:
+        my_id: my_id
+        relation_name: relation_name
+        relation_id_card: relation_id_card
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
   helpers:
     submit:
       loan:
@@ -89,5 +97,8 @@ zh-CN:
         create: "创建"
         update: "更新"
       notary:
+        create: "创建"
+        update: "更新"
+      family_relation:
         create: "创建"
         update: "更新"

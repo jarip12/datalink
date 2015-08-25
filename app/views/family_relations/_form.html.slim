@@ -1,0 +1,10 @@
+= simple_form_for(@family_relation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :my_id
+    = f.input :relation_name
+    = f.input :relation_id_card
+
+  .form-actions
+    = f.button :submit

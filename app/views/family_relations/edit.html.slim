@@ -1,0 +1,7 @@
+h1 = t('action.edit') + FamilyRelation.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @family_relation
+'|
+= link_to t('action.back'), family_relations_path

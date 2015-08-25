@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :family_relations
   resources :notaries
   resources :work_experiences
   resources :educations
