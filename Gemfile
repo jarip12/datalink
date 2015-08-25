@@ -47,11 +47,9 @@ end
 gem 'slim-rails'
 gem 'simple_form', '~> 3.1.0'
 gem 'bootstrap-sass'
+gem 'devise', '~> 3.5.1'
 gem 'rails-settings-ui', '~> 0.3.0'
- gem 'rails-settings-cached', '0.4.1'
-
-gem 'rails-settings-ui', '~> 0.3.0'
- gem 'rails-settings-cached', '0.4.1'
+gem 'rails-settings-cached', '0.4.1'
 
 gem 'enumerize'
 gem 'font-awesome-sass'
