@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong = Notary.human_attribute_name("no") + ':'
+  = @notary.no
+p
+  strong = Notary.human_attribute_name("notary_type") + ':'
+  = @notary.notary_type
+
+= link_to t('action.edit'), edit_notary_path(@notary)
+'|
+= link_to t('action.back'), notaries_path

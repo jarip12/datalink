@@ -1,0 +1,7 @@
+h1 = t('action.edit') + Notary.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @notary
+'|
+= link_to t('action.back'), notaries_path

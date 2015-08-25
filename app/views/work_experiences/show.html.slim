@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong = WorkExperience.human_attribute_name("start_day") + ':'
+  = @work_experience.start_day
+p
+  strong = WorkExperience.human_attribute_name("end_day") + ':'
+  = @work_experience.end_day
+p
+  strong = WorkExperience.human_attribute_name("company_name") + ':'
+  = @work_experience.company_name
+p
+  strong = WorkExperience.human_attribute_name("job_title") + ':'
+  = @work_experience.job_title
+
+= link_to t('action.edit'), edit_work_experience_path(@work_experience)
+'|
+= link_to t('action.back'), work_experiences_path

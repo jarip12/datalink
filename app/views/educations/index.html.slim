@@ -1,0 +1,27 @@
+h1 = Education.model_name.human
+
+table.table.table-striped
+  tr
+    th = Education.human_attribute_name("education_type")
+    th = Education.human_attribute_name("school_name")
+    th = Education.human_attribute_name("degree")
+    th = Education.human_attribute_name("enroll_day")
+    th = Education.human_attribute_name("graduation_day")
+    th
+    th
+    th
+
+  - @educations.each do |education|
+    tr
+      td = education.education_type
+      td = education.school_name
+      td = education.degree
+      td = education.enroll_day
+      td = education.graduation_day
+      td = link_to t('action.show'), education
+      td = link_to t('action.edit'), edit_education_path(education)
+      td = link_to t('action.delete'), education, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + Education.model_name.human), new_education_path

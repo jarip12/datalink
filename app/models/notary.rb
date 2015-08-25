@@ -9,10 +9,5 @@
 #  updated_at  :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :notary do
-    no "MyString"
-notary_type "MyString"
-  end
-
+class Notary < ActiveRecord::Base
 end
