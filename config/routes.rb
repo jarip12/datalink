@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :notaries
+  resources :work_experiences
+  resources :educations
   resources :deposits
   resources :house_purchases
   resources :loans

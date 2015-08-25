@@ -15,33 +15,59 @@ zh-CN:
       successfully: "删除成功"
   activerecord:
     models:
-      loan: 信贷
-      house_purchase: 购房
-      deposit: 提存
+      loan: "信贷"
+      house_purchase: "购房"
+      deposit: "提存"
+      education: education
+      work_experience: work_experience
+      notary: notary
     attributes:
       loan:
-        start_day: 开始时间
-        end_day: 结束时间
-        loan_type: 公证类型
-        description: 信贷描述
-        amount: 信贷金额
-        repay_on_time: 是否按期归还
+        start_day: "开始时间"
+        end_day: "结束时间"
+        loan_type: "公证类型"
+        description: "信贷描述"
+        amount: "信贷金额"
+        repay_on_time: "是否按期归还"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
       house_purchase:
-        trade_date: 交易时间
-        trade_type: 交易类型
-        house_type: 房屋类型
-        house_address: 房屋地址
-        house_amount: 购房金额
+        trade_date: "交易时间"
+        trade_type: "交易类型"
+        house_type: "房屋类型"
+        house_address: "房屋地址"
+        house_amount: "购房金额"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
       deposit:
-        deposit_day: 提存日期
-        receive_day: 受领日期
-        amount: 提存金额
+        deposit_day: "提存日期"
+        receive_day: "受领日期"
+        amount: "提存金额"
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      education:
+        education_type: education_type
+        school_name: school_name
+        degree: degree
+        enroll_day: enroll_day
+        graduation_day: graduation_day
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      work_experience:
+        start_day: start_day
+        end_day: end_day
+        company_name: company_name
+        job_title: job_title
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      notary:
+        'no': 'no'
+        notary_type: notary_type
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
@@ -54,5 +80,14 @@ zh-CN:
         create: "创建"
         update: "更新"
       deposit:
+        create: "创建"
+        update: "更新"
+      education:
+        create: "创建"
+        update: "更新"
+      work_experience:
+        create: "创建"
+        update: "更新"
+      notary:
         create: "创建"
         update: "更新"
