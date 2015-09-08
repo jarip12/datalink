@@ -1,0 +1,20 @@
+h1 = t('action.edit') + User.model_name.human
+
+= simple_form_for(@user, url: user_path(@user)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :mobile
+    = f.input :realname
+    = f.input :username
+    .form-group
+      label 地址
+      div.rails-helper.city-group
+        = select_tag "user[province]", options_for_select(ChinaCity.list, @user.province) , prompt: '--省份--', class: ['city-select', 'city-province']
+        = select_tag "user[city]"    , options_for_select(ChinaCity.list(@user.province), @user.city) , prompt: '--城市--', class: ['city-select', 'city-city']
+        = select_tag "user[district]", options_for_select(ChinaCity.list(@user.city), @user.district) , prompt: '--区--', class: ['city-select', 'city-district']
+    = f.input :street
+
+  .form-actions
+    = f.button :submit

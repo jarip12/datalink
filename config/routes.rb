@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :deposits
   resources :house_purchases
   resources :loans
-  devise_for :users
+  devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
   mount RailsSettingsUi::Engine, at: 'settings'
+
+  root 'welcome#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
