@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
   resources :family_relations
   resources :notaries
   resources :work_experiences
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
   mount RailsSettingsUi::Engine, at: 'settings'
 
-  root 'welcome#index'
+  root 'dashboard#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
