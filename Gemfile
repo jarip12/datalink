@@ -68,6 +68,11 @@ gem 'mina-sidekiq', require: false
 gem 'figaro'
 gem 'whenever', '~> 0.9.2'
 gem 'rails-erd'
+gem 'seed_dump'
+gem 'hirb'
+gem 'cancancan'
+
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -89,7 +94,7 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
   gem 'binding_of_caller'
-  gem 'hirb'
+
   gem 'brakeman'
   gem 'rails_panel'
   gem 'pry'
