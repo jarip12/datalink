@@ -36,6 +36,15 @@ zh-CN:
       notary: notary
       family_relation: family_relation
     attributes:
+      user:
+        remember_me: "下次自动登陆"
+        email: "邮箱"
+        realname: "真实姓名"
+        username: "用户名"
+        street: "街道"
+        mobile: "电话"
+        password: "密码"
+        password_confirmation: "确认密码"
       loan:
         start_day: "开始时间"
         end_day: "结束时间"
