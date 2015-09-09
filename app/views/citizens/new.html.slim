@@ -3,7 +3,7 @@ div.outer
     div.new-notary-form.text-center
       h2 请输入公民姓名与身份证号
       form action="#{citizens_path}" method="post"
-        input type="hidden" name="authenticity_token" value="l9n5M/gRA69atD56+RKFlH265Uv7ua57oqQ+MRDOgWs9YOm7xhPlRHXhxU9qKSKrgBzpfodXJKmHRDC3bUhMIQ=="
+        input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
         div.form-inputs
           div.form-group
             lable 姓名
