@@ -1,0 +1,21 @@
+h1 = Citizen.model_name.human
+
+table.table.table-striped
+  tr
+    th = Citizen.human_attribute_name("id_no")
+    th = Citizen.human_attribute_name("realname")
+    th
+    th
+    th
+
+  - @citizens.each do |citizen|
+    tr
+      td = citizen.id_no
+      td = citizen.realname
+      td = link_to t('action.show'), citizen
+      td = link_to t('action.edit'), edit_citizen_path(citizen)
+      td = link_to t('action.delete'), citizen, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + Citizen.model_name.human), new_citizen_path

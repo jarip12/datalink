@@ -1,0 +1,7 @@
+h1 = t('action.edit') + Citizen.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @citizen
+'|
+= link_to t('action.back'), citizens_path

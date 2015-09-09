@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong = Citizen.human_attribute_name("id_no") + ':'
+  = @citizen.id_no
+p
+  strong = Citizen.human_attribute_name("realname") + ':'
+  = @citizen.realname
+
+= link_to t('action.edit'), edit_citizen_path(@citizen)
+'|
+= link_to t('action.back'), citizens_path

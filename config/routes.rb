@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :citizens do
+    get 'search', :on => :collection
+  end
   get 'dashboard/index'
 
   resources :family_relations
