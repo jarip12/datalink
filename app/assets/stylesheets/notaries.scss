@@ -9,5 +9,20 @@
   border-radius: 6px;
   width: 859.38px;
   height: 520.18px;
-  margin-left: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #DFE9F9;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
