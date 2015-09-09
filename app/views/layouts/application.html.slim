@@ -6,10 +6,10 @@ html
     == stylesheet_link_tag    'application', media: 'all'
     == javascript_include_tag 'application'
     == csrf_meta_tags
-  body.body-container
+  body class=((current_user)? 'body-user-logined': 'body-user-not-login')
     - if current_user
       = render template: 'layouts/header'
-    div.container
+    div class=((current_user)? 'container-logined': 'container-not-login')
       = yield
 
 
