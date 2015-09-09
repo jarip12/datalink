@@ -1,14 +1,8 @@
 div.user-header
-  nav.navbar.navbar-inverse.navbar-default.navbar-static-top
-    div.container
-      div.navbar-header
-        a.navbar-brand href="/" 公证处
+  nav.navbar.navbar-static-top
+    - if current_user
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to 'Logout', "/users/sign_out", :method => 'delete'
 
-      - if current_user
-        ul.nav.navbar-nav.navbar-right
-          li
-            = link_to 'Logout', "/users/sign_out", :method => 'delete'
-      - else
-        ul.nav.navbar-nav.navbar-right
-          li
-            = link_to 'Login', "/users/sign_in"
+  h2.header-title.text-center 上海市卢湾公证信息开放平台
