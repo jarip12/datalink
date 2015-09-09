@@ -1,5 +1,8 @@
-h1 = t('action.new') + Notary.model_name.human
-
-== render 'form'
-
-= link_to t('action.back'), notaries_path
+div.new-notary-form
+  div.text-center
+    div
+      lable 姓名
+      input type="text"
+    div
+      label 身份证号
+      input type="text"

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   mount RailsSettingsUi::Engine, at: 'settings'
 
   root 'dashboard#index'
+  get 'reservation/index', as: :reservations
 
 
   # The priority is based upon order of creation: first created -> highest priority.

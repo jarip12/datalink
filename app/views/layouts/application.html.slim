@@ -9,7 +9,7 @@ html
   body class=((current_user)? 'body-user-logined': 'body-user-not-login')
     - if current_user
       = render template: 'layouts/header'
-    div class=((current_user)? 'container-logined': 'container-not-login')
+    div.container class=((current_user)? 'container-logined': 'container-not-login')
       = yield
 
 
