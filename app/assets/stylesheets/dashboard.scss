@@ -5,14 +5,58 @@
   display: inline-block;
   width: 280px;
   height: 282px;
-  background-color: #7B94BA;
+  opacity: 0.61;
+  background: #7B94BA;
+  box-shadow: 3px 3px 6px 0px rgba(130,130,130,0.50);
+  border-radius: 7px;
+}
+
+/* 搜索 copy: */
+#search-button-text {
+
+}
+
+/* 搜索公证居民: */
+#dashboard-search-title {
+  font-family: STXihei;
+  font-size: 30px;
+  color: #051C56;
+  line-height: 30px;
+  margin-bottom: 38px;
+}
+
+.search-line {
+  margin-left: 83px;
+}
+
+
+#search-button {
+  /* Rectangle 192 Copy 2: */
+  background: #C4D4EB;
+  box-shadow: 1px 1px 2px 0px rgba(147,141,141,0.50);
+  border-radius: 4px;
+  /* 搜索 copy: */
+  font-family: HiraginoSansGB-W3;
+  font-size: 17px;
+  color: #160A4B;
+  line-height: 26px;
 }
 
 #search-input {
   width: 445px;
   height: 42px;
+  /* Rectangle 215: */
+  opacity: 0.2;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  box-shadow: inset 1px 1px 5px 0px rgba(0,0,0,0.14);
+  border-radius: 6px;
 }
 
 .block-row {
   margin-top: 125px;
+  font-family: STXihei;
+  font-size: 36px;
+  color: #FFFFFF;
+  line-height: 65px;
 }
