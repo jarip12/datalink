@@ -1,0 +1,7 @@
+h1 = t('action.edit') + Reservation.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @reservation
+'|
+= link_to t('action.back'), reservations_path

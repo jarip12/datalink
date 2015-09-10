@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong = Reservation.human_attribute_name("user_id") + ':'
+  = @reservation.user_id
+p
+  strong = Reservation.human_attribute_name("notary_type") + ':'
+  = @reservation.notary_type
+p
+  strong = Reservation.human_attribute_name("reserve_at") + ':'
+  = @reservation.reserve_at
+
+= link_to t('action.edit'), edit_reservation_path(@reservation)
+'|
+= link_to t('action.back'), reservations_path

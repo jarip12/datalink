@@ -1,6 +1,6 @@
 div.user-header
   nav.navbar.navbar-static-top
-    - if current_user
+    - if current_staff
       ul.nav.navbar-nav.navbar-right
         li
           = link_to 'Logout', "/users/sign_out", :method => 'delete'

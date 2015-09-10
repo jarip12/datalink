@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reservations
   resources :citizens do
     get 'search', :on => :collection
   end
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
   mount RailsSettingsUi::Engine, at: 'settings'
 
   root 'dashboard#index'
-  get 'reservation/index', as: :reservations
 
   devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}

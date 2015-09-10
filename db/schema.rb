@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910015211) do
+ActiveRecord::Schema.define(version: 20150910021026) do
 
   create_table "citizens", force: :cascade do |t|
     t.string   "id_no",      limit: 255
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20150910015211) do
   create_table "notaries", force: :cascade do |t|
     t.string   "no",          limit: 255
     t.string   "notary_type", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.string   "notary_type", limit: 255
+    t.datetime "reserve_at"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
