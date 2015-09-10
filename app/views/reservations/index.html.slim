@@ -12,11 +12,11 @@ ul.nav.nav-tabs role="tablist"
   li role="presentation"
     a href="#friday" aria-controls="friday" role="tab" data-toggle="tab" 周五
 
-= smart_listing_render(@reservations)
+= smart_listing_render(:reservation)
 
 div.tab-content
   div role="tabpanel" class="tab-pane active" id="monday" 周一的预约
-    = smart_listing_render(@reservations)
+    = smart_listing_render(:reservation)
   div role="tabpanel" class="tab-pane" id="tuesday" 周二的预约
   div role="tabpanel" class="tab-pane" id="wednesday" 周三的预约
   div role="tabpanel" class="tab-pane" id="thursday" 周四的预约

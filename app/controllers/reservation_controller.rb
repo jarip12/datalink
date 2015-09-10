@@ -3,10 +3,7 @@ class ReservationController < ApplicationController
   helper  SmartListing::Helper
 
   def index
-    ap "i am index"
-    binding.pry
     @reservations = smart_listing_create(:reservation, Reservation.all, partial: "reservations/listing")
-    ap @reservations
   end
 
   def new

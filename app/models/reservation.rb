@@ -13,4 +13,8 @@
 class Reservation < ActiveRecord::Base
   extend Enumerize
   enumerize :notary_type, in: [:foreign], default: :foreign
+
+  def user_realname
+    User.find(self.user_id).realname
+  end
 end

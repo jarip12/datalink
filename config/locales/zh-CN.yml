@@ -114,7 +114,7 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       reservation:
-        user_name: "申请人"
+        user_realname: "申请人"
         user_id: "用户id"
         notary_type: "公证类型"
         reserve_at: "预约时间"
