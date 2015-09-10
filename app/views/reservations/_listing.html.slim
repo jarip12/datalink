@@ -4,15 +4,17 @@
       th.col-md-3= Reservation.human_attribute_name("user_realname")
       th.col-md-3= Reservation.human_attribute_name("notary_type")
       th.col-md-4= Reservation.human_attribute_name("reserve_at")
+      th.col-md-2
     tbody
       - smart_listing.collection.each do |o|
         tr
           td = o.user_realname
           td = o.notary_type_text
           td = hour_minute_display(o.reserve_at)
+          td = link_to "查看", reservation_path(o)
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else
-  p.warning "没有申请记录"
+  p.warning "没有预约记录"

@@ -3,7 +3,7 @@ module ApplicationHelper
     if a_date.hour > 12
       return "下午 #{a_date.hour - 12}:#{a_date.strftime('%M')}"
     else
-      return "上午#{a_date.strftime('%l:%M')}"
+      return "上午#{a_date.strftime('%k:%M')}"
     end
   end
 end

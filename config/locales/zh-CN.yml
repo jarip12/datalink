@@ -8,15 +8,23 @@ zh-CN:
     failure:
       user:
         unauthenticated: "未授权"
+      staff:
+        unauthenticated: "未授权"
     passwords:
       user:
+        updated: "用户密码重置成功"
+      staff:
         updated: "用户密码重置成功"
     sessions:
       user:
         signed_in: "登录成功"
+      staff:
+        signed_in: "登录成功"
     registrations:
       user:
         signed_up: "注册成功"
+      staff:
+        signed_in: "注册成功"
   action:
     back: "返回"
     new: "创建"
