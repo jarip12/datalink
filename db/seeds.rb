@@ -8,7 +8,7 @@ User.create!([
 {realname: "刘瘸子", email: "fengjing.life6@gmail.com", password: "12345678", password_confirmation: "12345678"},
              ])
 
-100.times do |n|
+400.times do |n|
   User.create!(realname: Faker::Name.name, email: "demo#{n}@gmail.com", password: "12345678", password_confirmation: "12345678")
 end
 
@@ -19,7 +19,8 @@ Staff.create!([
 
 
 
-100.times do
-  Reservation.create!(user_id: Faker::Number.between(1, User.last.id), reserve_at: Time.now + (Faker::Number.between(-5, 5)).days)
+400.times do
+  offset = Faker::Number.between(-5, 5).days + Faker::Number.between(-30, 30).minutes + Faker::Number.between(-12, 12).hours
+  Reservation.create!(user_id: Faker::Number.between(1, User.last.id), reserve_at: Time.now + offset)
 end
 
