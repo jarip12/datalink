@@ -71,6 +71,7 @@ gem 'rails-erd'
 gem 'seed_dump'
 gem 'hirb'
 gem 'cancancan'
+gem 'smart_listing'
 
 
 group :development, :test do

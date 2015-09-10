@@ -40,7 +40,7 @@ zh-CN:
       notary: notary
       family_relation: family_relation
       citizen: "公民"
-      reservation: reservation
+      reservation: "公证办理预约"
     attributes:
       user:
         remember_me: "下次自动登陆"
@@ -114,9 +114,10 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       reservation:
-        user_id: user_id
-        notary_type: notary_type
-        reserve_at: reserve_at
+        user_name: "申请人"
+        user_id: "用户id"
+        notary_type: "公证类型"
+        reserve_at: "预约时间"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"

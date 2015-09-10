@@ -1,9 +1,12 @@
 class ReservationsController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
+
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    @reservations = smart_listing_create(:reservation, Reservation.all, partial: "reservations/listing")
   end
 
   # GET /reservations/1
