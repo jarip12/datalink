@@ -10,11 +10,13 @@ div.text-center.search-line
         | 搜索
 
 table.table.table-striped
-  tr
-    th = Citizen.human_attribute_name("realname")
-    th = Citizen.human_attribute_name("id_no")
+  thead
+    th = User.human_attribute_name("realname")
+    th = User.human_attribute_name("id_no")
     th
-  - @users.each do |user|
-    td = user.realname
-    td = user.id_no
-    td = link_to "查看", user_path(user)
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.realname
+        td = user.id_no
+        td = link_to "查看", user_path(user)
