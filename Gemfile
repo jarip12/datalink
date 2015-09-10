@@ -75,12 +75,12 @@ gem 'smart_listing'
 gem 'by_star', :git => "git://github.com/radar/by_star"
 gem 'chronic'
 gem 'jquery-ui-rails'
+gem 'faker', '~> 1.4.3'
 
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'faker', '~> 1.4.3'
 end
 
 group :development do
