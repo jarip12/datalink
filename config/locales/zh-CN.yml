@@ -50,6 +50,12 @@ zh-CN:
       citizen: "公民"
       reservation: "公证办理预约"
     attributes:
+      staff:
+        remember_me: "下次自动登陆"
+        email: "邮箱"
+        username: "用户名"
+        password: "密码"
+        password_confirmation: "确认密码"
       user:
         remember_me: "下次自动登陆"
         email: "邮箱"
