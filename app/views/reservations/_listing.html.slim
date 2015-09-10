@@ -9,7 +9,7 @@
         tr
           td = o.user_realname
           td = o.notary_type_text
-          td = o.reserve_at
+          td = hour_minute_display(o.reserve_at)
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate

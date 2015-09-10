@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = smart_listing_create(:reservation, Reservation.all, partial: "reservations/listing")
+    @reservations = smart_listing_create(:reservation, Reservation.all.order(:reserve_at), partial: "reservations/listing")
   end
 
   # GET /reservations/1
