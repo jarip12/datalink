@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  role                   :string(255)
 #
 
 class Staff < ActiveRecord::Base
@@ -22,4 +23,22 @@ class Staff < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  extend Enumerize
+  enumerize :role, in: [:admin, :member], default: :member
+
+
+  def admin?
+    has_role?('admin')
+  end
+
+  def member?
+    has_role?('member')
+  end
+
+  def has_role?(name)
+    ap name.class
+    ap self.role.class
+    self.role == name
+  end
 end

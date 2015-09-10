@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'archives/new', as: :new_archive
+
   resources :reservations
-  resources :citizens do
+  resources :users do
     get 'search', :on => :collection
   end
   get 'dashboard/index'
