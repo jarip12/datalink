@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   resources :deposits
   resources :house_purchases
   resources :loans
-  devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
+
   mount RailsSettingsUi::Engine, at: 'settings'
 
   root 'dashboard#index'
   get 'reservation/index', as: :reservations
+
+  devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
+  devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
 
 
   # The priority is based upon order of creation: first created -> highest priority.
