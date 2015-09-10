@@ -1,23 +1,25 @@
 h1 公证预约办理
 
 ul.nav.nav-tabs role="tablist"
-  li.active role="presentation"
+  li role="presentation" class=('active' if @current_day_idx == 1)
     a href="#monday" aria-controls="monday" role="tab" data-toggle="tab" 周一
-  li role="presentation"
+  li role="presentation" class=('active' if @current_day_idx == 2)
     a href="#tuesday" aria-controls="tuesday" role="tab" data-toggle="tab" 周二
-  li role="presentation"
+  li role="presentation" class=('active' if @current_day_idx == 3)
     a href="#wednesday" aria-controls="wednesday" role="tab" data-toggle="tab" 周三
-  li role="presentation"
+  li role="presentation" class=('active' if @current_day_idx == 4)
     a href="#thursday" aria-controls="thursday" role="tab" data-toggle="tab" 周四
-  li role="presentation"
+  li role="presentation" class=('active' if @current_day_idx == 5)
     a href="#friday" aria-controls="friday" role="tab" data-toggle="tab" 周五
 
-= smart_listing_render(:reservation)
-
 div.tab-content
-  div role="tabpanel" class="tab-pane active" id="monday" 周一的预约
-    = smart_listing_render(:reservation)
-  div role="tabpanel" class="tab-pane" id="tuesday" 周二的预约
-  div role="tabpanel" class="tab-pane" id="wednesday" 周三的预约
-  div role="tabpanel" class="tab-pane" id="thursday" 周四的预约
-  div role="tabpanel" class="tab-pane" id="friday" 周五的预约
+  div.tab-pane role="tabpanel" id="monday" class=('active' if @current_day_idx == 1)
+    = smart_listing_render(:reservation1)
+  div.tab-pane role="tabpanel"  id="tuesday" class=('active' if @current_day_idx == 2)
+    = smart_listing_render(:reservation2)
+  div.tab-pane role="tabpanel" id="wednesday" class=('active' if @current_day_idx == 3)
+    = smart_listing_render(:reservation3)
+  div.tab-pane role="tabpanel" id="thursday" class=('active' if @current_day_idx == 4)
+    = smart_listing_render(:reservation4)
+  div.tab-pane role="tabpanel" id="friday" class=('active' if @current_day_idx == 5)
+    = smart_listing_render(:reservation5)

@@ -72,6 +72,9 @@ gem 'seed_dump'
 gem 'hirb'
 gem 'cancancan'
 gem 'smart_listing'
+gem 'by_star', :git => "git://github.com/radar/by_star"
+gem 'chronic'
+gem 'jquery-ui-rails'
 
 
 group :development, :test do

@@ -6,7 +6,10 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = smart_listing_create(:reservation, Reservation.all.order(:reserve_at), partial: "reservations/listing")
+    @current_day_idx = Time.now.strftime("%u").to_i
+    for i in 1..5
+      smart_listing_create("reservation#{i}", Reservation.by_day(offset:  (i - @current_day_idx).days).order(:reserve_at), partial: "reservations/listing")
+    end
   end
 
   # GET /reservations/1
