@@ -1,0 +1,23 @@
+h1 = Archive.model_name.human
+
+table.table.table-striped
+  tr
+    th = Archive.human_attribute_name("realname")
+    th = Archive.human_attribute_name("id_no")
+    th = Archive.human_attribute_name("user_id")
+    th
+    th
+    th
+
+  - @archives.each do |archive|
+    tr
+      td = archive.realname
+      td = archive.id_no
+      td = archive.user_id
+      td = link_to t('action.show'), archive
+      td = link_to t('action.edit'), edit_archive_path(archive)
+      td = link_to t('action.delete'), archive, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + Archive.model_name.human), new_archive_path

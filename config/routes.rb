@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'archives/new', as: :new_archive
+  resources :archives do
+    get :autocomplete_user_email, :on => :collection
+  end
 
   resources :reservations
   resources :users do

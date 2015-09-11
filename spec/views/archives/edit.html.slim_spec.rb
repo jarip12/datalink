@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "archives/new", type: :view do
+RSpec.describe "archives/edit", type: :view do
   before(:each) do
-    assign(:archive, Archive.new(
+    @archive = assign(:archive, Archive.create!(
       :realname => "MyString",
       :id_no => "MyString",
       :user_id => 1
     ))
   end
 
-  it "renders new archive form" do
+  it "renders the edit archive form" do
     render
 
-    assert_select "form[action=?][method=?]", archives_path, "post" do
+    assert_select "form[action=?][method=?]", archive_path(@archive), "post" do
 
       assert_select "input#archive_realname[name=?]", "archive[realname]"
 

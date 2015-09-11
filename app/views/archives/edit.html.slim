@@ -1,0 +1,7 @@
+h1 = t('action.edit') + Archive.model_name.human
+
+== render 'form'
+
+= link_to t('action.show'), @archive
+'|
+= link_to t('action.back'), archives_path

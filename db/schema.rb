@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910074105) do
+ActiveRecord::Schema.define(version: 20150911011313) do
+
+  create_table "archives", force: :cascade do |t|
+    t.string   "realname",   limit: 255
+    t.string   "id_no",      limit: 255
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "citizens", force: :cascade do |t|
     t.string   "id_no",      limit: 255

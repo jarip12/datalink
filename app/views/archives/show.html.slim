@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong = Archive.human_attribute_name("realname") + ':'
+  = @archive.realname
+p
+  strong = Archive.human_attribute_name("id_no") + ':'
+  = @archive.id_no
+p
+  strong = Archive.human_attribute_name("user_id") + ':'
+  = @archive.user_id
+
+= link_to t('action.edit'), edit_archive_path(@archive)
+'|
+= link_to t('action.back'), archives_path

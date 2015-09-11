@@ -1,0 +1,10 @@
+= simple_form_for(@archive) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :realname
+    = f.input :id_no
+    = f.input :user_id
+
+  .form-actions
+    = f.button :submit

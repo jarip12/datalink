@@ -49,6 +49,7 @@ zh-CN:
       family_relation: family_relation
       citizen: "公民"
       reservation: "公证办理预约"
+      archive: archive
     attributes:
       staff:
         remember_me: "下次自动登陆"
@@ -136,6 +137,13 @@ zh-CN:
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
+      archive:
+        realname: realname
+        id_no: id_no
+        user_id: user_id
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
   helpers:
     submit:
       loan:
@@ -163,5 +171,8 @@ zh-CN:
         create: "创建"
         update: "更新"
       reservation:
+        create: "创建"
+        update: "更新"
+      archive:
         create: "创建"
         update: "更新"
