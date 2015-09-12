@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_archive, only: [:show, :edit, :update, :destroy]
+  before_action :set_archive_and_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   def index
@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
-    @profile = @archive.profile
   end
 
   # GET /profiles/new
@@ -34,7 +33,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
-      redirect_to @profile,  notice: t('action.updated.successfully')
+      redirect_to archive_url(@archive),  notice: t('action.updated.successfully')
     else
       render :edit
     end
@@ -48,8 +47,9 @@ class ProfilesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_archive
+    def set_archive_and_profile
       @archive = Archive.find(params[:archive_id])
+      @profile = @archive.profile
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get :autocomplete_user_email, :on => :collection
     get 'profile', to: 'profiles#show'
     get 'profile/edit', to: 'profiles#edit'
+    patch 'profile', to: 'profiles#update'
   end
 
   resources :reservations

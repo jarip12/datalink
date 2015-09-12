@@ -1,4 +1,4 @@
-= simple_form_for(@profile) do |f|
+= simple_form_for(@profile, url: archive_profile_path(@archive)) do |f|
   = f.error_notification
 
   .form-inputs
@@ -6,10 +6,29 @@
     = f.input :id_no
     = f.input :sex
     = f.input :mobile
-    = f.input :birth_day
-    = f.input :death_day
+    .form-inputs
+      div.form-group.string.optional.birth_day class=('has-error' if (@profile.errors.include?(:birth_day)))
+        label.string.optional.control-label
+          abbr title="required" *
+          = Profile.human_attribute_name("birth_day")
+        div.input-group.date.datepicker
+          input type='text' class="form-control" name="profile[birth_day]" value="#{@profile.birth_day}"
+            span.input-group-addon
+              span.glyphicon.glyphicon-time
+        - if @profile.errors.include?(:birth_day)
+          span class="help-block" #{@profile.errors.get(:birth_day)[0]}
+      div.form-group.string.optional.death_day class=('has-error' if (@profile.errors.include?(:death_day)))
+        label.string.optional.control-label
+          abbr title="required" *
+          = Profile.human_attribute_name("death_day")
+        div.input-group.date.datepicker
+          input type='text' class="form-control" name="profile[death_day]" value="#{@profile.death_day}"
+            span.input-group-addon
+              span.glyphicon.glyphicon-time
+
+        - if @profile.errors.include?(:death_day)
+          span class="help-block"  #{@profile.errors.get(:death_day)[0]}
     = f.input :address
-    = f.input :archive_id
 
   .form-actions
     = f.button :submit

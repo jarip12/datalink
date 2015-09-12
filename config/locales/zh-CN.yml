@@ -1,9 +1,17 @@
 ---
 zh-CN:
+  validate:
+    mobile:
+      format:
+        error: 不是合法的11位电话号码
   enumerize:
     reservation:
       notary_type:
         foreign: "对外公证"
+    profile:
+      sex:
+        male: 男
+        female: 女
   devise:
     failure:
       user:
@@ -148,12 +156,12 @@ zh-CN:
       profile:
         realname: "真实姓名"
         id_no: "身份证号"
-        sex: sex
-        mobile: mobile
-        birth_day: birth_day
-        death_day: death_day
-        address: address
-        archive_id: archive_id
+        sex: "性别"
+        mobile: "联系电话"
+        birth_day: "出生日期"
+        death_day: "死亡日期"
+        address: "地址"
+        archive_id: "档案ID"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"

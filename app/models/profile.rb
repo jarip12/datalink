@@ -17,4 +17,16 @@
 
 class Profile < ActiveRecord::Base
   belongs_to :archive
+
+  extend Enumerize
+  enumerize :sex, in: [:male, :female], default: :male
+
+  validates :realname, presence: true
+  validates :id_no, presence: true
+
+  validates :mobile, presence: true, mobile: true, on: :update
+  validates :sex, presence: true, on: :update
+  validates :birth_day, presence: true, on: :update
+  validates :address, presence: true, on: :update
+
 end

@@ -12,7 +12,8 @@ Staff.create!([
 
 100.times do |n|
   id_no = "421081#{Faker::Number.number(12)}"
-  Profile.create(realname: Faker::Name.name, id_no: id_no, user_id: n)
+  Profile.create(realname: Faker::Name.name, id_no: id_no, archive_id: n)
+  Archive.create
 end
 
 

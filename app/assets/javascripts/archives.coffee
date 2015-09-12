@@ -4,3 +4,7 @@
 
 $(document).on 'ready page:load', ->
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
+  console.log("hello datepicker")
+  $('.datepicker').datetimepicker({
+    format: "YYYY-MM-DD"
+  });

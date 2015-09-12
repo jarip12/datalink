@@ -255,6 +255,8 @@ GEM
     mina-unicorn (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     monadic (0.8.1)
     multi_json (1.11.2)
     mysql2 (0.3.19)
@@ -498,6 +500,7 @@ DEPENDENCIES
   mina-multistage
   mina-sidekiq
   mina-unicorn
+  momentjs-rails (>= 2.9.0)
   monadic
   mysql2
   pry
