@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resources :archives do
     get :autocomplete_user_email, :on => :collection
+    resources :profiles
   end
 
   resources :reservations
@@ -66,7 +68,7 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  # Example resource route with concerns:
+  # Example resource route with concernse
   #   concern :toggleable do
   #     post 'toggle'
   #   end

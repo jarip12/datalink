@@ -1,26 +1,20 @@
 # == Schema Information
 #
-# Table name: archives
+# Table name: profiles
 #
 #  id         :integer          not null, primary key
 #  realname   :string(255)
 #  id_no      :string(255)
-#  user_id    :integer
+#  sex        :string(255)
+#  mobile     :string(255)
+#  birth_day  :date
+#  death_day  :date
+#  address    :string(255)
+#  archive_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Archive < ActiveRecord::Base
-
-  belongs_to :user
-  has_one :profile
-
-  def user_email
-    if user
-      user.email
-    else
-      nil
-    end
-  end
-
+class Profile < ActiveRecord::Base
+  belongs_to :archive
 end

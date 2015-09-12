@@ -1,0 +1,33 @@
+h1 = Profile.model_name.human
+
+table.table.table-striped
+  tr
+    th = Profile.human_attribute_name("realname")
+    th = Profile.human_attribute_name("id_no")
+    th = Profile.human_attribute_name("sex")
+    th = Profile.human_attribute_name("mobile")
+    th = Profile.human_attribute_name("birth_day")
+    th = Profile.human_attribute_name("death_day")
+    th = Profile.human_attribute_name("address")
+    th = Profile.human_attribute_name("archive_id")
+    th
+    th
+    th
+
+  - @profiles.each do |profile|
+    tr
+      td = profile.realname
+      td = profile.id_no
+      td = profile.sex
+      td = profile.mobile
+      td = profile.birth_day
+      td = profile.death_day
+      td = profile.address
+      td = profile.archive_id
+      td = link_to t('action.show'), profile
+      td = link_to t('action.edit'), edit_profile_path(profile)
+      td = link_to t('action.delete'), profile, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + Profile.model_name.human), new_profile_path

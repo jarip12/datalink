@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong = Profile.human_attribute_name("realname") + ':'
+  = @profile.realname
+p
+  strong = Profile.human_attribute_name("id_no") + ':'
+  = @profile.id_no
+p
+  strong = Profile.human_attribute_name("sex") + ':'
+  = @profile.sex
+p
+  strong = Profile.human_attribute_name("mobile") + ':'
+  = @profile.mobile
+p
+  strong = Profile.human_attribute_name("birth_day") + ':'
+  = @profile.birth_day
+p
+  strong = Profile.human_attribute_name("death_day") + ':'
+  = @profile.death_day
+p
+  strong = Profile.human_attribute_name("address") + ':'
+  = @profile.address
+p
+  strong = Profile.human_attribute_name("archive_id") + ':'
+  = @profile.archive_id
+
+= link_to t('action.edit'), edit_profile_path(@profile)
+'|
+= link_to t('action.back'), profiles_path

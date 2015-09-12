@@ -10,6 +10,9 @@ class ReservationsController < ApplicationController
     for i in 1..5
       smart_listing_create("reservation#{i}", Reservation.by_day(offset:  (i - @current_day_idx).days).order(:reserve_at), partial: "reservations/listing")
     end
+    if @current_day_idx > 5 or @current_day_idx < 1
+      @current_day_idx = 1
+    end
   end
 
   # GET /reservations/1

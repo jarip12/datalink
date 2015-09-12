@@ -50,6 +50,7 @@ zh-CN:
       citizen: "公民"
       reservation: "公证办理预约"
       archive: archive
+      profile: profile
     attributes:
       staff:
         remember_me: "下次自动登陆"
@@ -138,9 +139,21 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       archive:
+        realname: "真实姓名"
+        id_no: "身份证号"
+        user_id: "用户Id"
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
+      profile:
         realname: realname
         id_no: id_no
-        user_id: user_id
+        sex: sex
+        mobile: mobile
+        birth_day: birth_day
+        death_day: death_day
+        address: address
+        archive_id: archive_id
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
@@ -174,5 +187,8 @@ zh-CN:
         create: "创建"
         update: "更新"
       archive:
+        create: "创建"
+        update: "更新"
+      profile:
         create: "创建"
         update: "更新"

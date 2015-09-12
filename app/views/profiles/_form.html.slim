@@ -1,0 +1,15 @@
+= simple_form_for(@profile) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :realname
+    = f.input :id_no
+    = f.input :sex
+    = f.input :mobile
+    = f.input :birth_day
+    = f.input :death_day
+    = f.input :address
+    = f.input :archive_id
+
+  .form-actions
+    = f.button :submit
