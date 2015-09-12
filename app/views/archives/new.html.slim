@@ -14,12 +14,9 @@ div.outer
 
           div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
             label.select.optional.control-label for="faker_field" 输入用户邮箱
-            input type="text" data-autocomplete="#{autocomplete_user_email_archieves_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱", id_element="#archive_user_id"
+            input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
           div.form-group
-            input type="hidden" name="archive[user_id]"
-          div.form-group
-            label 输入用户邮箱
-            input type="text" name="archive[id_no]"
+            input#archive_user_id type="hidden" name="archive[user_id]"
 
         button.btn.btn-default 确定
       = link_to "返回", dashboard_index_path, class: "btn btn-default"

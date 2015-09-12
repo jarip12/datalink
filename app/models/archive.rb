@@ -11,4 +11,15 @@
 #
 
 class Archive < ActiveRecord::Base
+
+  belongs_to :user
+
+  def user_email
+    if user
+      user.email
+    else
+      nil
+    end
+  end
+
 end
