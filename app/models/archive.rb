@@ -15,6 +15,8 @@ class Archive < ActiveRecord::Base
   belongs_to :user
   has_one :profile
 
+  accepts_nested_attributes_for :profile
+
   def user_email
     if user
       user.email

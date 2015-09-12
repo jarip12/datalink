@@ -2,21 +2,17 @@ div.outer
   div.middle
     div.new-notary-form.text-center
       h2 请输入公民姓名与身份证号
-      form action="#{archives_path}" method="post"
-        input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
-        div.form-inputs
-          div.form-group
-            lable 姓名
-            input type="text" name="archive[realname]"
-          div.form-group
-            label 身份证号
-            input type="text" name="archive[id_no]"
+      = simple_form_for @archive do |f|
+        = f.fields_for :profile_attributes, @profile do |profile|
+          = profile.input :realname
+          = profile.input :id_no
+        div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
+          label.select.optional.control-label for="faker_field" 输入用户邮箱
+          input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
+        div.form-group
+          input#archive_user_id type="hidden" name="archive[user_id]"
 
-          div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
-            label.select.optional.control-label for="faker_field" 输入用户邮箱
-            input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
-          div.form-group
-            input#archive_user_id type="hidden" name="archive[user_id]"
+        .form-actions
+          = f.button :submit
 
-        button.btn.btn-default 确定
       = link_to "返回", dashboard_index_path, class: "btn btn-default"

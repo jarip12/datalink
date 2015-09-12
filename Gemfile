@@ -78,6 +78,7 @@ gem 'jquery-ui-rails'
 gem 'faker', '~> 1.4.3'
 gem 'rails4-autocomplete'
 gem 'rack-attack', '~> 3.0.0'
+gem 'cocoon'
 
 
 group :development, :test do

@@ -2,6 +2,8 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
   autocomplete :user, :email, :full => true
 
+
+
   def faker_field
 
   end
@@ -18,6 +20,7 @@ class ArchivesController < ApplicationController
   # GET /archives/new
   def new
     @archive = Archive.new
+    @profile = @archive.build_profile
   end
 
   # GET /archives/1/edit
@@ -58,6 +61,6 @@ class ArchivesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def archive_params
-      params.require(:archive).permit(:realname, :id_no, :user_id)
+      params.require(:archive).permit(:realname, :id_no, :user_id, profile_attributes: [:realname, :id_no])
     end
 end

@@ -16,6 +16,7 @@
 //= require smart_listing
 //= require jquery-ui/autocomplete
 //= require autocomplete-rails
+//= require cocoon
 //= require_tree .
 
 //= require bootstrap-sprockets
