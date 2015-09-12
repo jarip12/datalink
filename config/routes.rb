@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   resources :archives do
     get :autocomplete_user_email, :on => :collection
-    resources :profiles
+    get 'profile', to: 'profiles#show'
+    get 'profile/edit', to: 'profiles#edit'
   end
 
   resources :reservations

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_archive, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   def index
@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @profile = @archive.profile
   end
 
   # GET /profiles/new
@@ -47,8 +48,8 @@ class ProfilesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      @profile = Profile.find(params[:id])
+    def set_archive
+      @archive = Archive.find(params[:archive_id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -10,6 +10,10 @@ Staff.create!([
                  {role: "admin", email: "admin@admin.com", password: "12345678", password_confirmation: "12345678"},
              ])
 
+100.times do |n|
+  id_no = "421081#{Faker::Number.number(12)}"
+  Profile.create(realname: Faker::Name.name, id_no: id_no, user_id: n)
+end
 
 
 400.times do
