@@ -14,16 +14,19 @@ class NotaryRelated < ActiveRecord::Base
   belongs_to :archive
   has_many :educations
   has_many :work_experiences
+  has_many :notaries
 
-  accepts_nested_attributes_for :educations, :work_experiences
+  accepts_nested_attributes_for :educations, :work_experiences, :notaries
 
   after_create :set_default_related
 
   def set_default_related
     education = Education.create
     work_experience = WorkExperience.create
+    notary = Notary.create
 
     self.educations << education
     self.work_experiences << work_experience
+    self.notaries << notary
   end
 end

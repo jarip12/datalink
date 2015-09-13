@@ -11,6 +11,11 @@
   .links
     = link_to_add_association '添加工作记录', f, :work_experiences
 
+  = f.simple_fields_for :notaries do |notary|
+    = render 'notary_fields', f: notary
+  .links
+    = link_to_add_association '添加公证记录', f, :notaries
+
   .form-inputs
     = f.input :has_crime_record
     = f.input :has_testament

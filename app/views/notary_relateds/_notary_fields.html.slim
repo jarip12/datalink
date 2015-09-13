@@ -1,0 +1,5 @@
+tr.nested-fields
+  td
+    = f.input :no
+    = f.input :notary_type
+  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
