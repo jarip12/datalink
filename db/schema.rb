@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20150913080556) do
     t.date     "deposit_day"
     t.date     "receive_day"
     t.float    "amount",      limit: 24
-    t.integer  "archive_id",  limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -64,7 +63,6 @@ ActiveRecord::Schema.define(version: 20150913080556) do
     t.string   "house_type",    limit: 255
     t.string   "house_address", limit: 255
     t.string   "house_amount",  limit: 255
-    t.integer  "archive_id",    limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -72,10 +70,9 @@ ActiveRecord::Schema.define(version: 20150913080556) do
   create_table "loans", force: :cascade do |t|
     t.date     "start_day"
     t.date     "end_day"
-    t.string   "notary_type",   limit: 255
+    t.string   "loan_type",     limit: 255
     t.string   "description",   limit: 255
     t.float    "amount",        limit: 24
-    t.integer  "archive_id",    limit: 4
     t.boolean  "repay_on_time"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false

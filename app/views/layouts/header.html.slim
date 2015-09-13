@@ -1,8 +1,11 @@
 div.user-header
-  nav.navbar.navbar-static-top
+  div.top-nav
     - if current_staff
-      ul.nav.navbar-nav.navbar-right
-        li
-          = link_to 'Logout', "/staffs/sign_out", :method => 'delete'
+      	a href="/staffs/sign_out" class="top-nav-link logout-link" data-method="delete" rel="nofollow"
+      	  span.glyphicon.glyphicon-log-out
+      	  |登出
+    	a href="#" class="top-nav-link user-link" rel="nofollow"
+    	  span.glyphicon.glyphicon-user
+    	  | 用户名
 
   h2.header-title.text-center 上海市卢湾公证信息开放平台

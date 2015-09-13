@@ -1,5 +1,6 @@
 .body-user-not-login {
-  background-image: asset_url('homepage.jpeg');
+  background: asset_url('homepage.jpeg') no-repeat center top;
+  
 }
 
 .container-logined {
@@ -30,4 +31,5 @@ html, body, #full-height {
 .body-user-logined {
   height: 100vh;
   min-height: 100vh;
+  background-color:#dfe9f9;
 }

@@ -14,7 +14,7 @@ require 'mina/unicorn'
 set :user, 'chuck'
 set :domain, '128.199.165.105'
 set :deploy_to, '/home/chuck/www/lwnotary-datalake'
-set :repository, 'git@bitbucket.org:seaify/datalake.git'
+set :repository, 'git@github.com:FortuneBoss/lwnotary-datalake.git'
 set :branch, 'master'
 
 # For system-wide RVM install.
