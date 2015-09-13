@@ -104,11 +104,11 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       education:
-        education_type: education_type
-        school_name: school_name
-        degree: degree
-        enroll_day: enroll_day
-        graduation_day: graduation_day
+        education_type: "学历类型"
+        school_name: "毕业院校"
+        degree: "学位"
+        enroll_day: "开学日期"
+        graduation_day: "毕业日期"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"

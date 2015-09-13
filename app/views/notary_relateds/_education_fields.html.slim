@@ -1,0 +1,28 @@
+tr.nested-fields
+  td
+    div.form-group.string.optional.enroll_day class=('has-error' if (f.object.errors.include?(:enroll_day)))
+      label.string.optional.control-label
+        abbr title="required" *
+        = Education.human_attribute_name("enroll_day")
+      div.input-group.date.datepicker
+        input type='text' class="form-control" name="loan[enroll_day]" value="#{f.object.enroll_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
+      - if f.object.errors.include?(:enroll_day)
+        span class="help-block" #{f.object.errors.get(:enroll_day)[0]}
+
+    div.form-group.string.optional.graduation_day class=('has-error' if (f.object.errors.include?(:graduation_day)))
+      label.string.optional.control-label
+        abbr title="required" *
+        = Education.human_attribute_name("graduation_day")
+      div.input-group.date.datepicker
+        input type='text' class="form-control" name="deposit[graduation_day]" value="#{f.object.graduation_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
+
+      - if f.object.errors.include?(:graduation_day)
+        span class="help-block"  #{f.object.errors.get(:graduation_day)[0]}
+    = f.input :education_type
+    = f.input :school_name
+    = f.input :degree
+  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}

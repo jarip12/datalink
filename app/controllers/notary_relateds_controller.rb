@@ -1,6 +1,7 @@
 class NotaryRelatedsController < ApplicationController
   before_action :set_notary_related, only: [:show, :edit, :update, :destroy]
 
+
   # GET /notary_relateds
   def index
     @notary_relateds = NotaryRelated.all
@@ -33,7 +34,7 @@ class NotaryRelatedsController < ApplicationController
   # PATCH/PUT /notary_relateds/1
   def update
     if @notary_related.update(notary_related_params)
-      redirect_to @notary_related,  notice: t('action.updated.successfully')
+      redirect_to archive_notary_related_edit_url(@archive),  notice: t('action.updated.successfully')
     else
       render :edit
     end
@@ -48,11 +49,14 @@ class NotaryRelatedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notary_related
-      @notary_related = Archive.find(params[:archive_id]).notary_related
+      @archive = Archive.find(params[:archive_id])
+      @notary_related = @archive.notary_related
     end
 
     # Only allow a trusted parameter "white list" through.
     def notary_related_params
-      params.require(:notary_related).permit(:has_crime_record, :has_testament)
+      params.require(:notary_related).permit(:has_crime_record, :has_testament,
+                                             educations_attributes: [:education_type, :school_name, :degree, :enroll_day, :graduation_day],
+      )
     end
 end

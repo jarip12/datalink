@@ -15,6 +15,8 @@ class NotaryRelated < ActiveRecord::Base
   has_many :educations
   has_many :work_experiences
 
+  accepts_nested_attributes_for :educations, :work_experiences
+
   after_create :set_default_related
 
   def set_default_related
