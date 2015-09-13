@@ -1,10 +1,16 @@
 h1 = t('action.edit') + '资产相关'
 
 = simple_form_for @archive do |f|
+
   = f.simple_fields_for :loans do |loan|
     = render 'loan_fields', f: loan
   .links
     = link_to_add_association '增加信贷记录', f, :loans
+
+  = f.simple_fields_for :house_purchases do |house_purchase|
+    = render 'house_purchase_fields', f: house_purchase
+  .links
+    = link_to_add_association '增加信贷记录', f, :house_purchases
 
   .form-actions
     = f.button :submit

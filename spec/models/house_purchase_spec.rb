@@ -3,7 +3,7 @@
 # Table name: house_purchases
 #
 #  id            :integer          not null, primary key
-#  trade_date    :date
+#  trade_day    :date
 #  trade_type    :string(255)
 #  house_type    :string(255)
 #  house_address :string(255)

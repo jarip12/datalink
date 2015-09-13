@@ -3,7 +3,7 @@
 # Table name: house_purchases
 #
 #  id            :integer          not null, primary key
-#  trade_date    :date
+#  trade_day     :date
 #  trade_type    :string(255)
 #  house_type    :string(255)
 #  house_address :string(255)
@@ -15,7 +15,7 @@
 
 FactoryGirl.define do
   factory :house_purchase do
-    trade_date "2015-08-25"
+    trade_day "2015-08-25"
 trade_type "MyString"
 house_type "MyString"
 house_address "MyString"

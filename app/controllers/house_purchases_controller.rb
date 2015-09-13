@@ -53,6 +53,6 @@ class HousePurchasesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def house_purchase_params
-      params.require(:house_purchase).permit(:trade_date, :trade_type, :house_type, :house_address, :house_amount)
+      params.require(:house_purchase).permit(:trade_day, :trade_type, :house_type, :house_address, :house_amount)
     end
 end

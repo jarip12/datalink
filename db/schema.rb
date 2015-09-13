@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150912160804) do
   end
 
   create_table "house_purchases", force: :cascade do |t|
-    t.date     "trade_date"
+    t.date     "trade_day"
     t.string   "trade_type",    limit: 255
     t.string   "house_type",    limit: 255
     t.string   "house_address", limit: 255
