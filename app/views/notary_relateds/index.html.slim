@@ -1,0 +1,21 @@
+h1 = NotaryRelated.model_name.human
+
+table.table.table-striped
+  tr
+    th = NotaryRelated.human_attribute_name("has_crime_record")
+    th = NotaryRelated.human_attribute_name("has_testament")
+    th
+    th
+    th
+
+  - @notary_relateds.each do |notary_related|
+    tr
+      td = notary_related.has_crime_record
+      td = notary_related.has_testament
+      td = link_to t('action.show'), notary_related
+      td = link_to t('action.edit'), edit_notary_related_path(notary_related)
+      td = link_to t('action.delete'), notary_related, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + NotaryRelated.model_name.human), new_notary_related_path

@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong = NotaryRelated.human_attribute_name("has_crime_record") + ':'
+  = @notary_related.has_crime_record
+p
+  strong = NotaryRelated.human_attribute_name("has_testament") + ':'
+  = @notary_related.has_testament
+
+= link_to t('action.edit'), edit_notary_related_path(@notary_related)
+'|
+= link_to t('action.back'), notary_relateds_path

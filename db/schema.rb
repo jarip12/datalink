@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912160804) do
+ActiveRecord::Schema.define(version: 20150913045927) do
 
   create_table "archives", force: :cascade do |t|
     t.string   "realname",   limit: 255
@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20150912160804) do
   end
 
   create_table "educations", force: :cascade do |t|
-    t.string   "education_type", limit: 255
-    t.string   "school_name",    limit: 255
-    t.string   "degree",         limit: 255
+    t.string   "education_type",    limit: 255
+    t.string   "school_name",       limit: 255
+    t.string   "degree",            limit: 255
     t.date     "enroll_day"
     t.date     "graduation_day"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "notary_related_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "family_relations", force: :cascade do |t|
@@ -83,6 +84,14 @@ ActiveRecord::Schema.define(version: 20150912160804) do
     t.string   "notary_type", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "notary_relateds", force: :cascade do |t|
+    t.boolean  "has_crime_record",           default: false
+    t.boolean  "has_testament",              default: false
+    t.integer  "archive_id",       limit: 4
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -164,10 +173,11 @@ ActiveRecord::Schema.define(version: 20150912160804) do
   create_table "work_experiences", force: :cascade do |t|
     t.date     "start_day"
     t.date     "end_day"
-    t.string   "company_name", limit: 255
-    t.string   "job_title",    limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "company_name",      limit: 255
+    t.string   "job_title",         limit: 255
+    t.integer  "notary_related_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end

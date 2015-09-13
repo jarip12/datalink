@@ -14,9 +14,11 @@ class Archive < ActiveRecord::Base
 
   belongs_to :user
   has_one :profile
+  has_one :notary_related
   has_many :loans
   has_many :house_purchases
   has_many :deposits
+
 
   after_create :set_default_relations
 
@@ -27,9 +29,11 @@ class Archive < ActiveRecord::Base
     house_purchase = HousePurchase.create
     deposit = Deposit.create
 
+
     self.loans << loan
     self.house_purchases << house_purchase
     self.deposits << deposit
+    self.notary_related = NotaryRelated.create
 
   end
 

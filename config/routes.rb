@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :notary_relateds
   resources :archives do
     get :autocomplete_user_email, :on => :collection
     get 'profile/edit', to: 'profiles#edit'
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
 
     get 'property/edit', to: 'properties#edit'
     patch 'property', to: 'properties#update'
+
+    get 'notary_related/edit', to: 'notary_relateds#edit'
+    patch 'notary_related', to: 'notary_relateds#update'
 
   end
 

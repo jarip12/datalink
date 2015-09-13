@@ -6,6 +6,7 @@ class CreateEducations < ActiveRecord::Migration
       t.string :degree
       t.date :enroll_day
       t.date :graduation_day
+      t.integer :notary_related_id
 
       t.timestamps null: false
     end

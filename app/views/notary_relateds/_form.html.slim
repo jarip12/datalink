@@ -1,0 +1,9 @@
+= simple_form_for(@notary_related) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :has_crime_record
+    = f.input :has_testament
+
+  .form-actions
+    = f.button :submit

@@ -3,15 +3,15 @@ zh-CN:
   validate:
     mobile:
       format:
-        error: 不是合法的11位电话号码
+        error: "不是合法的11位电话号码"
   enumerize:
     reservation:
       notary_type:
         foreign: "对外公证"
     profile:
       sex:
-        male: 男
-        female: 女
+        male: "男"
+        female: "女"
   devise:
     failure:
       user:
@@ -59,6 +59,7 @@ zh-CN:
       reservation: "公证办理预约"
       archive: archive
       profile: profile
+      notary_related: notary_related
     attributes:
       staff:
         remember_me: "下次自动登陆"
@@ -165,6 +166,12 @@ zh-CN:
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
+      notary_related:
+        has_crime_record: "有无犯罪记录"
+        has_testament: "有无遗嘱"
+        id: ID
+        created_at: "创建时间"
+        updated_at: "更新时间"
   helpers:
     submit:
       loan:
@@ -198,5 +205,8 @@ zh-CN:
         create: "创建"
         update: "更新"
       profile:
+        create: "创建"
+        update: "更新"
+      notary_related:
         create: "创建"
         update: "更新"

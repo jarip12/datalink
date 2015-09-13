@@ -5,6 +5,7 @@ class CreateWorkExperiences < ActiveRecord::Migration
       t.date :end_day
       t.string :company_name
       t.string :job_title
+      t.integer :notary_related_id
 
       t.timestamps null: false
     end
