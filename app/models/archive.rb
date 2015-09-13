@@ -20,7 +20,7 @@ class Archive < ActiveRecord::Base
 
   after_create :set_default_relations
 
-  accepts_nested_attributes_for :profile, :loans
+  accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits
 
   def set_default_relations
     loan = Loan.create

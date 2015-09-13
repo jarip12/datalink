@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_archive_and_related, only: [:edit]
+
   def edit
 
   end
@@ -15,7 +16,7 @@ class PropertiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:realname, :id_no, :sex, :mobile, :birth_day, :death_day, :address, :archive_id)
+      params.require(:archive).permit(:realname, :id_no, :sex, :mobile, :birth_day, :death_day, :address, :archive_id)
     end
 
 end
