@@ -4,7 +4,7 @@ table.table.table-striped
   tr
     th = Loan.human_attribute_name("start_day")
     th = Loan.human_attribute_name("end_day")
-    th = Loan.human_attribute_name("loan_type")
+    th = Loan.human_attribute_name("notary_type")
     th = Loan.human_attribute_name("description")
     th = Loan.human_attribute_name("amount")
     th = Loan.human_attribute_name("repay_on_time")
@@ -16,7 +16,7 @@ table.table.table-striped
     tr
       td = loan.start_day
       td = loan.end_day
-      td = loan.loan_type
+      td = loan.notary_type
       td = loan.description
       td = loan.amount
       td = loan.repay_on_time

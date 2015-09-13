@@ -14,8 +14,24 @@ class Archive < ActiveRecord::Base
 
   belongs_to :user
   has_one :profile
+  has_many :loans
+  has_many :house_purchases
+  has_many :deposits
 
-  accepts_nested_attributes_for :profile
+  after_create :set_default_relations
+
+  accepts_nested_attributes_for :profile, :loans
+
+  def set_default_relations
+    loan = Loan.create
+    house_purchase = HousePurchase.create
+    deposit = Deposit.create
+
+    self.loans << loan
+    self.house_purchases << house_purchase
+    self.deposits << deposit
+
+  end
 
   def user_email
     if user

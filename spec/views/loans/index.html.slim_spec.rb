@@ -4,13 +4,13 @@ RSpec.describe "loans/index", type: :view do
   before(:each) do
     assign(:loans, [
       Loan.create!(
-        :loan_type => "Loan Type",
+        :notary_type => "Loan Type",
         :description => "Description",
         :amount => 1.5,
         :repay_on_time => false
       ),
       Loan.create!(
-        :loan_type => "Loan Type",
+        :notary_type => "Loan Type",
         :description => "Description",
         :amount => 1.5,
         :repay_on_time => false

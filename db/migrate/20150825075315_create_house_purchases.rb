@@ -6,6 +6,7 @@ class CreateHousePurchases < ActiveRecord::Migration
       t.string :house_type
       t.string :house_address
       t.string :house_amount
+      t.integer :archive_id
 
       t.timestamps null: false
     end

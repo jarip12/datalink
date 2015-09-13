@@ -1,0 +1,8 @@
+tr.nested-fields
+  td
+    = f.input :start_day
+    = f.input :end_day
+    = f.input :description
+    = f.input :amount
+    = f.input :repay_on_time, as: :boolean
+  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}

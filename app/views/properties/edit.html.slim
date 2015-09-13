@@ -1,0 +1,12 @@
+h1 = t('action.edit') + '资产相关'
+
+= simple_form_for @archive do |f|
+  = f.simple_fields_for :loans do |loan|
+    = render 'loan_fields', f: loan
+  .links
+    = link_to_add_association '增加信贷记录', f, :loans
+
+  .form-actions
+    = f.button :submit
+
+  = link_to "返回", dashboard_index_path, class: "btn btn-default"

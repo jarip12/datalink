@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "loans/new", type: :view do
   before(:each) do
     assign(:loan, Loan.new(
-      :loan_type => "MyString",
+      :notary_type => "MyString",
       :description => "MyString",
       :amount => 1.5,
       :repay_on_time => false
@@ -15,7 +15,7 @@ RSpec.describe "loans/new", type: :view do
 
     assert_select "form[action=?][method=?]", loans_path, "post" do
 
-      assert_select "input#loan_loan_type[name=?]", "loan[loan_type]"
+      assert_select "input#loan_notary_type[name=?]", "loan[notary_type]"
 
       assert_select "input#loan_description[name=?]", "loan[description]"
 

@@ -79,7 +79,7 @@ zh-CN:
       loan:
         start_day: "开始时间"
         end_day: "结束时间"
-        loan_type: "公证类型"
+        notary_type: "公证类型"
         description: "信贷描述"
         amount: "信贷金额"
         repay_on_time: "是否按期归还"

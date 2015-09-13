@@ -3,9 +3,10 @@ class CreateLoans < ActiveRecord::Migration
     create_table :loans do |t|
       t.date :start_day
       t.date :end_day
-      t.string :loan_type
+      t.string :notary_type
       t.string :description
       t.float :amount
+      t.integer :archive_id
       t.boolean :repay_on_time
 
       t.timestamps null: false
