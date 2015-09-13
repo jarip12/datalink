@@ -6,6 +6,11 @@
   .links
     = link_to_add_association '添加学位记录', f, :educations
 
+  = f.simple_fields_for :work_experiences do |work_experience|
+    = render 'work_experience_fields', f: work_experience
+  .links
+    = link_to_add_association '添加工作记录', f, :work_experiences
+
   .form-inputs
     = f.input :has_crime_record
     = f.input :has_testament

@@ -113,10 +113,10 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       work_experience:
-        start_day: start_day
-        end_day: end_day
-        company_name: company_name
-        job_title: job_title
+        start_day: "开始时间"
+        end_day: "结束时间"
+        company_name: "工作单位"
+        job_title: "职位"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
