@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: notaries
+#
+#  id          :integer          not null, primary key
+#  no          :string(255)
+#  notary_type :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Notary, type: :model do

@@ -61,6 +61,7 @@ class ArchivesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def archive_params
-      params.require(:archive).permit(:realname, :id_no, :user_id, profile_attributes: [:realname, :id_no])
+      params.require(:archive).permit(:realname, :id_no, :user_id, profile_attributes: [:realname, :id_no],
+          loans_attributes: [:notary_type, :description, :amount, :repay_on_time])
     end
 end

@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20150912160804) do
   create_table "loans", force: :cascade do |t|
     t.date     "start_day"
     t.date     "end_day"
-    t.string   "notary_type",     limit: 255
+    t.string   "notary_type",   limit: 255
     t.string   "description",   limit: 255
     t.float    "amount",        limit: 24
     t.integer  "archive_id",    limit: 4

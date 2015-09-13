@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  start_day     :date
 #  end_day       :date
-#  loan_type     :string(255)
+#  notary_type   :string(255)
 #  description   :string(255)
 #  amount        :float(24)
 #  archive_id    :integer
