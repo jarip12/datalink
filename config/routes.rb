@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :family_relations
   resources :notary_relateds
   resources :archives do
     get :autocomplete_user_email, :on => :collection
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
     get 'notary_related/edit', to: 'notary_relateds#edit'
     patch 'notary_related', to: 'notary_relateds#update'
 
+    get 'family_relation/edit', to: 'family_relations#edit'
+    patch 'family_relation', to: 'family_relations#update'
+
   end
 
   resources :reservations
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
   end
   get 'dashboard/index'
 
-  resources :family_relations
   resources :notaries
   resources :work_experiences
   resources :educations

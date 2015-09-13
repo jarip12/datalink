@@ -1,0 +1,6 @@
+tr.nested-fields
+  td
+    = f.input :id_no
+    = f.input :realname
+    = f.input :relation
+  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}

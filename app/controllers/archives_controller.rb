@@ -64,7 +64,8 @@ class ArchivesController < ApplicationController
       params.require(:archive).permit(:realname, :id_no, :user_id, profile_attributes: [:realname, :id_no],
           loans_attributes: [:notary_type, :description, :amount, :repay_on_time],
           house_purchases_attributes: [:trade_day, :trade_type, :house_type, :house_address, :house_amount],
-          deposits_attributes: [:deposit_day, :receive_day, :amount]
+          deposits_attributes: [:deposit_day, :receive_day, :amount],
+          family_relations_attributes: [:id_no, :realname, :relation]
       )
     end
 end

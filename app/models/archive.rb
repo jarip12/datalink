@@ -18,22 +18,20 @@ class Archive < ActiveRecord::Base
   has_many :loans
   has_many :house_purchases
   has_many :deposits
+  has_many :family_relations
 
 
   after_create :set_default_relations
 
-  accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits
+  accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
 
   def set_default_relations
-    loan = Loan.create
-    house_purchase = HousePurchase.create
-    deposit = Deposit.create
 
-
-    self.loans << loan
-    self.house_purchases << house_purchase
-    self.deposits << deposit
+    self.loans << Loan.create
+    self.house_purchases << HousePurchase.create
+    self.deposits << Deposit.create
     self.notary_related = NotaryRelated.create
+    self.family_relations << FamilyRelation.create
 
   end
 

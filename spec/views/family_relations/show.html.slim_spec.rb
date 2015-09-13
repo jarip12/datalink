@@ -3,16 +3,18 @@ require 'rails_helper'
 RSpec.describe "family_relations/show", type: :view do
   before(:each) do
     @family_relation = assign(:family_relation, FamilyRelation.create!(
-      :my_id => 1,
-      :relation_name => "Relation Name",
-      :relation_id_card => "Relation Id Card"
+      :id_no => "Id No",
+      :realname => "Realname",
+      :relation => "Relation",
+      :owner_archive_id => 1
     ))
   end
 
   it "renders attributes in <p>" do
     render
+    expect(rendered).to match(/Id No/)
+    expect(rendered).to match(/Realname/)
+    expect(rendered).to match(/Relation/)
     expect(rendered).to match(/1/)
-    expect(rendered).to match(/Relation Name/)
-    expect(rendered).to match(/Relation Id Card/)
   end
 end

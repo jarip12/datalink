@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913045927) do
+ActiveRecord::Schema.define(version: 20150913080556) do
 
   create_table "archives", force: :cascade do |t|
     t.string   "realname",   limit: 255
@@ -49,9 +49,11 @@ ActiveRecord::Schema.define(version: 20150913045927) do
   end
 
   create_table "family_relations", force: :cascade do |t|
-    t.integer  "my_id",            limit: 4
-    t.string   "relation_name",    limit: 255
-    t.string   "relation_id_card", limit: 255
+    t.string   "id_no",            limit: 255
+    t.string   "realname",         limit: 255
+    t.string   "relation",         limit: 255
+    t.integer  "owner_archive_id", limit: 4
+    t.integer  "archive_id",       limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe "family_relations/edit", type: :view do
   before(:each) do
     @family_relation = assign(:family_relation, FamilyRelation.create!(
-      :my_id => 1,
-      :relation_name => "MyString",
-      :relation_id_card => "MyString"
+      :id_no => "MyString",
+      :realname => "MyString",
+      :relation => "MyString",
+      :owner_archive_id => 1
     ))
   end
 
@@ -14,11 +15,13 @@ RSpec.describe "family_relations/edit", type: :view do
 
     assert_select "form[action=?][method=?]", family_relation_path(@family_relation), "post" do
 
-      assert_select "input#family_relation_my_id[name=?]", "family_relation[my_id]"
+      assert_select "input#family_relation_id_no[name=?]", "family_relation[id_no]"
 
-      assert_select "input#family_relation_relation_name[name=?]", "family_relation[relation_name]"
+      assert_select "input#family_relation_realname[name=?]", "family_relation[realname]"
 
-      assert_select "input#family_relation_relation_id_card[name=?]", "family_relation[relation_id_card]"
+      assert_select "input#family_relation_relation[name=?]", "family_relation[relation]"
+
+      assert_select "input#family_relation_owner_archive_id[name=?]", "family_relation[owner_archive_id]"
     end
   end
 end

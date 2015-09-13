@@ -1,9 +1,11 @@
 class CreateFamilyRelations < ActiveRecord::Migration
   def change
     create_table :family_relations do |t|
-      t.integer :my_id
-      t.string :relation_name
-      t.string :relation_id_card
+      t.string :id_no
+      t.string :realname
+      t.string :relation
+      t.integer :owner_archive_id
+      t.integer :archive_id
 
       t.timestamps null: false
     end

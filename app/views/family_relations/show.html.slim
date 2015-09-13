@@ -1,14 +1,17 @@
 p#notice = notice
 
 p
-  strong = FamilyRelation.human_attribute_name("my_id") + ':'
-  = @family_relation.my_id
+  strong = FamilyRelation.human_attribute_name("id_no") + ':'
+  = @family_relation.id_no
 p
-  strong = FamilyRelation.human_attribute_name("relation_name") + ':'
-  = @family_relation.relation_name
+  strong = FamilyRelation.human_attribute_name("realname") + ':'
+  = @family_relation.realname
 p
-  strong = FamilyRelation.human_attribute_name("relation_id_card") + ':'
-  = @family_relation.relation_id_card
+  strong = FamilyRelation.human_attribute_name("relation") + ':'
+  = @family_relation.relation
+p
+  strong = FamilyRelation.human_attribute_name("owner_archive_id") + ':'
+  = @family_relation.owner_archive_id
 
 = link_to t('action.edit'), edit_family_relation_path(@family_relation)
 '|

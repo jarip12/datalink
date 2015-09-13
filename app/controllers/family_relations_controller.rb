@@ -1,5 +1,5 @@
 class FamilyRelationsController < ApplicationController
-  before_action :set_family_relation, only: [:show, :edit, :update, :destroy]
+  before_action :set_archive_and_family_relations, only: [:show, :edit, :update, :destroy]
 
   # GET /family_relations
   def index
@@ -47,12 +47,12 @@ class FamilyRelationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_family_relation
-      @family_relation = FamilyRelation.find(params[:id])
+    def set_archive_and_family_relations
+      @archive = Archive.find(params[:archive_id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def family_relation_params
-      params.require(:family_relation).permit(:my_id, :relation_name, :relation_id_card)
+      params.require(:family_relation).permit(:id_no, :realname, :relation, :owner_archive_id)
     end
 end
