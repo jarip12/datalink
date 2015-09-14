@@ -18,9 +18,11 @@ Rails.application.routes.draw do
 
   end
 
+  get 'profiles/search', to: 'profiles#search', as: :search_profiles
+
   resources :reservations
   resources :users do
-    get 'search', :on => :collection
+
   end
   get 'dashboard/index'
 

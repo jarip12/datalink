@@ -12,7 +12,8 @@
         =profile.input_field :id_no, class: "archive-input"
   div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
     label.select.optional.control-label.col-xs-2 for="faker_field" 输入用户邮箱
-    input.col-xs-10.archive-input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
+    div.col-xs-10
+      input.archive-input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
   div.form-group
     input#archive_user_id type="hidden" name="archive[user_id]"
 

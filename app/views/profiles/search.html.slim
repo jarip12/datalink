@@ -1,0 +1,21 @@
+h1#dashboard-search-title.text-center 搜索公证居民
+
+div.text-center.search-line
+  form action="#{search_profiles_path}" method="get"
+    div.form-inputs
+      div.form-group
+        input#search-input type="text" placeholder="输入姓名/身份证件号" name="q"
+      button#search-button.col-xs-offset-1 type="submit"
+        span.glyphicon.glyphicon-search
+        | 搜索
+
+table.table.table-striped
+  thead
+    th = User.human_attribute_name("realname")
+    th = User.human_attribute_name("id_no")
+    th
+  tbody
+    - @profiles.each do |profile|
+      tr
+        td = profile.realname
+        td = profile.id_no

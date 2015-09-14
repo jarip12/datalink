@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
   before_action :set_archive_and_profile, only: [:show, :edit, :update, :destroy]
 
+  def search
+    ap params
+    q = params[:q]
+    @profiles = Profile.where("realname LIKE '#{q}%'")
+  end
+
   # GET /profiles
   def index
     @profiles = Profile.all

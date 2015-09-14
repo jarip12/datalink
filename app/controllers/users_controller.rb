@@ -3,11 +3,7 @@ class UsersController < ApplicationController
 
   load_and_authorize_resource
 
-  def search
-    ap params
-    q = params[:q]
-    @users = User.where("realname LIKE '#{q}%'")
-  end
+
 
   def index
     @users = User.all
