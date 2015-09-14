@@ -3,11 +3,11 @@
   p.text-center.new-archive-title 请输入公民姓名与身份证号
   = f.fields_for :profile_attributes, @profile do |profile|
     div.form-group
-      label.col-xs-2.new-archive-label.control-label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
+      label.col-xs-2.control-label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
       div.col-xs-10
         =profile.input_field :realname, class: "archive-input form-control"
     div.form-group
-      label.col-xs-2.control-label.new-archive-label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
+      label.col-xs-2.control-label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
       div.col-xs-10
         =profile.input_field :id_no, class: "archive-input form-control"
   div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
@@ -17,6 +17,7 @@
   div.form-group
     input#archive_user_id type="hidden" name="archive[user_id]"
 
-  .form-actions
-    = f.button :submit, class: "btn btn-default"
+  div.form-group
+    input.btn.btn-default.control-label.col-xs-offset-3.button-submit type="submit" name="commit" value="创建"
+    input.btn.btn-default.control-label.col-xs-offset-2.button-return type="submit" name="commit" value="返回"
 

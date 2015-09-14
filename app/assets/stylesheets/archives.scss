@@ -14,8 +14,22 @@
   text-align: left;
 }
 
-.new-archive-label {
+.new-archive-form-wrap .control-label {
   text-align: left;
+}
+
+/* Rectangle 278: */
+.button-submit {
+  background: #C4DAEB;
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);
+  border-radius: 3px;
+}
+
+.button-return {
+  /* Rectangle 278 Copy: */
+  background: #C5EBC4;
+  box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+  border-radius: 3px;
 }
 
 .new-archive-title {
