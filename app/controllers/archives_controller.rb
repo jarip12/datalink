@@ -32,7 +32,7 @@ class ArchivesController < ApplicationController
     @archive = Archive.new(archive_params)
 
     if @archive.save
-      redirect_to @archive, notice: t('action.created.successfully')
+      redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
     else
       render :new
     end
