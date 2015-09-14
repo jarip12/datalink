@@ -3,19 +3,19 @@
   p.text-center.new-archive-title 请输入公民姓名与身份证号
   = f.fields_for :profile_attributes, @profile do |profile|
     div.form-group
-      label.col-xs-2.control-label for="staff_email" 邮箱
+      label.col-xs-2.control-label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
       div.col-xs-10
-        =profile.input_field :realname
+        =profile.input_field :realname, class: "archive-input"
     div.form-group
-      label.col-xs-2.control-label for="staff_email" 邮箱
+      label.col-xs-2.control-label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
       div.col-xs-10
-        =profile.input_field :id_no
+        =profile.input_field :id_no, class: "archive-input"
   div.form-group.select.optional.owner_name.required class=('has-error' if (@archive.errors.include?(:owner_id)))
     label.select.optional.control-label.col-xs-2 for="faker_field" 输入用户邮箱
-    input.col-xs-10 type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
+    input.col-xs-10.archive-input type="text" data-autocomplete="#{autocomplete_user_email_archives_path}" value="#{@archive.user_email}" data-autocomplete-label="对不起, 未找到匹配的邮箱" data-id-element="#archive_user_id"
   div.form-group
     input#archive_user_id type="hidden" name="archive[user_id]"
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-default"
 

@@ -11,17 +11,27 @@
   height: 520.18px;
   padding: 11px 120px;
   margin: 119px auto 0px;
+  text-align: left;
 }
 
 .new-archive-title {
   border-bottom:1px solid #ccc;
   padding-top: 51px;
   padding-bottom: 48px;
+  margin-bottom: 58px;
   /* 请输入公民姓名与身份证件号: */
   font-family: STXihei;
   font-size: 30px;
   color: #2B417A;
   line-height: 30px;
+}
+
+/* Rectangle 237: */
+.archive-input {
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
 }
 
 .outer {
