@@ -1,3 +1,38 @@
 // Place all the styles related to the archives controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-archive-form-wrap {
+  /* Rectangle 236: */
+  background: #FFFFFF;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.20);
+  border-radius: 6px;
+  width: 859.38px;
+  height: 520.18px;
+  padding: 11px 120px;
+  margin: 119px auto 0px;
+}
+
+.new-archive-title {
+  border-bottom:1px solid #ccc;
+  padding-top: 51px;
+  padding-bottom: 48px;
+  /* 请输入公民姓名与身份证件号: */
+  font-family: STXihei;
+  font-size: 30px;
+  color: #2B417A;
+  line-height: 30px;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #DFE9F9;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
