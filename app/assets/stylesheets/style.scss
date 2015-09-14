@@ -56,8 +56,80 @@
 }
 
 
-/***search user**/
+/***sidebar**/
+.profiles-wrap{
+  background:asset_url('left-bar-bg.png') repeat-y left top;
+}
+.sidebar{
+  width:250px;
+  color:#fff;
+  
+}
+.sidebar-top{
+  border-bottom:1px solid #999;
+  font-size:22px;
+  padding:60px 0;
+}
+.user-box{
+  width:168px;
+  margin:50px auto 0;
+  display:block;
+  border:1px solid #999;
+  border-radius:6px;
+}
+.user-box-name{
+  padding:0 10px;
+  display:block;
+  line-height:38px;
+}
+.span-right-4{
+  margin-right:4px;
+}
+.user-box-name .caret{
+  margin-top:18px;
+}
+.sidebar dl{
+  margin-top:20px;
+}
+.sidebar dt{
+  padding:6px 0 6px 40px;
+}
+.sidebar dd{
+  line-height:40px;
+  font-size:12px;
+  font-weight:normal;
+}
+.sidebar dd a{
+  display:block;
+  background:none;
+  color:#fff;
+}
+.sidebar dd a{
+  font-size:12px;
+  padding-left:60px;
+}
+.sidebar dd a span{
+  margin-right:4px;
+}
+.sidebar dd a.current,.sidebar dd a.current:hover{
+  background:rgba(255,255,255,0.3);
+  color:#333;
+  text-decoration:none;
+}
+.sidebar dd a:hover{
+  background:rgba(255,255,255,0.1);
+  color:#333;
+  text-decoration:none;
+}
+.main{
+  margin-left:250px;
+  padding:0 20px;
+}
 
+.reset-dom{
+  margin:0;
+  padding:0;
+}
 /***form list**/
 .form-title-wrap{
   border-bottom:1px solid #ccc;
@@ -66,6 +138,8 @@
 .form-title{
   float:left;
   line-height:30px;
+  font-size:16px;
+  padding:0 12px;
   border-bottom:2px solid #369;
 }
 .form-block{
