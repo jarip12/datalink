@@ -1,11 +1,10 @@
-= simple_form_for @archive, html: {class: "new-family-form-wrap"} do |f|
+= simple_form_for @archive, html: {class: "new-family-form-wrap form-horizontal"} do |f|
 
   = f.simple_fields_for :family_relations do |family_relation|
     = render 'family_relation_fields', f: family_relation
   .links
-    = link_to_add_association '添加家庭成员', f, :family_relations
+    = link_to_add_association '添加家庭成员', f, :family_relations, class: "btn btn-default"
 
   .form-actions
     = f.button :submit
 
-  = link_to "返回", dashboard_index_path, class: "btn btn-default"

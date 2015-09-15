@@ -1,10 +1,12 @@
 div.form-group.row
-  div.col-xs-2
+  div.col-xs-2.form-group
     =f.input_field :relation, class: "form-control"
-  div.col-xs-3
+  div.col-xs-offset-1.col-xs-3.form-group
     =f.input_field :realname, class: "form-control"
-  div.col-xs-3
+  div.col-xs-offset-2.col-xs-3.form-group
     label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
-    =f.input_field :id_no, class: "form-control"
+    div.col-xs-10
+      =f.input_field :id_no, class: "form-control"
 
-  = link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+  div.col-xs-2
+    = link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}, class: "btn btn-default btn-danger"
