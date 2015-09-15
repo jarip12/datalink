@@ -1,7 +1,8 @@
-h1 = t('action.edit') + NotaryRelated.model_name.human
-
-== render 'form'
-
-= link_to t('action.show'), @notary_related
-'|
-= link_to t('action.back'), notary_relateds_path
+div.profiles-wrap.clearfix
+  div.sidebar.pull-left
+    == render 'profiles/sidebar'
+  div.main
+    h1.reset-dom = t('action.edit')
+    p.form-title-wrap
+      span.form-title 公证相关
+    == render 'form'

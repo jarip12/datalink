@@ -1,11 +1,9 @@
-= simple_form_for @archive do |f|
+div.profiles-wrap.clearfix
+  div.sidebar.pull-left
+    == render 'profiles/sidebar'
+  div.main
+    h1.reset-dom = t('action.edit')
+    p.form-title-wrap
+      span.form-title 家庭成员
+    == render 'form'
 
-  = f.simple_fields_for :family_relations do |family_relation|
-    = render 'family_relation_fields', f: family_relation
-  .links
-    = link_to_add_association '添加家庭成员', f, :family_relations
-
-  .form-actions
-    = f.button :submit
-
-  = link_to "返回", dashboard_index_path, class: "btn btn-default"

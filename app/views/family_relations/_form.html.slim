@@ -1,11 +1,11 @@
-= simple_form_for(@family_relation) do |f|
-  = f.error_notification
+= simple_form_for @archive do |f|
 
-  .form-inputs
-    = f.input :id_no
-    = f.input :realname
-    = f.input :relation
-    = f.input :owner_archive_id
+  = f.simple_fields_for :family_relations do |family_relation|
+    = render 'family_relation_fields', f: family_relation
+  .links
+    = link_to_add_association '添加家庭成员', f, :family_relations
 
   .form-actions
     = f.button :submit
+
+  = link_to "返回", dashboard_index_path, class: "btn btn-default"
