@@ -1,6 +1,7 @@
 = simple_form_for(@notary_related, url: archive_notary_related_path(@archive)) do |f|
   = f.error_notification
 
+
   = f.simple_fields_for :educations do |education|
     = render 'education_fields', f: education
   .links

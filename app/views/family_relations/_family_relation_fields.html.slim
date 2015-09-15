@@ -1,6 +1,10 @@
-tr.nested-fields
-  td
-    = f.input :id_no
-    = f.input :realname
-    = f.input :relation
-  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+div.form-group.row
+  div.col-xs-2
+    =f.input_field :relation, class: "form-control"
+  div.col-xs-3
+    =f.input_field :realname, class: "form-control"
+  div.col-xs-3
+    label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
+    =f.input_field :id_no, class: "form-control"
+
+  = link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}

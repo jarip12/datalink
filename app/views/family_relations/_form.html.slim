@@ -1,4 +1,4 @@
-= simple_form_for @archive do |f|
+= simple_form_for @archive, html: {class: "new-family-form-wrap"} do |f|
 
   = f.simple_fields_for :family_relations do |family_relation|
     = render 'family_relation_fields', f: family_relation
