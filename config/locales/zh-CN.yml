@@ -70,7 +70,7 @@ zh-CN:
       user:
         remember_me: "下次自动登陆"
         email: "邮箱"
-        realname: "真实姓名"
+        realname: "姓名"
         id_no: "身份证号"
         username: "用户名"
         street: "街道"
@@ -136,7 +136,7 @@ zh-CN:
         updated_at: "更新时间"
       citizen:
         id_no: "身份证号"
-        realname: "真实姓名"
+        realname: "姓名"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
@@ -149,14 +149,14 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       archive:
-        realname: "真实姓名"
+        realname: "姓名"
         id_no: "身份证号"
         user_id: "用户Id"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
       profile:
-        realname: "真实姓名"
+        realname: "姓名"
         id_no: "身份证号"
         sex: "性别"
         mobile: "联系电话"

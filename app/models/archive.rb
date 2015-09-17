@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  avatar     :string(255)
 #
 
 class Archive < ActiveRecord::Base
@@ -24,6 +25,8 @@ class Archive < ActiveRecord::Base
   after_create :set_default_relations
 
   accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
+
+  mount_uploader :avatar, AvatarUploader
 
   def set_default_relations
 

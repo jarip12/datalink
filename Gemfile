@@ -79,6 +79,7 @@ gem 'faker', '~> 1.4.3'
 gem 'rails4-autocomplete'
 gem 'rack-attack', '~> 3.0.0'
 gem 'cocoon'
+gem 'carrierwave', '~> 0.10.0'
 gem 'momentjs-rails', '>= 2.9.0'
 
 

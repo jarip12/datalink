@@ -1,10 +1,17 @@
-= simple_form_for(@profile, url: archive_profile_path(@archive)) do |f|
+= simple_form_for(@profile, url: archive_profile_path(@archive), html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :realname
-    = f.input :id_no
-    = f.input :sex
+    div.row
+      div.col-xs-6.row
+        label.col-xs-2.control-label = Profile.human_attribute_name("realname")
+        div.col-xs-10
+          = f.input_field :realname
+      div.col-xs-6.row
+        label.col-xs-2.control-label = Profile.human_attribute_name("id_no")
+        div.col-xs-10
+          = f.input_field :id_no
+    = f.input :sex, as: :radio_buttons
     = f.input :mobile
     .form-inputs
       div.form-group.string.optional.birth_day class=('has-error' if (@profile.errors.include?(:birth_day)))
