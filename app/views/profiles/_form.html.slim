@@ -4,17 +4,26 @@
   .form-inputs
     div.row
       div.col-xs-6.row
-        label.col-xs-2.control-label = Profile.human_attribute_name("realname")
-        div.col-xs-10
+        label.col-xs-3.control-label = Profile.human_attribute_name("realname")
+        div.col-xs-9
           = f.input_field :realname
       div.col-xs-6.row
-        label.col-xs-2.control-label = Profile.human_attribute_name("id_no")
-        div.col-xs-10
+        label.col-xs-2.control-label 照片
+        = image_tag(@archive.avatar_url) if @archive.avatar?
+        = f.file_field :avatar, class: "form-control"
+    div.row
+      div.col-xs-6.row
+        label.col-xs-3.control-label = Profile.human_attribute_name("id_no")
+        div.col-xs-9
           = f.input_field :id_no
-    = f.input :sex, as: :radio_buttons
+      div.col-xs-6.row
+        label.col-xs-3.control-label = Profile.human_attribute_name("sex")
+        div.col-xs-9
+          = f.input_field :sex, as: :radio_buttons
+
     = f.input :mobile
-    .form-inputs
-      div.form-group.string.optional.birth_day class=('has-error' if (@profile.errors.include?(:birth_day)))
+    div.row
+      div.col-xs-6.form-group.string.optional.birth_day class=('has-error' if (@profile.errors.include?(:birth_day)))
         label.string.optional.control-label
           abbr title="required" *
           = Profile.human_attribute_name("birth_day")
@@ -24,7 +33,7 @@
               span.glyphicon.glyphicon-time
         - if @profile.errors.include?(:birth_day)
           span class="help-block" #{@profile.errors.get(:birth_day)[0]}
-      div.form-group.string.optional.death_day class=('has-error' if (@profile.errors.include?(:death_day)))
+      div.col-xs-6.form-group.string.optional.death_day class=('has-error' if (@profile.errors.include?(:death_day)))
         label.string.optional.control-label
           abbr title="required" *
           = Profile.human_attribute_name("death_day")
