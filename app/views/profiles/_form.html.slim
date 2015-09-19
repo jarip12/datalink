@@ -30,7 +30,6 @@
         input type='text' class="form-control" name="profile[birth_day]" value="#{@profile.birth_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
-      div.clearfix
       label.string.optional.control-label.col-xs-2
         = Profile.human_attribute_name("death_day")
       div.input-group.date.datepicker.col-xs-3
@@ -44,5 +43,5 @@
         = f.input_field :address, class: "form-control"
 
 
-  .form-actions
-    = f.button :submit
+  div.form-actions.text-center.col-offset-2
+    input type="submit" class="btn btn-danger btn-block" value="登录" name="commit"
