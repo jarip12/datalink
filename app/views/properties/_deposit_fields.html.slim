@@ -1,26 +1,21 @@
-tr.nested-fields
-  td
-    div.form-group.string.optional.deposit_day class=('has-error' if (f.object.errors.include?(:deposit_day)))
-      label.string.optional.control-label
-        abbr title="required" *
-        = Deposit.human_attribute_name("deposit_day")
-      div.input-group.date.datepicker
-        input type='text' class="form-control" name="loan[deposit_day]" value="#{f.object.deposit_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
-      - if f.object.errors.include?(:deposit_day)
-        span class="help-block" #{f.object.errors.get(:deposit_day)[0]}
 
-    div.form-group.string.optional.receive_day class=('has-error' if (f.object.errors.include?(:receive_day)))
-      label.string.optional.control-label
-        abbr title="required" *
-        = Deposit.human_attribute_name("receive_day")
-      div.input-group.date.datepicker
-        input type='text' class="form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+div.row
+  label.string.optional.control-label.col-xs-2
+    = Deposit.human_attribute_name("deposit_day")
+  div.input-group.date.datepicker.col-xs-3
+    input type='text' class="form-control" name="loan[deposit_day]" value="#{f.object.deposit_day}"
+      span.input-group-addon
+        span.glyphicon.glyphicon-time
 
-      - if f.object.errors.include?(:receive_day)
-        span class="help-block"  #{f.object.errors.get(:receive_day)[0]}
-    = f.input :amount
-  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+  label.string.optional.control-label.col-xs-2
+    = Deposit.human_attribute_name("receive_day")
+  div.input-group.date.datepicker.col-xs-3
+    input type='text' class="form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"
+      span.input-group-addon
+        span.glyphicon.glyphicon-time
+
+div.row
+  label.string.optional.control-label.col-xs-2
+    = Deposit.human_attribute_name("amount")
+  div.col-xs-3
+    = f.input_field :amount

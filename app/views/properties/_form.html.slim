@@ -1,6 +1,6 @@
 h1 = t('action.edit') + '资产相关'
 
-= simple_form_for @archive do |f|
+= simple_form_for @archive, html: {class: "form-wrap form-horizontal"} do |f|
 
   = f.simple_fields_for :loans do |loan|
     = render 'loan_fields', f: loan

@@ -1,18 +1,29 @@
-tr.nested-fields
-  td
-    div.form-group.string.optional.trade_day class=('has-error' if (f.object.errors.include?(:trade_day)))
-      label.string.optional.control-label
-        abbr title="required" *
-        = HousePurchase.human_attribute_name("trade_day")
-      div.input-group.date.datepicker
-        input type='text' class="form-control" name="house_purchase[trade_day]" value="#{f.object.trade_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
-      - if f.object.errors.include?(:trade_day)
-        span class="help-block" #{f.object.errors.get(:trade_day)[0]}
+div.row
+  label.string.optional.control-label.col-xs-2
+    = HousePurchase.human_attribute_name("trade_day")
+  div.input-group.date.datepicker.col-xs-3
+    input type='text' class="form-control" name="house_purchase[trade_day]" value="#{f.object.trade_day}"
+      span.input-group-addon
+        span.glyphicon.glyphicon-time
 
-    = f.input :trade_type
-    = f.input :house_type
-    = f.input :house_address
-    = f.input :house_amount
-  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+  label.string.optional.control-label.col-xs-2
+    = HousePurchase.human_attribute_name("trade_type")
+  div.col-xs-3
+    = f.input_field :trade_type
+
+div.row
+  label.string.optional.control-label.col-xs-2
+    = HousePurchase.human_attribute_name("house_type")
+  div.col-xs-3
+    = f.input_field :house_type
+
+  label.string.optional.control-label.col-xs-3
+    = HousePurchase.human_attribute_name("house_address")
+  div.col-xs-3
+    = f.input_field :house_address
+
+div.row
+  label.string.optional.control-label.col-xs-2
+    = HousePurchase.human_attribute_name("house_amount")
+  div.col-xs-3
+    = f.input_field :house_amount

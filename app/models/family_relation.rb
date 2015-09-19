@@ -15,7 +15,7 @@
 class FamilyRelation < ActiveRecord::Base
   belongs_to :archive
 
-  #extend Enumerize
+  extend Enumerize
   #enumerize :relation, in: [:father, :mother, :uncle], default: :father
 
 end
