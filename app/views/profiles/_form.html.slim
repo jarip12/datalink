@@ -15,7 +15,7 @@
         = f.input_field :id_no, class: "form-control"
       label.col-xs-offset-1.col-xs-1.control-label = Profile.human_attribute_name("sex")
       div.col-xs-4
-        = f.input_field :sex, as: :radio_buttons, class: "form-control", item_wrapper_class: "radio-inline"
+        = f.input_field :sex, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
     div.row
       label.col-xs-2.control-label = Profile.human_attribute_name("mobile")
@@ -42,5 +42,5 @@
         = f.input_field :address, class: "form-control"
 
 
-  div.form-actions.text-center.col-offset-2
+  div.text-center.col-offset-2.profile-submit-div
     input type="submit" class="btn profile-submit" value="保存" name="commit"
