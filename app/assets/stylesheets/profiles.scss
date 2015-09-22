@@ -38,6 +38,11 @@
   margin-top: 39px;
 }
 
+input[type="file"] {
+  display: inline-block;
+  width: 150px;
+}
+
 /*
 .form-inputs .row {
   margin-top: 20px;

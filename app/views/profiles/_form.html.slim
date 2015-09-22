@@ -8,6 +8,10 @@
           = f.input_field :realname, class: "form-control"
       label.col-xs-offset-2.col-xs-1.control-label 照片
       div.col-xs-3
+        - if @profile.avatar?
+          = image_tag(@profile.avatar_url(:normal))
+        - else
+          = image_tag "image-placeholder.png"
         = f.file_field :avatar, class: "form-control"
     div.row
       label.col-xs-2.control-label = Profile.human_attribute_name("id_no")
@@ -40,6 +44,15 @@
       label.col-xs-2.control-label = Profile.human_attribute_name("address")
       div.col-xs-5
         = f.input_field :address, class: "form-control"
+
+    div.row
+      label.col-xs-2.control-label = Profile.human_attribute_name("id_no_img")
+      div.col-xs-5
+        - if @profile.id_no_img?
+          = image_tag(@profile.id_no_img_url(:normal))
+        - else
+          = image_tag "image-placeholder.png"
+        = f.file_field :id_no_img, class: "form-control"
 
 
   div.text-center.col-offset-2.profile-submit-div

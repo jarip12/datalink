@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917133456) do
+ActiveRecord::Schema.define(version: 20150922054844) do
 
   create_table "archives", force: :cascade do |t|
     t.string   "realname",   limit: 255
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 20150917133456) do
     t.integer  "archive_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "avatar",     limit: 255
+    t.string   "id_no_img",  limit: 255
   end
 
   create_table "reservations", force: :cascade do |t|

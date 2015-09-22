@@ -26,7 +26,7 @@ class Archive < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
 
-  mount_uploader :avatar, AvatarUploader
+
 
   def set_default_relations
 

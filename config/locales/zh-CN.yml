@@ -156,6 +156,7 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       profile:
+        id_no_img: "身份证扫描件"
         realname: "姓名"
         id_no: "身份证号"
         sex: "性别"

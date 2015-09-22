@@ -13,6 +13,8 @@
 #  archive_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  avatar     :string(255)
+#  id_no_img  :string(255)
 #
 
 class Profile < ActiveRecord::Base
@@ -20,6 +22,9 @@ class Profile < ActiveRecord::Base
 
   extend Enumerize
   enumerize :sex, in: [:male, :female], default: :male
+
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :id_no_img, AvatarUploader
 
   validates :realname, presence: true
   validates :id_no, presence: true

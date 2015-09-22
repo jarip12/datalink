@@ -13,6 +13,8 @@
 #  archive_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  avatar     :string(255)
+#  id_no_img  :string(255)
 #
 
 FactoryGirl.define do
