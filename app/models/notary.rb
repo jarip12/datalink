@@ -12,5 +12,5 @@
 
 class Notary < ActiveRecord::Base
   extend Enumerize
-  enumerize :notary_type, in: [:bank], default: :bank
+  enumerize :notary_type, in: [:foreign], default: :foreign
 end

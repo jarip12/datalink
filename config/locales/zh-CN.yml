@@ -7,7 +7,10 @@ zh-CN:
   enumerize:
     reservation:
       notary_type:
-        foreign: "对外公证"
+        foreign: "涉外公证"
+    notary:
+      notary_type:
+        foreign: "涉外公证"
     profile:
       sex:
         male: "男"
@@ -21,6 +24,14 @@ zh-CN:
     loan:
       notary_type:
         bank: "银行"
+    education:
+      education_type:
+        bachelor: "学士学位"
+        master: "硕士"
+        doctor: "博士"
+
+
+
   devise:
     failure:
       user:

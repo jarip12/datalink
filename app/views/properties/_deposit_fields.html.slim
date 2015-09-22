@@ -9,7 +9,7 @@ div.row.first-row
           span.input-group-addon
             span.glyphicon.glyphicon-time
 
-      label.string.optional.control-label.col-xs-2
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Deposit.human_attribute_name("receive_day")
       div.input-group.date.datepicker.col-xs-3
         input type='text' class="form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"

@@ -1,27 +1,30 @@
-tr.nested-fields
-  td
-    div.form-group.string.optional.start_day class=('has-error' if (f.object.errors.include?(:start_day)))
-      label.string.optional.control-label
-        abbr title="required" *
+div.row
+  div.col-xs-9
+    div.row
+      label.string.optional.control-label.col-xs-2
         = WorkExperience.human_attribute_name("start_day")
-      div.input-group.date.datepicker
+      div.input-group.date.datepicker.col-xs-3
         input type='text' class="form-control" name="loan[start_day]" value="#{f.object.start_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
-      - if f.object.errors.include?(:start_day)
-        span class="help-block" #{f.object.errors.get(:start_day)[0]}
 
-    div.form-group.string.optional.end_day class=('has-error' if (f.object.errors.include?(:end_day)))
-      label.string.optional.control-label
-        abbr title="required" *
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = WorkExperience.human_attribute_name("end_day")
-      div.input-group.date.datepicker
+      div.input-group.date.datepicker.col-xs-3
         input type='text' class="form-control" name="deposit[end_day]" value="#{f.object.end_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
 
-      - if f.object.errors.include?(:end_day)
-        span class="help-block"  #{f.object.errors.get(:end_day)[0]}
-    = f.input :company_name
-    = f.input :job_title
-  td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = WorkExperience.human_attribute_name("company_name")
+      div.col-xs-3
+        = f.input_field :company_name
+
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = WorkExperience.human_attribute_name("job_title")
+      div.col-xs-3
+        = f.input_field :job_title
+
+  div.col-xs-3
+    = image_tag "two-line-placeholder.png", class: "property-image"

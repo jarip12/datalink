@@ -1,26 +1,34 @@
 = simple_form_for(@notary_related) do |f|
   = f.error_notification
 
-
-  = f.simple_fields_for :educations do |education|
-    = render 'education_fields', f: education
-  .links
-    = link_to_add_association '添加学位记录', f, :educations
-
-  = f.simple_fields_for :work_experiences do |work_experience|
-    = render 'work_experience_fields', f: work_experience
-  .links
-    = link_to_add_association '添加工作记录', f, :work_experiences
-
-  = f.simple_fields_for :notaries do |notary|
-    = render 'notary_fields', f: notary
-  .links
-    = link_to_add_association '添加公证记录', f, :notaries
-
   .form-inputs
-    = f.input :has_crime_record
-    = f.input :has_testament
+    div.form-with-border
+      p.first-property-title = "学历情况"
+      = f.simple_fields_for :educations do |education|
+        = render 'education_fields', f: education
+      .links
+        = link_to_add_association '添加学位记录', f, :educations
 
-  .form-actions
-    = f.button :submit
+    div.form-with-border
+      p.first-property-title = "工作经历"
+      = f.simple_fields_for :work_experiences do |work_experience|
+        = render 'work_experience_fields', f: work_experience
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right property-link"
+
+    div.form-with-border
+      p.first-property-title = "公证办理"
+      = f.simple_fields_for :notaries do |notary|
+        = render 'notary_fields', f: notary
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link"
+
+    .form-inputs
+      = f.input :has_crime_record
+      = f.input :has_testament
+
+    .form-actions
+      = f.button :submit
 
