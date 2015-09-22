@@ -1,30 +1,35 @@
 
 div.row.first-row
-  label.string.optional.control-label.col-xs-2
-    = HousePurchase.human_attribute_name("trade_day")
-  div.input-group.date.datepicker.col-xs-3
-    input type='text' class="form-control" name="house_purchase[trade_day]" value="#{f.object.trade_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
+  div.col-xs-9
+    div.row
+      label.string.optional.control-label.col-xs-2
+        = HousePurchase.human_attribute_name("trade_day")
+      div.input-group.date.datepicker.col-xs-3
+        input type='text' class="form-control" name="house_purchase[trade_day]" value="#{f.object.trade_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
 
-  label.string.optional.control-label.col-xs-2
-    = HousePurchase.human_attribute_name("trade_type")
-  div.col-xs-3
-    = f.input_field :trade_type
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = HousePurchase.human_attribute_name("trade_type")
+      div.col-xs-3
+        = f.input_field :trade_type, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
-div.row
-  label.string.optional.control-label.col-xs-2
-    = HousePurchase.human_attribute_name("house_type")
-  div.col-xs-3
-    = f.input_field :house_type
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = HousePurchase.human_attribute_name("house_type")
+      div.col-xs-3
+        = f.input_field :house_type
 
-  label.string.optional.control-label.col-xs-3
-    = HousePurchase.human_attribute_name("house_address")
-  div.col-xs-3
-    = f.input_field :house_address
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = HousePurchase.human_attribute_name("house_address")
+      div.col-xs-3
+        = f.input_field :house_address
 
-div.row
-  label.string.optional.control-label.col-xs-2
-    = HousePurchase.human_attribute_name("house_amount")
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = HousePurchase.human_attribute_name("house_amount")
+      div.col-xs-3
+        = f.input_field :house_amount
+
   div.col-xs-3
-    = f.input_field :house_amount
+    = image_tag "two-line-placeholder.png", class: "property-image"

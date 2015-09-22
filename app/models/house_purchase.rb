@@ -14,4 +14,7 @@
 #
 
 class HousePurchase < ActiveRecord::Base
+  extend Enumerize
+  enumerize :trade_type, in: [:buy, :sell], default: :buy
+  enumerize :house_type, in: [:villa], default: :villa
 end

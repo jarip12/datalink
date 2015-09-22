@@ -21,7 +21,7 @@ div.row.first-row
       label.string.optional.control-label.col-xs-2
         = Loan.human_attribute_name("notary_type")
       div.col-xs-3
-        = f.input_field :notary_type, class: "form-control"
+        = f.input_field :notary_type, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Loan.human_attribute_name("description")

@@ -1,21 +1,26 @@
 
 div.row.first-row
-  label.string.optional.control-label.col-xs-2
-    = Deposit.human_attribute_name("deposit_day")
-  div.input-group.date.datepicker.col-xs-3
-    input type='text' class="form-control" name="loan[deposit_day]" value="#{f.object.deposit_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
+  div.col-xs-9
+    div.row
+      label.string.optional.control-label.col-xs-2
+        = Deposit.human_attribute_name("deposit_day")
+      div.input-group.date.datepicker.col-xs-3
+        input type='text' class="form-control" name="loan[deposit_day]" value="#{f.object.deposit_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
 
-  label.string.optional.control-label.col-xs-2
-    = Deposit.human_attribute_name("receive_day")
-  div.input-group.date.datepicker.col-xs-3
-    input type='text' class="form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
+      label.string.optional.control-label.col-xs-2
+        = Deposit.human_attribute_name("receive_day")
+      div.input-group.date.datepicker.col-xs-3
+        input type='text' class="form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
 
-div.row
-  label.string.optional.control-label.col-xs-2
-    = Deposit.human_attribute_name("amount")
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = Deposit.human_attribute_name("amount")
+      div.col-xs-3
+        = f.input_field :amount
+
   div.col-xs-3
-    = f.input_field :amount
+    = image_tag "two-line-placeholder.png", class: "property-image"

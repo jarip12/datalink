@@ -11,7 +11,7 @@
         = link_to_add_association '添加信贷记录', f, :loans, class: "property-link pull-right"
 
     div.form-with-border
-      p.property-title = "公证情况"
+      p.property-title = "购房情况"
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase
       .links.col-xs-offset-9.link-div
@@ -26,7 +26,5 @@
         span.property-link 上传扫描件
         = link_to_add_association '添加提存记录', f, :deposits, class: "property-link pull-right"
 
-    .form-actions
-      = f.button :submit
-
-    = link_to "返回", dashboard_index_path, class: "btn btn-default"
+    .form-group
+      input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"

@@ -16,4 +16,7 @@
 
 class Loan < ActiveRecord::Base
   belongs_to :archive
+
+  extend Enumerize
+  enumerize :notary_type, in: [:bank], default: :bank
 end

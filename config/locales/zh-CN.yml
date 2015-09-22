@@ -12,6 +12,15 @@ zh-CN:
       sex:
         male: "男"
         female: "女"
+    house_purchase:
+      house_type:
+        villa: "别墅"
+      trade_type:
+        buy: "买入"
+        sell: "卖出"
+    loan:
+      notary_type:
+        bank: "银行"
   devise:
     failure:
       user:
@@ -89,7 +98,7 @@ zh-CN:
         updated_at: "更新时间"
       house_purchase:
         trade_day: "交易时间"
-        trade_type: "交易类型"
+        trade_type: "交易类别"
         house_type: "房屋类型"
         house_address: "房屋地址"
         house_amount: "购房金额"
