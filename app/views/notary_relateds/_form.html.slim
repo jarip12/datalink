@@ -4,10 +4,22 @@
   .form-inputs
     div.form-with-border
       p.first-property-title = "学历情况"
-      = f.simple_fields_for :educations do |education|
+      = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"}  do |education|
         = render 'education_fields', f: education
-      .links
-        = link_to_add_association '添加学位记录', f, :educations
+      .links.col-xs-offset-9.link-div
+        = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link"
+
+    div.row.form-with-border
+      label.string.optional.control-label.col-xs-2
+        = NotaryRelated.human_attribute_name("has_crime_record")
+      div.col-xs-3
+        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
+
+    div.row.form-with-border
+      label.string.optional.control-label.col-xs-2
+        = NotaryRelated.human_attribute_name("has_testament")
+      div.col-xs-3
+        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
     div.form-with-border
       p.first-property-title = "工作经历"
@@ -25,10 +37,6 @@
         span.property-link 上传扫描件
         = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link"
 
-    .form-inputs
-      = f.input :has_crime_record
-      = f.input :has_testament
-
-    .form-actions
-      = f.button :submit
+    .form-group
+      input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"
 
