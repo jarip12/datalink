@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .input-group[class*="col-"] {
-  float: none;
+  float: left;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+input.radio_buttons.inline label.radio{
+  display: inline-block;
 }
 
 
