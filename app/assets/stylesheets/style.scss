@@ -129,9 +129,15 @@
 .reset-dom{
   margin:0;
   padding:0;
+  /* 个人档案: */
+  font-family: STHeiti;
+  font-size: 24px;
+  color: #3D3A3A;
+  line-height: 24px;
 }
 /***form list**/
 .form-title-wrap{
+  margin-top: 35px;
   border-bottom:1px solid #ccc;
   height:32px;
 }
