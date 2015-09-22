@@ -1,38 +1,45 @@
-div.row
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("start_day")
-  div.input-group.date.datepicker.col-xs-3
-    input type='text' class="form-control" name="loan[start_day]" value="#{f.object.start_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
 
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("end_day")
-  div.input-group.date.datepicker.col-xs-3
-    input type='text' class="form-control" name="loan[end_day]" value="#{f.object.end_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
 
-div.row
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("notary_type")
+div.row.first-row
+  div.col-xs-9
+    div.row
+      label.string.optional.control-label.col-xs-2
+        = Loan.human_attribute_name("start_day")
+      div.input-group.date.datepicker.col-xs-3
+        input type='text' class="form-control" name="loan[start_day]" value="#{f.object.start_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
+
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = "至"
+      div.input-group.date.datepicker.col-xs-3
+        input type='text' class="form-control" name="loan[end_day]" value="#{f.object.end_day}"
+          span.input-group-addon
+            span.glyphicon.glyphicon-time
+
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = Loan.human_attribute_name("notary_type")
+      div.col-xs-3
+        = f.input_field :notary_type, class: "form-control"
+
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = Loan.human_attribute_name("description")
+      div.col-xs-3
+        = f.input_field :description, class: "form-control"
+
+
+
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = Loan.human_attribute_name("amount")
+      div.col-xs-3
+        = f.input_field :amount, class: "form-control"
+
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = Loan.human_attribute_name("repay_on_time")
+      div.col-xs-3
+        = f.input_field :repay_on_time, as: :radio_buttons, item_wrapper_class: "radio-inline"
+
   div.col-xs-3
-    = f.input_field :notary_type
-
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("description")
-  div.col-xs-3
-    = f.input_field :description
-
-div.row
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("amount")
-  div.col-xs-3
-    = f.input_field :amount
-
-  label.string.optional.control-label.col-xs-2
-    = Loan.human_attribute_name("repay_on_time")
-  div.col-xs-3
-    = f.input_field :repay_on_time, as: :boolean
-
-td= link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}
+    = image_tag "two-line-placeholder.png", class: "property-image"

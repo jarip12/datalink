@@ -1,3 +1,39 @@
 // Place all the styles related to the properties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Rectangle 275 Copy 2: */
+.line {
+  opacity: 0.27;
+  background: #A3A3A9;
+}
+
+.property-image {
+  margin-top: 0 !important;
+}
+
+.property-title {
+  margin-top: 33px;
+}
+
+.property-link {
+  /* BG: */
+  background: #F8FAFA;
+  border: 1px solid #1EBAD9;
+  border-radius: 3px;
+  /* 8:30:8:30: */
+  font-family: STXihei;
+  font-size: 14px;
+  color: #18ACD1;
+  line-height: 14px;
+
+}
+
+
+.row-with-margin {
+  margin-top: 15px;
+}
+
+.link-div {
+  margin-bottom: 20px;
+}
