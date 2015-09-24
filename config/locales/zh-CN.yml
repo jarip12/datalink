@@ -11,6 +11,8 @@ zh-CN:
     notary:
       notary_type:
         foreign: "涉外公证"
+        person: "个人公证"
+        company: "单位公证"
     profile:
       sex:
         male: "男"
@@ -18,12 +20,17 @@ zh-CN:
     house_purchase:
       house_type:
         villa: "别墅"
+        apartment: "公寓"
+        shop: "商铺"
       trade_type:
         buy: "买入"
         sell: "卖出"
     loan:
       notary_type:
         bank: "银行"
+        small_loan_company: "小贷公司"
+        private_lending_company: "民间借贷"
+        pawnshop: "典当行"
     education:
       education_type:
         bachelor: "学士学位"
