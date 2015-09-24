@@ -1,7 +1,7 @@
-div.form-group.row
-  div.col-xs-2.form-group
-    =f.input_field :relation, class: "form-control", :collection => ["a", "b"]
-  div.col-xs-2.form-group
+div.row
+  div.col-xs-2
+    = f.input_field :relation, as: :radio_buttons, item_wrapper_class: "radio-inline
+  div.col-xs-2
     =f.input_field :realname, class: "form-control"
   label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
   div.col-xs-3

@@ -1,27 +1,19 @@
 div.row
-  label.string.optional.control-label.col-xs-2
-    = Education.human_attribute_name("education_type")
-  div.input-group.col-xs-2
-    = f.input_field :education_type
+  div.col-xs-7
+    div.row
+      label.string.optional.control-label.col-xs-2
+        = Education.human_attribute_name("education_type")
+      div.input-group.col-xs-2
+        = f.input_field :education_type
 
-  label.string.optional.control-label.col-xs-2
-    = Education.human_attribute_name("school_name")
-  div.input-group.col-xs-2
-    = f.input_field :school_name
-
-  div.input-group.date.datepicker.col-xs-2
-    input type='text' class="form-control" name="loan[enroll_day]" value="#{f.object.enroll_day}"
-      span.input-group-addon
-        span.glyphicon.glyphicon-time
-
-  div.form-group.string.optional.graduation_day class=('has-error' if (f.object.errors.include?(:graduation_day)))
-    label.string.optional.control-label
-      = Education.human_attribute_name("graduation_day")
-    div.input-group.date.datepicker
-      input type='text' class="form-control" name="deposit[graduation_day]" value="#{f.object.graduation_day}"
-        span.input-group-addon
-          span.glyphicon.glyphicon-time
+      label.string.optional.control-label.col-xs-2
+        = Education.human_attribute_name("school_name")
+      div.input-group.col-xs-2
+        = f.input_field :school_name
 
 
-  = f.input :school_name
-  = f.input :degree
+
+
+  div.col-xs-3
+    = image_tag "two-line-placeholder.png", class: "property-image"
+

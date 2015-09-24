@@ -9,13 +9,13 @@
       .links.col-xs-offset-9.link-div
         = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link"
 
-    div.row.form-with-border
+    div.form-with-border
       label.string.optional.control-label.col-xs-2
         = NotaryRelated.human_attribute_name("has_crime_record")
       div.col-xs-3
         = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
-    div.row.form-with-border
+    div.form-with-border
       label.string.optional.control-label.col-xs-2
         = NotaryRelated.human_attribute_name("has_testament")
       div.col-xs-3
