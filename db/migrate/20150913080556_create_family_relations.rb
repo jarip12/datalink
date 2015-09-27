@@ -3,7 +3,7 @@ class CreateFamilyRelations < ActiveRecord::Migration
     create_table :family_relations do |t|
       t.string :id_no
       t.string :realname
-      t.string :relation
+      t.string :relation_name
       t.integer :owner_archive_id
       t.integer :archive_id
 

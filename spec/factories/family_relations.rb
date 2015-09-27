@@ -5,7 +5,7 @@
 #  id               :integer          not null, primary key
 #  id_no            :string(255)
 #  realname         :string(255)
-#  relation         :string(255)
+#  relation_name    :string(255)
 #  owner_archive_id :integer
 #  archive_id       :integer
 #  created_at       :datetime         not null

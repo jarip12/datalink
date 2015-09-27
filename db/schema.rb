@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150922054844) do
   create_table "family_relations", force: :cascade do |t|
     t.string   "id_no",            limit: 255
     t.string   "realname",         limit: 255
-    t.string   "relation",         limit: 255
+    t.string   "relation_name",    limit: 255
     t.integer  "owner_archive_id", limit: 4
     t.integer  "archive_id",       limit: 4
     t.datetime "created_at",                   null: false

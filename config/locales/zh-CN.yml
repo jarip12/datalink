@@ -36,6 +36,11 @@ zh-CN:
         bachelor: "学士学位"
         master: "硕士"
         doctor: "博士"
+    family_relation:
+      relation_name:
+        father: "父亲"
+        mother: "母亲"
+        uncle: "叔叔"
 
 
 
