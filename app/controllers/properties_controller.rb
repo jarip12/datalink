@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_archive_and_related, only: [:edit]
+  layout "with_left_sidebar"
 
   def edit
 

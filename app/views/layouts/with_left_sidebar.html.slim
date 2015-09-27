@@ -12,6 +12,6 @@ html
     div class=((current_staff)? 'container-logined': 'container-not-login')
       div.profiles-wrap.clearfix
         div.sidebar.pull-left
-          == render 'profiles/sidebar'
+          == render 'layouts/sidebar'
         div.main
           = yield

@@ -1,5 +1,6 @@
 class NotaryRelatedsController < ApplicationController
   before_action :set_notary_related, only: [:show, :edit, :update, :destroy]
+  layout "with_left_sidebar"
 
 
   # GET /notary_relateds

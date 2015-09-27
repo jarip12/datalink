@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_archive_and_profile, only: [:show, :edit, :update, :destroy]
 
+  layout "with_left_sidebar"
+
   def search
     ap params
     q = params[:q]
