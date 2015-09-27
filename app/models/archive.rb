@@ -34,7 +34,12 @@ class Archive < ActiveRecord::Base
     self.house_purchases << HousePurchase.create
     self.deposits << Deposit.create
     self.notary_related = NotaryRelated.create
-    self.family_relations << FamilyRelation.create
+
+
+    result = FamilyRelation.create
+    ap result
+    ap self.family_relations
+    self.family_relations << result
 
   end
 

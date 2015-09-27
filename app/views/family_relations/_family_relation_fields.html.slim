@@ -1,11 +1,8 @@
 div.row
   div.col-xs-2
-    = f.input_field :relation, as: :radio_buttons, item_wrapper_class: "radio-inline
+    = f.input_field :relation
   div.col-xs-2
     =f.input_field :realname, class: "form-control"
   label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
   div.col-xs-3
     =f.input_field :id_no, class: "form-control"
-
-  div.col-xs-2
-    = link_to_remove_association "删除", f, data: {confirm: '确定要删除?'}, class: "btn btn-default btn-danger"
