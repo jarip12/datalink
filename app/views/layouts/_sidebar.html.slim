@@ -20,11 +20,18 @@ dl
 		  span.glyphicon.glyphicon-usd
 	  	  |资产相关
 	dd
+      - debug(can? :edit, @archive)
+      - if can? :edit, @archive
 		a href="#{archive_notary_related_edit_path}"
+      - else
+        a href="#{archive_notary_related_path}"
 		  span.glyphicon.glyphicon-tower
 		  |公证相关 
 	dd
+      - if can? :edit, @archive
 		a href="#{archive_family_relation_edit_path}"
+      - else
+        a href="#{archive_family_relation_path}"
 		  span.glyphicon.glyphicon-camera
 		  |家庭信息 
 	dt 家庭成员关系树

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     patch 'profile', to: 'profiles#update'
 
     get 'property/edit', to: 'properties#edit'
+    get 'property', to: 'properties#show'
     patch 'property', to: 'properties#update'
 
     get 'notary_related/edit', to: 'notary_relateds#edit'
