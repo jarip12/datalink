@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_staff!
+  alias_method :current_user, :current_staff
+
 
   protected
   def render_success(data = {}, msg = nil)

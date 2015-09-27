@@ -2,6 +2,8 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
   autocomplete :user, :email, :full => true
 
+  load_and_authorize_resource
+
 
 
   def faker_field

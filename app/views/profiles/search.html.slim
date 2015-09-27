@@ -22,5 +22,8 @@ div.search-table-wrap
         tr
           td = profile.realname
           td = profile.id_no
-          td = link_to '查看', archive_profile_edit_path(profile.archive_id)
+          - if can? :edit, profile
+            td = link_to '查看', archive_profile_edit_path(profile.archive_id)
+          - else
+            td = link_to '查看', archive_profile_path(profile.archive_id)
 

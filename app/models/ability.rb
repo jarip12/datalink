@@ -2,15 +2,24 @@ class Ability
   include CanCan::Ability
 
   def initialize(staff)
-    if staff.blank?
+    ap staff
+
+    if staff.has_role?(:admin)
+      can :manage, :all
+    elsif staff.has_role?(:user)
+      can :search, Profile
+      can :show, Profile
+      can :show, Archive
+
+    elsif staff.has_role?(:audit)
+
+    elsif staff.has_role?(:typer)
+
+    else
       cannot :manage, :all
       basic_read_only
-    elsif staff.has_role?(:admin)
-      can :manage, :all
-    elsif staff.has_role?(:member)
-
     end
-    can :manage, :all
+
   end
 
   protected

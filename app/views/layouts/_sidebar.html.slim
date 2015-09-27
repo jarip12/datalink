@@ -8,8 +8,11 @@ div.btn-group.user-box
 	       li 1111
 dl
 	dt 个人档案
-	dd 
+	dd
+      - if can? :edit, @archive.profile
 		a href="#{archive_profile_edit_path}" class="current"
+	  - else
+        a href="#{archive_profile_path}" class="current"
 		  span.glyphicon.glyphicon-list-alt
 		  |基本信息
 	dd

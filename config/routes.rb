@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :archives do
     get :autocomplete_user_email, :on => :collection
     get 'profile/edit', to: 'profiles#edit'
+    get 'profile', to: 'profiles#show'
     patch 'profile', to: 'profiles#update'
 
     get 'property/edit', to: 'properties#edit'
