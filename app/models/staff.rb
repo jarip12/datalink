@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :string(255)
+#  realname               :string(255)
 #
 
 class Staff < ActiveRecord::Base
@@ -25,7 +26,7 @@ class Staff < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   extend Enumerize
-  enumerize :role, in: [:admin, :member], default: :member
+  enumerize :role, in: [:admin, :audit, :typer, :user], default: :typer
 
 
   def admin?

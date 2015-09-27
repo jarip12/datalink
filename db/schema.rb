@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 20150922054844) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "role",                   limit: 255
+    t.string   "realname",               limit: 255
   end
 
   add_index "staffs", ["email"], name: "index_staffs_on_email", unique: true, using: :btree

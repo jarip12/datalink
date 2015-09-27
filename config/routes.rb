@@ -24,17 +24,10 @@ Rails.application.routes.draw do
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
 
   resources :reservations
-  resources :users do
 
-  end
+
+
   get 'dashboard/index'
-
-  resources :notaries
-  resources :work_experiences
-  resources :educations
-  resources :deposits
-  resources :house_purchases
-  resources :loans
 
   mount RailsSettingsUi::Engine, at: 'settings'
 
@@ -42,6 +35,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
+  resources :users
+  resources :staffs
+
+  post 'members', to: 'staffs#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

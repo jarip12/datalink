@@ -46,6 +46,13 @@ zh-CN:
         father: "父亲"
         mother: "母亲"
         uncle: "叔叔"
+    staff:
+      role:
+        admin: "管理员"
+        audit: "审批人"
+        user: "使用人"
+        typer: "录入人"
+
 
 
 
@@ -97,8 +104,11 @@ zh-CN:
       archive: archive
       profile: profile
       notary_related: notary_related
+      staff: "内部员工"
     attributes:
       staff:
+        role: "角色"
+        realname: "真实姓名"
         remember_me: "下次自动登陆"
         email: "邮箱"
         username: "用户名"

@@ -5,8 +5,6 @@ table.table.table-striped
   tr
     th = User.human_attribute_name("email")
     th = User.human_attribute_name("realname")
-    th = User.human_attribute_name("username")
-    th = User.human_attribute_name("mobile")
     th
     th
     th
@@ -15,8 +13,6 @@ table.table.table-striped
     tr
       td = user.email
       td = user.realname
-      td = user.username
-      td = user.mobile
       td = link_to t('action.show'), user
       td = link_to t('action.edit'), edit_user_path(user)
       td = link_to t('action.delete'), user, :data => {:confirm => t('action.confirm_delete')}, :method => :delete

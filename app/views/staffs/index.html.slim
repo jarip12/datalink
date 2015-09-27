@@ -1,0 +1,22 @@
+p#notice = notice
+h1 = Staff.model_name.human
+
+table.table.table-striped
+  tr
+    th = Staff.human_attribute_name("email")
+    th = Staff.human_attribute_name("realname")
+    th = Staff.human_attribute_name("role")
+    th
+    th
+
+  - @staffs.each do |staff|
+    tr
+      td = staff.email
+      td = staff.realname
+      td = staff.role_text
+      td = link_to t('action.edit'), edit_staff_path(staff)
+      td = link_to t('action.delete'), staff, :data => {:confirm => t('action.confirm_delete')}, :method => :delete
+
+br
+
+= link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "btn btn-default"

@@ -1,0 +1,11 @@
+= simple_form_for(@staff, url: submit_url) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+    = f.input :realname
+    = f.input_field :role
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,12 @@
+h1 = t('action.edit') + Staff.model_name.human
+
+= simple_form_for(@staff, url: staff_path(@staff)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :realname
+    = f.input :role
+
+  .form-actions
+    = f.button :submit
