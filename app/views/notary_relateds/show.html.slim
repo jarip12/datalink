@@ -1,12 +1,34 @@
-p#notice = notice
+h1.reset-dom = t('action.edit')
+p.form-title-wrap
+  span.form-title 公证相关
 
-p
-  strong = NotaryRelated.human_attribute_name("has_crime_record") + ':'
-  = @notary_related.has_crime_record
-p
-  strong = NotaryRelated.human_attribute_name("has_testament") + ':'
-  = @notary_related.has_testament
+= simple_form_for(@notary_related) do |f|
+  = f.error_notification
 
-= link_to t('action.edit'), edit_notary_related_path(@notary_related)
-'|
-= link_to t('action.back'), notary_relateds_path
+  .form-inputs
+    div.form-with-border
+      p.first-property-title = "学历情况"
+      = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
+        = render 'education_fields', f: education
+
+    div.form-with-border
+      label.string.optional.control-label.col-xs-2
+        = NotaryRelated.human_attribute_name("has_crime_record")
+      div.col-xs-3
+        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
+
+    div.form-with-border
+      label.string.optional.control-label.col-xs-2
+        = NotaryRelated.human_attribute_name("has_testament")
+      div.col-xs-3
+        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
+
+    div.form-with-border
+      p.first-property-title = "工作经历"
+      = f.simple_fields_for :work_experiences do |work_experience|
+        = render 'work_experience_fields', f: work_experience
+
+    div.form-with-border
+      p.first-property-title = "公证办理"
+      = f.simple_fields_for :notaries do |notary|
+        = render 'notary_fields', f: notary

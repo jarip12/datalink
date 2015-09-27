@@ -16,7 +16,10 @@ dl
 		  span.glyphicon.glyphicon-list-alt
 		  |基本信息
 	dd
-	  a href="#{archive_property_edit_path}"
+      - if can? :edit, @archive
+	    a href="#{archive_property_edit_path}"
+      - else
+        a href="#{archive_property_path}"
 		  span.glyphicon.glyphicon-usd
 	  	  |资产相关
 	dd

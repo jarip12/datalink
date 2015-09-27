@@ -1,18 +1,8 @@
-p#notice = notice
+h1.reset-dom 个人档案
+p.form-title-wrap
+  span.form-title 家庭信息
 
-p
-  strong = FamilyRelation.human_attribute_name("id_no") + ':'
-  = @family_relation.id_no
-p
-  strong = FamilyRelation.human_attribute_name("realname") + ':'
-  = @family_relation.realname
-p
-  strong = FamilyRelation.human_attribute_name("relation") + ':'
-  = @family_relation.relation
-p
-  strong = FamilyRelation.human_attribute_name("owner_archive_id") + ':'
-  = @family_relation.owner_archive_id
+= simple_form_for @archive, html: {class: "new-family-form-wrap form-horizontal"} do |f|
 
-= link_to t('action.edit'), edit_family_relation_path(@family_relation)
-'|
-= link_to t('action.back'), family_relations_path
+  = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
+    = render 'family_relation_fields', f: family_relation
