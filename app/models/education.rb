@@ -17,6 +17,6 @@ class Education < ActiveRecord::Base
   belongs_to :notary_related
 
   extend Enumerize
-  enumerize :education_type, in: [:bachelor, :master, :doctor], default: :bachelor
+  enumerize :education_type, in: [:bachelor, :master, :doctor, :college, :highschool, :junior_highschool, :primary_school, :unknown], default: :bachelor
 
 end

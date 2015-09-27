@@ -33,9 +33,14 @@ zh-CN:
         pawnshop: "典当行"
     education:
       education_type:
-        bachelor: "学士学位"
-        master: "硕士"
-        doctor: "博士"
+        college: "专科"
+        highschool: "高中"
+        junior_highschool: "初中"
+        primary_school: "小学"
+        unknown: "不识"
+        bachelor: "本科"
+        master: "硕士研究生"
+        doctor: "博士研究生"
     family_relation:
       relation_name:
         father: "父亲"
