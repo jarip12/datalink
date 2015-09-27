@@ -1,6 +1,8 @@
 class HousePurchasesController < ApplicationController
   before_action :set_house_purchase, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /house_purchases
   def index
     @house_purchases = HousePurchase.all

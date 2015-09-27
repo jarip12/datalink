@@ -1,5 +1,6 @@
 class DepositsController < ApplicationController
   before_action :set_deposit, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /deposits
   def index

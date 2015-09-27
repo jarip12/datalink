@@ -1,5 +1,6 @@
 class WorkExperiencesController < ApplicationController
   before_action :set_work_experience, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /work_experiences
   def index

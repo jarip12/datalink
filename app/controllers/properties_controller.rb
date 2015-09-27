@@ -7,6 +7,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    authorize! :show, @archive
   end
 
   private

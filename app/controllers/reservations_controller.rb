@@ -2,6 +2,8 @@ class ReservationsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
 
+  load_and_authorize_resource
+
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations

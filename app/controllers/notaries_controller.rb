@@ -2,6 +2,8 @@ class NotariesController < ApplicationController
   before_action :set_archive, only: [:index, :show, :edit, :update, :destroy]
   layout "with_left_sidebar"
 
+  load_and_authorize_resource
+
   # GET /notaries
   def index
     @notaries = @archive.notaries

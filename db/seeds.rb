@@ -7,10 +7,10 @@ end
 
 
 Staff.create!([
-                 {role: "admin", email: "admin@gmail.com", password: "12345678", password_confirmation: "12345678"},
-                 {role: "user", email: "user@gmail.com", password: "12345678", password_confirmation: "12345678"},
-                 {role: "audit", email: "audit@gmail.com", password: "12345678", password_confirmation: "12345678"},
-                 {role: "typer", email: "typer@gmail.com", password: "12345678", password_confirmation: "12345678"},
+                 {realname: "管理员", role: "admin", email: "admin@gmail.com", password: "12345678", password_confirmation: "12345678"},
+                 {realname: "使用者", role: "user", email: "user@gmail.com", password: "12345678", password_confirmation: "12345678"},
+                 {realname: "审批人", role: "audit", email: "audit@gmail.com", password: "12345678", password_confirmation: "12345678"},
+                 {realname: "录入人", role: "typer", email: "typer@gmail.com", password: "12345678", password_confirmation: "12345678"},
              ])
 
 100.times do |n|

@@ -34,7 +34,11 @@ class ArchivesController < ApplicationController
     @archive = Archive.new(archive_params)
 
     if @archive.save
-      redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
+      if can? :edit, @archive
+        redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
+      else
+        redirect_to archive_profile_url(@archive), notice: t('action.created.successfully')
+      end
     else
       render :new
     end

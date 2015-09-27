@@ -1,6 +1,7 @@
 class FamilyRelationsController < ApplicationController
   before_action :set_archive, only: [:index, :show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
   layout "with_left_sidebar"
 
 

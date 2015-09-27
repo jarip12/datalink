@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /educations
   def index

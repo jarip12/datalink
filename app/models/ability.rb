@@ -7,22 +7,30 @@ class Ability
     if staff.has_role?(:admin)
       can :manage, :all
     elsif staff.has_role?(:user)
-      can :search, Profile
-      can :show, Profile
-      can :show, Archive
-
-    elsif staff.has_role?(:audit)
-
+      basic_read_only
     elsif staff.has_role?(:typer)
+      basic_read_only
+      can :new, Archive
+      can :create, Archive
 
+      can [:edit, :update], Archive.where("updated_at = created_at")
+      can [:edit, :update], Profile.where("updated_at = created_at")
+      can [:edit, :update], Notary.where("updated_at = created_at")
+      can [:edit, :update], NotaryRelated.where("updated_at = created_at")
+
+      #daynamic
+    elsif staff.has_role?(:audit)
+      can :manage, :all
+      cannot :manage, :staff
     else
       cannot :manage, :all
-      basic_read_only
     end
 
   end
 
   protected
     def basic_read_only
+      can :search, Profile
+      can :show, :all
     end
 end

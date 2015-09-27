@@ -2,7 +2,9 @@ class ProfilesController < ApplicationController
   before_action :set_archive_and_profile, only: [:show, :edit, :update, :destroy]
 
   layout "with_left_sidebar", except: [:search]
-  load_and_authorize_resource
+  load_and_authorize_resource :archive
+  load_and_authorize_resource :profile, :through => :archive, :singleton => true
+
 
   def search
     ap params
@@ -59,6 +61,7 @@ class ProfilesController < ApplicationController
     def set_archive_and_profile
       @archive = Archive.find(params[:archive_id])
       @profile = @archive.profile
+      ap @profile
     end
 
     # Only allow a trusted parameter "white list" through.
