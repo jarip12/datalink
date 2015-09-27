@@ -26,6 +26,8 @@ class Archive < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
 
+  delegate :notaries, to: :notary_related
+
 
 
   def set_default_relations

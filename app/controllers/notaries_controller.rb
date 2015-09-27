@@ -1,9 +1,10 @@
 class NotariesController < ApplicationController
-  before_action :set_notary, only: [:show, :edit, :update, :destroy]
+  before_action :set_archive, only: [:index, :show, :edit, :update, :destroy]
+  layout "with_left_sidebar"
 
   # GET /notaries
   def index
-    @notaries = Notary.all
+    @notaries = @archive.notaries
   end
 
   # GET /notaries/1
@@ -46,9 +47,8 @@ class NotariesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notary
-      @notary = Notary.find(params[:id])
+    def set_archive
+      @archive = Archive.find(params[:archive_id])
     end
 
     # Only allow a trusted parameter "white list" through.

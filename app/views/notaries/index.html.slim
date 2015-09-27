@@ -1,21 +1,16 @@
-h1 = Notary.model_name.human
+h1.reset-dom = "公证办理"
+p.form-title-wrap
+  span.form-title 公证办理记录
 
 table.table.table-striped
   tr
     th = Notary.human_attribute_name("no")
     th = Notary.human_attribute_name("notary_type")
     th
-    th
-    th
 
   - @notaries.each do |notary|
     tr
       td = notary.no
-      td = notary.notary_type
+      td = notary.notary_type_text
       td = link_to t('action.show'), notary
-      td = link_to t('action.edit'), edit_notary_path(notary)
-      td = link_to t('action.delete'), notary, :confirm => t('action.confirm_delete'), :method => :delete
 
-br
-
-= link_to (t('action.new') + Notary.model_name.human), new_notary_path

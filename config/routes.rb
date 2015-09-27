@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'family_relations', to: 'family_relations#index'
     patch 'family_relation', to: 'family_relations#update'
 
+    get 'notaries', to: 'notaries#index'
+
   end
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
