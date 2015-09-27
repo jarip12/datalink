@@ -1,25 +1,18 @@
-h1 = FamilyRelation.model_name.human
+h1.reset-dom = t('action.edit')
+  p.form-title-wrap
+    span.form-title 公证相关
 
-table.table.table-striped
-  tr
-    th = FamilyRelation.human_attribute_name("id_no")
-    th = FamilyRelation.human_attribute_name("realname")
-    th = FamilyRelation.human_attribute_name("relation")
-    th = FamilyRelation.human_attribute_name("owner_archive_id")
-    th
-    th
-    th
-
-  - @family_relations.each do |family_relation|
+  table.table.table-striped
     tr
-      td = family_relation.id_no
-      td = family_relation.realname
-      td = family_relation.relation
-      td = family_relation.owner_archive_id
-      td = link_to t('action.show'), family_relation
-      td = link_to t('action.edit'), edit_family_relation_path(family_relation)
-      td = link_to t('action.delete'), family_relation, :confirm => t('action.confirm_delete'), :method => :delete
+      th = FamilyRelation.human_attribute_name("id_no")
+      th = FamilyRelation.human_attribute_name("realname")
+      th = FamilyRelation.human_attribute_name("relation_name")
+      th
 
-br
+    - @family_relations.each do |family_relation|
+      tr
+        td = family_relation.id_no
+        td = family_relation.realname
+        td = family_relation.relation_name_text
+        td = link_to t('action.show'), family_relation
 
-= link_to (t('action.new') + FamilyRelation.model_name.human), new_family_relation_path

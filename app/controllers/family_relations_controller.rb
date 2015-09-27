@@ -1,9 +1,12 @@
 class FamilyRelationsController < ApplicationController
-  before_action :set_archive_and_family_relations, only: [:show, :edit, :update, :destroy]
+  before_action :set_archive_and_family_relations, only: [:index, :show, :edit, :update, :destroy]
+
+  layout "with_left_sidebar"
+
 
   # GET /family_relations
   def index
-    @family_relations = FamilyRelation.all
+    @family_relations = @archive.family_relations
   end
 
   # GET /family_relations/1

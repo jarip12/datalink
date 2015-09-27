@@ -161,7 +161,7 @@ zh-CN:
       family_relation:
         id_no: "身份证号"
         realname: "姓名"
-        relation: "关系"
+        relation_name: "关系"
         owner_archive_id: owner_archive_id
         id: ID
         created_at: "创建时间"

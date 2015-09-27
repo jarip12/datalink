@@ -110,6 +110,7 @@ group :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-nav'
+  gem 'sextant'
 end
 
 group :test do
