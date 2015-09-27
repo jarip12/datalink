@@ -95,10 +95,10 @@ zh-CN:
       loan: "信贷"
       house_purchase: "购房"
       deposit: "提存"
-      education: education
-      work_experience: work_experience
-      notary: notary
-      family_relation: family_relation
+      education: "教育经历"
+      work_experience: "工作经历"
+      notary: "公证"
+      family_relation: "家庭关系"
       citizen: "公民"
       reservation: "公证办理预约"
       archive: archive
