@@ -1,18 +1,22 @@
-h1.reset-dom = t('action.edit')
-  p.form-title-wrap
-    span.form-title 公证相关
+h1.reset-dom = "家庭成员关系树"
+p.form-title-wrap
+  span.form-title 关系图
+  span.form-title 关系列表
 
-  table.table.table-striped
+table.table.table-striped
+  tr
+    th = FamilyRelation.human_attribute_name("relation_name")
+    th = FamilyRelation.human_attribute_name("realname")
+    th = FamilyRelation.human_attribute_name("id_no")
+    th = "查看公证信息"
+
+  - @family_relations.each do |family_relation|
     tr
-      th = FamilyRelation.human_attribute_name("id_no")
-      th = FamilyRelation.human_attribute_name("realname")
-      th = FamilyRelation.human_attribute_name("relation_name")
-      th
-
-    - @family_relations.each do |family_relation|
-      tr
-        td = family_relation.id_no
-        td = family_relation.realname
-        td = family_relation.relation_name_text
-        td = link_to t('action.show'), family_relation
+      td = family_relation.relation_name_text
+      td = family_relation.realname
+      td = family_relation.id_no
+      - if family_relation.owner_archive_id
+        td = link_to "查看", family_relation
+      - else
+        td = link_to "创建档案", family_relation
 
