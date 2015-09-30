@@ -1,15 +1,71 @@
-<h2>Log in</h2>
+<p class="text-center login-page-title">
+	公证信息开放平台
+</p>
+<div class="login-wrap form-horizontal">
+	<p class="text-center login-title">
+		内部系统登陆
+	</p>
+	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
+	<div class="form-group">
+		<label class="col-xs-2 control-label" for="staff_email">邮箱</label>
+		<div class="col-xs-10">
+			<input class="string email optional form-control" autofocus="autofocus" value="" name="staff[email]" id="staff_email" type="email">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-xs-2 control-label" for="staff_password">密码</label>
+		<div class="col-xs-10">
+			<input class="password optional form-control col-xs-10" name="staff[password]" id="staff_password" type="password">
+		</div>
+	</div>
+	<div class="form-actions text-center">
+		<input type="submit" class="btn btn-danger btn-block" value="登录" name="commit">
+	</div>
+	<% end %>
+	<!--form class="form-inline">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+	<p class="form-title-wrap">
+	<span class="form-title">公证相关</span>
+	</p>
+	<div class="form-block">
+	<p>
+	学历情况
+	</p>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+	<div class="form-group">
+	<label for="exampleInputName2">学历类型</label>
+	<select class="form-control">
+	<option>博士</option>
+	<option>研究所</option>
+	<option>本科</option>
+	<option>专科</option>
+	<option>高中</option>
+	</select>
+	</div>
+	<div class="form-group">
+	<label for="exampleInputEmail2">毕业院校及时间</label>
+	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="毕业院校">
+	<input type="text" class="form-control"  placeholder="毕业时间">
+	</div>
+	<div class="form-group">
+	<p class="form-control">
 
-<%= render "staffs/shared/links" %>
+	</p>
+	<input type="button" class="form-control"  value="上传扫描件">
+	</div>
+	</div>
+
+	<div class="form-block">
+	<p>
+	有无犯罪纪录
+	</p>
+	<div class="form-group">
+	<label class="radio-inline">
+	<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+	</label>
+	<label class="radio-inline">
+	<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+	</label>
+	</div>
+	</div>
+	</form-->
