@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 20150922054844) do
   create_table "deposits", force: :cascade do |t|
     t.date     "deposit_day"
     t.date     "receive_day"
-    t.float    "amount",      limit: 24
-    t.integer  "archive_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.float    "amount",       limit: 24
+    t.integer  "archive_id",   limit: 4
+    t.boolean  "updated_once",            default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "educations", force: :cascade do |t|
@@ -55,8 +56,9 @@ ActiveRecord::Schema.define(version: 20150922054844) do
     t.string   "relation_name",    limit: 255
     t.integer  "owner_archive_id", limit: 4
     t.integer  "archive_id",       limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "updated_once",                 default: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   create_table "house_purchases", force: :cascade do |t|
@@ -94,23 +96,25 @@ ActiveRecord::Schema.define(version: 20150922054844) do
     t.boolean  "has_crime_record",           default: false
     t.boolean  "has_testament",              default: false
     t.integer  "archive_id",       limit: 4
+    t.boolean  "updated_once",               default: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "realname",   limit: 255
-    t.string   "id_no",      limit: 255
-    t.string   "sex",        limit: 255
-    t.string   "mobile",     limit: 255
+    t.string   "realname",     limit: 255
+    t.string   "id_no",        limit: 255
+    t.string   "sex",          limit: 255
+    t.string   "mobile",       limit: 255
     t.date     "birth_day"
     t.date     "death_day"
-    t.string   "address",    limit: 255
-    t.integer  "archive_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "avatar",     limit: 255
-    t.string   "id_no_img",  limit: 255
+    t.string   "address",      limit: 255
+    t.integer  "archive_id",   limit: 4
+    t.boolean  "updated_once",             default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "avatar",       limit: 255
+    t.string   "id_no_img",    limit: 255
   end
 
   create_table "reservations", force: :cascade do |t|

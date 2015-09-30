@@ -9,6 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.date :death_day
       t.string :address
       t.integer :archive_id
+      t.boolean :updated_once, default: false
 
       t.timestamps null: false
     end

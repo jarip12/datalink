@@ -2,19 +2,20 @@
 #
 # Table name: profiles
 #
-#  id         :integer          not null, primary key
-#  realname   :string(255)
-#  id_no      :string(255)
-#  sex        :string(255)
-#  mobile     :string(255)
-#  birth_day  :date
-#  death_day  :date
-#  address    :string(255)
-#  archive_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  avatar     :string(255)
-#  id_no_img  :string(255)
+#  id           :integer          not null, primary key
+#  realname     :string(255)
+#  id_no        :string(255)
+#  sex          :string(255)
+#  mobile       :string(255)
+#  birth_day    :date
+#  death_day    :date
+#  address      :string(255)
+#  archive_id   :integer
+#  updated_once :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  avatar       :string(255)
+#  id_no_img    :string(255)
 #
 
 class Profile < ActiveRecord::Base
@@ -26,6 +27,8 @@ class Profile < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :id_no_img, AvatarUploader
 
+  before_update :before_after_update
+
   validates :realname, presence: true
   validates :id_no, presence: true
 
@@ -33,5 +36,9 @@ class Profile < ActiveRecord::Base
   validates :sex, presence: true, on: :update
   validates :birth_day, presence: true, on: :update
   validates :address, presence: true, on: :update
+
+  def before_after_update
+    self.updated_once = true
+  end
 
 end

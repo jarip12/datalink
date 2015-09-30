@@ -11,6 +11,8 @@ dl
 	dd
       - if can? :edit, @archive.profile
 		a href="#{archive_profile_edit_path}" class="current"
+          span.glyphicon.glyphicon-list-alt
+          |基本信息
 	  - else
         a href="#{archive_profile_path}" class="current"
 		  span.glyphicon.glyphicon-list-alt
@@ -18,21 +20,26 @@ dl
 	dd
       - if can? :edit, @archive
 	    a href="#{archive_property_edit_path}"
+          span.glyphicon.glyphicon-usd
+          |资产相关
       - else
         a href="#{archive_property_path}"
-		  span.glyphicon.glyphicon-usd
+	      span.glyphicon.glyphicon-usd
 	  	  |资产相关
 	dd
-      - debug(can? :edit, @archive)
       - if can? :edit, @archive
 		a href="#{archive_notary_related_edit_path}"
+          span.glyphicon.glyphicon-tower
+          |公证相关
       - else
         a href="#{archive_notary_related_path}"
-		  span.glyphicon.glyphicon-tower
-		  |公证相关 
+          span.glyphicon.glyphicon-tower
+		    |公证相关
 	dd
       - if can? :edit, @archive
 		a href="#{archive_family_relation_edit_path}"
+          span.glyphicon.glyphicon-camera
+          |家庭信息
       - else
         a href="#{archive_family_relation_path}"
 		  span.glyphicon.glyphicon-camera

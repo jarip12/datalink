@@ -6,6 +6,7 @@
 #  has_crime_record :boolean          default(FALSE)
 #  has_testament    :boolean          default(FALSE)
 #  archive_id       :integer
+#  updated_once     :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
@@ -19,6 +20,11 @@ class NotaryRelated < ActiveRecord::Base
   accepts_nested_attributes_for :educations, :work_experiences, :notaries
 
   after_create :set_default_related
+  before_update :before_after_update
+
+  def before_after_update
+    self.updated_once = true
+  end
 
   def set_default_related
     education = Education.create
@@ -29,4 +35,5 @@ class NotaryRelated < ActiveRecord::Base
     self.work_experiences << work_experience
     self.notaries << notary
   end
+
 end

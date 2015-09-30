@@ -8,6 +8,7 @@
 #  relation_name    :string(255)
 #  owner_archive_id :integer
 #  archive_id       :integer
+#  updated_once     :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

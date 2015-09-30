@@ -6,6 +6,7 @@ class CreateFamilyRelations < ActiveRecord::Migration
       t.string :relation_name
       t.integer :owner_archive_id
       t.integer :archive_id
+      t.boolean :updated_once, default: false
 
       t.timestamps null: false
     end

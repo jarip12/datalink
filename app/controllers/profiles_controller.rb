@@ -5,6 +5,9 @@ class ProfilesController < ApplicationController
   load_and_authorize_resource :archive
   load_and_authorize_resource :profile, :through => :archive, :singleton => true
 
+  skip_load_and_authorize_resource :archive
+
+
 
   def search
     ap params
