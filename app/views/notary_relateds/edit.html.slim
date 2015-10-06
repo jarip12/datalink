@@ -7,26 +7,24 @@ p.form-title-wrap
 
   .form-inputs
     div.form-with-border
-      p.first-property-title = "学历情况"
+      p.first-title = "学历情况"
       = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
         = render 'education_fields', f: education
       .links.col-xs-offset-9.link-div
         = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link"
 
-    div.form-with-border
-      label.string.optional.control-label.col-xs-2
-        = NotaryRelated.human_attribute_name("has_crime_record")
+    div.row.form-with-border
+      label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_crime_record")
       div.col-xs-3
         = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
-    div.form-with-border
-      label.string.optional.control-label.col-xs-2
-        = NotaryRelated.human_attribute_name("has_testament")
+    div.row.form-with-border
+      label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_testament")
       div.col-xs-3
         = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
     div.form-with-border
-      p.first-property-title = "工作经历"
+      p.first-title = "工作经历"
       = f.simple_fields_for :work_experiences do |work_experience|
         = render 'work_experience_fields', f: work_experience
       .links.col-xs-offset-9.link-div
@@ -34,7 +32,7 @@ p.form-title-wrap
         = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right property-link"
 
     div.form-with-border
-      p.first-property-title = "公证办理"
+      p.first-title = "公证办理"
       = f.simple_fields_for :notaries do |notary|
         = render 'notary_fields', f: notary
       .links.col-xs-offset-9.link-div

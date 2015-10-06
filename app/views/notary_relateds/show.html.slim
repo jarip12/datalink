@@ -7,7 +7,7 @@ p.form-title-wrap
 
   .form-inputs
     div.form-with-border
-      p.first-property-title = "学历情况"
+      p.first-title = "学历情况"
       = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
         = render 'education_fields', f: education
 
@@ -24,11 +24,11 @@ p.form-title-wrap
         = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
     div.form-with-border
-      p.first-property-title = "工作经历"
+      p.first-title = "工作经历"
       = f.simple_fields_for :work_experiences do |work_experience|
         = render 'work_experience_fields', f: work_experience
 
     div.form-with-border
-      p.first-property-title = "公证办理"
+      p.first-title = "公证办理"
       = f.simple_fields_for :notaries do |notary|
         = render 'notary_fields', f: notary
