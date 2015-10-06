@@ -6,7 +6,7 @@ p.form-title-wrap
 
   = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
     = render 'family_relation_fields', f: family_relation
-  .links
+  .links.col-xs-offset-9
     = link_to_add_association '添加家庭成员', f, :family_relations, class: "btn btn-default"
 
   div.form-actions.text-center.col-offset-2
