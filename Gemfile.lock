@@ -169,10 +169,10 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
-    grape (0.11.0)
+    grape (0.7.0)
       activesupport
       builder
-      hashie (>= 2.1.0)
+      hashie (>= 1.2.0)
       multi_json (>= 1.3.2)
       multi_xml (>= 0.5.2)
       rack (>= 1.3.0)
@@ -522,7 +522,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   gon
-  grape
+  grape (~> 0.7.0)
   guard-annotate
   guard-bundler
   guard-livereload

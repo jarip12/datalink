@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922054844) do
+ActiveRecord::Schema.define(version: 20151007064207) do
 
   create_table "archives", force: :cascade do |t|
     t.string   "realname",   limit: 255
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 20150922054844) do
     t.boolean  "updated_once",                 default: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+  end
+
+  create_table "foreign_tables", force: :cascade do |t|
+    t.string   "realname",          limit: 255
+    t.integer  "age",               limit: 4
+    t.date     "birth_day"
+    t.string   "company_location",  limit: 255
+    t.string   "residence",         limit: 255
+    t.string   "paperwork_name",    limit: 255
+    t.string   "paperwork_no",      limit: 255
+    t.string   "apply_context",     limit: 255
+    t.string   "proxy_people_name", limit: 255
+    t.date     "apply_date"
+    t.datetime "reserve_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "house_purchases", force: :cascade do |t|

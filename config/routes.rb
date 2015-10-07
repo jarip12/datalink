@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   resources :staffs
 
   post 'members', to: 'staffs#create'
+  mount Api::Dispatch => '/api'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

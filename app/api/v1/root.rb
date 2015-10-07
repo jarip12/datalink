@@ -6,13 +6,12 @@ module Api
 
       version 'v1', using: :path
       PREFIX = '/api'
+      helpers Api::V1::Helpers
 
       cascade false
-      include Api::V1::ExceptionHandlers
+      #include Api::V1::ExceptionHandlers
 
-      use Api::V1::Auth::Middleware
-
-      mount Api::V1::Notary
+      #mount Api::V1::NotaryForeignTable
 
       format :json
       default_format :json

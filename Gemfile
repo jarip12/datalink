@@ -82,7 +82,7 @@ gem 'cocoon'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'grape'
+gem 'grape', '~> 0.7.0'
 
 
 group :development, :test do
