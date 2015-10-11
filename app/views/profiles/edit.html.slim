@@ -27,13 +27,7 @@ p.form-title-wrap
       div.col-xs-4
         = f.input_field :sex, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
-    = f.input :mobile,  wrapper_html:{class: "row"}, :label_html => { :class => "col-xs-2" }, :input_html => { :class => "col-xs-5" }
-
-    div.row
-      label.col-xs-2.control-label = Profile.human_attribute_name("mobile")
-      div.col-xs-5
-        = f.input_field :mobile, class: "form-control"
-        = f.input :mobile
+    = f.input :mobile,  :wrapper => "input_wrap"
 
     div.row
       label.string.optional.control-label.col-xs-2
