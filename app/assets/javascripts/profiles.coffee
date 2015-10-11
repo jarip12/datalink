@@ -2,7 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
-  console.log("hello datepicker")
-  $('.datepicker').datetimepicker({
-    format: "YYYY-MM-DD"
+  $('.datepicker').daterangepicker({
+    format: "YYYY-MM-DD",
+    singleDatePicker: true,
+    showDropdowns: true
   });
