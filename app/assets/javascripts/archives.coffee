@@ -5,7 +5,9 @@
 $(document).on 'ready page:load', ->
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
 
+  console.log("hello starter")
   $('.datepicker').live 'click', ->
+    console.log("hello click")
     $('.datepicker').daterangepicker({
       singleDatePicker: true,
       showDropdowns: true,
