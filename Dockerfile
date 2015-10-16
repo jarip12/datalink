@@ -4,20 +4,20 @@ FROM ruby:2.1.6
 RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
 #RUN apt-get install -y build-essential mysql-client postgresql-client sqlite3 --no-install-recommends
 
-RUN useradd chuck
-RUN mkdir /home/chuck
-RUN chown chuck:chuck /home/chuck
-RUN bash -c "echo 'chuck:123456' | /usr/sbin/chpasswd"
-RUN adduser chuck sudo
+#RUN useradd chuck
+#RUN mkdir /home/chuck
+#RUN chown chuck:chuck /home/chuck
+#RUN bash -c "echo 'chuck:123456' | /usr/sbin/chpasswd"
+#RUN adduser chuck sudo
+#USER chuck
 
-USER chuck
-
+RUN mkdir /www
 
 ENV RAILS_VERSION 4.2.3
 
 RUN gem install rails --version "$RAILS_VERSION"
 
-WORKDIR /home/chuck
+WORKDIR /www
 RUN mkdir lwnotary-datalake
 
 ADD . lwnotary-datalake
