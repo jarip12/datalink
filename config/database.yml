@@ -13,9 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: u9EDZLiwl1dNfp26
+  password: pNZkQiADGRy9mf2sC
+  port: 3306
+  host: 10.10.26.58
 
 development:
   <<: *default
@@ -49,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: datalake_production
-  username: datalake
-  password: <%= ENV['DATALAKE_DATABASE_PASSWORD'] %>
+  database: EUKyuHfzAThpQvF2
