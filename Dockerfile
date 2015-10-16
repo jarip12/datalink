@@ -27,4 +27,4 @@ RUN bundle install
 #RUN rake db:migrate
 #RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 EXPOSE 3000
-CMD ["rails","server","-b","0.0.0.0"]
+CMD ["rails","server","-b","0.0.0.0", "-e", "production"]
