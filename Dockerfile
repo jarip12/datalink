@@ -2,8 +2,7 @@ FROM ruby:2.1.5
 
 # see update.sh for why all "apt-get install"s have to stay as one long line
 RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
-RUN apt-get install -y build-essential nodejs-legacy  vim
-RUN apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y build-essential mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV RAILS_VERSION 4.2.3
 
