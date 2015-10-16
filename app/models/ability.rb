@@ -6,6 +6,7 @@ class Ability
 
     if staff.has_role?(:admin)
       can :manage, :all
+      can :search, :Profile
     elsif staff.has_role?(:user)
       basic_read_only
     elsif staff.has_role?(:typer)
