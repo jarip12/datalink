@@ -4,10 +4,11 @@ services:
   - mysql
 
 env:
-  - MYSQL_USERNAME="root"
-  - MYSQL_PASSWORD=""
-  - MYSQL_INSTANCE_NAME="test"
+  - MYSQL_USERNAME="u9EDZLiwl1dNfp26"
+  - MYSQL_PASSWORD="pNZkQiADGRy9mf2sC"
+  - MYSQL_INSTANCE_NAME="EUKyuHfzAThpQvF2"
 
 script:
+  - sudo apt-get install -y nodejs
   - bundle install
   - rspec spec/
