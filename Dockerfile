@@ -23,6 +23,9 @@ RUN mkdir lwnotary-datalake
 ADD . lwnotary-datalake
 WORKDIR lwnotary-datalake
 
+RUN mkdir tmp/pids
+RUN mkdir log
+
 RUN bundle install
 #RUN rake db:migrate
 #RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
