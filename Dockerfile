@@ -27,4 +27,4 @@ RUN bundle install
 #RUN rake db:migrate
 #RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 EXPOSE 3000
-CMD unicorn
+CMD bundle exec unicorn -c config/unicorn.rb
