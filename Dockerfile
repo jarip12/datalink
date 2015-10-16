@@ -30,4 +30,4 @@ RUN bundle install
 #RUN rake db:migrate
 #RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 EXPOSE 3000
-CMD bundle exec rake db:migrate && bundle exec rake assets:precompile && bundle exec unicorn -c config/unicorn.rb -E deployment -D
+CMD bundle exec rake db:migrate RAILS_ENV=production && bundle exec rake assets:precompile && bundle exec unicorn -c config/unicorn.rb -E deployment -D
