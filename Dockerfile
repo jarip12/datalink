@@ -23,7 +23,7 @@ RUN mkdir lwnotary-datalake
 ADD . lwnotary-datalake
 WORKDIR lwnotary-datalake
 
-RUN mkdir tmp/pids
+RUN mkdir -p tmp/pids
 RUN mkdir log
 
 RUN bundle install
