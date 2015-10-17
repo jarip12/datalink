@@ -27,7 +27,9 @@ Rails.application.routes.draw do
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
 
-  resources :reservations
+  resources :reservations do
+    get 'handle', to: 'reservations#handle'
+  end
 
 
 

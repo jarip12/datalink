@@ -3,6 +3,10 @@ class ReservationController < ApplicationController
   helper  SmartListing::Helper
   load_and_authorize_resource
 
+  def handle
+    ap "handle reservation"
+  end
+
   def index
     @reservations = smart_listing_create(:reservation, Reservation.all, partial: "reservations/listing")
   end

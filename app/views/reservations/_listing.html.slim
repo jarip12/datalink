@@ -12,6 +12,7 @@
           td = o.notary_type_text
           td = hour_minute_display(o.reserve_at)
           td = link_to "查看", reservation_path(o)
+          td = link_to "处理预约", reservation_handle_path(o)
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate
