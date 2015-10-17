@@ -9,6 +9,13 @@ ENV RAILS_ENV production
 
 RUN gem install rails --version "$RAILS_VERSION"
 
+# Install Nginx.
+RUN apt-get install -y nginx
+# RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
+# RUN chown -R www-data:www-data /var/lib/nginx
+# # Add default nginx config
+ADD unicorn-nginx.conf /etc/nginx/sites-enabled/default
+
 RUN mkdir /www
 WORKDIR /www
 RUN mkdir lwnotary-datalake

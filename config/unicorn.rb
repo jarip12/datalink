@@ -1,5 +1,6 @@
 worker_processes 3
 timeout 15
+listen "/tmp/unicorn.sock", :backlog => 64
 preload_app true
 
 before_fork do |server, worker|
