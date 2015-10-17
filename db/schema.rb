@@ -150,8 +150,6 @@ ActiveRecord::Schema.define(version: 20151007064207) do
     t.datetime "updated_at"
   end
 
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
-
   create_table "staffs", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -169,22 +167,19 @@ ActiveRecord::Schema.define(version: 20151007064207) do
     t.string   "realname",               limit: 255
   end
 
-  add_index "staffs", ["email"], name: "index_staffs_on_email", unique: true, using: :btree
-  add_index "staffs", ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true, using: :btree
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.string   "realname",               limit: 255
     t.string   "id_no",                  limit: 255
     t.string   "sex",                    limit: 255
@@ -192,10 +187,8 @@ ActiveRecord::Schema.define(version: 20151007064207) do
     t.date     "birth_daty"
     t.date     "death_daty"
     t.string   "address",                limit: 255
+    t.boolean  "verified",                           default: false
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "work_experiences", force: :cascade do |t|
     t.date     "start_day"

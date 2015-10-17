@@ -6,6 +6,19 @@ class ReservationsController < ApplicationController
 
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
+  def handle
+    ap "hello handle reservation"
+    ap params
+    @reservation = Reservation.find(params[:reservation_id])
+
+    unless @reservation.user.verified
+      new_archive = Archive.create(user_id: @reservation.user.id)
+      new_archive.save!
+    end
+    redirect_to archive_profile_edit_path(@reservation.user.archive)
+
+  end
+
   # GET /reservations
   def index
     @current_day_idx = Time.now.strftime("%u").to_i

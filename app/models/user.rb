@@ -22,11 +22,13 @@
 #  birth_daty             :date
 #  death_daty             :date
 #  address                :string(255)
+#  verified               :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_one :archive
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

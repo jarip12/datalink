@@ -16,6 +16,10 @@ class Reservation < ActiveRecord::Base
 
   by_star_field :reserve_at
 
+  def user
+    User.find(self.user_id)
+  end
+
 
   def user_realname
     User.find(self.user_id).realname

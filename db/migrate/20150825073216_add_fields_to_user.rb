@@ -7,5 +7,6 @@ class AddFieldsToUser < ActiveRecord::Migration
     add_column :users, :birth_daty, :date
     add_column :users, :death_daty, :date
     add_column :users, :address, :string
+    add_column :users, :verified, :boolean, default: false
   end
 end
