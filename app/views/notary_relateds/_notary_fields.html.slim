@@ -8,7 +8,7 @@ div.row.notary-row
     label.string.optional.control-label.col-xs-2.col-xs-offset-1
       = Notary.human_attribute_name("notary_type")
     div.col-xs-3
-        = f.input_field :notary_type
+        = f.input_field :notary_type, :include_blank => false
 
   div.col-xs-3
     = image_tag "notary_placeholder.png", class: "property-image"

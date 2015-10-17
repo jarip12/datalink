@@ -1,6 +1,6 @@
 div.row.first-row
   div.col-xs-2
-    = f.input_field :relation_name
+    = f.input_field :relation_name, :include_blank => false
   div.col-xs-2
     =f.input_field :realname, class: "form-control"
   label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
