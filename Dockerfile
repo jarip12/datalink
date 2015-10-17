@@ -8,7 +8,6 @@ ENV RAILS_VERSION 4.2.3
 ENV RAILS_ENV production
 
 RUN gem install rails --version "$RAILS_VERSION"
-RUN gem install foreman
 
 RUN mkdir /www
 WORKDIR /www
@@ -22,5 +21,4 @@ RUN mkdir log
 
 RUN bundle install
 EXPOSE 3000
-ENV PORT=3000
-CMD bundle exec rake assets:precompile && foreman start -f Procfile
+CMD ["sh", "start.sh"]
