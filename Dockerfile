@@ -10,7 +10,7 @@ ENV RAILS_ENV production
 RUN gem install rails --version "$RAILS_VERSION"
 
 # Install Nginx.
-RUN apt-get install -y nginx
+RUN RUN apt-get update && apt-get install -y nginx
 # RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 # RUN chown -R www-data:www-data /var/lib/nginx
 # # Add default nginx config
