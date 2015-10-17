@@ -22,4 +22,5 @@ RUN mkdir log
 
 RUN bundle install
 EXPOSE 3000
+ENV PORT=3000
 CMD bundle exec rake assets:precompile && foreman start -f Procfile
