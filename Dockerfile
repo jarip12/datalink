@@ -22,5 +22,4 @@ RUN mkdir log
 
 RUN bundle install
 EXPOSE 3000
-#CMD bundle exec rake db:migrate  && bundle exec rake assets:precompile && bundle exec unicorn -c config/unicorn.rb -E deployment -D
 CMD bundle exec rake assets:precompile && foreman start -f Procfile
