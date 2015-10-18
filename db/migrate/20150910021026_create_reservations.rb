@@ -3,6 +3,7 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.integer :user_id
       t.string :notary_type
+      t.string :status
       t.datetime :reserve_at
 
       t.timestamps null: false

@@ -64,6 +64,7 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_archive_and_profile
       @archive = Archive.find(params[:archive_id])
+      ap @archive
       @profile = @archive.profile
       ap @profile
     end

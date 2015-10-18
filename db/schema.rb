@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20151007064207) do
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.string   "notary_type", limit: 255
+    t.string   "status",      limit: 255
     t.datetime "reserve_at"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
