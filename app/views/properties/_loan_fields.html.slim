@@ -6,14 +6,14 @@ div.row.first-row
       label.string.optional.control-label.col-xs-2
         = Loan.human_attribute_name("start_day")
       div.input-group.date.col-xs-3
-        input type='text' class="datepicker form-control" name="loan[start_day]" value="#{f.object.start_day}"
+        input type='text' class="single-datepicker form-control" name="loan[start_day]" value="#{f.object.start_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = "至"
       div.input-group.date.col-xs-3
-        input type='text' class="form-control datepicker" name="loan[end_day]" value="#{f.object.end_day}"
+        input type='text' class="single-datepicker form-control" name="loan[end_day]" value="#{f.object.end_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
 

@@ -8,7 +8,7 @@ dl
 	dt 个人档案
 	dd
       - if can? :edit, @archive.profile
-		a href="#{archive_profile_edit_path}" class="current"
+		a href="#{archive_profile_edit_path(@archive)}" class="current"
           span.glyphicon.glyphicon-list-alt
           |基本信息
 	  - else
@@ -17,7 +17,7 @@ dl
 		  |基本信息
 	dd
       - if can? :edit, @archive
-	    a href="#{archive_property_edit_path}"
+	    a href="#{archive_property_edit_path(@archive)}"
           span.glyphicon.glyphicon-usd
           |资产相关
       - else
@@ -26,7 +26,7 @@ dl
 	  	  |资产相关
 	dd
       - if can? :edit, @archive
-		a href="#{archive_notary_related_edit_path}"
+		a href="#{archive_notary_related_edit_path(@archive)}"
           span.glyphicon.glyphicon-tower
           |公证相关
       - else
@@ -35,16 +35,16 @@ dl
 		    |公证相关
 	dd
       - if can? :edit, @archive
-		a href="#{archive_family_relation_edit_path}"
+		a href="#{archive_family_relation_edit_path(@archive)}"
           span.glyphicon.glyphicon-camera
           |家庭信息
       - else
-        a href="#{archive_family_relation_path}"
+        a href="#{archive_family_relation_path(@archive)}"
 		  span.glyphicon.glyphicon-camera
 		  |家庭信息 
 	dt 家庭成员关系树
 	dd
-		a href="#{archive_family_relations_path}"
+		a href="#{archive_family_relations_path(@archive)}"
 		  span.glyphicon.glyphicon-grain
 		  |关系图 
 	dt 公证卷宗扫描件
@@ -54,10 +54,6 @@ dl
 		  |扫描件 
 	dt 公证办理
 	dd
-        a href="#{archive_notaries_path}"
+        a href="#{archive_notaries_path(@archive)}"
 		  span.glyphicon.glyphicon-copy
 		  |公证表格填写及预约
-    dd
-        a href="#{archive_notary_records_path}"
-          span.glyphicon.glyphicon-copy
-          |公证办理记录

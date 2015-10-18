@@ -4,9 +4,8 @@
 
 $(document).on 'ready page:load', ->
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
-  $('body').on 'focus', ".datepicker", ->
-    console.log("click datepicker")
-    $('.datepicker').daterangepicker({
+  $('body').on 'focus', ".single-datepicker", ->
+    $('.single-datepicker').daterangepicker({
       singleDatePicker: true,
       showDropdowns: true,
       "locale": {

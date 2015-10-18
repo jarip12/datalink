@@ -33,13 +33,13 @@ p.form-title-wrap
       label.string.optional.control-label.col-xs-2
         = Profile.human_attribute_name("birth_day")
       div.input-group.date.col-xs-3
-        input type='text' class="form-control datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
+        input type='text' class="form-control single-datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Profile.human_attribute_name("death_day")
       div.input-group.date.col-xs-3
-        input type='text' class="form-control datepicker" name="profile[death_day]" value="#{@profile.death_day}"
+        input type='text' class="form-control single-datepicker" name="profile[death_day]" value="#{@profile.death_day}"
           span.input-group-addon
             span.glyphicon.glyphicon-time
 
