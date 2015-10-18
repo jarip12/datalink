@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -r
 
 ENV RAILS_VERSION 4.2.3
 ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
 
 RUN gem install rails --version "$RAILS_VERSION"
 
