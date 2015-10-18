@@ -12,4 +12,10 @@ class Util
     regex = Regexp.new(Setting.mobile_regex_format)
     !((mobile =~ regex).nil?)
   end
+
+  def self.id_no_valid?(id_no)
+    regex = Regexp.new(Setting.id_no_regex_format)
+    !((id_no =~ regex).nil?)
+  end
+
 end

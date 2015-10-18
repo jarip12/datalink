@@ -110,7 +110,7 @@ group :development do
   gem 'rails_panel'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'pry-nav'
+  #gem 'pry-nav'
   gem 'sextant'
 end
 
@@ -122,14 +122,6 @@ group :test do
   gem 'timecop'
 end
 
-group :development, :test do
-end
-
-group :development do
-end
-
-group :test do
-end
 
 gem 'mina-unicorn', require: false
 gem 'unicorn'

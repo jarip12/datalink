@@ -28,8 +28,9 @@ class ArchivesController < ApplicationController
 
   # GET /archives/new
   def new
+    #binding.pry
     @archive = Archive.new
-    @archive.save(validate: false)
+    #@archive.save(validate: false)
     ap @archive
     @profile = @archive.build_profile
   end
@@ -40,15 +41,21 @@ class ArchivesController < ApplicationController
 
   # POST /archives
   def create
-    @archive = Archive.new(archive_params)
+    #binding.pry
+    @archive = Archive.new(except_profile_params)
+    @profile = Profile.new(archive_params[:profile_attributes])
 
-    if @archive.save
+    if @archive.save && @profile.save(:validate => false)
+      @profile.archive_id = @archive.id
+      @profile.save(:validate => false)
       if can? :edit, @archive
         redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
       else
         redirect_to archive_profile_url(@archive), notice: t('action.created.successfully')
       end
     else
+      ap @archive.errors
+      ap "archive create fail"
       render :new
     end
   end
@@ -86,5 +93,9 @@ class ArchivesController < ApplicationController
           deposits_attributes: [:deposit_day, :receive_day, :amount],
           family_relations_attributes: [:id_no, :realname, :relation]
       )
+    end
+
+    def except_profile_params
+      archive_params.except(:profile_attributes)
     end
 end

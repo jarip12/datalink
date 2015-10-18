@@ -28,7 +28,10 @@ class Archive < ActiveRecord::Base
   accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
 
   delegate :notaries, to: :notary_related
-  #delegate :realname, to: :profile
+  delegate :realname, to: :profile, :allow_nil => true
+  delegate :id_no, to: :profile, :allow_nil => true
+
+
 
 
   def set_default_relations
@@ -38,11 +41,6 @@ class Archive < ActiveRecord::Base
     self.house_purchases << HousePurchase.create
     self.deposits << Deposit.create
     self.notary_related = NotaryRelated.create
-
-    #profile = Profile.new
-    #profile.save(validate: false)
-    #self.profile = profile
-
 
     result = FamilyRelation.create
     ap result

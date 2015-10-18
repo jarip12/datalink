@@ -1,8 +1,8 @@
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
-      t.string :realname
-      t.string :id_no
+      t.string :realname, default: ''
+      t.string :id_no, default: ''
       t.string :sex
       t.string :mobile
       t.date :birth_day
