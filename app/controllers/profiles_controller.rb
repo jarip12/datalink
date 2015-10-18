@@ -48,7 +48,12 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
-      redirect_to archive_url(@archive),  notice: t('action.updated.successfully')
+      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+      if can? :edit, @archive
+        redirect_to archive_profile_edit_path(@archive)
+      else
+        redirect_to archive_profile_path(@archive)
+      end
     else
       render :edit
     end

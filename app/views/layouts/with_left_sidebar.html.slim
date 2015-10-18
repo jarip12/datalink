@@ -12,4 +12,11 @@ html
         div.sidebar.pull-left
           == render 'layouts/sidebar'
         div.main
+          - if flash["notice"] and (not flash["notice"].is_a?(String))
+            - if flash["notice"].has_key?("class")
+              p class="alert alert-#{flash['notice']['class']}"
+                = flash["notice"]["body"]
+            - else
+              p class="alert alert-#{flash['notice'][:class]}"
+                = flash['notice'][:body]
           = yield
