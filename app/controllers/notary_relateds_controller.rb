@@ -61,9 +61,9 @@ class NotaryRelatedsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def notary_related_params
       params.require(:notary_related).permit(:has_crime_record, :has_testament,
-                                             educations_attributes: [:education_type, :school_name, :degree, :enroll_day, :graduation_day],
-                                             work_experiences_attributes: [:start_day, :end_day, :company_name, :job_title, :graduation_day],
-                                             notaries_attributes: [:no, :notary_type]
+                                             educations_attributes: [:id, :_destroy, :education_type, :school_name, :degree, :enroll_day, :graduation_day],
+                                             work_experiences_attributes: [:id, :_destroy, :start_day, :end_day, :company_name, :job_title, :graduation_day],
+                                             notaries_attributes: [:id, :_destroy, :no, :notary_type]
       )
     end
 end

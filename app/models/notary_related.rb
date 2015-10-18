@@ -17,7 +17,7 @@ class NotaryRelated < ActiveRecord::Base
   has_many :work_experiences
   has_many :notaries
 
-  accepts_nested_attributes_for :educations, :work_experiences, :notaries
+  accepts_nested_attributes_for :educations, :work_experiences, :notaries, reject_if: :all_blank, allow_destroy: true
 
   after_create :set_default_related
   before_update :before_after_update
