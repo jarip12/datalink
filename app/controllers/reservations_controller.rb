@@ -17,6 +17,9 @@ class ReservationsController < ApplicationController
       new_archive = Archive.create(user_id: @reservation.user.id)
       @profile = Profile.create(realname: @reservation.user.realname, id_no: @reservation.user.id_no, archive_id: new_archive.id)
       ap @profile
+      #every reservation should contain one notary_table
+      #NotaryRecord.create(notary_type: @reservation.notary_table.notary_type, user_id: @reservation.user.id)
+      NotaryRecord.create(user_id: @reservation.user.id)
       new_archive.save!
     end
     redirect_to archive_profile_edit_path(@reservation.user.archive)
