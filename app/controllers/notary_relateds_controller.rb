@@ -1,5 +1,5 @@
 class NotaryRelatedsController < ApplicationController
-  before_action :set_notary_related, only: [:show, :edit, :update, :destroy]
+  before_action :set_notary_related, only: [:show, :edit, :destroy]
   layout "with_left_sidebar"
   load_and_authorize_resource
 
@@ -36,8 +36,10 @@ class NotaryRelatedsController < ApplicationController
 
   # PATCH/PUT /notary_relateds/1
   def update
+    @notary_related = NotaryRelated.find(params[:id])
     if @notary_related.update(notary_related_params)
-      redirect_to archive_notary_related_edit_url(@archive),  notice: t('action.updated.successfully')
+      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+      redirect_to archive_notary_related_edit_url(@notary_related.archive_id)
     else
       render :edit
     end
