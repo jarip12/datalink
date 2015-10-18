@@ -20,6 +20,7 @@ class Archive < ActiveRecord::Base
   has_many :house_purchases
   has_many :deposits
   has_many :family_relations
+  has_many :notary_records
 
 
   after_create :set_default_relations

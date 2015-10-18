@@ -2,8 +2,15 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
   autocomplete :user, :email, :full => true
 
+  layout "with_left_sidebar"
+
   load_and_authorize_resource
 
+
+  def notary_records
+    @archive = Archive.find(params[:archive_id])
+    @notary_records = @archive.notary_records
+  end
 
 
   def faker_field

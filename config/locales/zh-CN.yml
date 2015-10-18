@@ -5,9 +5,16 @@ zh-CN:
       format:
         error: "不是合法的11位电话号码"
   enumerize:
+    notary_record:
+      notary_type:
+        foreign: "涉外公证"
+        person: "个人公证"
+        company: "单位公证"
     reservation:
       notary_type:
         foreign: "涉外公证"
+        person: "个人公证"
+        company: "单位公证"
       status:
         pending: "等待处理"
         handled: "已处理"
@@ -56,10 +63,6 @@ zh-CN:
         audit: "审批人"
         user: "使用人"
         typer: "录入人"
-
-
-
-
   devise:
     failure:
       user:
@@ -172,11 +175,14 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       notary:
-        'no': "公证编号"
+        no: "公证编号"
         notary_type: "公证类型"
         id: ID
         created_at: "创建时间"
         updated_at: "更新时间"
+      notary_record:
+        notary_id: "公证id"
+        notary_type: "公证类型"
       family_relation:
         id_no: "身份证号"
         realname: "姓名"

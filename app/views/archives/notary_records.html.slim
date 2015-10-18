@@ -1,0 +1,16 @@
+h1.reset-dom = "公证办理"
+p.form-title-wrap
+  span.form-title 公证办理记录
+
+table.table.table-striped
+  tr
+    th = NotaryRecord.human_attribute_name("notary_id")
+    th = NotaryRecord.human_attribute_name("notary_type")
+    th
+
+  - @notary_records.each do |record|
+    tr
+      td = record.notary_id
+      td = record.notary_type_text
+      td = link_to t('action.show'), '/'
+

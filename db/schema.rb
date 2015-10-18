@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20151018030005) do
     t.string   "notary_type", limit: 255
     t.string   "notary_id",   limit: 255
     t.integer  "user_id",     limit: 4
+    t.integer  "archive_id",  limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

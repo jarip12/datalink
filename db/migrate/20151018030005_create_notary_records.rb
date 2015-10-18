@@ -4,6 +4,7 @@ class CreateNotaryRecords < ActiveRecord::Migration
       t.string :notary_type
       t.string :notary_id
       t.integer :user_id
+      t.integer :archive_id
 
       t.timestamps null: false
     end

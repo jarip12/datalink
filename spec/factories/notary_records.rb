@@ -6,6 +6,7 @@
 #  notary_type :string(255)
 #  notary_id   :string(255)
 #  user_id     :integer
+#  archive_id  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
