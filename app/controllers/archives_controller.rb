@@ -2,7 +2,7 @@ class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
   autocomplete :user, :email, :full => true
 
-  layout "with_left_sidebar"
+  layout "with_left_sidebar", except: [:new]
 
   load_and_authorize_resource
 
@@ -29,6 +29,8 @@ class ArchivesController < ApplicationController
   # GET /archives/new
   def new
     @archive = Archive.new
+    @archive.save(validate: false)
+    ap @archive
     @profile = @archive.build_profile
   end
 
@@ -54,7 +56,11 @@ class ArchivesController < ApplicationController
   # PATCH/PUT /archives/1
   def update
     if @archive.update(archive_params)
-      redirect_to @archive,  notice: t('action.updated.successfully')
+      if can? :edit, @archive
+        redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
+      else
+        redirect_to archive_profile_url(@archive), notice: t('action.created.successfully')
+      end
     else
       render :edit
     end
