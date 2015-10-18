@@ -14,6 +14,7 @@ class Archive < ActiveRecord::Base
   belongs_to :user
   has_one :profile
   has_one :notary_related
+  has_one :property_related
   has_many :loans
   has_many :house_purchases
   has_many :deposits
@@ -39,6 +40,7 @@ class Archive < ActiveRecord::Base
     self.house_purchases << HousePurchase.create
     self.deposits << Deposit.create
     self.notary_related = NotaryRelated.create
+    self.property_related = PropertyRelated.create
 
     result = FamilyRelation.create
     ap result

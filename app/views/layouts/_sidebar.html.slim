@@ -17,11 +17,11 @@ dl
 		  |基本信息
 	dd
       - if can? :edit, @archive
-	    a href="#{archive_property_edit_path(@archive)}"
+	    a href="#{archive_property_related_edit_path(@archive)}"
           span.glyphicon.glyphicon-usd
           |资产相关
       - else
-        a href="#{archive_property_path}"
+        a href="#{archive_property_related_edit_path(@archive)}"
 	      span.glyphicon.glyphicon-usd
 	  	  |资产相关
 	dd

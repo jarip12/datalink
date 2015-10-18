@@ -8,9 +8,13 @@ Rails.application.routes.draw do
     get 'profile', to: 'profiles#show'
     patch 'profile', to: 'profiles#update'
 
-    get 'property/edit', to: 'properties#edit'
-    get 'property', to: 'properties#show'
-    patch 'property', to: 'properties#update'
+    #get 'property/edit', to: 'properties#edit'
+    #get 'property', to: 'properties#show'
+    #patch 'property', to: 'properties#update'
+
+    get 'property_related/edit', to: 'property_relateds#edit'
+    get 'property_related', to: 'property_relateds#show'
+    patch 'property_related', to: 'property_relateds#update'
 
     get 'notary_related/edit', to: 'notary_relateds#edit'
     get 'notary_related', to: 'notary_relateds#show'
