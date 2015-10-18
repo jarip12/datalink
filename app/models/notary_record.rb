@@ -5,11 +5,13 @@
 #  id          :integer          not null, primary key
 #  notary_type :string(255)
 #  notary_id   :integer
+#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class NotaryRecord < ActiveRecord::Base
+  extend Enumerize
   enumerize :notary_type, in: [:company, :person, :foreign], default: :person
 
   before_save :set_notary_id

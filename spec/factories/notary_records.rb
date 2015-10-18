@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  notary_type :string(255)
 #  notary_id   :integer
+#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
