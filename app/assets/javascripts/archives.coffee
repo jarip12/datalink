@@ -3,6 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
+  console.log("hello sidebar")
+  $('dl dd a[href]').each ->
+    if (this.href == window.location.href)
+      $(this).addClass('current')
+
+
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
   $('body').on 'focus', ".single-datepicker", ->
     $('.single-datepicker').daterangepicker({
