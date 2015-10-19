@@ -38,8 +38,6 @@ class Staff < ActiveRecord::Base
   end
 
   def has_role?(name)
-    ap name.class
-    ap self.role.class
     self.role == name
   end
 end
