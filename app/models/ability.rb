@@ -2,7 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(staff)
-    ap staff
 
     if staff.has_role?(:admin)
       can :manage, :all
