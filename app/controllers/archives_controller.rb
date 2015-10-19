@@ -49,9 +49,9 @@ class ArchivesController < ApplicationController
       @profile.archive_id = @archive.id
       @profile.save(:validate => false)
       if can? :edit, @archive
-        redirect_to archive_profile_edit_url(@archive), notice: t('action.created.successfully')
+        redirect_to edit_profile_url(@profile), notice: t('action.created.successfully')
       else
-        redirect_to archive_profile_url(@archive), notice: t('action.created.successfully')
+        redirect_to profile_url(@profile), notice: t('action.created.successfully')
       end
     else
       ap @archive.errors

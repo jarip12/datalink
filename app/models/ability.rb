@@ -10,15 +10,8 @@ class Ability
       basic_read_only
     elsif staff.has_role?(:typer)
       basic_read_only
-      can :new, Archive
-      can :create, Archive
+      can [:new, :create], Archive
 
-      can [:edit, :update], Archive.where("updated_at = created_at")
-      can [:edit, :update], Profile.where("updated_at = created_at")
-      can [:edit, :update], Notary.where("updated_at = created_at")
-      can [:edit, :update], NotaryRelated.where("updated_at = created_at")
-
-      #daynamic
     elsif staff.has_role?(:audit)
       can :manage, :all
       cannot :manage, :staff
@@ -32,5 +25,6 @@ class Ability
     def basic_read_only
       can :search, Profile
       can :show, :all
+      can :index, :Reservation
     end
 end

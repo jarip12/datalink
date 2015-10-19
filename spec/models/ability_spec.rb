@@ -41,8 +41,24 @@ describe Ability, :type => :model do
   context "Typer can search and show" do
     let(:typer) { create(:typer) }
     let(:ability){ Ability.new(typer) }
+
     it { is_expected.to be_able_to(:show, Archive) }
+    it { is_expected.not_to be_able_to([:edit, :new], Archive) }
+
+    it { is_expected.not_to be_able_to([:all], Reservation) }
+
     it { is_expected.to be_able_to(:search, Profile) }
+    it { is_expected.to be_able_to(:show, Profile) }
+    it { is_expected.not_to be_able_to(:edit, Profile) }
+
+    it { is_expected.to be_able_to(:show, PropertyRelated) }
+    it { is_expected.not_to be_able_to(:edit, PropertyRelated) }
+
+    it { is_expected.to be_able_to(:show, NotaryRelated) }
+    it { is_expected.not_to be_able_to(:edit, NotaryRelated) }
+
+    it { is_expected.to be_able_to(:show, FamilyRelated) }
+    it { is_expected.not_to be_able_to(:edit, FamilyRelated) }
   end
 
 
