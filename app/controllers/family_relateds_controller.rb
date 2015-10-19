@@ -38,7 +38,7 @@ class FamilyRelatedsController < ApplicationController
     @family_related = FamilyRelated.find(params[:id])
     if @family_related.update(family_related_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to archive_family_related_edit_url(@family_related.archive_id)
+      redirect_to edit_family_related_url(@family_related.archive_id)
     else
       render :edit
     end
@@ -53,8 +53,8 @@ class FamilyRelatedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_family_related
-      @archive = Archive.find(params[:archive_id])
-      @family_related = @archive.family_related
+      @family_related = FamilyRelated.find(params[:id])
+      @archive = @family_related.archive
     end
 
     # Only allow a trusted parameter "white list" through.

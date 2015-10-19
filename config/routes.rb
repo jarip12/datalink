@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :family_relations
+
   resources :notary_relateds
   resources :property_relateds
-  resources :family_relateds, only: [:post, :update]
+  resources :family_relateds
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
   resources :profiles
@@ -20,8 +21,8 @@ Rails.application.routes.draw do
     #get 'notary_related', to: 'notary_relateds#show'
     #patch 'notary_related', to: 'notary_relateds#update'
 
-    get 'family_related/edit', to: 'family_relateds#edit'
-    get 'family_related', to: 'family_relateds#show'
+    #get 'family_related/edit', to: 'family_relateds#edit'
+    #get 'family_related', to: 'family_relateds#show'
 
     #get 'family_relation/edit', to: 'family_relations#edit'
     #get 'family_relation', to: 'family_relations#show'
