@@ -1,0 +1,36 @@
+h2.reset-dom 个人档案
+p.form-title-wrap
+  span.form-title 资产相关
+
+= simple_form_for @property_related, html: {class: "form-wrap form-horizontal"} do |f|
+  = f.error_notification
+
+  .form-inputs
+    div.form-with-border
+      p.first-title = "信贷情况"
+      = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
+        = render 'loan_fields', f: loan
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加信贷记录', f, :loans, class: "property-link pull-right"
+
+    div.form-with-border
+      p.property-title = "购房情况"
+      = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
+        = render 'house_purchase_fields', f: house_purchase
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加购房记录', f, :house_purchases, class: "property-link pull-right"
+
+    div.form-with-border
+      p.property-title = "提存情况"
+      = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
+        = render 'deposit_fields', f: deposit
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加提存记录', f, :deposits, class: "property-link pull-right"
+
+    .form-group
+      input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"
+
+

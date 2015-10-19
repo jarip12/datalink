@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20151018141645) do
   create_table "deposits", force: :cascade do |t|
     t.date     "deposit_day"
     t.date     "receive_day"
-    t.float    "amount",       limit: 24
-    t.integer  "archive_id",   limit: 4
-    t.boolean  "updated_once",            default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.float    "amount",              limit: 24
+    t.integer  "property_related_id", limit: 4
+    t.boolean  "updated_once",                   default: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "educations", force: :cascade do |t|
@@ -77,25 +77,25 @@ ActiveRecord::Schema.define(version: 20151018141645) do
 
   create_table "house_purchases", force: :cascade do |t|
     t.date     "trade_day"
-    t.string   "trade_type",    limit: 255
-    t.string   "house_type",    limit: 255
-    t.string   "house_address", limit: 255
-    t.string   "house_amount",  limit: 255
-    t.integer  "archive_id",    limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "trade_type",          limit: 255
+    t.string   "house_type",          limit: 255
+    t.string   "house_address",       limit: 255
+    t.string   "house_amount",        limit: 255
+    t.integer  "property_related_id", limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "loans", force: :cascade do |t|
     t.date     "start_day"
     t.date     "end_day"
-    t.string   "notary_type",   limit: 255
-    t.string   "description",   limit: 255
-    t.float    "amount",        limit: 24
-    t.integer  "archive_id",    limit: 4
+    t.string   "notary_type",         limit: 255
+    t.string   "description",         limit: 255
+    t.float    "amount",              limit: 24
+    t.integer  "property_related_id", limit: 4
     t.boolean  "repay_on_time"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "notaries", force: :cascade do |t|
@@ -141,10 +141,10 @@ ActiveRecord::Schema.define(version: 20151018141645) do
   end
 
   create_table "property_relateds", force: :cascade do |t|
-    t.boolean  "updated_once"
+    t.boolean  "updated_once",           default: false
     t.integer  "archive_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "reservations", force: :cascade do |t|

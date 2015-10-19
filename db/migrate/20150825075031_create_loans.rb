@@ -6,7 +6,7 @@ class CreateLoans < ActiveRecord::Migration
       t.string :notary_type
       t.string :description
       t.float :amount
-      t.integer :archive_id
+      t.integer :property_related_id
       t.boolean :repay_on_time
 
       t.timestamps null: false

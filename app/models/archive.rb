@@ -32,13 +32,9 @@ class Archive < ActiveRecord::Base
 
 
 
-
   def set_default_relations
     self.save!
 
-    self.loans << Loan.create
-    self.house_purchases << HousePurchase.create
-    self.deposits << Deposit.create
     self.notary_related = NotaryRelated.create
     self.property_related = PropertyRelated.create
 
