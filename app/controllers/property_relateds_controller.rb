@@ -38,7 +38,7 @@ class PropertyRelatedsController < ApplicationController
     @property_related = PropertyRelated.find(params[:id])
     if @property_related.update(property_related_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to archive_property_related_edit_url(@property_related.archive_id)
+      redirect_to edit_property_related_url(@property_related.archive_id)
     else
       render :edit
     end
@@ -53,8 +53,8 @@ class PropertyRelatedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property_related
-      @archive = Archive.find(params[:archive_id])
-      @property_related = @archive.property_related
+      @property_related = PropertyRelated.find(params[:id])
+      @archive = @property_related.archive
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -16,30 +16,30 @@ dl
 		  span.glyphicon.glyphicon-list-alt
 		  |基本信息
 	dd
-      - if can? :edit, @archive
-	    a href="#{archive_property_related_edit_path(@archive)}"
+      - if can? :edit, @archive.property_related
+	    a href="#{edit_property_related_path(@archive.property_related)}"
           span.glyphicon.glyphicon-usd
           |资产相关
       - else
-        a href="#{archive_property_related_edit_path(@archive)}"
+        a href="#{property_related_path(@archive.property_related)}"
 	      span.glyphicon.glyphicon-usd
 	  	  |资产相关
 	dd
-      - if can? :edit, @archive
-		a href="#{edit_notary_related_path(@archive)}"
+      - if can? :edit, @archive.notary_related
+		a href="#{edit_notary_related_path(@archive.notary_related)}"
           span.glyphicon.glyphicon-tower
           |公证相关
       - else
-        a href="#{notary_related_path}"
+        a href="#{notary_related_path(@archive.notary_related)}"
           span.glyphicon.glyphicon-tower
 		    |公证相关
 	dd
-      - if can? :edit, @archive
-		a href="#{edit_family_related_path(@archive)}"
+      - if can? :edit, @archive.family_related
+		a href="#{edit_family_related_path(@archive.family_related)}"
           span.glyphicon.glyphicon-camera
           |家庭信息
       - else
-        a href="#{family_related_path(@archive)}"
+        a href="#{family_related_path(@archive.family_related)}"
 		  span.glyphicon.glyphicon-camera
 		  |家庭信息 
 	dt 家庭成员关系树

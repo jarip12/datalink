@@ -9,15 +9,15 @@ p.form-title-wrap
     div.form-with-border
       p.first-title = "信贷情况"
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
-        = render 'loan_fields', f: loan
+        = render 'loan_fields', f: loan, cannot_edit: true
 
     div.form-with-border
       p.property-title = "购房情况"
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
-        = render 'house_purchase_fields', f: house_purchase
+        = render 'house_purchase_fields', f: house_purchase, cannot_edit: true
 
     div.form-with-border
       p.property-title = "提存情况"
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
-        = render 'deposit_fields', f: deposit
+        = render 'deposit_fields', f: deposit, cannot_edit: true
 
