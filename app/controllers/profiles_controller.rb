@@ -8,6 +8,9 @@ class ProfilesController < ApplicationController
   load_and_authorize_resource :profile, :through => :archive, :singleton => true
   skip_load_and_authorize_resource :archive, :search
 
+  def can_edit_multi_times
+
+  end
 
 
   def search

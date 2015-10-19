@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   resources :users
 
   #for staffs
-  resources :staffs, except: [:show]
+  resources :staffs, except: [:show, :destroy]
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
   post 'members', to: 'staffs#create'
 
