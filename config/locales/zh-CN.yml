@@ -5,6 +5,11 @@ zh-CN:
       format:
         error: "不是合法的11位电话号码"
   enumerize:
+    faker_material:
+      faker_material_type:
+        foreign: "涉外公证"
+        person: "个人公证"
+        company: "单位公证"
     notary_record:
       notary_type:
         foreign: "涉外公证"
@@ -113,6 +118,8 @@ zh-CN:
       notary_related: notary_related
       staff: "内部员工"
     attributes:
+      faker_material:
+        faker_material_type: 假材料类型
       staff:
         role: "角色"
         realname: "真实姓名"

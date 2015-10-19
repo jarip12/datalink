@@ -1,0 +1,13 @@
+div.row.notary-row
+  div.col-xs-9.notary-fields
+    label.string.optional.control-label.col-xs-2 假材料编号
+    div.col-xs-3
+      = f.input_field :faker_material_no
+
+    label.string.optional.control-label.col-xs-2.col-xs-offset-1
+      = FakerMaterial.human_attribute_name("faker_material_type")
+    div.col-xs-3
+        = f.input_field :faker_material_type, :include_blank => false
+
+  div.col-xs-3
+    = image_tag "notary_placeholder.png", class: "property-image"

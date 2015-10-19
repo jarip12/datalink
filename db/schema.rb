@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019014206) do
+ActiveRecord::Schema.define(version: 20151019035839) do
 
   create_table "archives", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20151019014206) do
     t.integer  "notary_related_id", limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "faker_materials", force: :cascade do |t|
+    t.string   "faker_material_no",   limit: 255
+    t.string   "faker_material_type", limit: 255
+    t.integer  "notary_related_id",   limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "family_relateds", force: :cascade do |t|

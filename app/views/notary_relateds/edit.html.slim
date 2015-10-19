@@ -39,5 +39,13 @@ p.form-title-wrap
         span.property-link 上传扫描件
         = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link"
 
+    div.form-with-border
+      p.first-title = "假材料通报"
+      = f.simple_fields_for :faker_materials do |faker_material|
+        = render 'faker_material_fields', f: faker_material
+      .links.col-xs-offset-9.link-div
+        span.property-link 上传扫描件
+        = link_to_add_association '添加假材料记录', f, :faker_materials, class: "pull-right property-link"
+
     .form-group
       input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"

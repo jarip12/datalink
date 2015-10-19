@@ -16,8 +16,9 @@ class NotaryRelated < ActiveRecord::Base
   has_many :educations
   has_many :work_experiences
   has_many :notaries
+  has_many :faker_materials
 
-  accepts_nested_attributes_for :educations, :work_experiences, :notaries, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :educations, :work_experiences, :notaries, :faker_materials, reject_if: :all_blank, allow_destroy: true
 
   after_create :set_default_related
   before_update :set_updated_once
@@ -30,10 +31,13 @@ class NotaryRelated < ActiveRecord::Base
     education = Education.create
     work_experience = WorkExperience.create
     notary = Notary.create
+    faker_material = FakerMaterial.create
 
     self.educations << education
     self.work_experiences << work_experience
     self.notaries << notary
+    self.faker_materials << faker_material
+
   end
 
 end

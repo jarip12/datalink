@@ -63,7 +63,8 @@ class NotaryRelatedsController < ApplicationController
       params.require(:notary_related).permit(:has_crime_record, :has_testament,
                                              educations_attributes: [:id, :_destroy, :education_type, :school_name, :degree, :enroll_day, :graduation_day],
                                              work_experiences_attributes: [:id, :_destroy, :start_day, :end_day, :company_name, :job_title, :graduation_day],
-                                             notaries_attributes: [:id, :_destroy, :no, :notary_type]
+                                             notaries_attributes: [:id, :_destroy, :no, :notary_type],
+                                             faker_materials_attributes: [:id, :_destroy, :faker_material_no, :faker_material_type],
       )
     end
 end
