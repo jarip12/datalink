@@ -5,6 +5,7 @@ div.row
         = WorkExperience.human_attribute_name("start_day")
       div.input-group.date.col-xs-3
         input type='text' class="single-datepicker form-control" name="loan[start_day]" value="#{f.object.start_day}"
+        = f.input_field :start_day
           span.input-group-addon
             span.glyphicon.glyphicon-time
 

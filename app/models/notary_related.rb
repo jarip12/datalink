@@ -20,9 +20,9 @@ class NotaryRelated < ActiveRecord::Base
   accepts_nested_attributes_for :educations, :work_experiences, :notaries, reject_if: :all_blank, allow_destroy: true
 
   after_create :set_default_related
-  before_update :before_after_update
+  before_update :set_updated_once
 
-  def before_after_update
+  def set_updated_once
     self.updated_once = true
   end
 

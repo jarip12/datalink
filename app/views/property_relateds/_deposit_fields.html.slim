@@ -5,16 +5,16 @@ div.row.first-row
       label.string.optional.control-label.col-xs-2
         = Deposit.human_attribute_name("deposit_day")
       div.input-group.date.col-xs-3
-        input type='text' class="single-datepicker form-control" name="loan[deposit_day]" value="#{f.object.deposit_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+        = f.input_field :deposit_day, as: :string, class: "single-datepicker form-control"
+        span.input-group-addon
+          span.glyphicon.glyphicon-time
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Deposit.human_attribute_name("receive_day")
       div.input-group.date.col-xs-3
-        input type='text' class="single-datepicker form-control" name="deposit[receive_day]" value="#{f.object.receive_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+        = f.input_field :receive_day, as: :string, class: "single-datepicker form-control"
+        span.input-group-addon
+          span.glyphicon.glyphicon-time
 
     div.row.row-with-margin
       label.string.optional.control-label.col-xs-2
