@@ -4,12 +4,12 @@ div.row
       label.string.optional.control-label.col-xs-2
         = Education.human_attribute_name("education_type")
       div.input-group.col-xs-2
-        = f.input_field :education_type, :include_blank => false
+        = f.input_field :education_type, :include_blank => false, disabled: cannot_edit
 
       label.string.optional.control-label.col-xs-2
         = Education.human_attribute_name("school_name")
       div.input-group.col-xs-2
-        = f.input_field :school_name
+        = f.input_field :school_name, disabled: cannot_edit
 
   div.col-xs-3
     = image_tag "two-line-placeholder.png", class: "property-image"

@@ -12,7 +12,7 @@ dl
           span.glyphicon.glyphicon-list-alt
           |基本信息
 	  - else
-        a href="#{archive_profile_path}" class="current"
+        a href="#{profile_path(@archive.profile)}" class="current"
 		  span.glyphicon.glyphicon-list-alt
 		  |基本信息
 	dd
@@ -26,11 +26,11 @@ dl
 	  	  |资产相关
 	dd
       - if can? :edit, @archive
-		a href="#{archive_notary_related_edit_path(@archive)}"
+		a href="#{edit_notary_related_path(@archive)}"
           span.glyphicon.glyphicon-tower
           |公证相关
       - else
-        a href="#{archive_notary_related_path}"
+        a href="#{notary_related_path}"
           span.glyphicon.glyphicon-tower
 		    |公证相关
 	dd

@@ -54,8 +54,8 @@ class NotaryRelatedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notary_related
-      @archive = Archive.find(params[:archive_id])
-      @notary_related = @archive.notary_related
+      @notary_related = NotaryRelated.find(params[:id])
+      @archive = @notary_related.archive
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -5,21 +5,20 @@ Rails.application.routes.draw do
   resources :property_relateds
   resources :family_relateds, only: [:post, :update]
 
+  get 'profiles/search', to: 'profiles#search', as: :search_profiles
   resources :profiles
+
 
   resources :archives do
     get :autocomplete_user_email, :on => :collection
-    #get 'profile/edit', to: 'profiles#edit'
-    #get 'profile', to: 'profiles#show'
-    #patch 'profile', to: 'profiles#update'
 
     get 'property_related/edit', to: 'property_relateds#edit'
     get 'property_related', to: 'property_relateds#show'
     patch 'property_related', to: 'property_relateds#update'
 
-    get 'notary_related/edit', to: 'notary_relateds#edit'
-    get 'notary_related', to: 'notary_relateds#show'
-    patch 'notary_related', to: 'notary_relateds#update'
+    #get 'notary_related/edit', to: 'notary_relateds#edit'
+    #get 'notary_related', to: 'notary_relateds#show'
+    #patch 'notary_related', to: 'notary_relateds#update'
 
     get 'family_related/edit', to: 'family_relateds#edit'
     get 'family_related', to: 'family_relateds#show'
@@ -34,7 +33,7 @@ Rails.application.routes.draw do
 
   end
 
-  get 'profiles/search', to: 'profiles#search', as: :search_profiles
+
 
   resources :reservations do
     get 'handle', to: 'reservations#handle'
