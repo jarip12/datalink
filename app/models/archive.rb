@@ -24,6 +24,8 @@ class Archive < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   delegate :notaries, to: :notary_related
+  delegate :family_relations, to: :family_related
+
   delegate :realname, to: :profile, :allow_nil => true
   delegate :id_no, to: :profile, :allow_nil => true
 
