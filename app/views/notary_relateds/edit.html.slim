@@ -9,43 +9,43 @@ p.form-title-wrap
     div.form-with-border
       p.first-title = "学历情况"
       = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
-        = render 'education_fields', f: education
+        = render 'education_fields', f: education, cannot_edit: false
       .links.col-xs-offset-9.link-div
-        = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link"
+        = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
     div.row.form-with-border
       label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_crime_record")
       div.col-xs-3
-        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
+        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline", cannot_edit: false
 
     div.row.form-with-border
       label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_testament")
       div.col-xs-3
-        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
+        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline", cannot_edit: false
 
     div.form-with-border
       p.first-title = "工作经历"
       = f.simple_fields_for :work_experiences do |work_experience|
-        = render 'work_experience_fields', f: work_experience
+        = render 'work_experience_fields', f: work_experience, cannot_edit: false
       .links.col-xs-offset-9.link-div
         span.property-link 上传扫描件
-        = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right property-link"
+        = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.first-title = "公证办理"
       = f.simple_fields_for :notaries do |notary|
-        = render 'notary_fields', f: notary
+        = render 'notary_fields', f: notary, cannot_edit: false
       .links.col-xs-offset-9.link-div
         span.property-link 上传扫描件
-        = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link"
+        = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.first-title = "假材料通报"
       = f.simple_fields_for :faker_materials do |faker_material|
-        = render 'faker_material_fields', f: faker_material
+        = render 'faker_material_fields', f: faker_material, cannot_edit: false
       .links.col-xs-offset-9.link-div
         span.property-link 上传扫描件
-        = link_to_add_association '添加假材料记录', f, :faker_materials, class: "pull-right property-link"
+        = link_to_add_association '添加假材料记录', f, :faker_materials, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
     .form-group
       input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"

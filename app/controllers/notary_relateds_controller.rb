@@ -39,7 +39,7 @@ class NotaryRelatedsController < ApplicationController
     @notary_related = NotaryRelated.find(params[:id])
     if @notary_related.update(notary_related_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to archive_notary_related_edit_url(@notary_related.archive_id)
+      redirect_to edit_notary_related_url(@notary_related)
     else
       render :edit
     end
