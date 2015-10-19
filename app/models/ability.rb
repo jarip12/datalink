@@ -12,6 +12,8 @@ class Ability
       basic_read_only
       can [:new, :create], Archive
 
+      can [:edit], Profile.where(updated_once: false)
+
     elsif staff.has_role?(:audit)
       can :manage, :all
       cannot :manage, :staff

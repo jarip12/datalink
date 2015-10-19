@@ -2,11 +2,8 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   layout "with_left_sidebar", except: [:search]
-  #load_and_authorize_resource
 
-  #load_and_authorize_resource :archive
-  load_and_authorize_resource :profile
-  #skip_load_and_authorize_resource :archive, :search
+  load_and_authorize_resource
 
   def can_edit_multi_times
 
@@ -50,6 +47,9 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
+    ap profile_params
+    profile_params['updated_once'] = true
+    ap profile_params
     if @profile.update(profile_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
       if can? :edit, @archive

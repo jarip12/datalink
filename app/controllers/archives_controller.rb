@@ -43,16 +43,20 @@ class ArchivesController < ApplicationController
   def create
     #binding.pry
     @archive = Archive.new(except_profile_params)
-    @profile = Profile.new(archive_params[:profile_attributes])
 
-    if @archive.save && @profile.save(:validate => false)
-      @profile.archive_id = @archive.id
+
+    if @archive.save
+      profile_attrs = archive_params[:profile_attributes]
+      profile_attrs['archive_id'] = @archive.id
+      @profile = Profile.new(profile_attrs)
       @profile.save(:validate => false)
-      if can? :edit, @archive
+
+      if can? :edit, @profile
         redirect_to edit_profile_url(@profile), notice: t('action.created.successfully')
       else
         redirect_to profile_url(@profile), notice: t('action.created.successfully')
       end
+
     else
       ap @archive.errors
       ap "archive create fail"
