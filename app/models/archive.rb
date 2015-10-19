@@ -15,16 +15,13 @@ class Archive < ActiveRecord::Base
   has_one :profile
   has_one :notary_related
   has_one :property_related
-  has_many :loans
-  has_many :house_purchases
-  has_many :deposits
-  has_many :family_relations
+  has_one :family_related
   has_many :notary_records
 
 
   after_create :set_default_relations
 
-  accepts_nested_attributes_for :profile, :loans, :house_purchases, :deposits, :family_relations
+  accepts_nested_attributes_for :profile
 
   delegate :notaries, to: :notary_related
   delegate :realname, to: :profile, :allow_nil => true
@@ -37,11 +34,7 @@ class Archive < ActiveRecord::Base
 
     self.notary_related = NotaryRelated.create
     self.property_related = PropertyRelated.create
-
-    result = FamilyRelation.create
-    ap result
-    ap self.family_relations
-    self.family_relations << result
+    self.family_related = FamilyRelated.create
 
   end
 

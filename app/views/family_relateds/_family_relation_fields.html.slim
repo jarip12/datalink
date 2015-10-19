@@ -4,10 +4,6 @@ div.row.first-row
       option selected="selected" value="father" 父亲
       option value="mother" 母亲
       option value="uncle" 叔叔
-      option
-        select include_blank="false" class="select optional" name="archive[family_relations_attributes][0][relation_name]" id="archive_family_relations_attributes_0_relation_name"
-          option selected="selected" value="father" 11
-          option value="mother" 22
   div.col-xs-2
     =f.input_field :realname, class: "form-control"
   label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")

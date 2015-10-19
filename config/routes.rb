@@ -3,16 +3,13 @@ Rails.application.routes.draw do
   resources :family_relations
   resources :notary_relateds
   resources :property_relateds
+  resources :family_relateds, only: [:post, :update]
 
   resources :archives do
     get :autocomplete_user_email, :on => :collection
     get 'profile/edit', to: 'profiles#edit'
     get 'profile', to: 'profiles#show'
     patch 'profile', to: 'profiles#update'
-
-    #get 'property/edit', to: 'properties#edit'
-    #get 'property', to: 'properties#show'
-    #patch 'property', to: 'properties#update'
 
     get 'property_related/edit', to: 'property_relateds#edit'
     get 'property_related', to: 'property_relateds#show'
@@ -22,10 +19,14 @@ Rails.application.routes.draw do
     get 'notary_related', to: 'notary_relateds#show'
     patch 'notary_related', to: 'notary_relateds#update'
 
-    get 'family_relation/edit', to: 'family_relations#edit'
-    get 'family_relation', to: 'family_relations#show'
+    get 'family_related/edit', to: 'family_relateds#edit'
+    get 'notary_related', to: 'notary_relateds#show'
+    patch 'notary_related', to: 'notary_relateds#update'
+
+    #get 'family_relation/edit', to: 'family_relations#edit'
+    #get 'family_relation', to: 'family_relations#show'
     get 'family_relations', to: 'family_relations#index'
-    patch 'family_relation', to: 'family_relations#update'
+    #patch 'family_relation', to: 'family_relations#update'
 
     get 'notaries', to: 'notaries#index'
     get 'notary_records', to: 'archives#notary_records'
