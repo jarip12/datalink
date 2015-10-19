@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_archive_and_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   layout "with_left_sidebar", except: [:search]
   #load_and_authorize_resource
@@ -53,9 +53,9 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
       if can? :edit, @archive
-        redirect_to archive_profile_edit_path(@archive)
+        redirect_to edit_profile_path(@archive)
       else
-        redirect_to archive_profile_path(@archive)
+        redirect_to profile_path(@archive)
       end
     else
       render :edit
@@ -70,11 +70,9 @@ class ProfilesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_archive_and_profile
-      @archive = Archive.find(params[:archive_id])
-      ap @archive
-      @profile = @archive.profile
-      ap @profile
+    def set_profile
+      @profile = Profile.find(params[:id])
+      @archive = @profile.archive
     end
 
     # Only allow a trusted parameter "white list" through.

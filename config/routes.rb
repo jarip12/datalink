@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   resources :property_relateds
   resources :family_relateds, only: [:post, :update]
 
+  resources :profiles
+
   resources :archives do
     get :autocomplete_user_email, :on => :collection
-    get 'profile/edit', to: 'profiles#edit'
-    get 'profile', to: 'profiles#show'
-    patch 'profile', to: 'profiles#update'
+    #get 'profile/edit', to: 'profiles#edit'
+    #get 'profile', to: 'profiles#show'
+    #patch 'profile', to: 'profiles#update'
 
     get 'property_related/edit', to: 'property_relateds#edit'
     get 'property_related', to: 'property_relateds#show'

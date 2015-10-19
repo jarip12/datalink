@@ -2,7 +2,7 @@ h1.reset-dom = "个人档案"
 p.form-title-wrap
   span.form-title 基本信息
 
-= simple_form_for(@profile, url: archive_profile_path(@archive), html: {class: "form-wrap form-horizontal"}) do |f|
+= simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
 
   .form-inputs
