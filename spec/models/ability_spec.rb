@@ -18,6 +18,8 @@ describe Ability, :type => :model do
     it { is_expected.not_to be_able_to(:edit, Archive) }
     it { is_expected.not_to be_able_to(:new, Archive) }
 
+    it { is_expected.not_to be_able_to(:index, Reservation) }
+
     it { is_expected.to be_able_to(:search, Profile) }
   end
 
