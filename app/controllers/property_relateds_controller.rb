@@ -6,7 +6,7 @@ class PropertyRelatedsController < ApplicationController
 
   # GET /property_relateds
   def index
-    @property_relateds = NotaryRelated.all
+    @property_relateds = PropertyRelated.all
   end
 
   # GET /property_relateds/1
@@ -15,7 +15,7 @@ class PropertyRelatedsController < ApplicationController
 
   # GET /property_relateds/new
   def new
-    @property_related = NotaryRelated.new
+    @property_related = PropertyRelated.new
   end
 
   # GET /property_relateds/1/edit
@@ -24,7 +24,7 @@ class PropertyRelatedsController < ApplicationController
 
   # POST /property_relateds
   def create
-    @property_related = NotaryRelated.new(property_related_params)
+    @property_related = PropertyRelated.new(property_related_params)
 
     if @property_related.save
       redirect_to @property_related, notice: t('action.created.successfully')
@@ -35,7 +35,7 @@ class PropertyRelatedsController < ApplicationController
 
   # PATCH/PUT /property_relateds/1
   def update
-    @property_related = NotaryRelated.find(params[:id])
+    @property_related = PropertyRelated.find(params[:id])
     if @property_related.update(property_related_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
       redirect_to archive_property_related_edit_url(@property_related.archive_id)
