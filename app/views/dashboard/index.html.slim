@@ -9,11 +9,20 @@ div.text-center.search-line
         span.glyphicon.glyphicon-search
         | 搜索
 
-div.row.block-row
-  a.dashboard-block.text-center href="#{new_archive_path}"
-    div 新 建
-    div 档 案
 
-  a.dashboard-block.text-center.right-link-block href="#{reservations_path}"
-    div 查 看
-    div 预 约
+div.row.block-row
+  - if can? :new, Archive
+    a.dashboard-block.text-center href="#{new_archive_path}"
+      div 新 建
+      div 档 案
+    a.dashboard-block.text-center.right-link-block href="#{reservations_path}"
+      div 查 看
+      div 预 约
+  - else
+    a.div-disabled.dashboard-block.text-center href="#{new_archive_path}"
+      div 新 建
+      div 档 案
+
+    a.dashboard-block.text-center.right-link-block href="#{reservations_path}"
+      div 查 看
+      div 预 约

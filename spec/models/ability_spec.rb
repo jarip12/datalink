@@ -16,6 +16,8 @@ describe Ability, :type => :model do
     let(:ability){ Ability.new(user_staff) }
     it { is_expected.to be_able_to(:show, Archive) }
     it { is_expected.not_to be_able_to(:edit, Archive) }
+    it { is_expected.not_to be_able_to(:new, Archive) }
+
     it { is_expected.to be_able_to(:search, Profile) }
   end
 
