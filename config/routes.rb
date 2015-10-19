@@ -20,8 +20,7 @@ Rails.application.routes.draw do
     patch 'notary_related', to: 'notary_relateds#update'
 
     get 'family_related/edit', to: 'family_relateds#edit'
-    get 'notary_related', to: 'notary_relateds#show'
-    patch 'notary_related', to: 'notary_relateds#update'
+    get 'family_related', to: 'family_relateds#show'
 
     #get 'family_relation/edit', to: 'family_relations#edit'
     #get 'family_relation', to: 'family_relations#show'

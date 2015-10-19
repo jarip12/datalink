@@ -2,7 +2,7 @@ h1.reset-dom 个人档案
 p.form-title-wrap
   span.form-title 家庭信息
 
-= simple_form_for @archive, html: {class: "new-family-form-wrap form-horizontal"} do |f|
+= simple_form_for @family_related, html: {class: "new-family-form-wrap form-horizontal"} do |f|
 
   = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
-    = render 'family_relation_fields', f: family_relation
+    = render 'family_relation_fields', f: family_relation, cannot_edit: true

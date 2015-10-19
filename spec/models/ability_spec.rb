@@ -21,6 +21,7 @@ describe Ability, :type => :model do
     it { is_expected.not_to be_able_to(:index, Reservation) }
 
     it { is_expected.to be_able_to(:search, Profile) }
+    it { is_expected.to be_able_to(:show, Profile) }
   end
 
   context "Typer can search and show" do

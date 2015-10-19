@@ -5,9 +5,9 @@ p.form-title-wrap
 = simple_form_for @family_related, html: {class: "new-family-form-wrap form-horizontal"} do |f|
 
   = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
-    = render 'family_relation_fields', f: family_relation
+    = render 'family_relation_fields', f: family_relation, cannot_edit: false
   .links.col-xs-offset-9
-    = link_to_add_association '添加家庭成员', f, :family_relations, class: "btn btn-default"
+    = link_to_add_association '添加家庭成员', f, :family_relations, class: "btn btn-default", render_options:  {locals: { cannot_edit: false }}
 
   div.form-actions.text-center.col-offset-2
     input type="submit" class="btn btn-danger btn-block" value="提交" name="commit"

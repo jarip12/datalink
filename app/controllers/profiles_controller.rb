@@ -4,9 +4,9 @@ class ProfilesController < ApplicationController
   layout "with_left_sidebar", except: [:search]
   #load_and_authorize_resource
 
-  load_and_authorize_resource :archive
-  load_and_authorize_resource :profile, :through => :archive, :singleton => true
-  skip_load_and_authorize_resource :archive, :search
+  #load_and_authorize_resource :archive
+  load_and_authorize_resource :profile
+  #skip_load_and_authorize_resource :archive, :search
 
   def can_edit_multi_times
 
