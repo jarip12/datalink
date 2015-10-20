@@ -10,7 +10,7 @@ class Ability
     elsif staff.has_role?(:typer)
       basic_read_only
 
-      cannot :all, Reservation
+      cannot :manage, Reservation
       can [:new, :create], Archive
 
       can [:edit, :update], Profile, :updated_once => false
