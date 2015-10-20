@@ -30,8 +30,8 @@ p.form-title-wrap
 
     div.form-with-border
       p.first-title = "公证办理"
-      = f.simple_fields_for :notaries do |notary|
-        = render 'notary_fields', f: notary, cannot_edit: true
+      = f.simple_fields_for :notary_records do |notary_record|
+        = render 'notary_record_fields', f: notary_record, cannot_edit: true
 
     div.form-with-border
       p.first-title = "假材料通报"

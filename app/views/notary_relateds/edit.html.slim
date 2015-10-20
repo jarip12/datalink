@@ -33,11 +33,11 @@ p.form-title-wrap
 
     div.form-with-border
       p.first-title = "公证办理"
-      = f.simple_fields_for :notaries do |notary|
-        = render 'notary_fields', f: notary, cannot_edit: false
+      = f.simple_fields_for :notary_records do |notary_record|
+        = render 'notary_record_fields', f: notary_record, cannot_edit: false
       .links.col-xs-offset-9.link-div
         span.property-link 上传扫描件
-        = link_to_add_association '添加公证记录', f, :notaries, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加公证记录', f, :notary_records, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.first-title = "假材料通报"

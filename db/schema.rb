@@ -122,12 +122,13 @@ ActiveRecord::Schema.define(version: 20151019035839) do
   end
 
   create_table "notary_records", force: :cascade do |t|
-    t.string   "notary_type", limit: 255
-    t.string   "notary_id",   limit: 255
-    t.integer  "user_id",     limit: 4
-    t.integer  "archive_id",  limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "notary_type",       limit: 255
+    t.string   "notary_id",         limit: 255
+    t.integer  "user_id",           limit: 4
+    t.integer  "archive_id",        limit: 4
+    t.integer  "notary_related_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "notary_relateds", force: :cascade do |t|

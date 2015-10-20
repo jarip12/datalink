@@ -15,22 +15,22 @@ class NotaryRelated < ActiveRecord::Base
   belongs_to :archive
   has_many :educations
   has_many :work_experiences
-  has_many :notaries
+  has_many :notary_records
   has_many :faker_materials
 
-  accepts_nested_attributes_for :educations, :work_experiences, :notaries, :faker_materials, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :educations, :work_experiences, :notary_records, :faker_materials, reject_if: :all_blank, allow_destroy: true
 
   after_create :set_default_related
 
   def set_default_related
     education = Education.create
     work_experience = WorkExperience.create
-    notary = Notary.create
+    notary_record = NotaryRecord.create
     faker_material = FakerMaterial.create
 
     self.educations << education
     self.work_experiences << work_experience
-    self.notaries << notary
+    self.notary_records << notary_record
     self.faker_materials << faker_material
 
   end
