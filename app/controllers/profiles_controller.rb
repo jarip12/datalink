@@ -50,12 +50,13 @@ class ProfilesController < ApplicationController
     ap profile_params
     profile_params['updated_once'] = true
     ap profile_params
+    #binding.pry
     if @profile.update(profile_params)
       flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      if can? :edit, @archive
-        redirect_to edit_profile_path(@archive)
+      if can? :edit, @profile
+        redirect_to edit_profile_path(@profile)
       else
-        redirect_to profile_path(@archive)
+        redirect_to profile_path(@profile)
       end
     else
       render :edit

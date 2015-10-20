@@ -51,9 +51,13 @@ class ArchivesController < ApplicationController
       @profile = Profile.new(profile_attrs)
       @profile.save(:validate => false)
 
+      ap @profile
+
       if can? :edit, @profile
+        ap "can edit profile"
         redirect_to edit_profile_url(@profile), notice: t('action.created.successfully')
       else
+        ap "cannot edit profile"
         redirect_to profile_url(@profile), notice: t('action.created.successfully')
       end
 

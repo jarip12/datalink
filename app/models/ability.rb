@@ -12,7 +12,7 @@ class Ability
       basic_read_only
       can [:new, :create], Archive
 
-      can [:edit], Profile.where(updated_once: false)
+      can [:edit, :update], Profile, :updated_once => false
 
     elsif staff.has_role?(:audit)
       can :manage, :all
