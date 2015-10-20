@@ -5,13 +5,12 @@ class Ability
 
     if staff.has_role?(:admin)
       can :manage, :all
-      can :search, :Profile
     elsif staff.has_role?(:user)
       basic_read_only
     elsif staff.has_role?(:typer)
       basic_read_only
 
-      cannot :all, :Reservation
+      cannot :all, Reservation
       can [:new, :create], Archive
 
       can [:edit, :update], Profile, :updated_once => false
@@ -21,7 +20,7 @@ class Ability
 
     elsif staff.has_role?(:audit)
       can :manage, :all
-      cannot :manage, :staff
+      cannot :manage, Staff
     else
       cannot :manage, :all
     end
@@ -32,6 +31,7 @@ class Ability
     def basic_read_only
       can :search, Profile
       can :show, :all
-      can :index, :Reservation
+      can :index, Reservation
+      cannot :manage, Staff
     end
 end

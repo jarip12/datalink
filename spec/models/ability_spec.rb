@@ -7,11 +7,7 @@ describe Ability, :type => :model do
   context "Admin manage all" do
     let(:admin) { create(:admin) }
     let(:ability){ Ability.new(admin) }
-    it { is_expected.to be_able_to(:manage, Archive) }
-    it { is_expected.to be_able_to(:search, Profile) }
-    it { is_expected.to be_able_to(:search, PropertyRelated) }
-    it { is_expected.to be_able_to(:search, NotaryRelated) }
-    it { is_expected.to be_able_to(:search, FamilyRelated) }
+    it { is_expected.to be_able_to(:manage, :all) }
   end
 
   context "UserStaff can search and show" do
@@ -83,9 +79,16 @@ describe Ability, :type => :model do
   context "Audit can search and show" do
     let(:audit) { create(:audit) }
     let(:ability){ Ability.new(audit) }
-    it { is_expected.to be_able_to(:show, Archive) }
-    it { is_expected.to be_able_to(:edit, Archive) }
-    it { is_expected.to be_able_to(:search, Profile) }
+
+    it { is_expected.to be_able_to(:manage, [Archive, Profile, PropertyRelated, NotaryRelated, FamilyRelated, Reservation]) }
+
+    it { is_expected.not_to be_able_to(:edit, Staff) }
+    it { is_expected.not_to be_able_to(:new, Staff) }
+    it { is_expected.not_to be_able_to(:create, Staff) }
+    it { is_expected.not_to be_able_to(:index, Staff) }
+
+    it { is_expected.not_to be_able_to(:manage, Staff) }
+
   end
 
 end
