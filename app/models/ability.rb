@@ -33,5 +33,6 @@ class Ability
       can :show, :all
       can :index, Reservation
       cannot :manage, Staff
+      can :index, FamilyRelation
     end
 end
