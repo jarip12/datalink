@@ -44,7 +44,6 @@ describe Ability, :type => :model do
     let(:not_updated_profile) { create(:profile, :updated_once => false) }
     let(:updated_profile) { create(:profile, :updated_once => true) }
 
-    it { is_expected.to be_able_to(:show, Archive) }
     it { is_expected.to be_able_to(:create, Archive) }
     it { is_expected.to be_able_to(:new, Archive) }
 
@@ -52,7 +51,6 @@ describe Ability, :type => :model do
 
     it { is_expected.to be_able_to(:search, Profile) }
     it { is_expected.to be_able_to(:show, Profile) }
-
     it { is_expected.to be_able_to(:edit, not_updated_profile) }
     it { is_expected.not_to be_able_to(:edit, updated_profile) }
 
