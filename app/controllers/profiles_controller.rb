@@ -47,15 +47,13 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   def update
-    ap profile_params
-    profile_params['updated_once'] = true
-    ap profile_params
-    #binding.pry
+    @profile.updated_once = true
     if @profile.update(profile_params)
-      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
       if can? :edit, @profile
+        flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
         redirect_to edit_profile_path(@profile)
       else
+        flash[:notice] = {:class =>'success', :body => t('action.updated.once_successfully')}
         redirect_to profile_path(@profile)
       end
     else

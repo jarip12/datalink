@@ -36,9 +36,16 @@ class PropertyRelatedsController < ApplicationController
   # PATCH/PUT /property_relateds/1
   def update
     @property_related = PropertyRelated.find(params[:id])
+    #binding.pry
+    @property_related.updated_once = true
     if @property_related.update(property_related_params)
-      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to edit_property_related_url(@property_related.archive_id)
+      if can? :edit, @property_related
+        flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+        redirect_to edit_property_related_path(@property_related)
+      else
+        flash[:notice] = {:class =>'success', :body => t('action.updated.once_successfully')}
+        redirect_to property_related_path(@property_related)
+      end
     else
       render :edit
     end

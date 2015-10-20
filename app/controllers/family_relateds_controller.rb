@@ -36,9 +36,15 @@ class FamilyRelatedsController < ApplicationController
   # PATCH/PUT /family_relateds/1
   def update
     @family_related = FamilyRelated.find(params[:id])
+    @family_related.updated_once = true
     if @family_related.update(family_related_params)
-      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to edit_family_related_url(@family_related.archive_id)
+      if can? :edit, @family_related
+        flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+        redirect_to edit_family_related_path
+      else
+        flash[:notice] = {:class =>'success', :body => t('action.updated.once_successfully')}
+        redirect_to family_related_path
+      end
     else
       render :edit
     end

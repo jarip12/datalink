@@ -37,9 +37,15 @@ class NotaryRelatedsController < ApplicationController
   # PATCH/PUT /notary_relateds/1
   def update
     @notary_related = NotaryRelated.find(params[:id])
+    @notary_related.updated_once = true
     if @notary_related.update(notary_related_params)
-      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
-      redirect_to edit_notary_related_url(@notary_related)
+      if can? :edit, @notary_related
+        flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+        redirect_to edit_notary_related_path
+      else
+        flash[:notice] = {:class =>'success', :body => t('action.updated.once_successfully')}
+        redirect_to notary_related_path
+      end
     else
       render :edit
     end

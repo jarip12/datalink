@@ -15,6 +15,9 @@ class Ability
       can [:new, :create], Archive
 
       can [:edit, :update], Profile, :updated_once => false
+      can [:edit, :update], PropertyRelated, :updated_once => false
+      can [:edit, :update], NotaryRelated, :updated_once => false
+      can [:edit, :update], FamilyRelated, :updated_once => false
 
     elsif staff.has_role?(:audit)
       can :manage, :all

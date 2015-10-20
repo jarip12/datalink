@@ -100,6 +100,7 @@ zh-CN:
       successfully: "创建成功"
     updated:
       successfully: "更新成功"
+      once_successfully: "更新成功，后续只能进行查看操作"
     destroyed:
       successfully: "删除成功"
   activerecord:
