@@ -41,15 +41,20 @@ describe Ability, :type => :model do
   context "Typer can search and show" do
     let(:typer) { create(:typer) }
     let(:ability){ Ability.new(typer) }
+    let(:not_updated_profile) { create(:profile, :updated_once => false) }
+    let(:updated_profile) { create(:profile, :updated_once => true) }
 
     it { is_expected.to be_able_to(:show, Archive) }
-    it { is_expected.not_to be_able_to([:edit, :new], Archive) }
+    it { is_expected.to be_able_to(:create, Archive) }
+    it { is_expected.to be_able_to(:new, Archive) }
 
     it { is_expected.not_to be_able_to([:all], Reservation) }
 
     it { is_expected.to be_able_to(:search, Profile) }
     it { is_expected.to be_able_to(:show, Profile) }
-    it { is_expected.not_to be_able_to(:edit, Profile) }
+
+    it { is_expected.to be_able_to(:edit, not_updated_profile) }
+    it { is_expected.not_to be_able_to(:edit, updated_profile) }
 
     it { is_expected.to be_able_to(:show, PropertyRelated) }
     it { is_expected.not_to be_able_to(:edit, PropertyRelated) }
