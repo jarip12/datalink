@@ -1,6 +1,6 @@
 module Api
   module V1
-    class NotaryForeignTable < Grape::API
+    class NotaryForeignTables < Grape::API
       version 'v1', using: :path
       PREFIX = '/api'
 
@@ -11,13 +11,20 @@ module Api
       format :json
       default_format :json
 
-      post "notary_foreign_table/create" do
+      post "notary_foreign_tables" do
 
         ap params
 
         data = {}
 
-        render_success(data)
+        if NotaryForeignTable.create(params)
+
+          render_success(data)
+        else
+
+          render_success(data)
+        end
+
 
       end
 

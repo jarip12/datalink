@@ -84,7 +84,7 @@
     </object>
     <object type="LMREQUEST" id="z105">
         <attribute name="uuid" type="string">B1FA56ED-A186-4C94-AC4B-3DE8AB240F39</attribute>
-        <attribute name="url" type="string">["http:\\/\\/",{"data":{"environmentVariable":"EC0EE7E2-7A6B-42EA-800B-237F05233FF2"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},":3001\\/api\\/v1\\/notary_foreign_table\\/create.json"]</attribute>
+        <attribute name="url" type="string">["http:\\/\\/",{"data":{"environmentVariable":"EC0EE7E2-7A6B-42EA-800B-237F05233FF2"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},":3001\\/api\\/v1\\/notary_foreign_tables.json"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
