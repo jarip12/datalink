@@ -3,6 +3,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
     create_table :notary_foreign_tables do |t|
       t.string :realname
       t.integer :age
+      t.integer :user_id
       t.date :birth_day
       t.string :company_location
       t.string :residence

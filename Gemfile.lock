@@ -146,6 +146,7 @@ GEM
     exception_notification (4.1.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
+    excon (0.45.3)
     execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -515,6 +516,7 @@ DEPENDENCIES
   devise (~> 3.5.1)
   enumerize
   exception_notification
+  excon
   factory_girl_rails
   faker (~> 1.4.3)
   figaro

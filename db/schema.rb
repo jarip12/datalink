@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20151021024756) do
   create_table "notary_foreign_tables", force: :cascade do |t|
     t.string   "realname",          limit: 255
     t.integer  "age",               limit: 4
+    t.integer  "user_id",           limit: 4
     t.date     "birth_day"
     t.string   "company_location",  limit: 255
     t.string   "residence",         limit: 255

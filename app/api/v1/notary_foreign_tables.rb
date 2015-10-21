@@ -13,11 +13,13 @@ module Api
 
       post "notary_foreign_tables" do
 
-        ap params
+        notary_foreign_table_params = ActionController::Parameters.new(params).permit(:id, :user_id, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
+
+        ap notary_foreign_table_params
 
         data = {}
 
-        if NotaryForeignTable.create(params)
+        if NotaryForeignTable.create(notary_foreign_table_params)
 
           render_success(data)
         else

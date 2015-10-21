@@ -5,6 +5,7 @@
 #  id                :integer          not null, primary key
 #  realname          :string(255)
 #  age               :integer
+#  user_id           :integer
 #  birth_day         :date
 #  company_location  :string(255)
 #  residence         :string(255)

@@ -1,0 +1,4 @@
+* * * * * /bin/bash -l -c 'cd /Users/chuck/seaify/lwnotary-datalake && bin/rails runner -e production '\''NotaryRecord.push_to_user_system'\'''
+
+## [message] Above is your schedule file converted to cron syntax; your crontab file was not updated.
+## [message] Run `whenever --help' for more options.
