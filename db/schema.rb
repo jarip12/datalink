@@ -146,8 +146,10 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.integer  "user_id",           limit: 4
     t.integer  "archive_id",        limit: 4
     t.integer  "notary_related_id", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "reservation_id",    limit: 4
+    t.boolean  "synced",                        default: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   create_table "notary_relateds", force: :cascade do |t|

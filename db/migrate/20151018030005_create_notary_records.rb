@@ -6,6 +6,8 @@ class CreateNotaryRecords < ActiveRecord::Migration
       t.integer :user_id
       t.integer :archive_id
       t.integer :notary_related_id
+      t.integer :reservation_id
+      t.boolean :synced, default: false
 
       t.timestamps null: false
     end

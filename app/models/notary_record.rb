@@ -19,15 +19,16 @@ class NotaryRecord < ActiveRecord::Base
   before_save :set_notary_id
 
   class << self
-    def push_to_user_systemm
+    def push_to_user_system
       ap "push new notary_record to user system"
-      ap Setting.sync_notary_foreign_table_url
+      ap Setting.sync_notary_record_url
 
-      pending_tables = NotaryForeignTable.where(sync_status: "pending")
-      ap pending_tables.count
-      pending_tables.each do |table|
-        response = Excon.post(Setting.sync_notary_foreign_table_url,
-                              :body => table.to_json,
+      records = NotaryRecord.where(synced: false)
+      ap records.count
+      records.each do |record|
+        ap record.to_json
+        response = Excon.post(Setting.sync_notary_record_url,
+                              :body => record.to_json,
                               :headers => { "Content-Type" => "application/json" })
 
         ap response.body[0..20]

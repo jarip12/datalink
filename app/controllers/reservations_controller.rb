@@ -13,11 +13,11 @@ class ReservationsController < ApplicationController
     @reservation.status = "handled"
     @reservation.save!
 
-    unless (@reservation.user_verified or @reservation.archive)
+    unless @reservation.archive
       new_archive = Archive.create(user_id: @reservation.user_id)
       @profile = Profile.create(realname: @reservation.realname, id_no: @reservation.id_no, archive_id: new_archive.id)
       ap @profile
-      NotaryRecord.create(notary_type: @reservation.notary_table_type, archive_id: new_archive.id, user_id: @reservation.user_id)
+      NotaryRecord.create(reservation_id: @reservation.id, notary_type: @reservation.notary_table_type, archive_id: new_archive.id, user_id: @reservation.user_id)
       new_archive.save!
       @profile.save(validate: false)
     end
