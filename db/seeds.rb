@@ -19,10 +19,11 @@ if User.count == 0
     Archive.create
   end
 
-
+=begin
   400.times do
     offset = Faker::Number.between(-5, 5).days + Faker::Number.between(-30, 30).minutes + Faker::Number.between(-12, 12).hours
     Reservation.create!(user_id: Faker::Number.between(1, User.last.id), reserve_at: Time.now + offset)
   end
+=end
 
 end

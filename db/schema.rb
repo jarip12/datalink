@@ -181,12 +181,12 @@ ActiveRecord::Schema.define(version: 20151021024756) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.string   "notary_type", limit: 255
-    t.string   "status",      limit: 255
+    t.integer  "notary_table_id",   limit: 4
+    t.string   "notary_table_type", limit: 255
+    t.string   "status",            limit: 255
     t.datetime "reserve_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "settings", force: :cascade do |t|
