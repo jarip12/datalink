@@ -28,7 +28,10 @@ class Reservation < ActiveRecord::Base
                               :body => {user_ids: user_ids}.to_json,
                               :headers => { "Content-Type" => "application/json" })
 
-      ap response.body[0..20]
+      body = JSON.parse(response.body)
+      if response.status == 200 and body["success"]
+        Reservation.where(user_id: user_ids).update_all(sync_user_verified: true)
+      end
     end
   end
 

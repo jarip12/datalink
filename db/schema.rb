@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.string   "relation_name",     limit: 255
     t.integer  "owner_archive_id",  limit: 4
     t.integer  "family_related_id", limit: 4
+    t.boolean  "synced",                        default: false
     t.boolean  "updated_once",                  default: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
