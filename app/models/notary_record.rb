@@ -2,13 +2,14 @@
 #
 # Table name: notary_records
 #
-#  id          :integer          not null, primary key
-#  notary_type :string(255)
-#  notary_id   :string(255)
-#  user_id     :integer
-#  archive_id  :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                :integer          not null, primary key
+#  notary_type       :string(255)
+#  notary_id         :string(255)
+#  user_id           :integer
+#  archive_id        :integer
+#  notary_related_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 class NotaryRecord < ActiveRecord::Base
