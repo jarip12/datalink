@@ -25,7 +25,7 @@ module Api
 
         if @notary_foreign_table.save
 
-          Reservation.create(notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
+          Reservation.create(reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
 
           render_success(data)
         else

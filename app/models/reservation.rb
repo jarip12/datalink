@@ -16,8 +16,6 @@ class Reservation < ActiveRecord::Base
   enumerize :notary_table_type, in: [:foreign], default: :foreign
   enumerize :status, in: [:pending, :handled, :refused], default: :pending
 
-  delegate :reserve_at, to: :notary_table
-
   by_star_field :reserve_at
 
   def notary_table
@@ -28,12 +26,7 @@ class Reservation < ActiveRecord::Base
     end
   end
 
-  def user
-    User.find(self.user_id)
-  end
-
-
   def user_realname
-    User.find(self.user_id).realname
+    notary_table.realname
   end
 end

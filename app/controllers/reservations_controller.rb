@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   def index
     @current_day_idx = Time.now.strftime("%u").to_i
-    binding.pry
+    #binding.pry
     for i in 1..5
       smart_listing_create("reservation#{i}", Reservation.where(status: "pending").by_day(offset:  (i - @current_day_idx).days).order(:reserve_at), partial: "reservations/listing")
     end

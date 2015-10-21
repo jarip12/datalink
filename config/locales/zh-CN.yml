@@ -16,7 +16,7 @@ zh-CN:
         person: "个人公证"
         company: "单位公证"
     reservation:
-      notary_type:
+      notary_table_type:
         foreign: "涉外公证"
         person: "个人公证"
         company: "单位公证"
