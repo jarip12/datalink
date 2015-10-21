@@ -16,9 +16,21 @@ class Reservation < ActiveRecord::Base
   enumerize :notary_table_type, in: [:foreign], default: :foreign
   enumerize :status, in: [:pending, :handled, :refused], default: :pending
 
-  delegate :user_verified, :realname, :user_id, :id_no, to: :notary_table, :allow_nil => true
+  delegate :user_verified, :realname, :id_no, to: :notary_table, :allow_nil => true
 
   by_star_field :reserve_at
+
+  class << self
+    def verified_in_user_system
+      user_ids = Reservation.where(status: "handled", sync_user_verified: false).pluck('user_id')
+      ap user_ids
+      response = Excon.post(Setting.set_user_verified_url,
+                              :body => {user_ids: user_ids}.to_json,
+                              :headers => { "Content-Type" => "application/json" })
+
+      ap response.body[0..20]
+    end
+  end
 
   def archive
     Archive.find_by(user_id: self.user_id)

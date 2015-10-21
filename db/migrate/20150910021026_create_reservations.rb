@@ -5,6 +5,8 @@ class CreateReservations < ActiveRecord::Migration
       t.string :notary_table_type
 
       t.string :status
+      t.integer :user_id
+      t.string :sync_user_verified, default: false
 
       t.datetime :reserve_at
 

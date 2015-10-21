@@ -27,7 +27,7 @@ module Api
 
           ap params
 
-          Reservation.create(reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
+          Reservation.create(user_id: @notary_foreign_table.user_id, reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
 
           render_success(data)
         else
