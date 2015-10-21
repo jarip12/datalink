@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :notary_relateds
   resources :property_relateds
   resources :family_relateds
+  resources :notary_foreign_tables
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
   resources :profiles

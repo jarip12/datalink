@@ -12,6 +12,8 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :paperwork_no
       t.string :apply_context
       t.string :proxy_people_name
+      t.string :sex
+      t.integer :notary_record_id
 
       t.boolean :user_verified, default: false
       t.date :apply_date

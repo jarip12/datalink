@@ -189,7 +189,7 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       notary_record:
-        notary_id: "公证id"
+        notary_id: "公证编号"
         notary_type: "公证类型"
       family_relation:
         id_no: "身份证号"

@@ -12,5 +12,4 @@ table.table.table-striped
     tr
       td = record.notary_id
       td = record.notary_type_text
-      td = link_to t('action.show'), '/'
-
+      td = link_to "查看预约表", table_link(record)

@@ -16,7 +16,14 @@ class NotaryRecord < ActiveRecord::Base
   extend Enumerize
   enumerize :notary_type, in: [:company, :person, :foreign], default: :person
 
+  delegate :notary_table_id, to: :reservation
+
   before_save :set_notary_id
+
+  def reservation
+    Reservation.find(self.reservation_id)
+  end
+
 
   class << self
     def push_to_user_system

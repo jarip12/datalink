@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.string   "paperwork_no",      limit: 255
     t.string   "apply_context",     limit: 255
     t.string   "proxy_people_name", limit: 255
+    t.string   "sex",               limit: 255
+    t.integer  "notary_record_id",  limit: 4
     t.boolean  "user_verified",                 default: false
     t.date     "apply_date"
     t.datetime "reserve_at"

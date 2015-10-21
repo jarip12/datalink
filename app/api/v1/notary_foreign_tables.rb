@@ -24,7 +24,6 @@ module Api
         data = {}
 
         if @notary_foreign_table.save
-
           ap params
 
           Reservation.create(user_id: @notary_foreign_table.user_id, reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
@@ -32,7 +31,7 @@ module Api
           render_success(data)
         else
 
-          render_success(data)
+          render_fail(data)
         end
 
 
