@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.string   "realname",          limit: 255
     t.integer  "age",               limit: 4
     t.integer  "user_id",           limit: 4
+    t.integer  "id_no",             limit: 4
     t.date     "birth_day"
     t.string   "company_location",  limit: 255
     t.string   "residence",         limit: 255
@@ -132,10 +133,11 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.string   "paperwork_no",      limit: 255
     t.string   "apply_context",     limit: 255
     t.string   "proxy_people_name", limit: 255
+    t.boolean  "user_verified",                 default: false
     t.date     "apply_date"
     t.datetime "reserve_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   create_table "notary_records", force: :cascade do |t|

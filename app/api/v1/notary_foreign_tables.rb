@@ -13,7 +13,7 @@ module Api
 
       post "notary_foreign_tables" do
 
-        notary_foreign_table_params = ActionController::Parameters.new(params).permit(:user_id, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
+        notary_foreign_table_params = ActionController::Parameters.new(params).permit(:user_id, :id_no, :user_verified, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
 
         @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
 
@@ -24,6 +24,8 @@ module Api
         data = {}
 
         if @notary_foreign_table.save
+
+          ap params
 
           Reservation.create(reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
 

@@ -4,6 +4,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :realname
       t.integer :age
       t.integer :user_id
+      t.integer :id_no
       t.date :birth_day
       t.string :company_location
       t.string :residence
@@ -11,6 +12,8 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :paperwork_no
       t.string :apply_context
       t.string :proxy_people_name
+
+      t.boolean :user_verified, default: false
       t.date :apply_date
       t.datetime :reserve_at
 

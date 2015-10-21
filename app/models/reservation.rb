@@ -16,7 +16,13 @@ class Reservation < ActiveRecord::Base
   enumerize :notary_table_type, in: [:foreign], default: :foreign
   enumerize :status, in: [:pending, :handled, :refused], default: :pending
 
+  delegate :user_verified, :realname, :user_id, :id_no, to: :notary_table, :allow_nil => true
+
   by_star_field :reserve_at
+
+  def archive
+    Archive.find_by(user_id: self.user_id)
+  end
 
   def notary_table
     if self.notary_table_type == 'foreign'
