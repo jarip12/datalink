@@ -21,13 +21,11 @@ class PropertyRelated < ActiveRecord::Base
   after_create :set_default_related
 
   def set_default_related
-    loan = Loan.create
-    house_purchase = HousePurchase.create
-    deposit = Deposit.create
 
-    self.loans << loan
-    self.house_purchases << house_purchase
-    self.deposits << deposit
+    loan = Loan.create(property_related_id: self.id)
+    house_purchase = HousePurchase.create(property_related_id: self.id)
+    deposit = Deposit.create(property_related_id: self.id)
+
   end
 
 end

@@ -13,4 +13,9 @@
 #
 
 class Deposit < ActiveRecord::Base
+
+  validates :deposit_day, presence: true, on: :update
+  validates :receive_day, presence: true, on: :update
+  validates :amount, presence: true, on: :update
+
 end
