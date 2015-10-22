@@ -22,4 +22,5 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 
+//= require reservations
 //= require_tree .

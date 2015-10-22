@@ -48,3 +48,4 @@ $(document).on 'ready page:load', ->
         "firstDay": 1
       },
     });
+
