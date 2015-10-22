@@ -22,7 +22,10 @@
 #
 
 class NotaryForeignTable < ActiveRecord::Base
+
   extend Enumerize
   enumerize :sex, in: [:male, :female], default: :male
   belongs_to :notary_record
+  delegate :archive, to: :notary_record
+
 end

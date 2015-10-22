@@ -29,6 +29,10 @@ zh-CN:
         foreign: "涉外公证"
         person: "个人公证"
         company: "单位公证"
+    notary_foreign_table:
+      sex:
+        male: "男"
+        female: "女"
     profile:
       sex:
         male: "男"

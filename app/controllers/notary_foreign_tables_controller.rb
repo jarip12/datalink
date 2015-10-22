@@ -5,6 +5,8 @@ class NotaryForeignTablesController < ApplicationController
 
   layout "with_left_sidebar"
 
+
+
   # GET /notary_foreign_tables
   def index
     @notary_foreign_tables = NotaryForeignTable.all
@@ -12,7 +14,7 @@ class NotaryForeignTablesController < ApplicationController
 
   # GET /notary_foreign_tables/1
   def show
-    @archive = @notary_foreign_table
+    @archive = @notary_foreign_table.archive
   end
 
   # GET /notary_foreign_tables/new

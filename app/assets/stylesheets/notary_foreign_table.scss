@@ -1,0 +1,35 @@
+.table-container {
+  border: 1px solid #ccc;
+}
+
+.table-container > div:not(:first-child), #proxy-people {
+  border-top: 1px solid #ccc;
+}
+
+#apply_context, #apply_sign, #reception_people {
+  width: 100%;
+}
+
+
+#foreign_table > div > div:first-child {
+  border-right: 1px solid #ccc;
+}
+
+#foreign_table > div > div > p {
+  margin: 50%;
+}
+
+#proxy_people {
+  border-top: 1px solid #ccc;
+}
+
+.notary-title {
+/* 公证申请表: */
+  font-family: STKaiti-SC-Regular;
+  font-size: 28px;
+  color: #212121;
+  line-height: 40px;
+  margin-bottom: 12px;
+}
+
+

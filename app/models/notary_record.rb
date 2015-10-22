@@ -13,6 +13,7 @@
 #
 
 class NotaryRecord < ActiveRecord::Base
+  belongs_to :archive
   extend Enumerize
   enumerize :notary_type, in: [:company, :person, :foreign], default: :person
 
