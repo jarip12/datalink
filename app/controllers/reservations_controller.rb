@@ -30,10 +30,10 @@ class ReservationsController < ApplicationController
 
   def query
 
-   @reservations = Reservation.all
+   @reservations = Reservation.by_day.order(:reserve_at)
 
    @results = @reservations.map do |reservation|
-    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at]
+    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S")]
    end
 
    gon.results = @results
@@ -51,13 +51,13 @@ class ReservationsController < ApplicationController
       end_at = Chronic.parse(times[1])
       ap start_at.strftime("%H:%M:%S")
       ap end_at.strftime("%H:%M:%S")
-      @reservations = Reservation.where(reserve_at: start_at..end_at)
+      @reservations = Reservation.where(reserve_at: start_at..end_at).order(:reserve_at)
     else
-      @reservations = Reservation.all
+      @reservations = Reservation.by_day.order(:reserve_at)
     end
 
     @results = @reservations.map do |reservation|
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at]
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S")]
     end
 
     render_success({data: @results})
