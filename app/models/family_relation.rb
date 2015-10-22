@@ -19,6 +19,11 @@ class FamilyRelation < ActiveRecord::Base
   extend Enumerize
   enumerize :relation_name, in: [:father, :mother, :uncle], default: :father
 
+  validates :realname, presence: true, on: :update
+  validates :relation_name, presence: true, on: :update
+  validates :id_no, presence: true, on: :update
+
+
   delegate :client_token, to: Setting
 
   class << self
