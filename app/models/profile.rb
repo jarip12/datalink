@@ -27,18 +27,13 @@ class Profile < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :id_no_img, AvatarUploader
 
-  before_update :before_after_update
+  validates :realname, realname: true
+  validates :id_no, id_no: true
 
-  validates :realname, presence: true
-  validates :id_no, presence: true
-
-  validates :mobile, presence: true, mobile: true, on: :update
+  validates :mobile, mobile: true, on: :update
   validates :sex, presence: true, on: :update
   validates :birth_day, presence: true, on: :update
+  validates :death_day, presence: true, on: :update
   validates :address, presence: true, on: :update
-
-  def before_after_update
-    self.updated_once = true
-  end
 
 end

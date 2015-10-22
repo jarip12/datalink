@@ -18,4 +18,9 @@ class Util
     !((id_no =~ regex).nil?)
   end
 
+  def self.realname_valid?(realname)
+    regex = Regexp.new(Setting.realname_regex_format)
+    !((realname =~ regex).nil?)
+  end
+
 end

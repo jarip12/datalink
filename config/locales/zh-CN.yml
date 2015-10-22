@@ -4,6 +4,12 @@ zh-CN:
     mobile:
       format:
         error: "不是合法的11位电话号码"
+    id_no:
+      format:
+        error: "身份证ID必须是15-18位，只能包含0-9,x,X"
+    realname:
+      format:
+        error: "真实姓名必须是2-10位合法汉字"
   enumerize:
     faker_material:
       faker_material_type:
