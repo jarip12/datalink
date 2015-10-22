@@ -18,6 +18,7 @@ class NotaryRecord < ActiveRecord::Base
   enumerize :notary_type, in: [:company, :person, :foreign], default: :person
 
   delegate :notary_table_id, to: :reservation
+  delegate :client_token, to: Setting
 
   before_save :set_notary_id
 
@@ -32,14 +33,20 @@ class NotaryRecord < ActiveRecord::Base
       ap Setting.sync_notary_record_url
 
       records = NotaryRecord.where(synced: false)
+
       ap records.count
       records.each do |record|
         ap record.to_json
         response = Excon.post(Setting.sync_notary_record_url,
-                              :body => record.to_json,
+                              :body => record.to_json(:methods => :client_token),
                               :headers => { "Content-Type" => "application/json" })
+        body = JSON.parse(response.body)
+        if response.status == 200 and body["success"]
+          record.update_attribute("synced", true)
+        else
+          ap body
+        end
 
-        ap response.body[0..20]
 
       end
 

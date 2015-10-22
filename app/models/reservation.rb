@@ -25,12 +25,14 @@ class Reservation < ActiveRecord::Base
       user_ids = Reservation.where(status: "handled", sync_user_verified: false).pluck('user_id')
       ap user_ids
       response = Excon.post(Setting.set_user_verified_url,
-                              :body => {user_ids: user_ids}.to_json,
+                              :body => {user_ids: user_ids, client_token: Setting.client_token}.to_json,
                               :headers => { "Content-Type" => "application/json" })
 
       body = JSON.parse(response.body)
       if response.status == 200 and body["success"]
         Reservation.where(user_id: user_ids).update_all(sync_user_verified: true)
+      else
+        ap body
       end
     end
   end

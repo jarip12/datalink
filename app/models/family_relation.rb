@@ -18,6 +18,8 @@ class FamilyRelation < ActiveRecord::Base
   extend Enumerize
   enumerize :relation_name, in: [:father, :mother, :uncle], default: :father
 
+  delegate :client_token, to: Setting
+
   class << self
     def sync_to_user_system
       family_relations = FamilyRelation.where(synced: false)
@@ -26,12 +28,14 @@ class FamilyRelation < ActiveRecord::Base
       family_relations.each do |family_relation|
         ap family_relation.to_json
         response = Excon.post(Setting.sync_family_relation_url,
-                            :body => family_relation.to_json,
+                            :body => family_relation.to_json(:methods => :client_token),
                             :headers => { "Content-Type" => "application/json" })
 
         body = JSON.parse(response.body)
         if response.status == 200 and body["success"]
           FamilyRelation.where(id: family_relation_ids).update_all(synced: true)
+        else
+          ap body
         end
       end
     end
