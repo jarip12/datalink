@@ -9,6 +9,12 @@ module Api
       helpers Api::V1::Helpers
 
       cascade false
+
+      use Api::V1::Auth::Middleware
+
+      mount Api::V1::NotaryForeignTables
+
+
       #include Api::V1::ExceptionHandlers
 
       #mount Api::V1::NotaryForeignTable

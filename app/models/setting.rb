@@ -18,4 +18,6 @@ class Setting < RailsSettings::CachedSettings
   defaults[:sync_notary_record_url] = 'http://127.0.0.1:3002/api/v1/notary_records.json'
   defaults[:set_user_verified_url] = 'http://127.0.0.1:3002/api/v1/user_verify.json'
   defaults[:sync_family_relation_url] = 'http://127.0.0.1:3002/api/v1/sync_family_relation.json'
+  defaults[:client_token] = 'xxyy18745zz'
+  defaults[:server_token] = '9ceeffeefcg'
 end

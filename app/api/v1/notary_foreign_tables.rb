@@ -6,6 +6,8 @@ module Api
 
       helpers Api::V1::Helpers
 
+      use Api::V1::Auth::Middleware
+
       cascade false
 
       format :json
