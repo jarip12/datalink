@@ -16,14 +16,15 @@ class ReservationsController < ApplicationController
 
 
     unless @reservation.archive
-      new_archive = Archive.create(user_id: @reservation.user_idM)
+      new_archive = Archive.create(user_id: @reservation.user_id)
       @profile = Profile.create(realname: @reservation.realname, id_no: @reservation.id_no, archive_id: new_archive.id)
       ap @profile
       notary_record = NotaryRecord.create(reservation_id: @reservation.id, notary_type: @reservation.notary_table_type, archive_id: new_archive.id, user_id: @reservation.user_id)
       ap notary_record
-      @reservation.notary_table.update_attribute(notary_record_id, notary_record.id)
+      #binding.pry
+      @reservation.notary_table.update_attribute("notary_record_id", notary_record.id)
+      @profile.save(:validate => false)
       new_archive.save!
-      @profile.save(validate: false)
     end
     redirect_to edit_profile_url(@reservation.archive.profile)
 
