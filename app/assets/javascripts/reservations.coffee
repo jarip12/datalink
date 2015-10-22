@@ -100,6 +100,7 @@ $(document).on 'ready page:load', ->
               { title: "公证类型" },
               { title: "预约时间" },
               { title: "查看" }
+              { title: "处理预约" }
             ]
           } );
         else
@@ -113,6 +114,7 @@ $(document).on 'ready page:load', ->
       { title: "公证类型" },
       { title: "预约时间" },
       { title: "查看" }
+      { title: "处理预约" }
     ]
   } );
 
