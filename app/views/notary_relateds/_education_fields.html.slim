@@ -3,13 +3,17 @@ div.row
     div.row
       label.string.optional.control-label.col-xs-2
         = Education.human_attribute_name("education_type")
-      div.input-group.col-xs-2
+      div.input-group.col-xs-2 class=('has-error' if f.object.errors.include?(:education_type))
         = f.input_field :education_type, :include_blank => false, disabled: cannot_edit
+        - if f.object.errors.include?(:education_type)
+            span class="help-block" #{f.object.errors.get(:education_type)[-1]}
 
       label.string.optional.control-label.col-xs-2
         = Education.human_attribute_name("school_name")
-      div.input-group.col-xs-2
+      div.input-group.col-xs-2 class=('has-error' if f.object.errors.include?(:school_name))
         = f.input_field :school_name, disabled: cannot_edit
+        - if f.object.errors.include?(:school_name)
+          span class="help-block" #{f.object.errors.get(:school_name)[-1]}
 
   div.col-xs-3
     = image_tag "two-line-placeholder.png", class: "property-image"

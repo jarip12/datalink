@@ -22,6 +22,9 @@ class NotaryRecord < ActiveRecord::Base
   delegate :notary_table_id, to: :reservation
   delegate :client_token, to: Setting
 
+  validates :notary_type, presence: true, on: :update
+  validates :notary_id, presence: true, on: :update
+
   before_save :set_notary_id
 
   def reservation

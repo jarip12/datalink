@@ -19,4 +19,10 @@ class Education < ActiveRecord::Base
   extend Enumerize
   enumerize :education_type, in: [:bachelor, :master, :doctor, :college, :highschool, :junior_highschool, :primary_school, :unknown], default: :bachelor
 
+  validates :education_type, presence: true, on: :update
+  validates :school_name, presence: true, on: :update
+  validates :degree, presence: true, on: :update
+  validates :enroll_day, presence: true, on: :update
+  validates :graduation_day, presence: true, on: :update
+
 end

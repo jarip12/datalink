@@ -14,4 +14,10 @@
 
 class WorkExperience < ActiveRecord::Base
   belongs_to :notary_related
+
+  validates :start_day, presence: true, on: :update
+  validates :end_day, presence: true, on: :update
+  validates :company_name, presence: true, on: :update
+  validates :job_title, presence: true, on: :update
+
 end
