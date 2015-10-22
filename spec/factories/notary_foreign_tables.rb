@@ -14,6 +14,8 @@
 #  paperwork_no      :string(255)
 #  apply_context     :string(255)
 #  proxy_people_name :string(255)
+#  sex               :string(255)
+#  notary_record_id  :integer
 #  user_verified     :boolean          default(FALSE)
 #  apply_date        :date
 #  reserve_at        :datetime

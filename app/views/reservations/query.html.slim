@@ -1,0 +1,15 @@
+form.form-horizontal#player_query_form action=reservations_query_path method="post"
+
+  input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
+
+  div.form-group
+    label.control-label.col-sm-2 for="daterange" 选择时间范围
+    div.col-sm-10
+      input.daterange.form-control type="text" id="daterange"
+
+  div.form-group
+    div.col-sm-offset-2.col-sm-2
+      button.btn.btn-default type="submit"  提交
+
+br
+table.display#player-data-table width="100%"

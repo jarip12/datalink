@@ -13,8 +13,6 @@ class ReservationsController < ApplicationController
     @reservation.status = "handled"
     @reservation.save!
 
-
-
     unless @reservation.archive
       new_archive = Archive.create(user_id: @reservation.user_id)
       @profile = Profile.create(realname: @reservation.realname, id_no: @reservation.id_no, archive_id: new_archive.id)
@@ -27,6 +25,30 @@ class ReservationsController < ApplicationController
       new_archive.save!
     end
     redirect_to edit_profile_url(@reservation.archive.profile)
+
+  end
+
+  def query
+    @reservations = Reservation.all
+  end
+
+  def do_query
+    if params["daterange"].length > 0
+      times = params["daterange"].split(' - ')
+      times[0] += " 00:00:00"
+      times[1] += " 23:59:59"
+      ap times[0]
+      ap times[1]
+      start_at = Chronic.parse(times[0])
+      end_at = Chronic.parse(times[1])
+      ap start_at.strftime("%H:%M:%S")
+      ap end_at.strftime("%H:%M:%S")
+      @reservations = Reservation.where(played_at: start_at..end_at)
+    else
+      @reservations = Reservation.all
+    end
+
+    render_success({data: @reservations})
 
   end
 

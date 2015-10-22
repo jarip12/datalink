@@ -6,8 +6,9 @@
 #  id_no             :string(255)
 #  realname          :string(255)
 #  relation_name     :string(255)
-#  owner_archive_id  :integeMr
+#  owner_archive_id  :integer
 #  family_related_id :integer
+#  synced            :boolean          default(FALSE)
 #  updated_once      :boolean          default(FALSE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

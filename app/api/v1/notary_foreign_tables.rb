@@ -5,7 +5,7 @@ module Api
       PREFIX = '/api'
 
       helpers Api::V1::Helpers
-      helpers ::Api::V1::NamedParam
+      helpers ::Api::V1::NamedParams
 
       use Api::V1::Auth::Middleware
 

@@ -2,13 +2,15 @@
 #
 # Table name: reservations
 #
-#  id                :integer          not null, primary key
-#  notary_table_id   :integer
-#  notary_table_type :string(255)
-#  status            :string(255)
-#  reserve_at        :datetime
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id                 :integer          not null, primary key
+#  notary_table_id    :integer
+#  notary_table_type  :string(255)
+#  status             :string(255)
+#  user_id            :integer
+#  sync_user_verified :string(255)      default("0")
+#  reserve_at         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 FactoryGirl.define do

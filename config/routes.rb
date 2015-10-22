@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'reservations/query', to: 'reservations#query'
+  post 'reservations/query', to: 'reservations#do_query'
   resources :reservations do
     get 'handle', to: 'reservations#handle'
   end
