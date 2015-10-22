@@ -5,14 +5,19 @@ module Api
       PREFIX = '/api'
 
       helpers Api::V1::Helpers
+      helpers ::Api::V1::NamedParam
 
       use Api::V1::Auth::Middleware
+
 
       cascade false
 
       format :json
       default_format :json
 
+      params do
+        use :auth
+      end
       post "notary_foreign_tables" do
 
         notary_foreign_table_params = ActionController::Parameters.new(params).permit(:user_id, :id_no, :user_verified, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
