@@ -5,40 +5,52 @@ div.row.first-row
     div.row
       label.string.optional.control-label.col-xs-2
         = Loan.human_attribute_name("start_day")
-      div.input-group.date.col-xs-3
+      div.input-group.date.col-xs-3 class=('has-error' if f.object.errors.include?(:start_day))
         = f.input_field :start_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
         span.input-group-addon
           span.glyphicon.glyphicon-time
+        - if f.object.errors.include?(:start_day)
+            span class="help-block" #{f.object.errors.get(:start_day)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = "至"
-      div.input-group.date.col-xs-3
+      div.input-group.date.col-xs-3 class=('has-error' if f.object.errors.include?(:end_day))
         = f.input_field :end_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+        span.input-group-addon
+          span.glyphicon.glyphicon-time
+        - if f.object.errors.include?(:end_day)
+            span class="help-block" #{f.object.errors.get(:end_day)[-1]}
 
     div.row.row-with-margin
       label.string.optional.control-label.col-xs-2
         = Loan.human_attribute_name("notary_type")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:notary_type))
         = f.input_field :notary_type, :include_blank => false, disabled: cannot_edit
+        - if f.object.errors.include?(:notary_type)
+            span class="help-block" #{f.object.errors.get(:notary_type)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Loan.human_attribute_name("description")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:description))
         = f.input_field :description, class: "form-control", disabled: cannot_edit
+        - if f.object.errors.include?(:description)
+          span class="help-block" #{f.object.errors.get(:description)[-1]}
 
 
     div.row.row-with-margin
       label.string.optional.control-label.col-xs-2
         = Loan.human_attribute_name("amount")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:amount))
         = f.input_field :amount, class: "form-control", disabled: cannot_edit
+        - if f.object.errors.include?(:amount)
+          span class="help-block" #{f.object.errors.get(:amount)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Loan.human_attribute_name("repay_on_time")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:repay_on_time))
         = f.input_field :repay_on_time, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
+        - if f.object.errors.include?(:repay_on_time)
+          span class="help-block" #{f.object.errors.get(:repay_on_time)[-1]}
 
   div.col-xs-3
     = image_tag "two-line-placeholder.png", class: "property-image"

@@ -16,7 +16,7 @@ class PropertyRelated < ActiveRecord::Base
   has_many :deposits
 
 
-  accepts_nested_attributes_for :loans, :house_purchases, :deposits, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :loans, :house_purchases, :deposits, allow_destroy: true
 
   after_create :set_default_related
 

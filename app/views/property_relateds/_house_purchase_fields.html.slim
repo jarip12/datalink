@@ -4,32 +4,42 @@ div.row.first-row
     div.row
       label.string.optional.control-label.col-xs-2
         = HousePurchase.human_attribute_name("trade_day")
-      div.input-group.date.col-xs-3
+      div.input-group.date.col-xs-3 class=('has-error' if f.object.errors.include?(:trade_day))
         = f.input_field :trade_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
         span.input-group-addon
           span.glyphicon.glyphicon-time
+        - if f.object.errors.include?(:trade_day)
+          span class="help-block" #{f.object.errors.get(:trade_day)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = HousePurchase.human_attribute_name("trade_type")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:trade_type))
         = f.input_field :trade_type, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
+        - if f.object.errors.include?(:trade_type)
+          span class="help-block" #{f.object.errors.get(:trade_type)[-1]}
 
     div.row.row-with-margin
       label.string.optional.control-label.col-xs-2
         = HousePurchase.human_attribute_name("house_type")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:house_type))
         = f.input_field :house_type, :include_blank => false, disabled: cannot_edit
+        - if f.object.errors.include?(:house_type)
+          span class="help-block" #{f.object.errors.get(:house_type)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = HousePurchase.human_attribute_name("house_address")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:house_address))
         = f.input_field :house_address, disabled: cannot_edit
+        - if f.object.errors.include?(:house_address)
+          span class="help-block" #{f.object.errors.get(:house_address)[-1]}
 
     div.row.row-with-margin
       label.string.optional.control-label.col-xs-2
         = HousePurchase.human_attribute_name("house_amount")
-      div.col-xs-3
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:house_amount))
         = f.input_field :house_amount, disabled: cannot_edit
+        - if f.object.errors.include?(:house_amount)
+          span class="help-block" #{f.object.errors.get(:house_amount)[-1]}
 
   div.col-xs-3
     = image_tag "two-line-placeholder.png", class: "property-image"

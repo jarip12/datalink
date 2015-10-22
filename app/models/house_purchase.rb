@@ -17,4 +17,11 @@ class HousePurchase < ActiveRecord::Base
   extend Enumerize
   enumerize :trade_type, in: [:buy, :sell], default: :buy
   enumerize :house_type, in: [:shop, :apartment, :villa], default: :shop
+
+  validates :trade_day, presence: true, on: :update
+  validates :trade_type, presence: true, on: :update
+  validates :house_type, presence: true, on: :update
+  validates :house_address, presence: true, on: :update
+  validates :house_amount, presence: true, on: :update
+
 end

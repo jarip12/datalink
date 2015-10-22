@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151021024756) do
     t.string   "trade_type",          limit: 255
     t.string   "house_type",          limit: 255
     t.string   "house_address",       limit: 255
-    t.string   "house_amount",        limit: 255
+    t.float    "house_amount",        limit: 24
     t.integer  "property_related_id", limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

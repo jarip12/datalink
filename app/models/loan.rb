@@ -19,4 +19,12 @@ class Loan < ActiveRecord::Base
 
   extend Enumerize
   enumerize :notary_type, in: [:bank, :small_loan_company, :private_lending_company, :pawnshop], default: :bank
+
+
+  validates :start_day, presence: true, on: :update
+  validates :end_day, presence: true, on: :update
+  validates :notary_type, presence: true, on: :update
+  validates :description, presence: true, on: :update
+  validates :amount, presence: true, on: :update
+
 end

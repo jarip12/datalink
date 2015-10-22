@@ -34,9 +34,9 @@ class Archive < ActiveRecord::Base
   def set_default_relations
     self.save!
 
-    self.notary_related = NotaryRelated.create
-    self.property_related = PropertyRelated.create
-    self.family_related = FamilyRelated.create
+    notary_related = NotaryRelated.create(archive_id: self.id)
+    property_related = PropertyRelated.create(archive_id: self.id)
+    family_related = FamilyRelated.create(archive_id: self.id)
 
   end
 
