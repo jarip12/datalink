@@ -14,7 +14,7 @@ class NotaryForeignTablesController < ApplicationController
 
   # GET /notary_foreign_tables/1
   def show
-    @archive = @notary_foreign_table.archive
+
   end
 
   # GET /notary_foreign_tables/new
@@ -82,6 +82,7 @@ class NotaryForeignTablesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_notary_foreign_table
       @notary_foreign_table = NotaryForeignTable.find(params[:id])
+      @archive = @notary_foreign_table.archive
     end
 
     # Only allow a trusted parameter "white list" through.
