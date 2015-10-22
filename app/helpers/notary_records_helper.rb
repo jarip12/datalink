@@ -6,6 +6,5 @@ module NotaryRecordsHelper
     else
       '/'
     end
-
   end
 end

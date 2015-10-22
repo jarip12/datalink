@@ -94,10 +94,12 @@ $(document).on 'ready page:load', ->
           console.log(json)
           $('#reservation-data-table').DataTable( {
             data: json["data"],
+            order: [[ 2, 'asc' ] ],
             columns: [
               { title: "申请人" },
               { title: "公证类型" },
               { title: "预约时间" },
+              { title: "查看" }
             ]
           } );
         else
@@ -105,10 +107,12 @@ $(document).on 'ready page:load', ->
 
   $('#reservation-data-table').DataTable( {
     data: gon.results,
+    order: [[ 2, 'asc' ] ]
     columns: [
       { title: "申请人" },
       { title: "公证类型" },
       { title: "预约时间" },
+      { title: "查看" }
     ]
   } );
 

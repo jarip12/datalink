@@ -2,6 +2,9 @@ class ReservationsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
 
+  include NotaryRecordsHelper
+  include ReservationsHelper
+
   load_and_authorize_resource
 
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
@@ -33,7 +36,7 @@ class ReservationsController < ApplicationController
    @reservations = Reservation.by_day.order(:reserve_at)
 
    @results = @reservations.map do |reservation|
-    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S")]
+    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S"), reserve_table_link(reservation)]
    end
 
    gon.results = @results
@@ -57,7 +60,7 @@ class ReservationsController < ApplicationController
     end
 
     @results = @reservations.map do |reservation|
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S")]
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reserve_table_link(reservation)]
     end
 
     render_success({data: @results})
