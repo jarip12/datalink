@@ -29,6 +29,18 @@ class ReservationsController < ApplicationController
   end
 
   def query
+
+   @reservations = Reservation.all
+
+   @results = @reservations.map do |reservation|
+    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at]
+   end
+
+   gon.results = @results
+
+  end
+
+  def do_query
     if params.has_key?("daterange") and params["daterange"].length > 0
       times = params["daterange"].split(' - ')
       times[0] += " 00:00:00"
@@ -46,30 +58,6 @@ class ReservationsController < ApplicationController
 
     @results = @reservations.map do |reservation|
       [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at]
-    end
-
-    gon.results = Setting.results
-
-  end
-
-  def do_query
-    if params["daterange"].length > 0
-      times = params["daterange"].split(' - ')
-      times[0] += " 00:00:00"
-      times[1] += " 23:59:59"
-      ap times[0]
-      ap times[1]
-      start_at = Chronic.parse(times[0])
-      end_at = Chronic.parse(times[1])
-      ap start_at.strftime("%H:%M:%S")
-      ap end_at.strftime("%H:%M:%S")
-      @reservations = Reservation.where(reserve_at: start_at..end_at)
-    else
-      @reservations = Reservation.all
-    end
-
-    @results = @reservations.map do |reservation|
-      [reservation.realname, reservation.notary_type_text, reservation.reserve_at]
     end
 
     render_success({data: @results})

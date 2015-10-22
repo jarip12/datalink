@@ -71,38 +71,37 @@ $(document).on 'ready page:load', ->
   })
 
   $('#reservation-query-form').submit (event) ->
-  console.log("hello query form")
-  console.log("hello query form")
-  event.preventDefault()
-  form_data = {
-    daterange: $('#reservation-daterange').val()
-  }
-  console.log(form_data)
-  $.ajax
-    url: $(this).attr('action')
-    type: 'POST'
-    dataType: 'json'
-    data: form_data
-    success: (json) ->
-      console.log("hello")
-      if json.success
-        console.log(json)
-        table = $("#reservation-data-table").dataTable()
-        table.fnDestroy()
-        console.log("table removed")
-        console.log(json['data'])
-        console.log(json)
-        $('#reservation-data-table').DataTable( {
-          data: json["data"],
-          columns: [
-            { title: "申请人" },
-            { title: "公证类型" },
-            { title: "预约时间" },
-          ]
-        } );
-
-      else
-        console.log(json)
+    console.log("hello query form")
+    console.log("hello query form")
+    event.preventDefault()
+    form_data = {
+      daterange: $('#reservation-daterange').val()
+    }
+    console.log(form_data)
+    $.ajax
+      url: $(this).attr('action')
+      type: 'POST'
+      dataType: 'json'
+      data: form_data
+      success: (json) ->
+        console.log("hello")
+        if json.success
+          console.log(json)
+          table = $("#reservation-data-table").dataTable()
+          table.fnDestroy()
+          console.log("table removed")
+          console.log(json['data'])
+          console.log(json)
+          $('#reservation-data-table').DataTable( {
+            data: json["data"],
+            columns: [
+              { title: "申请人" },
+              { title: "公证类型" },
+              { title: "预约时间" },
+            ]
+          } );
+        else
+          console.log(json)
 
   $('#reservation-data-table').DataTable( {
     data: gon.results,
