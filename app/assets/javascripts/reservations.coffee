@@ -118,3 +118,17 @@ $(document).on 'ready page:load', ->
     ]
   } );
 
+  $("input#profile_avatar").change ->
+    console.log("change a profile avatar")
+    console.log(self)
+    console.log(self.files)
+    if self.files && self.files[0]
+      reader = new FileReader();
+
+      reader.onload = (e) ->
+        $('#blah').attr('src', e.target.result)
+
+      reader.readAsDataURL(self.files[0]);
+
+
+
