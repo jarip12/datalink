@@ -85,6 +85,8 @@ gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'grape', '~> 0.7.0'
 gem 'excon'
+gem 'prawn'
+gem 'prawn-table'
 
 
 group :development, :test do
