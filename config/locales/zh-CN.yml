@@ -1,5 +1,23 @@
 ---
 zh-CN:
+  settings:
+    attributes:
+      mobile_regex_format:
+        name: 手机号码正则表达式
+      realname_regex_format:
+        name: 真实姓名正则表达式
+      id_no_regex_format:
+        name: 身份证号码正则表达式
+      sync_notary_record_url:
+        name: 同步公证记录api
+      set_user_verified_url:
+        name: 用户认证api
+      sync_family_relation_url:
+        name: 同步家庭信息api
+      client_token:
+        name: 客户端访问token
+      server_token:
+        name: 服务器端访问token
   validate:
     mobile:
       format:
