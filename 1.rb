@@ -21,7 +21,7 @@ Prawn::Document.generate("hello.pdf") do
 
   relation_first_column = { content: "父母配偶", rowspan: 5, width: 20 }
   relation = [["称谓", "姓名", "外文名", "性别", "出生日期", "先居住地", "未离境者现居地址或已离境者在上海的最后住址"]] + [["    "] * 7] * 4
-  relation_table = make_table(relation, :width => 500)
+  relation_table = make_table(relation)
   table([["父母配偶", relation_table]])
 =begin
   table([[person], ["工作单位名称, 地址"], ["请在下列需要办理"],
