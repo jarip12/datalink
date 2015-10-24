@@ -2,6 +2,7 @@ require "prawn"
 require "prawn/table"
 
 
+
 Prawn::Document.generate("hello.pdf") do
 
   font_families["chinese"] = {
@@ -12,9 +13,16 @@ Prawn::Document.generate("hello.pdf") do
   person_info = make_table([["姓名", "    ", "性别", "  ", "出生日期", "      ", "邮箱", "   "], ["现住址", "  ", "电话", "    "]])
   person = make_table([[{:content => "申请人", :colspan => 3}], [person_info]])
 
-  table([["往           国家/地区使用          申请公证用途: 定居/探亲/工作/学习/结婚/其它"]])
-  table([["申请人", person_info]])
-  table([["工作单位名称, 地址"], ["请在下列需要办理"]], :column_widths => [540])
+  table([["往           国家/地区使用          申请公证用途: 定居/探亲/工作/学习/结婚/其它"]], :width => 540)
+  table([["申请人", person_info]], :width => 540)
+  table([["工作单位名称, 地址"], ["请在下列需要办理"]], :width => 540)
+  table([["申办何种公证", "地址"]], :width => 540)
+  table([["如办出生, "]], :width => 540)
+
+  relation_first_column = { content: "父母配偶", rowspan: 5, width: 20 }
+  relation = [["称谓", "姓名", "外文名", "性别", "出生日期", "先居住地", "未离境者现居地址或已离境者在上海的最后住址"]] + [["    "] * 7] * 4
+  relation_table = make_table(relation, :width => 500)
+  table([["父母配偶", relation_table]])
 =begin
   table([[person], ["工作单位名称, 地址"], ["请在下列需要办理"],
           ["申办何种公证", [["xx"], ["yy"]]],
