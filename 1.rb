@@ -1,5 +1,6 @@
 require "prawn"
 require "prawn/table"
+require 'pry'
 
 
 
@@ -10,13 +11,13 @@ Prawn::Document.generate("hello.pdf") do
   }
   fallback_fonts ["chinese"]
 
-  #address_phone = make_cell([["现住址", "  ", "电话", "    "]], :width => 500)
-  address = make_cell(:content => "      ", :width => 150)
-  phone = make_cell(:content => "      ", :width => 150)
-  person_info = make_table([["姓名", "    ", "性别", "  ", "出生日期", "      ", "邮箱", "   "], ["现住只", address, "电话", phone]], :width => 500)
+
 
   table([["往           国家/地区使用          申请公证用途: 定居/探亲/工作/学习/结婚/其它"]], :width => 540)
+
+  person_info = make_table([["姓名", "    ", "性别", "  ", "出生日期", "      ", "邮箱", "   "], ["现住址", "     ", "电话", "    18026931797  "], ["申请人已于   年  月  日"]], :width => 500)
   table([["申请人", person_info]], :width => 540)
+
   table([["工作单位名称、地址、电话（已出境的填写原工作单位）"], ["请在下列需要办理公证事项"]], :width => 540)
   table([["申办何种公证", "地址"]], :width => 540)
   table([['如办出生、结婚、亲属关系分别填写（如办出生请在"备注"栏内写明本人出生地及父母结婚时间）']], :width => 540)
