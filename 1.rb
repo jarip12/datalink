@@ -19,10 +19,18 @@ Prawn::Document.generate("hello.pdf") do
   table([["申办何种公证", "地址"]], :width => 540)
   table([["如办出生, "]], :width => 540)
 
-  relation_first_column = { content: "父母配偶", rowspan: 5, width: 20 }
+  #relation_first_column = { content: "父母配偶", rowspan: 5, width: 20 }
   relation = [["称谓", "姓名", "外文名", "性别", "出生日期", "先居住地", "未离境者现居地址或已离境者在上海的最后住址"]] + [["    "] * 7] * 4
-  relation_table = make_table(relation)
+  relation_table = make_table(relation, :width => 500)
   table([["父母配偶", relation_table]])
+  table([["翻译成何语种(     )       公证书份数(   )份"]], :width => 540)
+  table([["是否要求认证(     )       申请人提交照片(   )张"]], :width => 540)
+
+  proxy = [["代办人姓名", "与申请人关系", "电话", "联系地址"]] + [["    "] * 4 ] * 1
+  table(proxy, :width => 540)
+
+  table([["其它需要说明的有关情况备注:"]], :width => 540)
+  table([["申请日期:          申请人/代办人签名(盖章)    "]], :width => 540)
 =begin
   table([[person], ["工作单位名称, 地址"], ["请在下列需要办理"],
           ["申办何种公证", [["xx"], ["yy"]]],
