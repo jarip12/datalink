@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :notary_relateds
   resources :property_relateds
   resources :family_relateds
-  resources :notary_foreign_tables
+  resources :notary_foreign_tables do
+    get 'as_pdf'
+  end
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
   resources :profiles
