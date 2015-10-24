@@ -120,6 +120,6 @@ class NotaryForeignTablesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def notary_foreign_table_params
-      params.require(:notary_foreign_table).permit(:realname, :id_no, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
+      params.require(:notary_foreign_table).permit(:realname, :id_no, :age, :birth_day,  :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
     end
 end
