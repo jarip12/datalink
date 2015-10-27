@@ -20,6 +20,8 @@ var svg = d3.select("body")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var nodes = tree.nodes(getData());
+
+console.log(nodes);
   
 var node = svg.selectAll(".node")
     .data(nodes)

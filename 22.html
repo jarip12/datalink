@@ -55,14 +55,14 @@ var links = [
 ];
 
 var nodes = [
-    {name: "father"} ,
-    {name: "mother"},
-    {name: "brother"},
-    {name: "me"},
-    {name: "wife"},
-    {name: "mine_child1"},
-    {name: "mine_child2"},
-    {name: "mine_child3"}
+    {name: "father", depth: 0} ,
+    {name: "mother", depth: 0},
+    {name: "brother", depth: 1},
+    {name: "me", depth: 1},
+    {name: "wife", depth: 1},
+    {name: "mine_child1", depth: 2},
+    {name: "mine_child2", depth: 2},
+    {name: "mine_child3", depth: 2}
 ];
 
 
@@ -82,25 +82,34 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-// Per-type markers, as they don't inherit styles.
-svg.append("defs").selectAll("marker")
-    .data(["suit", "licensing", "resolved"])
-  .enter().append("marker")
-    .attr("id", function(d) { return d; })
-    .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 15)
-    .attr("refY", -1.5)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
-    .attr("orient", "auto")
-  .append("path")
-    .attr("d", "M0,-5L10,0L0,5");
-
 var path = svg.append("g").selectAll("path")
     .data(force.links())
   .enter().append("path")
     .attr("class", function(d) { return "link " + d.type; })
     .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+console.log(nodes);
+
+var node = svg.selectAll(".node")
+        .data(nodes)
+        .enter()
+        .append("g");
+
+node.append("rect")
+        .attr("width", 140)
+        .attr("height", 80)
+        .attr("fill", "tan")
+        .attr("x", function(d) { return d.x - 70; })
+        .attr("y", function(d) { return height - d.y - 40; });
+
+node.append("text")
+        .attr("font-size", "16px")
+        .attr("fill", "black")
+        .attr("x", function(d) { return d.x; })
+        .attr("y", function(d) { return height - d.y - 15; })
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.name; });
+
 
 var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
