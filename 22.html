@@ -22,15 +22,15 @@
 }
 
 circle {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 1.5px;
+    fill: #ccc;
+    stroke: #333;
+    stroke-width: 1.5px;
 }
 
 text {
-  font: 10px sans-serif;
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    font: 10px sans-serif;
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
 </style>
@@ -95,6 +95,8 @@ var node = svg.selectAll(".node")
         .enter()
         .append("g");
 
+console.log(node);
+
 node.append("rect")
         .attr("width", 140)
         .attr("height", 80)
@@ -111,24 +113,9 @@ node.append("text")
         .text(function(d) { return d.name; });
 
 
-var circle = svg.append("g").selectAll("circle")
-    .data(force.nodes())
-  .enter().append("circle")
-    .attr("r", 6)
-    .call(force.drag);
-
-var text = svg.append("g").selectAll("text")
-    .data(force.nodes())
-  .enter().append("text")
-    .attr("x", 8)
-    .attr("y", ".31em")
-    .text(function(d) { return d.name; });
-
 // Use elliptical arc path segments to doubly-encode directionality.
 function tick() {
   path.attr("d", linkArc);
-  circle.attr("transform", transform);
-  text.attr("transform", transform);
 }
 
 function linkArc(d) {
