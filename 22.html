@@ -40,13 +40,10 @@ text {
 
 // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
 var links = [
-    {source: "father", target: "me", type: "suit"},
-    {source: "mother", target: "me", type: "child_link"},
-    {source: "father", target: "brother", type: "child_link"},
-    {source: "mother", target: "brother", type: "child_link"},
-    {source: "me", target: "mine_child1", type: "child_link"},
-    {source: "me", target: "mine_child2", type: "child_link"},
-    {source: "me", target: "mine_child3", type: "child_link"},
+    {source: 0, target: 3, type: "suit"},
+    {source: 1, target: 3, type: "child_link"},
+    {source: 0, target: 2, type: "child_link"},
+    {source: 1, target: 2, type: "child_link"},
 ];
 
 var nodes = [
