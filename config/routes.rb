@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     #patch 'property_related', to: 'property_relateds#update'
 
     get 'family_relations', to: 'family_relations#index'
+    get 'family_relations_tree', to: 'family_relations#index_tree'
 
     get 'notaries', to: 'notaries#index'
     get 'notary_records', to: 'archives#notary_records'

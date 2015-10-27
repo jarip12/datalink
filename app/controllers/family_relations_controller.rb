@@ -1,5 +1,5 @@
 class FamilyRelationsController < ApplicationController
-  before_action :set_archive, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_archive, only: [:index, :index_tree, :show, :edit, :update, :destroy]
 
   load_and_authorize_resource
   layout "with_left_sidebar"
@@ -7,6 +7,10 @@ class FamilyRelationsController < ApplicationController
 
   # GET /family_relations
   def index
+    @family_relations = @archive.family_relations
+  end
+
+  def index_tree
     @family_relations = @archive.family_relations
   end
 
