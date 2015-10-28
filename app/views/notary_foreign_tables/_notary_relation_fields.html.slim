@@ -1,0 +1,43 @@
+div.notary_relation_container
+  div.row
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("relation")
+    div.input-group.date.col-xs-3
+      = f.input_field :relation, disabled: cannot_edit
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("realname")
+    div.input-group.date.col-xs-3
+      = f.input_field :realname, disabled: cannot_edit
+
+  div.row
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("english_name")
+    div.input-group.date.col-xs-3
+      = f.input_field :english_name, disabled: cannot_edit
+
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("sex")
+    div.input-group.date.col-xs-3
+      = f.input_field :sex, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
+
+  div.row
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("birth_day")
+    div.input-group.date.col-xs-3
+      = f.input_field :birth_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("now_address")
+    div.input-group.date.col-xs-3
+      = f.input_field :now_address, disabled: cannot_edit, rows: 3
+
+  div.row
+
+    label.string.optional.control-label.col-xs-2
+      = NotaryRelation.human_attribute_name("before_abroad_address")
+    div.input-group.date.col-xs-3
+      = f.input_field :before_abroad_address, disabled: cannot_edit, rows: 3

@@ -3,49 +3,123 @@
   div.table-container
 
     div#foreign_table.top-border
-      div#apply_info.row
+      div#notary_foreign_table_person.row
         div.col-xs-2
           p.text-center 申请人
         div.col-xs-10
           div.row
-            label.col-xs-1 姓名:
-            input.col-xs-2 type="text" value="#{@notary_foreign_table.realname}" disabled="true"
-            label.col-xs-1.col-xs-offset-1 性别:
-            input.col-xs-2 type="text" value="#{@notary_foreign_table.sex_text}" disabled="true"
+            label.col-xs-2 公证使用国家/地区:
+            div.col-xs-3
+              = f.input_field :use_country, as: :string, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 申请公证用途:
+            div.col-xs-3
+              = f.input_field :purpose, disabled: cannot_edit
+
+          div.row
+            label.col-xs-2 姓名:
+            div.col-xs-3
+              = f.input_field :realname, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 性别:
+            div.col-xs-3
+              = f.input_field :sex, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
+
+          div.row
             label.col-xs-2 出生日期:
-            = f.input_field :birth_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
+            div.input-group.date.col-xs-3
+              = f.input_field :birth_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
+              span.input-group-addon
+                span.glyphicon.glyphicon-time
+            label.col-xs-2.col-xs-offset-1 邮箱:
+            div.col-xs-3
+              = f.input_field :email, disabled: cannot_edit
+
           div.row
-            label.col-xs-2 工作单位:
-            div.col-xs-8
-              = f.input_field :company_location, disabled: cannot_edit
+            label.col-xs-2 现住址:
+            div.col-xs-3
+              = f.input_field :now_address, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 电话:
+            div.col-xs-3
+              = f.input_field :mobile, disabled: cannot_edit
+
           div.row
-            label.col-xs-2 住所:
-            div.col-xs-8
-              = f.input_field :residence, disabled: cannot_edit
+            label.col-xs-2 出境日期:
+            div.input-group.date.col-xs-3
+              = f.input_field :abroad_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
+              span.input-group-addon
+                span.glyphicon.glyphicon-time
+            label.col-xs-2.col-xs-offset-1 出境前住址:
+            div.col-xs-3
+              = f.input_field :before_abroad_address, disabled: cannot_edit
+
           div.row
-            label.col-xs-2 证件名称及号码:
-            div.col-xs-8
-              = f.input_field :paperwork_no, disabled: cannot_edit
-          textarea#apply_context name="apply_context" rows="2"
-          textarea#apply_context name="apply_context" rows="2"
+            label.col-xs-6 工作单位名称、地址、电话（已出境的填写原工作单位):
+            div.col-xs-6
+              = f.input_field :work_unit, disabled: cannot_edit, rows: 3
+
+          div.row
+            label.col-xs-2 公证类型
+            div.col-xs-3
+              = f.input_field :notary_type, disabled: cannot_edit
+
+      div.row#notary_foreign_table_relation
+        div.col-xs-2
+          p.text-center 父母、配偶、亲属关系另一方情况
+        div.col-xs-10
+          div.row
+            = f.simple_fields_for :notary_relations, html: {class: "form-wrap form-horizontal"} do |notary_relation|
+              = render 'notary_relation_fields', f: notary_relation, cannot_edit: false
+            .links.col-xs-offset-9.link-div
+              = link_to_add_association '添加亲属关系', f, :notary_relations, class: "pull-right property-link", render_options: {locals: {cannot_edit: cannot_edit}}
+
+
+      div.row#notary_foreign_table_others
+        div.col-xs-2
+          p.text-center 其它信息
+        div.col-xs-10
+          div.row
+            label.col-xs-2 翻译成何种语种:
+            div.col-xs-3
+              = f.input_field :translate_lang, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 公证书份数:
+            div.col-xs-3
+              = f.input_field :file_num, disabled: cannot_edit
+
+          div.row
+            label.col-xs-2 是否要求认证:
+            div.col-xs-3
+              = f.input_field :require_notary, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 申请人提交照片数量:
+            div.col-xs-3
+              = f.input_field :photo_num, disabled: cannot_edit
+
       div#proxy_people.row
         div.col-xs-2
           p.text-center 代理人
         div.col-xs-10
-          textarea#apply_context name="apply_context" rows="2"
-          textarea#apply_context name="apply_context" rows="2"
-          textarea#apply_context name="apply_context" rows="2"
-          textarea#apply_context name="apply_context" rows="2"
+          div.row
+            label.col-xs-2 代办人姓名:
+            div.col-xs-3
+              = f.input_field :agent_name, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 与申请人关系:
+            div.col-xs-3
+              = f.input_field :agent_relation, disabled: cannot_edit
+          div.row
+            label.col-xs-2 电话:
+            div.col-xs-3
+              = f.input_field :agent_mobile, disabled: cannot_edit
+            label.col-xs-2.col-xs-offset-1 联系地址:
+            div.col-xs-3
+              = f.input_field :agent_address, disabled: cannot_edit
 
-    div#apply-context.top-border
-      p 申请公证内容:
-      textarea#apply_context name="apply_context" rows="20"
 
-    div#apply-sign.top-border
-      p 申请人、代理人签名(签章):
-      textarea#apply_sign name="apply_sign" rows="2"
-      p   年  月  日
+      div.row#comment
+        p 其他需要说明的有关情况备注：
+        = f.input_field :comment, disabled: cannot_edit, rows: 3
 
-    div.top-border
-      p 接待人:
-      textarea#reception_people name="reception_people" rows="2"
+    - if @notary_foreign_table.sync_status == "wait_allow"
+      div.links.top-border
+        = link_to "选择预约办理时间", '/', class: "col-xs-4 btn btn-default"
+        div.col-xs-2.col-xs-offset-4
+          input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
+        div.col-xs-2
+          input type="submit" class="btn btn-danger btn-block" value="提交" name="commit"

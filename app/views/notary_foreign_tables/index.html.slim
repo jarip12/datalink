@@ -1,0 +1,39 @@
+h1 = NotaryForeignTable.model_name.human
+
+table.table.table-striped
+  tr
+    th = NotaryForeignTable.human_attribute_name("realname")
+    th = NotaryForeignTable.human_attribute_name("age")
+    th = NotaryForeignTable.human_attribute_name("birth_day")
+    th = NotaryForeignTable.human_attribute_name("company_location")
+    th = NotaryForeignTable.human_attribute_name("residence")
+    th = NotaryForeignTable.human_attribute_name("paperwork_name")
+    th = NotaryForeignTable.human_attribute_name("paperwork_no")
+    th = NotaryForeignTable.human_attribute_name("apply_context")
+    th = NotaryForeignTable.human_attribute_name("proxy_people_name")
+    th = NotaryForeignTable.human_attribute_name("apply_date")
+    th = NotaryForeignTable.human_attribute_name("reserve_at")
+    th
+    th
+    th
+
+  - @notary_foreign_tables.each do |notary_foreign_table|
+    tr
+      td = notary_foreign_table.realname
+      td = notary_foreign_table.age
+      td = notary_foreign_table.birth_day
+      td = notary_foreign_table.company_location
+      td = notary_foreign_table.residence
+      td = notary_foreign_table.paperwork_name
+      td = notary_foreign_table.paperwork_no
+      td = notary_foreign_table.apply_context
+      td = notary_foreign_table.proxy_people_name
+      td = notary_foreign_table.apply_date
+      td = notary_foreign_table.reserve_at
+      td = link_to t('action.show'), notary_foreign_table
+      td = link_to t('action.edit'), edit_notary_foreign_table_path(notary_foreign_table)
+      td = link_to t('action.delete'), notary_foreign_table, :confirm => t('action.confirm_delete'), :method => :delete
+
+br
+
+= link_to (t('action.new') + NotaryForeignTable.model_name.human), new_notary_foreign_table_path

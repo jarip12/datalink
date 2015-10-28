@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021024756) do
+ActiveRecord::Schema.define(version: 20151019035839) do
 
   create_table "archives", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -123,24 +123,36 @@ ActiveRecord::Schema.define(version: 20151021024756) do
   end
 
   create_table "notary_foreign_tables", force: :cascade do |t|
-    t.string   "realname",          limit: 255
-    t.integer  "age",               limit: 4
-    t.integer  "user_id",           limit: 4
-    t.integer  "id_no",             limit: 4
+    t.string   "realname",              limit: 255
+    t.integer  "sex",                   limit: 4
+    t.integer  "age",                   limit: 4
+    t.integer  "id_no",                 limit: 4
+    t.string   "use_country",           limit: 255
+    t.text     "now_address",           limit: 65535
+    t.text     "before_abroad_address", limit: 65535
+    t.date     "abroad_day"
+    t.string   "notary_type",           limit: 255
+    t.string   "notary_type_info",      limit: 255
+    t.string   "translate_lang",        limit: 255
+    t.string   "email",                 limit: 255
+    t.string   "mobile",                limit: 255
+    t.integer  "file_num",              limit: 4
+    t.boolean  "require_notary",                      default: true
+    t.integer  "photo_num",             limit: 4
+    t.text     "work_unit",             limit: 65535
     t.date     "birth_day"
-    t.string   "company_location",  limit: 255
-    t.string   "residence",         limit: 255
-    t.string   "paperwork_name",    limit: 255
-    t.string   "paperwork_no",      limit: 255
-    t.string   "apply_context",     limit: 255
-    t.string   "proxy_people_name", limit: 255
-    t.string   "sex",               limit: 255
-    t.integer  "notary_record_id",  limit: 4
-    t.boolean  "user_verified",                 default: false
-    t.date     "apply_date"
+    t.text     "comment",               limit: 65535
+    t.string   "agent_name",            limit: 255
+    t.string   "agent_relation",        limit: 255
+    t.string   "agent_mobile",          limit: 255
+    t.text     "agent_address",         limit: 65535
+    t.string   "sync_status",           limit: 255
+    t.string   "purpose",               limit: 255
+    t.integer  "user_id",               limit: 4
+    t.boolean  "user_verified",                       default: false
     t.datetime "reserve_at"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   create_table "notary_records", force: :cascade do |t|
