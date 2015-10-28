@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "sync_status",           limit: 255
     t.string   "purpose",               limit: 255
     t.integer  "user_id",               limit: 4
+    t.integer  "notary_record_id",      limit: 4
     t.boolean  "user_verified",                       default: false
     t.datetime "reserve_at"
     t.datetime "created_at",                                          null: false
