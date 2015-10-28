@@ -13,15 +13,6 @@ p.form-title-wrap
       .links.col-xs-offset-9.link-div
         = link_to_add_association '添加学位记录', f, :educations, class: "pull-right property-link", render_options:  {locals: { cannot_edit: false }}
 
-    div.row.form-with-border
-      label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_crime_record")
-      div.col-xs-3
-        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline", cannot_edit: false
-
-    div.row.form-with-border
-      label.control-label.col-xs-2 = NotaryRelated.human_attribute_name("has_testament")
-      div.col-xs-3
-        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline", cannot_edit: false
 
     div.form-with-border
       p.first-title = "工作经历"

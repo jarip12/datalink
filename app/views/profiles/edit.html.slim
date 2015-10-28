@@ -4,9 +4,6 @@ p.form-title-wrap
 
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
-  = debug(f.object.errors.messages[:id_no])
-  = debug(f.object.errors.messages[:realname])
-  = debug(f.object.errors.messages)
 
   .form-inputs
     div.row
