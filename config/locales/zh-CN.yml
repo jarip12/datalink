@@ -251,6 +251,7 @@ zh-CN:
       profile:
         id_no_img: "身份证扫描件"
         realname: "姓名"
+        email: "邮箱"
         id_no: "身份证号"
         sex: "性别"
         mobile: "联系电话"

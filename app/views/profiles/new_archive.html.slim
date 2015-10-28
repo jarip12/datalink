@@ -1,0 +1,23 @@
+
+= simple_form_for @profile, html: {class: "new-archive-form-wrap form-horizontal"} do |f|
+  p.text-center.new-archive-title 请输入公民姓名与身份证号
+  div.form-group
+    label.col-xs-2.control-label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
+    div.col-xs-10
+      =f.input_field :realname, class: "archive-input form-control"
+
+  div.form-group
+    label.col-xs-2.control-label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
+    div.col-xs-10
+      =f.input_field :id_no, class: "archive-input form-control"
+
+  div.form-group
+    label.col-xs-2.control-label  = Profile.human_attribute_name("email")
+    div.col-xs-10
+      =f.input_field :email, class: "archive-input form-control"
+
+
+  div.form-group
+    input.btn.btn-default.control-label.col-xs-offset-3.button-submit type="submit" name="commit" value="创建"
+    = link_to "返回", dashboard_index_path, class: "btn btn-default control-label col-xs-offset-2 button-return"
+

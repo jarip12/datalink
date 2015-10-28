@@ -11,6 +11,7 @@
 #  death_day    :date
 #  address      :string(255)
 #  archive_id   :integer
+#  email        :string(255)
 #  updated_once :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

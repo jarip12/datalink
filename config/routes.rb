@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :profiles
 
 
+  get 'archives/new', to: 'profiles#new_archive', as: :new_archive_file
   resources :archives do
     get :autocomplete_user_email, :on => :collection
 

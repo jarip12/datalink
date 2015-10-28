@@ -1,12 +1,16 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  layout "with_left_sidebar", except: [:search]
+  layout "with_left_sidebar", except: [:search, :new_archive]
 
   load_and_authorize_resource
 
   def can_edit_multi_times
 
+  end
+
+  def new_archive
+    @profile = Profile.new
   end
 
 
@@ -38,8 +42,17 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
 
-    if @profile.save
-      redirect_to @profile, notice: t('action.created.successfully')
+    if @profile.save(:validate => false)
+      @archive = Archive.create
+      @profile.archive_id = @archive.id
+      @profile.save(:validate => false)
+      if can? :edit, @profile
+        ap "can edit profile"
+        redirect_to edit_profile_url(@profile), notice: t('action.created.successfully')
+      else
+        ap "cannot edit profile"
+        redirect_to profile_url(@profile), notice: t('action.created.successfully')
+      end
     else
       render :new
     end
@@ -76,6 +89,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:realname, :id_no, :sex, :mobile, :birth_day, :death_day, :address, :archive_id, :avatar)
+      params.require(:profile).permit(:realname, :email, :id_no, :sex, :mobile, :birth_day, :death_day, :address, :archive_id, :avatar)
     end
 end
