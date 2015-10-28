@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
            }.merge(data)
   end
 
+  def current_staff
+    @current_staff
+  end
+
+  def login_as(staff)
+    @current_staff = staff
+  end
+
   def render_fail(msg = nil, model = nil)
     res = {
         success: false,
