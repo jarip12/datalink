@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  layout "with_left_sidebar", except: [:search, :new_archive]
+  layout "with_left_sidebar", except: [:search, :new_archive, :create]
 
   load_and_authorize_resource
 
@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
 
-    if @profile.save(:validate => false)
+    if @profile.valid? and @profile.save(:validate => false)
       @archive = Archive.create
       @profile.archive_id = @archive.id
       @profile.save(:validate => false)
@@ -54,7 +54,7 @@ class ProfilesController < ApplicationController
         redirect_to profile_url(@profile), notice: t('action.created.successfully')
       end
     else
-      render :new
+      render :new_archive
     end
   end
 

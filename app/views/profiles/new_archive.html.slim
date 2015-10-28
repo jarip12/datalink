@@ -1,20 +1,29 @@
 
 = simple_form_for @profile, html: {class: "new-archive-form-wrap form-horizontal"} do |f|
+
   p.text-center.new-archive-title 请输入公民姓名与身份证号
+  = f.error_notification
   div.form-group
     label.col-xs-2.control-label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
-    div.col-xs-10
+    div.col-xs-10  class=('has-error' if f.object.errors.include?(:realname))
       =f.input_field :realname, class: "archive-input form-control"
+      - if f.object.errors.include?(:realname)
+        span class="help-block" #{f.object.errors.get(:realname)[-1]}
 
   div.form-group
     label.col-xs-2.control-label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
-    div.col-xs-10
+    div.col-xs-10  class=('has-error' if f.object.errors.include?(:id_no))
       =f.input_field :id_no, class: "archive-input form-control"
+      - if f.object.errors.include?(:id_no)
+        span class="help-block" #{f.object.errors.get(:id_no)[-1]}
+
 
   div.form-group
     label.col-xs-2.control-label  = Profile.human_attribute_name("email")
-    div.col-xs-10
+    div.col-xs-10 class=('has-error' if f.object.errors.include?(:email))
       =f.input_field :email, class: "archive-input form-control"
+      - if f.object.errors.include?(:email)
+        span class="help-block" #{f.object.errors.get(:email)[-1]}
 
 
   div.form-group
