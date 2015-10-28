@@ -9,7 +9,6 @@ p.form-title-wrap
     div.form-with-border
       p.first-title = "信贷情况"
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
-        = loan.error_notification
         = render 'loan_fields', f: loan, cannot_edit: false
       .links.col-xs-offset-9.link-div
         span.property-link 上传扫描件

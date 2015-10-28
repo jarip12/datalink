@@ -10,11 +10,9 @@ Rails.application.routes.draw do
   end
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
-  get 'profiles/new', to: 'profiles#new_archive', as: :new_archive_file
-  resources :profiles
+  get 'profiles/new', to: 'profiles#new_archive', as: :new_profile
+  resources :profiles, only: [:edit, :create, :update]
 
-
-  #get 'archives/new', to: 'profiles#new_archive', as: :new_archive_file
   resources :archives do
     get :autocomplete_user_email, :on => :collection
 

@@ -1,5 +1,5 @@
 class PropertyRelatedsController < ApplicationController
-  before_action :set_property_related, only: [:show, :edit, :destroy]
+  before_action :set_property_related, only: [:show, :edit, :update, :destroy]
   layout "with_left_sidebar"
   load_and_authorize_resource
 
