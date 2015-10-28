@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "avatar",     limit: 255
   end
 
-  create_table "citizens", force: :cascade do |t|
-    t.string   "id_no",      limit: 255
-    t.string   "realname",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "deposits", force: :cascade do |t|
     t.date     "deposit_day"
     t.date     "receive_day"

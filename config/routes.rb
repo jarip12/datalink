@@ -16,10 +16,6 @@ Rails.application.routes.draw do
   resources :archives do
     get :autocomplete_user_email, :on => :collection
 
-    #get 'property_related/edit', to: 'property_relateds#edit'
-    #get 'property_related', to: 'property_relateds#show'
-    #patch 'property_related', to: 'property_relateds#update'
-
     get 'family_relations', to: 'family_relations#index'
     get 'family_relations_tree', to: 'family_relations#index_tree'
 
