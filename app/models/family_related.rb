@@ -19,7 +19,6 @@ class FamilyRelated < ActiveRecord::Base
   after_create :set_default_related
 
   def set_default_related
-    family_relation = FamilyRelation.create
-    self.family_relations << family_relation
+    FamilyRelation.create!(family_related_id: self.id)
   end
 end
