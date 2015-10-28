@@ -2,34 +2,65 @@
   border: 1px solid #ccc;
 }
 
-.table-container > div:not(:first-child), #proxy-people {
-  border-top: 1px solid #ccc;
-}
-
-#apply_context, #apply_sign, #reception_people {
+#apply_context, #apply_sign, #reception_people, #notary_foreign_table_work_unit, #notary_foreign_table_comment, {
   width: 100%;
 }
 
-
-#foreign_table > div > div:first-child {
-  border-right: 1px solid #ccc;
-}
-
-#foreign_table > div > div > p {
-  margin: 50%;
-}
-
-#proxy_people {
-  border-top: 1px solid #ccc;
-}
-
 .notary-title {
-/* 公证申请表: */
-  font-family: STKaiti-SC-Regular;
-  font-size: 28px;
-  color: #212121;
-  line-height: 40px;
-  margin-bottom: 12px;
+    /* 公证申请表: */
+    font-family: STKaiti-SC-Regular;
+    font-size: 28px;
+    color: #212121;
+    line-height: 40px;
+    margin-bottom: 12px;
+}
+
+
+div#foreign_table {
+  div.col-xs-10 {
+
+    div.row:first-child, div.row:last-child {
+      margin-top: 25px;
+    }
+
+    div.row:last-child {
+      margin-bottom: 25px;
+    }
+
+    div.row {
+      margin-top: 15px;
+    }
+
+  }
+
+  > div.row:not(:first-child) {
+    border-top: 1px solid #ccc;
+  }
+
+  .notary_relation_container:not(:first-child) {
+    border-top: 1px solid #ccc;
+  }
+
+
+   div#notary_foreign_table_person > div.col-xs-10, div#notary_foreign_table_relation > div.col-xs-10 {
+    border-left: 1px solid #ccc;
+  }
+
+  div#notary_foreign_table_others > div.col-xs-2, div#proxy_people > div.col-xs-2{
+    border-right: 1px solid #ccc;
+  }
+
+
+  #work_unit, #comment {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  div > div > p {
+    margin: 50%;
+  }
+
+
 }
 
 

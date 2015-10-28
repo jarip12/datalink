@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019035839) do
+ActiveRecord::Schema.define(version: 20151025025104) do
 
   create_table "archives", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -174,6 +174,19 @@ ActiveRecord::Schema.define(version: 20151019035839) do
     t.boolean  "updated_once",               default: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "notary_relations", force: :cascade do |t|
+    t.string   "relation",                limit: 255
+    t.string   "realname",                limit: 255
+    t.string   "english_name",            limit: 255
+    t.string   "sex",                     limit: 255
+    t.date     "birth_day"
+    t.text     "now_address",             limit: 65535
+    t.text     "before_abroad_address",   limit: 65535
+    t.integer  "notary_foreign_table_id", limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "profiles", force: :cascade do |t|
