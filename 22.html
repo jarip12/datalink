@@ -66,51 +66,58 @@ var nodes = [
 ];
 
 
-var width = 960,
-    height = 500;
+
+var margin = {top: 100, right: 50, bottom: 100, left: 50},
+        width = 1400 - margin.left - margin.right,
+        height = 1200 - margin.top - margin.bottom;
 
 var force = d3.layout.force()
     .nodes(nodes)
     .links(links)
     .size([width, height])
-    .linkDistance(60)
-    .charge(-300)
     .on("tick", tick)
     .start();
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
 
-var path = svg.append("g").selectAll("path")
-    .data(force.links())
-  .enter().append("path")
-    .attr("class", function(d) { return "link " + d.type; })
-    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+var svg = d3.select("body")
+        .attr("bgcolor", "#2c2c2c")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-console.log(nodes);
-
+console.log("nodes in force");
+console.log(force.nodes());
 var node = svg.selectAll(".node")
-        .data(nodes)
+        .data(force.nodes(nodes))
         .enter()
         .append("g");
 
 console.log(node);
 
 node.append("rect")
-        .attr("width", 140)
-        .attr("height", 80)
+        .attr("width", 70)
+        .attr("height", 40)
         .attr("fill", "tan")
-        .attr("x", function(d) { return d.x - 70; })
-        .attr("y", function(d) { return height - d.y - 40; });
+        .attr("x", function(d) { return d.x - 35; })
+        .attr("y", function(d) { return height - d.y - 20; });
 
 node.append("text")
         .attr("font-size", "16px")
         .attr("fill", "black")
+        //.attr("x", function(d) {console.log("hello text"); console.log(d.x); console.log(d.y);console.log(d); return d.x; })
         .attr("x", function(d) { return d.x; })
         .attr("y", function(d) { return height - d.y - 15; })
         .style("text-anchor", "middle")
         .text(function(d) { return d.name; });
+
+var path = svg.append("g").selectAll("path")
+    .data(force.links(force.nodes(nodes)))
+  .enter().append("path")
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
 
 
 // Use elliptical arc path segments to doubly-encode directionality.
@@ -119,10 +126,10 @@ function tick() {
 }
 
 function linkArc(d) {
-  var dx = d.target.x - d.source.x,
-      dy = d.target.y - d.source.y,
-      dr = Math.sqrt(dx * dx + dy * dy);
-  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+    return     "M" + d.source.x + "," + (height - d.source.y)
+            + "V" + (height - (3*d.source.y + 4*d.target.y)/7)
+            + "H" + d.target.x
+            + "V" + (height - d.target.y);
 }
 
 function transform(d) {
