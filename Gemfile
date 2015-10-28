@@ -88,7 +88,6 @@ gem 'excon'
 gem 'prawn'
 gem 'prawn-table'
 
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

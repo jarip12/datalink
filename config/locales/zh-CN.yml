@@ -19,6 +19,9 @@ zh-CN:
       server_token:
         name: 服务器端访问token
   validate:
+    email:
+      format:
+        error: "不是合法的邮箱格式"
     mobile:
       format:
         error: "不是合法的11位电话号码"

@@ -23,4 +23,9 @@ class Util
     !((realname =~ regex).nil?)
   end
 
+  def self.email_valid?(email)
+    regex = Regexp.new(Setting.email_regex_format)
+    !((email =~ regex).nil?)
+  end
+
 end
