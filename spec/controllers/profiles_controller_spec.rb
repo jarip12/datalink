@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ProfilesController, type: :controller do
 
   login_admin
-  describe "GET #new" do
+  describe "POST #new" do
     it "redirect profile edit" do
       post :create, profile: {"realname"=>"雷锋", "id_no"=>"421081198912013474", "email"=>"dilin.life@gmail.com"}
       expect(response).to have_http_status(302)
@@ -16,5 +16,6 @@ RSpec.describe ProfilesController, type: :controller do
     end
 
   end
+
 
 end
