@@ -45,7 +45,7 @@ p.form-title-wrap
             span.input-group-addon
               span.glyphicon.glyphicon-time
         - if @profile.errors.include?(:birth_day)
-          div class=('has-error' if @profile.errors.include?(:birth_day))
+          div.has-error
             span class="help-block" #{@profile.errors.get(:birth_day)[-1]}
 
       label.string.optional.control-label.col-xs-2.col-xs-offset-1 class=('label-error' if @profile.errors.include?(:death_day))
