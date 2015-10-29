@@ -15,6 +15,39 @@ abbr[title="required"] {
   background: #FFFFFF;
   border: 1px solid #DEDEDE;
   border-radius: 3px;
+
+  tr td {
+    margin-right: 95px;
+  }
+
+  thead td {
+    margin-right: 95px;
+  }
+
+  thead, tr > td {
+    padding: 27px;
+  }
+
+  tr {
+
+    border-bottom: 1px solid #CCCCCC;
+  }
+
+  .show-button {
+    /* Rectangle 190 Copy 2: */
+    background: #C4D4EB;
+    box-shadow: 1px 1px 2px 0px rgba(147,141,141,0.50);
+    border-radius: 3px;
+    /* 查看: */
+    font-family: HiraginoSansGB-W3;
+    font-size: 12px;
+    color: #1A0A60;
+    line-height: 18px;
+    width: 156px;
+    height: 37px;
+  }
+
+
 }
 
 .long-input {

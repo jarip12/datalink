@@ -12,7 +12,7 @@ div.text-center.search-line
 
 
 div.search-table-wrap
-  table.table.table-striped
+  table.table
     thead
       th = User.human_attribute_name("realname")
       th = User.human_attribute_name("id_no")
@@ -23,7 +23,7 @@ div.search-table-wrap
           td = profile.realname
           td = profile.id_no
           - if can? :edit, profile
-            td = link_to '查看', edit_profile_path(profile.archive_id)
+            td = link_to '查看', edit_profile_path(profile.archive_id), class: "btn btn-default show-button"
           - else
-            td = link_to '查看', profile_path(profile.archive_id)
+            td = link_to '查看', profile_path(profile.archive_id), class: "btn btn-default show-button"
 
