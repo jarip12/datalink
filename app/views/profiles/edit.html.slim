@@ -36,20 +36,22 @@ p.form-title-wrap
     div.row
       label.string.optional.control-label.col-xs-2
         = Profile.human_attribute_name("birth_day")
-      div.input-group.date.col-xs-3 class=('has-error' if @profile.errors.include?(:birth_day))
-        input type='text' class="form-control single-datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+      div.col-xs-3
+        div.input-group.date class=('has-error' if @profile.errors.include?(:birth_day))
+          input type='text' class="form-control single-datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
+            span.input-group-addon
+              span.glyphicon.glyphicon-time
         - if @profile.errors.include?(:birth_day)
-          span class="help-block" #{@profile.errors.get(:birth_day)[-1]}
+          div class="help-block" #{@profile.errors.get(:birth_day)[-1]}
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Profile.human_attribute_name("death_day")
-      div.input-group.date.col-xs-3 class=('has-error' if @profile.errors.include?(:death_day))
-        input type='text' class="form-control single-datepicker" name="profile[death_day]" value="#{@profile.death_day}"
-          span.input-group-addon
-            span.glyphicon.glyphicon-time
+      div.col-xs-3
+        div.input-group.date class=('has-error' if @profile.errors.include?(:death_day))
+          input type='text' class="form-control single-datepicker" name="profile[death_day]" value="#{@profile.death_day}"
+            span.input-group-addon
+              span.glyphicon.glyphicon-time
         - if @profile.errors.include?(:death_day)
-          span class="help-block" #{@profile.errors.get(:death_day)[-1]}
+          div class="help-block" #{@profile.errors.get(:death_day)[-1]}
 
     = f.input :address,  :wrapper => "input_wrap", label: "地址"
 
