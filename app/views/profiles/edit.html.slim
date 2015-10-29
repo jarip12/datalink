@@ -4,6 +4,7 @@ p.form-title-wrap
 
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
+  = debug(f.object.errors)
 
   .form-inputs
     div.row
@@ -73,9 +74,10 @@ p.form-title-wrap
 
 
   div.text-center.col-offset-2.profile-submit-div
-    - if can? :edit, @profile
-      = f.submit '保存', class: "btn profile-submit"
-    - else
+    - if current_user.typer?
       = f.submit '保存', class: "btn profile-submit", data: { confirm: '提交之后，将不能再次进行编辑，请慎重' }
+    - else
+      = f.submit '保存', class: "btn profile-submit"
+
 
 

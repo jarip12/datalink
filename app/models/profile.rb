@@ -30,7 +30,7 @@ class Profile < ActiveRecord::Base
 
   validates :realname, realname: true
   validates :id_no, id_no: true
-  validates :email, email: true, allow_nil: true
+  validates :email, email: true, allow_blank: true
 
   validates :mobile, mobile: true, on: :update
   validates :sex, presence: true, on: :update

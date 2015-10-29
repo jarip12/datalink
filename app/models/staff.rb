@@ -37,6 +37,10 @@ class Staff < ActiveRecord::Base
     has_role?('member')
   end
 
+  def typer?
+    has_role?('typer')
+  end
+
   def has_role?(name)
     self.role == name
   end
