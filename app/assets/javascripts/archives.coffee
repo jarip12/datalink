@@ -14,6 +14,7 @@ $(document).on 'ready page:load', ->
     console.log("hello single-datepicker")
     $(this).daterangepicker({
       singleDatePicker: true,
+      showDropdowns: true,
       "locale": {
         "format": "YYYY/MM/DD",
         "separator": " - ",
