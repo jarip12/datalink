@@ -4,9 +4,8 @@ div.sidebar-top.text-center
 
 div.btn-group.user-box
 	div.dropdown-toggle.user-box-name  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-      = image_tag 'user_icon.png', size: "19x20", class: "sidebar-icon"
-      span class="sidebar-username"
-        | #{@archive.realname}
+      = image_tag 'user.png', size: "19x20", class: "sidebar-icon"
+      span = @archive.realname
 dl
 	dt class="sidebar-text"
 	  |个人档案
