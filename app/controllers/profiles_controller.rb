@@ -70,6 +70,7 @@ class ProfilesController < ApplicationController
         redirect_to profile_path(@profile)
       end
     else
+      ap @profile.errors
       render :edit
     end
   end

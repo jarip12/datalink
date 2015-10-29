@@ -20,6 +20,17 @@ RSpec.describe ProfilesController, type: :controller do
       end
     end
 
+    context "POST profiles#update" do
+
+      it "redirect profile show" do
+        @profile = Profile.new
+        @profile.save(validate: false)
+        patch :update, profile: {realname: "雷锋", mobile: "18026931797", id_no: "421081198912013474", email: "dilin.life@gmail.com", address: "xx路", birth_day: "1986-09-03"}, id: Profile.last.id
+        expect(response).to redirect_to(edit_profile_path(Profile.last))
+      end
+
+    end
+
   end
 
   describe "for typer" do
@@ -52,6 +63,17 @@ RSpec.describe ProfilesController, type: :controller do
         post :create, profile: {"realname"=>"雷锋xxyy", "id_no"=>"421081198912013474", "email"=>"dilin.life@gmail.com"}
         expect(response).to have_http_status(200)
       end
+    end
+
+    context "POST profiles#update" do
+
+      it "redirect profile show" do
+        @profile = Profile.new
+        @profile.save(validate: false)
+        patch :update, profile: {realname: "雷锋", mobile: "18026931797", id_no: "421081198912013474", email: "dilin.life@gmail.com", address: "xx路", birth_day: "1986-09-03"}, id: Profile.last.id
+        expect(response).to redirect_to(profile_path(Profile.last))
+      end
+
     end
 
   end
