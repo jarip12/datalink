@@ -51,7 +51,7 @@ p.form-title-wrap
         - if @profile.errors.include?(:death_day)
           span class="help-block" #{@profile.errors.get(:death_day)[-1]}
 
-    = f.input :address,  :wrapper => "input_wrap"
+    = f.input :address,  :wrapper => "input_wrap", label: "地址"
 
     div.row
       label.col-xs-2.control-label = Profile.human_attribute_name("id_no_img")

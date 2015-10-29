@@ -13,7 +13,6 @@ SimpleForm.setup do |config|
     b.wrapper :tag => 'div', :class => 'col-xs-5' do |ba|
       ba.use :input, :class => 'form-control'
       ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-block' }
-      ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end
   end
 
