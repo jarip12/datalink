@@ -30,6 +30,9 @@ p.form-title-wrap
         span.property-link 上传扫描件
         = link_to_add_association '添加提存记录', f, :deposits, class: "property-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
-    .form-group
-      input.btn.btn-default.control-label.col-xs-offset-3.profile-submit-button type="submit" name="commit" value="提交"
+    div.text-center.col-offset-2.profile-submit-div
+      - if current_user.typer?
+        = f.submit '保存', class: "btn profile-submit", data: {confirm: '提交之后，将不能再次进行编辑，请慎重'}
+      - else
+        = f.submit '保存', class: "btn profile-submit"
 

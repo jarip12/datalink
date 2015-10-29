@@ -12,5 +12,8 @@ p.form-title-wrap
     = link_to_add_association '添加家庭成员', f, :family_relations, class: "btn btn-default", render_options:  {locals: { cannot_edit: false }}
 
   div.form-actions.text-center.col-offset-2
-    input type="submit" class="btn btn-danger btn-block" value="提交" name="commit"
+    - if current_user.typer?
+      = f.submit '保存', class: "btn profile-submit", data: {confirm: '提交之后，将不能再次进行编辑，请慎重'}
+    - else
+      = f.submit '保存', class: "btn profile-submit"
 
