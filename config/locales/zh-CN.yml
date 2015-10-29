@@ -253,6 +253,7 @@ zh-CN:
         updated_at: "更新时间"
       profile:
         id_no_img: "身份证扫描件"
+        avatar: 照片
         realname: "姓名"
         email: "邮箱"
         id_no: "身份证号"
