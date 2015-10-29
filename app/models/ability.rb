@@ -13,7 +13,7 @@ class Ability
       cannot :manage, Reservation
       can [:new, :create], Archive
 
-      can [:new_archive], Profile
+      can [:create, :new_archive], Profile
 
       can [:edit, :update], Profile, :updated_once => false
       can [:edit, :update], PropertyRelated, :updated_once => false
