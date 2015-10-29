@@ -9,7 +9,7 @@ abbr[title="required"] {
 .search-table-wrap {
   width: 739px;
   height: 615px;
-  margin: 46px auto 0;
+  margin: 46px auto 36px;
   /* Rectangle 202: */
   opacity: 0.6;
   background: #FFFFFF;
@@ -45,6 +45,54 @@ abbr[title="required"] {
     line-height: 18px;
     width: 156px;
     height: 37px;
+    text-align: center;
+  }
+
+  .new-profile-button {
+    /* Rectangle 269: */
+    background: #C4DAEB;
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.26);
+    border-radius: 3px;
+    /* 创建新档案: */
+    font-family: HiraginoSansGB-W3;
+    font-size: 16px;
+    color: #1A0A60;
+    line-height: 24px;
+    width: 138px;
+    height: 49px;
+    text-align: center;
+  }
+
+  .return-button {
+    /* Rectangle 269: */
+    background: #C5EBC4;
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.26);
+    border-radius: 3px;
+    /* 返回: */
+    font-family: HiraginoSansGB-W3;
+    font-size: 16px;
+    color: #1A0A60;
+    line-height: 24px;
+    width: 118px;
+    height: 49px;
+    text-align: center;
+  }
+
+  .empty-wrap {
+    margin: 99px 87px 0;
+    border-top: 1px solid #CCCCCC;
+  }
+
+  .empty-title {
+    /* 未搜索到相关公证居民: */
+    font-family: STXihei;
+    font-size: 30px;
+    color: #051C56;
+    line-height: 30px;
+    padding-top: 67px;
+    margin-bottom: 144px;
+    text-align: center;
+
   }
 
 
