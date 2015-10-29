@@ -4,6 +4,8 @@ p.form-title-wrap
 
 = simple_form_for @family_related, html: {class: "new-family-form-wrap form-horizontal"} do |f|
 
+  = f.error_notification
+
   = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
     = render 'family_relation_fields', f: family_relation, cannot_edit: false
   .links.col-xs-offset-9
