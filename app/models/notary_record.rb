@@ -59,7 +59,7 @@ class NotaryRecord < ActiveRecord::Base
   end
 
   def set_notary_id
-    self.notary_id = Time.now.to_i.to_s + self.user_id.to_s
+    self.notary_id = Time.now.to_i.to_s + self.user_id.to_s unless self.notary_id
   end
 
 end
