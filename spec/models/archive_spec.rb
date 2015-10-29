@@ -14,4 +14,12 @@
 require 'rails_helper'
 
 RSpec.describe Archive, type: :model do
+  it "after archive create, latest notary_record's notary_id should be empty" do
+
+      expect(NotaryRecord.count).to eq 0
+      Archive.create
+      @notary_record = NotaryRecord.last
+      expect(@notary_record.notary_id).to eq ''
+
+  end
 end
