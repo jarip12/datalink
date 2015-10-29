@@ -1,15 +1,17 @@
 div.sidebar-top.text-center
-  =link_to "公证信息开放平台", root_path
+  a href="#{root_path}"
+    h5.sidebar-title.text-center 公证信息开放平台
+
 div.btn-group.user-box
 	div.dropdown-toggle.user-box-name  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-		span.glyphicon.glyphicon-user.span-right-4
-	      = @archive.realname
+       = image_tag 'user_icon.png', size: "19x20", :class => "img-responsive"
+	    p = @archive.realname
 dl
 	dt 个人档案
 	dd
       - if can? :edit, @archive.profile
 		a href="#{edit_profile_path(@archive.profile)}"
-          span.glyphicon.glyphicon-list-alt
+          = image_tag 'profile.png', size: "19x20", :class => "img-responsive"
           |基本信息
 	  - else
         a href="#{profile_path(@archive.profile)}"
@@ -18,42 +20,42 @@ dl
 	dd
       - if can? :edit, @archive.property_related
 	    a href="#{edit_property_related_path(@archive.property_related)}"
-          span.glyphicon.glyphicon-usd
+          = image_tag 'property_related.png', size: "19x20", :class => "img-responsive"
           |资产相关
       - else
         a href="#{property_related_path(@archive.property_related)}"
-	      span.glyphicon.glyphicon-usd
+          = image_tag 'property_related.png', size: "19x20", :class => "img-responsive"
 	  	  |资产相关
 	dd
       - if can? :edit, @archive.notary_related
 		a href="#{edit_notary_related_path(@archive.notary_related)}"
-          span.glyphicon.glyphicon-tower
+          = image_tag 'notary_related.png', size: "19x20", :class => "img-responsive"
           |公证相关
       - else
         a href="#{notary_related_path(@archive.notary_related)}"
-          span.glyphicon.glyphicon-tower
+          = image_tag 'notary_related.png', size: "19x20", :class => "img-responsive"
 		    |公证相关
 	dd
       - if can? :edit, @archive.family_related
 		a href="#{edit_family_related_path(@archive.family_related)}"
-          span.glyphicon.glyphicon-camera
+          = image_tag 'family_related.png', size: "19x20", :class => "img-responsive"
           |家庭信息
       - else
         a href="#{family_related_path(@archive.family_related)}"
-		  span.glyphicon.glyphicon-camera
-		  |家庭信息 
+          = image_tag 'family_related.png', size: "19x20", :class => "img-responsive"
+		  |家庭信息
 	dt 家庭成员关系树
 	dd
 		a href="#{archive_family_relations_path(@archive)}"
-		  span.glyphicon.glyphicon-grain
-		  |关系图 
+          = image_tag 'relation_tree.png', size: "19x20", :class => "img-responsive"
+		  |关系图
 	dt 公证卷宗扫描件
 	dd
 		a href="#"
-		  span.glyphicon.glyphicon-duplicate
-		  |扫描件 
+          = image_tag 'scan_file.png', size: "19x20", :class => "img-responsive"
+		  |扫描件
 	dt 公证办理
 	dd
         a href="#{archive_notary_records_path(@archive)}"
-		  span.glyphicon.glyphicon-copy
+          = image_tag 'notary_handle.png', size: "19x20", :class => "img-responsive"
 		  |公证表格填写及预约
