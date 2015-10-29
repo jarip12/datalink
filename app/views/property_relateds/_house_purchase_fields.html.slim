@@ -8,7 +8,7 @@ div.row.first-row
         div.input-group.date class=('has-error' if f.object.errors.include?(:trade_day))
           = f.input_field :trade_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
           span.input-group-addon
-            span.glyphicon.glyphicon-time
+            span.glyphicon.glyphicon-calendar
 
         - if f.object.errors.include?(:trade_day)
           div.has-error

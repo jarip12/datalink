@@ -36,13 +36,13 @@ p.form-title-wrap
       div.input-group.date.datepicker.col-xs-3
         input type='text' class="form-control" name="profile[birth_day]" value="#{@profile.birth_day}" disabled="disabled"
           span.input-group-addon
-            span.glyphicon.glyphicon-time
+            span.glyphicon.glyphicon-calendar
       label.string.optional.control-label.col-xs-2.col-xs-offset-1
         = Profile.human_attribute_name("death_day")
       div.input-group.date.datepicker.col-xs-3
         input type='text' class="form-control" name="profile[death_day]" value="#{@profile.death_day}" disabled="disabled"
           span.input-group-addon
-            span.glyphicon.glyphicon-time
+            span.glyphicon.glyphicon-calendar
 
     div.row
       label.col-xs-2.control-label = Profile.human_attribute_name("address")
