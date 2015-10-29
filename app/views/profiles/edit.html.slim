@@ -40,8 +40,8 @@ p.form-title-wrap
       label.string.optional.control-label.col-xs-2 class=('label-error' if @profile.errors.include?(:birth_day))
         = Profile.human_attribute_name("birth_day")
       div.col-xs-3
-        div.input-group.single-datepicker class=('has-error' if @profile.errors.include?(:birth_day))
-          input type='text' class="form-control" name="profile[birth_day]" value="#{@profile.birth_day}"
+        div.input-group class=('has-error' if @profile.errors.include?(:birth_day))
+          input type='text' class="form-control single-datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
             span.input-group-addon
               span.glyphicon.glyphicon-calendar
         - if @profile.errors.include?(:birth_day)
@@ -73,5 +73,9 @@ p.form-title-wrap
 
 
   div.text-center.col-offset-2.profile-submit-div
-    input type="submit" class="btn profile-submit" value="保存" name="commit"
+    - if can? :edit, @profile
+      = f.submit '保存', class: "btn profile-submit"
+    - else
+      = f.submit '保存', class: "btn profile-submit", data: { confirm: '提交之后，将不能再次进行编辑，请慎重' }
+
 
