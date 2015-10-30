@@ -6,6 +6,22 @@
   text-align: left;
 }
 
+.remove-link {
+  /* BG: */
+  background: #F8FAFA;
+  border: 1px solid #1EBAD9;
+  border-radius: 3px;
+  /* 8:30:8:30: */
+  font-family: STXihei;
+  font-size: 14px;
+  color: #18ACD1;
+  line-height: 14px;
+}
+
+.remove-link-div {
+  margin-bottom: 55px;
+}
+
 .label-error {
   color: #a94442;
 }

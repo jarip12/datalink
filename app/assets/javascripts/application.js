@@ -17,7 +17,6 @@
 //= require jquery-ui/autocomplete
 //= require autocomplete-rails
 //= require moment
-//= require cocoon
 
 //= require bootstrap
 //= require bootstrap-sprockets
