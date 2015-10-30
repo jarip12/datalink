@@ -501,7 +501,6 @@ GEM
     websocket (1.2.2)
     whenever (0.9.4)
       chronic (>= 0.6.3)
-    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -559,7 +558,7 @@ DEPENDENCIES
   pry
   pry-byebug
   quiet_assets
-  rack-attack (~> 3.0.0M)
+  rack-attack (~> 3.0.0)
   rack-livereload
   rails (= 4.2.3)
   rails-erd
@@ -588,4 +587,3 @@ DEPENDENCIES
   unicorn
   web-console (~> 2.0)
   whenever (~> 0.9.2)
-  will_paginate (~> 3.0.6)

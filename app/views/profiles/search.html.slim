@@ -13,21 +13,22 @@ div.text-center.search-line
 
 div.search-table-wrap
   - if @profiles.count > 0
-    table.table
-      thead
-        th = User.human_attribute_name("realname")
-        th = User.human_attribute_name("id_no")
-        th
-      tbody
-        - @profiles.each do |profile|
-          tr
-            td = profile.realname
-            td = profile.id_no
-            - if can? :edit, profile
-              td = link_to '查看', edit_profile_path(profile.archive_id), class: "btn btn-default show-button"
-            - else
-              td = link_to '查看', profile_path(profile.archive_id), class: "btn btn-default show-button"
-    = paginate @profiles
+    div.inner-table
+      table.table
+        thead
+          th = User.human_attribute_name("realname")
+          th = User.human_attribute_name("id_no")
+          th
+        tbody
+          - @profiles.each do |profile|
+            tr
+              td = profile.realname
+              td = profile.id_no
+              - if can? :edit, profile
+                td = link_to '查看', edit_profile_path(profile.archive_id), class: "btn btn-default show-button"
+              - else
+                td = link_to '查看', profile_path(profile.archive_id), class: "btn btn-default show-button"
+      = paginate @profiles
   - else
     div.empty-wrap
       div.empty-title 未搜索到相关公证居民

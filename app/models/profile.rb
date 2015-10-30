@@ -39,8 +39,4 @@ class Profile < ActiveRecord::Base
   validates :birth_day, presence: true, on: :update
   validates :address, presence: true, on: :update
 
-  self.per_page = 10
-  paginates_per 10
-
-
 end
