@@ -19,14 +19,4 @@ class Education < ActiveRecord::Base
   extend Enumerize
   enumerize :education_type, in: [:bachelor, :master, :doctor, :college, :highschool, :junior_highschool, :primary_school, :unknown], default: :bachelor
 
-  validates :education_type, presence: true, on: :update, :if => :should_confirm?
-  validates :school_name, presence: true, on: :update, :if => :should_confirm?
-  validates :degree, presence: true, on: :update, :if => :should_confirm?
-  validates :enroll_day, presence: true, on: :update, :if => :should_confirm?
-  validates :graduation_day, presence: true, on: :update, :if => :should_confirm?
-
-  def should_confirm?
-    [self.school_name, self.degree, self.enroll_day, self.graduation_day].any? { |value| not (value.nil? or value.blank?) }
-  end
-
 end

@@ -21,17 +21,4 @@ class Loan < ActiveRecord::Base
   enumerize :notary_type, in: [:bank, :small_loan_company, :private_lending_company, :pawnshop], default: :bank
 
 
-  validates :start_day, presence: true, :if => :should_confirm?
-  validates :end_day, presence: true, :if => :should_confirm?
-  validates :notary_type, presence: true, :if => :should_confirm?
-  validates :description, presence: true, allow_blank: false, :if => :should_confirm?
-  validates :amount, presence: true, :if => :should_confirm?
-
-
-  def should_confirm?
-    ap self
-    result = [self.start_day, self.end_day, self.description, self.amount].any? { |value| not (value.nil? or value.blank?) }
-    ap result
-  end
-
 end

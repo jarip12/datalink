@@ -18,14 +18,5 @@ class HousePurchase < ActiveRecord::Base
   enumerize :trade_type, in: [:buy, :sell], default: :buy
   enumerize :house_type, in: [:shop, :apartment, :villa], default: :shop
 
-  validates :trade_day, presence: true, on: :update, :if => :should_confirm?
-  validates :trade_type, presence: true, on: :update, :if => :should_confirm?
-  validates :house_type, presence: true, on: :update, :if => :should_confirm?
-  validates :house_address, presence: true, on: :update, :if => :should_confirm?
-  validates :house_amount, presence: true, on: :update, :if => :should_confirm?
-
-  def should_confirm?
-    [self.trade_day, self.house_address, self.house_amount].any? { |value| not (value.nil? or value.blank?) }
-  end
 
 end
