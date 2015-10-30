@@ -28,6 +28,8 @@ class Profile < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :id_no_img, AvatarUploader
 
+  validates_uniqueness_of :id_no
+
   validates :realname, realname: true
   validates :id_no, id_no: true
   validates :email, email: true, allow_blank: true

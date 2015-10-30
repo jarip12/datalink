@@ -55,6 +55,13 @@ RSpec.describe ProfilesController, type: :controller do
       end
 
       it "profile params error" do
+        @profile = Profile.new(id_no: "421081198912013474")
+        @profile.save(validate: false)
+        post :create, profile: {"realname"=>"雷锋", "id_no"=> @profile.id_no, "email"=>""}
+        expect(response).to have_http_status(200)
+      end
+
+      it "profile params error" do
         post :create, profile: {"realname"=>"雷锋xxyy", "id_no"=>"421081198912013474", "email"=>"dilin.life.com"}
         expect(response).to have_http_status(200)
       end
