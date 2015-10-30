@@ -1,16 +1,21 @@
-div.row.first-row
-  div.col-xs-2
-    select disabled="#{cannot_edit}" include_blank="false" class="select optional" name="archive[family_relations_attributes][0][relation_name]" id="archive_family_relations_attributes_0_relation_name"
-      option selected="selected" value="father" 父亲
-      option value="mother" 母亲
-      option value="uncle" 叔叔
-  div.col-xs-2 class=('has-error' if f.object.errors.include?(:realname))
-    =f.input_field :realname, class: "form-control", disabled: cannot_edit
-    - if f.object.errors.include?(:realname)
-        span class="help-block" #{f.object.errors.get(:realname)[-1]}
+div.nested-fields
+  div.row.first-row
+    div.col-xs-2
+      select disabled="#{cannot_edit}" include_blank="false" class="select optional" name="archive[family_relations_attributes][0][relation_name]" id="archive_family_relations_attributes_0_relation_name"
+        option selected="selected" value="father" 父亲
+        option value="mother" 母亲
+        option value="uncle" 叔叔
+    div.col-xs-2 class=('has-error' if f.object.errors.include?(:realname))
+      =f.input_field :realname, class: "form-control", disabled: cannot_edit
+      - if f.object.errors.include?(:realname)
+          span class="help-block" #{f.object.errors.get(:realname)[-1]}
 
-  label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
-  div.col-xs-3 class=('has-error' if f.object.errors.include?(:id_no))
-    =f.input_field :id_no, class: "form-control", disabled: cannot_edit
-    - if f.object.errors.include?(:id_no)
-      span class="help-block" #{f.object.errors.get(:id_no)[-1]}
+    label.col-xs-2.control-label for="archive_family_relation_attributes_id_no" = FamilyRelation.human_attribute_name("id_no")
+    div.col-xs-3 class=('has-error' if f.object.errors.include?(:id_no))
+      =f.input_field :id_no, class: "form-control", disabled: cannot_edit
+      - if f.object.errors.include?(:id_no)
+        span class="help-block" #{f.object.errors.get(:id_no)[-1]}
+
+  - unless cannot_edit
+    div.remove-link-div
+      = link_to_remove_association "删除这条记录", f, class: "remove-link btn btn-default pull-right"
