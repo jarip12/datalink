@@ -133,8 +133,12 @@ input[type="file"] {
   width: 150px;
 }
 
-/*
-.form-inputs .row {
-  margin-top: 20px;
+nav.pagination {
+
+  span.page.gap, span.first, span.last {
+    display: none;
+  }
+
 }
-*/
+
+

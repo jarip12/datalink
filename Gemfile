@@ -78,7 +78,7 @@ gem 'chronic'
 gem 'jquery-ui-rails'
 gem 'faker', '~> 1.4.3'
 gem 'rails4-autocomplete'
-gem 'rack-attack', '~> 3.0.0'
+gem 'rack-attack', '~> 3.0.0M'
 gem 'cocoon'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick'
@@ -88,6 +88,7 @@ gem 'excon'
 gem 'prawn'
 gem 'prawn-table'
 gem 'will_paginate', '~> 3.0.6'
+gem 'kaminari'
 
 
 group :development, :test do

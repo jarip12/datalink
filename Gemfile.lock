@@ -543,6 +543,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  kaminari
   launchy
   meta_request
   mina
@@ -558,7 +559,7 @@ DEPENDENCIES
   pry
   pry-byebug
   quiet_assets
-  rack-attack (~> 3.0.0)
+  rack-attack (~> 3.0.0M)
   rack-livereload
   rails (= 4.2.3)
   rails-erd
