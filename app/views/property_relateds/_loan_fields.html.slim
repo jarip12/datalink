@@ -3,7 +3,7 @@
 div.row.first-row
   div.col-xs-9
     div.row
-      label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:start_day))
+      label.string.optional.control-label.col-xs-2 class=('has-error' if f.object && f.object.errors.include?(:start_day))
         = Loan.human_attribute_name("start_day")
       div.col-xs-3
         div.input-group.date
