@@ -14,6 +14,5 @@ class FakerMaterial < ActiveRecord::Base
   extend Enumerize
   enumerize :faker_material_type, in: [:company, :person, :foreign], default: :person
 
-  validates :faker_material_no, presence: true, on: :update
   validates :faker_material_type, presence: true, on: :update
 end
