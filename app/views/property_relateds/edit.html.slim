@@ -4,6 +4,7 @@ p.form-title-wrap
 
 = simple_form_for @property_related, html: {class: "form-wrap form-horizontal"} do |f|
   = f.error_notification
+  = debug(f.object.errors)
 
   .form-inputs
     div.form-with-border
