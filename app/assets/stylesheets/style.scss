@@ -55,13 +55,9 @@
 /***sidebar**/
 .profiles-wrap{
   background:asset_url('left-bar-bg.png') repeat-y left top;
-  min-height: 736px
+  min-height: 736px;
 }
-.sidebar{
-  width:250px;
-  color:#fff;
-  
-}
+
 .sidebar-top{
   border-bottom:1px solid #999;
   font-size:22px;
