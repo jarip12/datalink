@@ -17,12 +17,7 @@ class ProfilesController < ApplicationController
   def search
     ap params
     q = params[:q]
-    @profiles = Profile.where("realname LIKE '#{q}%' or id_no LIKE '#{q}'")
-    if @profiles.count
-
-    else
-
-    end
+    @profiles = Profile.where("realname LIKE '#{q}%' or id_no LIKE '#{q}%'").paginate(:page => params[:page])
   end
 
   # GET /profiles

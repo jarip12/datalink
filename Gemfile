@@ -87,6 +87,8 @@ gem 'grape', '~> 0.7.0'
 gem 'excon'
 gem 'prawn'
 gem 'prawn-table'
+gem 'will_paginate', '~> 3.0.6'
+
 
 group :development, :test do
   gem 'rspec-rails'
