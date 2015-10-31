@@ -2,6 +2,30 @@ h1.reset-dom = "个人档案"
 p.form-title-wrap
   span.form-title 基本信息
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="form-group input-group">
+        <label class="input-group-btn" for="date-fld1">
+          <span class="btn btn-default">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </label>
+        <input type="text" class="form-control date-input" id="date-fld1" />
+      </div>
+
+      <div class="form-group input-group">
+        <label class="input-group-btn" for="date-fld2">
+          <span class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </label>
+        <input type="text" class="form-control date-input" id="date-fld2" />
+      </div>
+    </div>
+  </div>
+</div>
+
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
 
