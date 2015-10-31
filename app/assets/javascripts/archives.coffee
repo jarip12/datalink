@@ -20,49 +20,12 @@ $(document).on 'ready page:load', ->
     titleFormat: "yyyy年mm月",
     weekStart: 1
   };
-  $(".date-input").datepicker({
-    language: 'zh-CN',
-    format: "yyyy/mm/dd",
-  });
+
 
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
-  $('body').on 'focus', ".single-datepicker", ->
-    console.log("hello single-datepicker")
-    $(this).daterangepicker({
-      singleDatePicker: true,
-      showDropdowns: true,
-      "locale": {
-        "format": "YYYY/MM/DD",
-        "separator": " - ",
-        "applyLabel": "提交",
-        "cancelLabel": "取消",
-        "fromLabel": "从",
-        "toLabel": "到",
-        "customRangeLabel": "自定义",
-        "daysOfWeek": [
-          "周日",
-          "周一",
-          "周二",
-          "周三",
-          "周四",
-          "周五",
-          "周六"
-        ],
-        "monthNames": [
-          "一月",
-          "二月",
-          "三月",
-          "四月",
-          "五月",
-          "六月",
-          "七月",
-          "八月",
-          "九月",
-          "十月",
-          "十一月",
-          "十二月"
-        ],
-        "firstDay": 1
-      },
-    })
-    ;
+  $('body').on 'focus', ".date-input", ->
+    console.log("hello date-input")
+    $(".date-input").datepicker({
+      language: 'zh-CN',
+      format: "yyyy/mm/dd",
+    });
