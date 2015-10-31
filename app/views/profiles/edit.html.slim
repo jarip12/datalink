@@ -72,12 +72,12 @@ p.form-title-wrap
       label.col-xs-2.control-label = Profile.human_attribute_name("id_no_img")
       div.col-xs-5
         - if @profile.id_no_img?
-          = image_tag @profile.id_no_img_url(:normal), :id => "profile_id_no_image"
+          = image_tag @profile.id_no_img_url(:normal), :id => "profile_id_no_img_image"
         - else
-          = image_tag "image-placeholder.png", :id => "profile_id_no_image"
+          = image_tag "image-placeholder.png", :id => "profile_id_no_img_image"
         div.file-upload.btn.btn-default.page-button-link
           span 上传扫描件
-          = f.file_field :id_no, class: "form-control"
+          = f.file_field :id_no_img, class: "form-control"
 
   div.text-center.col-offset-2.profile-submit-div
     - if current_user.typer?
