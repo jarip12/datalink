@@ -29,3 +29,27 @@ $(document).on 'ready page:load', ->
       language: 'zh-CN',
       format: "yyyy/mm/dd",
     });
+
+  console.log ("hello readurl")
+
+  readURL = (input) ->
+    if input.files and input.files[0]
+      reader = new FileReader
+
+      reader.onload = (e) ->
+        $('#blah').attr('src', e.target.result).width(150).height 200
+
+      reader.readAsDataURL input.files[0]
+
+  console.log(readURL)
+
+  $('input[type=file]').change ->
+    console.log("hello file change")
+    if this.files and this.files[0]
+      reader = new FileReader
+
+      reader.onload = (e) ->
+        $('#blah').attr('src', e.target.result).width(150).height 200
+
+      reader.readAsDataURL this.files[0]
+

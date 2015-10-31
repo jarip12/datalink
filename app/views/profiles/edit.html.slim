@@ -23,6 +23,7 @@ p.form-title-wrap
         - else
           = image_tag "image-placeholder.png"
         = f.file_field :avatar, class: "form-control"
+        <img id="blah" src="#" alt="your image" />
 
     div.row
       label.col-xs-2.control-label class=('label-error' if @profile.errors.include?(:id_no))
