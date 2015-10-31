@@ -11,6 +11,9 @@ p.form-title-wrap
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
       .links.col-xs-offset-9.link-div
+        div.file-upload.btn.btn-default
+          span 上传扫描件
+          = f.file_field :id_no, class: "form-control"
         span.property-link 上传扫描件
         = link_to_add_association '添加信贷记录', f, :loans, class: "property-link pull-right", render_options:  {locals: { cannot_edit: false }}
 

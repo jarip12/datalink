@@ -20,5 +20,6 @@ class Loan < ActiveRecord::Base
   extend Enumerize
   enumerize :notary_type, in: [:bank, :small_loan_company, :private_lending_company, :pawnshop], default: :bank
 
+  mount_uploader :scan_file, AvatarUploader
 
 end
