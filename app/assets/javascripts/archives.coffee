@@ -21,7 +21,8 @@ $(document).on 'ready page:load', ->
     weekStart: 1
   };
   $(".date-input").datepicker({
-    language: 'zh-CN'
+    language: 'zh-CN',
+    format: "yyyy/mm/dd",
   });
 
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')

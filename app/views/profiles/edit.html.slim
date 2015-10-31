@@ -2,29 +2,6 @@ h1.reset-dom = "个人档案"
 p.form-title-wrap
   span.form-title 基本信息
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-5">
-      <div class="form-group input-group">
-        <label class="input-group-btn" for="date-fld1">
-          <span class="btn btn-default">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </label>
-        <input type="text" class="form-control date-input" id="date-fld1" />
-      </div>
-
-      <div class="form-group input-group">
-        <label class="input-group-btn" for="date-fld2">
-          <span class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </label>
-        <input type="text" class="form-control date-input" id="date-fld2" />
-      </div>
-    </div>
-  </div>
-</div>
 
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
@@ -65,8 +42,9 @@ p.form-title-wrap
         = Profile.human_attribute_name("birth_day")
       div.col-xs-3
         div.input-group class=('has-error' if @profile.errors.include?(:birth_day))
-          input type='text' class="form-control single-datepicker" name="profile[birth_day]" value="#{@profile.birth_day}"
-            span.input-group-addon
+          input type='text' class="form-control date-input" name="profile[birth_day]" value="#{@profile.birth_day}" id="profile_birth_day"
+          label.input-group-btn for="profile_birth_day"
+            span.btn.btn-default
               span.glyphicon.glyphicon-calendar
         - if @profile.errors.include?(:birth_day)
           div.has-error
@@ -76,8 +54,9 @@ p.form-title-wrap
         = Profile.human_attribute_name("death_day")
       div.col-xs-3
         div.input-group.date class=('has-error' if @profile.errors.include?(:death_day))
-          input type='text' class="form-control single-datepicker" name="profile[death_day]" value="#{@profile.death_day}"
-            span.input-group-addon
+          input type='text' class="form-control date-input" name="profile[death_day]" value="#{@profile.death_day}" id="profile_death_day"
+          label.input-group-btn for="profile_death_day"
+            span.btn.btn-default
               span.glyphicon.glyphicon-calendar
         - if @profile.errors.include?(:death_day)
           div class=('has-error' if @profile.errors.include?(:death_day))
