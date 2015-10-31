@@ -33,20 +33,20 @@ $(document).on 'ready page:load', ->
   console.log ("hello readurl")
 
 
+  $('body').on 'focus', "input[type=file]", ->
+    $('input[type=file]').change ->
+      console.log("hello file change")
+      console.log(this)
+      if this.files and this.files[0]
+        reader = new FileReader
 
-  $('input[type=file]').change ->
-    console.log("hello file change")
-    console.log(this)
-    if this.files and this.files[0]
-      reader = new FileReader
+        image_id = '#' + this.id + '_image'
+        console.log("image_id is")
+        console.log(image_id)
+        reader.onload = (e) ->
+          $(image_id).attr('src', e.target.result).width(86).height 81
 
-      image_id = '#' + this.id + '_image'
-      console.log("image_id is")
-      console.log(image_id)
-      reader.onload = (e) ->
-        $(image_id).attr('src', e.target.result).width(86).height 81
-
-      reader.readAsDataURL this.files[0]
+        reader.readAsDataURL this.files[0]
 
   #set image id to input file's id + image
   $('img.placeholder').each ->
