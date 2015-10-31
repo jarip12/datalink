@@ -53,7 +53,14 @@ div.nested-fields
 
 
     div.col-xs-3
-      = image_tag "two-line-placeholder.png", class: "property-image"
+      - if f.object.scan_file?
+        = image_tag f.object.scan_file_url(:normal), class: "placeholder"
+      - else
+        = image_tag "two-line-placeholder.png", class: "placeholder"
+
+      div.file-upload.btn.btn-default.page-button-link
+        span 上传扫描件
+        = f.file_field :scan_file, class: "form-control"
 
   - unless cannot_edit
     div.remove-link-div
