@@ -21,7 +21,6 @@ p.form-title-wrap
           = image_tag(@profile.avatar_url(:normal))
         - else
           = image_tag "image-placeholder.png"
-        = f.file_field :avatar, class: "form-control"
 
     div.row
       label.col-xs-2.control-label class=('label-error' if @profile.errors.include?(:id_no))
@@ -75,5 +74,4 @@ p.form-title-wrap
           = image_tag(@profile.id_no_img_url(:normal))
         - else
           = image_tag "image-placeholder.png"
-        = f.file_field :id_no_img, class: "form-control"
 
