@@ -32,16 +32,7 @@ $(document).on 'ready page:load', ->
 
   console.log ("hello readurl")
 
-  readURL = (input) ->
-    if input.files and input.files[0]
-      reader = new FileReader
 
-      reader.onload = (e) ->
-        $('#blah').attr('src', e.target.result).width(150).height 200
-
-      reader.readAsDataURL input.files[0]
-
-  console.log(readURL)
 
   $('input[type=file]').change ->
     console.log("hello file change")
@@ -50,6 +41,8 @@ $(document).on 'ready page:load', ->
       reader = new FileReader
 
       image_id = '#' + this.id + '_image'
+      console.log("image_id is")
+      console.log(image_id)
       reader.onload = (e) ->
         $(image_id).attr('src', e.target.result).width(86).height 81
 

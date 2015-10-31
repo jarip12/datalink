@@ -72,7 +72,19 @@
       // code and doesn't force it to be a sibling like after/before does. default: 'before'
       var addedContent = insertionNode[insertionMethod](contentNode);
 
+
       insertionNode.trigger('cocoon:after-insert', [contentNode]);
+
+
+        console.log("after insert");
+      $('img.placeholder').each(function() {
+            var input_id;
+            console.log(this);
+            input_id = $(this.nextElementSibling).find('input').attr('id');
+            console.log(input_id);
+            return $(this).attr('id', input_id + '_image');
+      });
+
     });
   });
 
