@@ -23,7 +23,9 @@ p.form-title-wrap
           = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image"
         - else
           = image_tag "image-placeholder.png", :id => "profile_avatar_image"
-        = f.file_field :avatar, class: "form-control"
+        div.file-upload.btn.btn-default
+          span 上传照片
+          = f.file_field :avatar, class: "form-control"
 
     div.row
       label.col-xs-2.control-label class=('label-error' if @profile.errors.include?(:id_no))
