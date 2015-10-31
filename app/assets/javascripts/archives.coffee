@@ -45,11 +45,13 @@ $(document).on 'ready page:load', ->
 
   $('input[type=file]').change ->
     console.log("hello file change")
+    console.log(this)
     if this.files and this.files[0]
       reader = new FileReader
 
+      image_id = '#' + this.id + '_image'
       reader.onload = (e) ->
-        $('#blah').attr('src', e.target.result).width(150).height 200
+        $(image_id).attr('src', e.target.result).width(86).height 81
 
       reader.readAsDataURL this.files[0]
 

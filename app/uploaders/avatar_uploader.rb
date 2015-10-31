@@ -11,7 +11,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   version :normal do
-    process resize_to_fit: [85, 80.38]
+    process resize_to_fit: [86, 81]
   end
 
   # Override the directory where uploaded files will be stored.

@@ -5,6 +5,7 @@ p.form-title-wrap
 
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
+  = debug(f.object.errors)
 
   .form-inputs
     div.row
@@ -19,11 +20,10 @@ p.form-title-wrap
         = Profile.human_attribute_name("avatar")
       div.col-xs-3
         - if @profile.avatar?
-          = image_tag(@profile.avatar_url(:normal))
+          = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image"
         - else
-          = image_tag "image-placeholder.png"
+          = image_tag "image-placeholder.png", :id => "profile_avatar_image"
         = f.file_field :avatar, class: "form-control"
-        <img id="blah" src="#" alt="your image" />
 
     div.row
       label.col-xs-2.control-label class=('label-error' if @profile.errors.include?(:id_no))
