@@ -6,11 +6,7 @@
   text-align: left;
 }
 
-.file-upload {
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-
+.page-button-link {
   /* BG: */
   background: #F8FAFA;
   border: 1px solid #1EBAD9;
@@ -20,6 +16,14 @@
   font-size: 14px;
   color: #18ACD1;
   line-height: 14px;
+
+}
+
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+
 
   input {
     position: absolute;

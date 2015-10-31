@@ -7,6 +7,7 @@ class CreateEducations < ActiveRecord::Migration
       t.date :enroll_day
       t.date :graduation_day
       t.integer :notary_related_id
+      t.string :scan_file
 
       t.timestamps null: false
     end

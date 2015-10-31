@@ -6,6 +6,7 @@ class CreateWorkExperiences < ActiveRecord::Migration
       t.string :company_name
       t.string :job_title
       t.integer :notary_related_id
+      t.string :scan_file
 
       t.timestamps null: false
     end

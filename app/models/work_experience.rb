@@ -15,4 +15,6 @@
 class WorkExperience < ActiveRecord::Base
   belongs_to :notary_related
 
+  mount_uploader :scan_file, AvatarUploader
+
 end

@@ -6,6 +6,7 @@ class CreateDeposits < ActiveRecord::Migration
       t.float :amount
       t.integer :property_related_id
       t.boolean :updated_once, default: false
+      t.string :scan_file
 
       t.timestamps null: false
     end

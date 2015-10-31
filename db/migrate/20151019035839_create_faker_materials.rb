@@ -3,6 +3,7 @@ class CreateFakerMaterials < ActiveRecord::Migration
     create_table :faker_materials do |t|
       t.string :faker_material_no
       t.string :faker_material_type
+      t.string :scan_file
       t.integer :notary_related_id
 
       t.timestamps null: false

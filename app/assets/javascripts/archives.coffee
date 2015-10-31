@@ -55,3 +55,11 @@ $(document).on 'ready page:load', ->
 
       reader.readAsDataURL this.files[0]
 
+  #set image id to input file's id + image
+  $('img.placeholder').each ->
+    console.log this
+    input_id = $(this.nextElementSibling).find('input').attr('id')
+    console.log(input_id)
+    $(this).attr('id', input_id + '_image')
+
+

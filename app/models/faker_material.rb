@@ -14,4 +14,6 @@ class FakerMaterial < ActiveRecord::Base
   extend Enumerize
   enumerize :faker_material_type, in: [:company, :person, :foreign], default: :person
 
+  mount_uploader :scan_file, AvatarUploader
+
 end

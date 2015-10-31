@@ -23,7 +23,7 @@ p.form-title-wrap
           = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image"
         - else
           = image_tag "image-placeholder.png", :id => "profile_avatar_image"
-        div.file-upload.btn.btn-default
+        div.file-upload.btn.btn-default.page-button-link
           span 上传照片
           = f.file_field :avatar, class: "form-control"
 
@@ -75,7 +75,7 @@ p.form-title-wrap
           = image_tag @profile.id_no_img_url(:normal), :id => "profile_id_no_image"
         - else
           = image_tag "image-placeholder.png", :id => "profile_id_no_image"
-        div.file-upload.btn.btn-default
+        div.file-upload.btn.btn-default.page-button-link
           span 上传扫描件
           = f.file_field :id_no, class: "form-control"
 

@@ -8,6 +8,7 @@ class CreateNotaryRecords < ActiveRecord::Migration
       t.integer :notary_related_id
       t.integer :reservation_id
       t.integer :notary_related_id
+      t.string :scan_file
       t.boolean :synced, default: false
 
       t.timestamps null: false
