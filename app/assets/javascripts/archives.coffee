@@ -83,5 +83,6 @@ $(document).on 'ready page:load', ->
 
 
   $('option.option_show').attr('selected','selected');
+  $('div.select_disable').find( "select" ).attr('disabled','disabled');
 
 

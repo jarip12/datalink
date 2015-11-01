@@ -19,9 +19,9 @@ class FamilyRelation < ActiveRecord::Base
   extend Enumerize
   enumerize :relation_name, in: [:father, :mother, :uncle, :cousinly, :cousin], default: :father
 
-  validates :realname, realname: true, on: :update
-  validates :relation_name, presence: true, on: :update
-  validates :id_no, id_no: true, on: :update
+  validates :realname, realname: true
+  validates :relation_name, presence: true
+  validates :id_no, id_no: true
 
 
   delegate :client_token, to: Setting

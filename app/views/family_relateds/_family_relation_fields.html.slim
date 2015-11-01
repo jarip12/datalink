@@ -4,7 +4,7 @@ div.nested-fields
       = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
 
   div.row.first-row
-    div.col-xs-2
+    div.col-xs-2 class=('select_disable' if cannot_edit)
       = f.select :relation_name
         option value="father"  class=('option_show' if f.object.relation_name == "father" ) 父亲
         option value="mother"  class=('option_show' if f.object.relation_name == "mother" ) 母亲
