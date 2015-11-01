@@ -68,9 +68,11 @@ dl
           = image_tag 'scan_file.png', size: "19x20", class: "sidebar-icon"
           span class="sidebar-text"
             | 扫描件
-    dt class="sidebar-text"
-	  | 公证办理
-	dd
+
+    - if can? :notary_records, Archive
+      dt class="sidebar-text"
+	    | 公证办理
+	  dd
         a href="#{archive_notary_records_path(@archive)}"
           = image_tag 'notary_handle.png', size: "19x20", class: "sidebar-icon"
           span class="sidebar-text"

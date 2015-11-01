@@ -51,6 +51,7 @@ describe Ability, :type => :model do
 
     it { is_expected.to be_able_to(:create, Archive) }
     it { is_expected.to be_able_to(:new, Archive) }
+    it { is_expected.not_to be_able_to(:notary_records, Archive) }
 
     it { is_expected.not_to be_able_to([:all], Reservation) }
 
