@@ -19,6 +19,8 @@ class FamilyRelated < ActiveRecord::Base
   after_create :set_default_related
 
   def set_default_related
-    FamilyRelation.create!(family_related_id: self.id)
+    ap "hello after family_related create"
+    family_relation = FamilyRelation.new(family_related_id: self.id)
+    family_relation.save(:validate => false)
   end
 end

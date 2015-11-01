@@ -121,6 +121,7 @@
 
 .reset-dom{
   margin:0;
+  margin-top: 28px;
   padding:0;
   /* 个人档案: */
   font-family: STHeiti;
@@ -134,13 +135,17 @@
   border-bottom:1px solid #ccc;
   height:32px;
 }
-.form-title{
-  float:left;
-  line-height:30px;
-  font-size:16px;
-  padding:0 12px;
-  border-bottom:2px solid #369;
+.form-title {
+  float: left;
+  line-height: 30px;
+  font-size: 16px;
+  padding: 0 12px;
 }
+
+.current-title {
+    border-bottom:2px solid #369;
+}
+
 .form-block{
   border-bottom:1px solid #ccc;
   padding-bottom:20px;

@@ -6,7 +6,6 @@
 #  id_no             :string(255)
 #  realname          :string(255)
 #  relation_name     :string(255)
-#  owner_archive_id  :integer
 #  family_related_id :integer
 #  synced            :boolean          default(FALSE)
 #  updated_once      :boolean          default(FALSE)
@@ -17,9 +16,8 @@
 FactoryGirl.define do
   factory :family_relation do
     id_no "MyString"
-realname "MyString"
-relation "MyString"
-owner_archive_id 1
+    realname "MyString"
+    relation "MyString"
   end
 
 end

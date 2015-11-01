@@ -61,6 +61,6 @@ class FamilyRelationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def family_relation_params
-      params.require(:family_relation).permit(:id_no, :realname, :relation, :owner_archive_id)
+      params.require(:family_relation).permit(:id_no, :realname, :relation)
     end
 end

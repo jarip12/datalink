@@ -1,7 +1,7 @@
 h1.reset-dom = "家庭成员关系树"
 p.form-title-wrap
   span.form-title 关系图
-  span.form-title 关系列表
+  span.form-title.current-title 关系列表
 
 tab
 
@@ -17,7 +17,7 @@ table.table#family_relation_table
       td = family_relation.relation_name_text
       td = family_relation.realname
       td = family_relation.id_no
-      - if family_relation.owner_archive_id
+      - if family_relation.archive
         td = link_to "查看", family_relation, :class => "page-button-link btn btn-default"
       - else
         td = link_to "创建档案", new_profile_path, :class => "page-button-link btn btn-default"

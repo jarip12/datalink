@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "id_no",             limit: 255
     t.string   "realname",          limit: 255
     t.string   "relation_name",     limit: 255
-    t.integer  "owner_archive_id",  limit: 4
     t.integer  "family_related_id", limit: 4
     t.boolean  "synced",                        default: false
     t.boolean  "updated_once",                  default: false
