@@ -36,11 +36,13 @@ $(document).on 'ready page:load', ->
     $('.remove-link').show()
     $('.edit-list').hide()
     $('.edit-list-complete').show()
+    $('.add_fields').hide()
 
   $('.edit-list-complete').click ->
     $('.remove-link').hide()
     $('.edit-list').show()
     $('.edit-list-complete').hide()
+    $('.add_fields').show()
 
   $('body').on 'focus', "input[type=file]", ->
     $('input[type=file]').change ->
