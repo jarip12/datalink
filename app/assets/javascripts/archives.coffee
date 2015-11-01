@@ -32,6 +32,15 @@ $(document).on 'ready page:load', ->
 
   console.log ("hello readurl")
 
+  $('.edit-list').click ->
+    $('.remove-link').show()
+    $('.edit-list').hide()
+    $('.edit-list-complete').show()
+
+  $('.edit-list-complete').click ->
+    $('.remove-link').hide()
+    $('.edit-list').show()
+    $('.edit-list-complete').hide()
 
   $('body').on 'focus', "input[type=file]", ->
     $('input[type=file]').change ->

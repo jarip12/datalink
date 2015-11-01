@@ -4,7 +4,6 @@ class NotaryRelatedsController < ApplicationController
   load_and_authorize_resource
 
 
-
   # GET /notary_relateds
   def index
     @notary_relateds = NotaryRelated.all

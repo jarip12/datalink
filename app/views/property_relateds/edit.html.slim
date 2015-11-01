@@ -1,10 +1,13 @@
 h2.reset-dom 个人档案
 p.form-title-wrap
+  span.edit-list.pull-right.page-button-link.btn.btn-default 编列记录列表
+  span.edit-list-complete.pull-right.page-button-link.btn.btn-default 完成
   span.form-title 资产相关
 
 = simple_form_for @property_related, html: {class: "form-wrap form-horizontal"} do |f|
   = f.error_notification
-  = debug(f.object.errors)
+  - if f.object.errors.any?
+    = debug(f.object.errors)
 
   .form-inputs
     div.form-with-border
@@ -12,7 +15,6 @@ p.form-title-wrap
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
       .links.col-xs-offset-9.link-div
-
         = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
@@ -20,7 +22,6 @@ p.form-title-wrap
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase, cannot_edit: false
       .links.col-xs-offset-9.link-div
-        span.property-link 上传扫描件
         = link_to_add_association '添加购房记录', f, :house_purchases, class: "property-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
@@ -28,7 +29,6 @@ p.form-title-wrap
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
       .links.col-xs-offset-9.link-div
-        span.property-link 上传扫描件
         = link_to_add_association '添加提存记录', f, :deposits, class: "property-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.text-center.col-offset-2.profile-submit-div
