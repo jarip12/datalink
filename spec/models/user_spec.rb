@@ -22,6 +22,7 @@
 #  birth_daty             :date
 #  death_daty             :date
 #  address                :string(255)
+#  verified               :boolean          default(FALSE)
 #
 
 require 'rails_helper'
