@@ -12,5 +12,10 @@ input.radio_buttons.inline label.radio{
   display: inline-block;
 }
 
+.radio-inline, .checkbox-inline {
+  vertical-align: baseline !important;
+  padding-left: 0px !important;
+}
+
 
 

@@ -168,12 +168,15 @@ ActiveRecord::Schema.define(version: 20151025025104) do
   end
 
   create_table "notary_relateds", force: :cascade do |t|
-    t.boolean  "has_crime_record",           default: false
-    t.boolean  "has_testament",              default: false
-    t.integer  "archive_id",       limit: 4
-    t.boolean  "updated_once",               default: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.boolean  "has_crime_record",                   default: false
+    t.boolean  "has_testament",                      default: false
+    t.integer  "archive_id",           limit: 4
+    t.boolean  "updated_once",                       default: false
+    t.string   "crime_record_file",    limit: 255
+    t.string   "testament_file",       limit: 255
+    t.text     "crime_record_comment", limit: 65535
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "notary_relations", force: :cascade do |t|

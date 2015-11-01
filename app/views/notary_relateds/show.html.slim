@@ -12,16 +12,35 @@ p.form-title-wrap
         = render 'education_fields', f: education, cannot_edit: true
 
     div.form-with-border
-      label.string.optional.control-label.col-xs-2
-        = NotaryRelated.human_attribute_name("has_crime_record")
-      div.col-xs-3
-        = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: true
+      p.first-title = NotaryRelated.human_attribute_name("has_crime_record")
+      div.row
+        div.col-xs-6
+          div.row
+            div.col-xs-4
+              = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: true
+            div.col-xs-4
+              = f.input_field :crime_record_comment, disabled: true
+        div.col-xs-3
+          - if f.object.crime_record_file?
+            = image_tag f.object.crime_record_file_url(:two_line), class: "placeholder", width: 159, height: 170
+          - else
+            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+
 
     div.form-with-border
-      label.string.optional.control-label.col-xs-2
-        = NotaryRelated.human_attribute_name("has_testament")
-      div.col-xs-3
-        = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: true
+      p.first-title = NotaryRelated.human_attribute_name("has_testament")
+      div.row
+        div.col-xs-6
+          div.row
+            div.col-xs-4
+              = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: true
+        div.col-xs-3
+          - if f.object.testament_file?
+            = image_tag f.object.testament_file_url(:two_line), class: "placeholder", width: 159, height: 170
+          - else
+            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+
+
 
     div.form-with-border
       p.first-title = "工作经历"

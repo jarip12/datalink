@@ -6,9 +6,6 @@
   text-align: left;
 }
 
-.nested-fields {
-  margin-bottom: 15px;
-}
 
 .page-button-link {
   /* BG: */
@@ -20,8 +17,10 @@
   font-size: 14px;
   color: #18ACD1;
   line-height: 14px;
+}
 
-
+div.col-xs-3 img {
+  margin-bottom: 15px;
 }
 
 .add_fields {

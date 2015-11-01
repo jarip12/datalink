@@ -16,6 +16,42 @@ p.form-title-wrap
       .links.row.link-div
         = link_to_add_association '添加学位记录', f, :educations, class: "pull-right btn btn-default page-button-link", render_options:  {locals: { cannot_edit: false }}
 
+    div.form-with-border
+      p.first-title = NotaryRelated.human_attribute_name("has_crime_record")
+      div.row
+        div.col-xs-6
+          div.row
+            div.col-xs-4
+              = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
+            div.col-xs-4
+              = f.input_field :crime_record_comment
+        div.col-xs-3
+          - if f.object.crime_record_file?
+            = image_tag f.object.crime_record_file_url(:two_line), class: "placeholder", width: 159, height: 170
+          - else
+            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+
+          div.file-upload.btn.btn-default.page-button-link
+            span 上传扫描件
+            = f.file_field :crime_record_file, class: "form-control"
+
+    div.form-with-border
+      p.first-title = NotaryRelated.human_attribute_name("has_testament")
+      div.row
+        div.col-xs-6
+          div.row
+            div.col-xs-4
+              = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
+        eiv.col-xs-3
+          - if f.object.testament_file?
+            = image_tag f.object.testament_file_url(:two_line), class: "placeholder", width: 159, height: 170
+          - else
+            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+
+          div.file-upload.btn.btn-default.page-button-link
+            span 上传扫描件
+            = f.file_field :testament_file, class: "form-control"
+
 
     div.form-with-border
       p.first-title = "工作经历"
