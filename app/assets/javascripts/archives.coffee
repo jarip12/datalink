@@ -82,3 +82,6 @@ $(document).on 'ready page:load', ->
     $(this).attr('id', input_id + '_image')
 
 
+  $('option.option_show').attr('selected','selected');
+
+
