@@ -50,6 +50,7 @@ div.nested-fields
         - else
           = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
-        div.file-upload.btn.btn-default.page-button-link
-          span 上传扫描件
-          = f.file_field :scan_file, class: "form-control"
+        - unless cannot_edit
+          div.file-upload.btn.btn-default.page-button-link
+            span 上传扫描件
+            = f.file_field :scan_file, class: "form-control"
