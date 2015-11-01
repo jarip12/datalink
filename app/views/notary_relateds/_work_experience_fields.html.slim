@@ -1,4 +1,8 @@
 div.nested-fields
+  - unless cannot_edit
+    div.remove-link-div.clearfix
+      = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
+
   div.row
     div.col-xs-9
       div.row
@@ -53,6 +57,3 @@ div.nested-fields
         span 上传扫描件
         = f.file_field :scan_file, class: "form-control"
 
-  - unless cannot_edit
-    div.remove-link-div
-      = link_to_remove_association "删除这条记录", f, class: "remove-link btn btn-default pull-right"
