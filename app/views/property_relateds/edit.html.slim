@@ -14,23 +14,22 @@ p.form-title-wrap
       p.first-title = "信贷情况"
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
-      .links.col-xs-offset-9.link-div
+      .links.row.link-div
         = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.property-title = "购房情况"
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase, cannot_edit: false
-      .links.col-xs-offset-9.link-div
+      .links.row.link-div
         = link_to_add_association '添加购房记录', f, :house_purchases, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.property-title = "提存情况"
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
-      .row
-        .links.col-xs-offset-9.link-div
-          = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
+      .links.row.link-div
+        = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.text-center.col-offset-2.profile-submit-div
       - if current_user.typer?
