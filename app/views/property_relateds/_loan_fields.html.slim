@@ -59,7 +59,10 @@ div.nested-fields
         label.string.optional.control-label.col-xs-2.col-xs-offset-1
           = Loan.human_attribute_name("repay_on_time")
         div.col-xs-3
-          = f.input_field :repay_on_time, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
+          - if cannot_edit
+            = f.input_field :repay_on_time, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: true
+          - else
+            = f.input_field :repay_on_time, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
     div.col-xs-3
 
