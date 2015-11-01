@@ -1,10 +1,12 @@
 div.nested-fields
   div.row.first-row
     div.col-xs-2
-      select disabled="#{cannot_edit}" include_blank="false" class="select optional" name="archive[family_relations_attributes][0][relation_name]" id="archive_family_relations_attributes_0_relation_name"
+      select include_blank="false" class="select optional" name="archive[family_relations_attributes][0][relation_name]" id="archive_family_relations_attributes_0_relation_name"
         option selected="selected" value="father" 父亲
         option value="mother" 母亲
-        option value="uncle" 叔叔
+        optgroup label="兄弟姐妹"
+          option value="cousinly" 堂兄
+          option value="cousin" 堂弟
     div.col-xs-2 class=('has-error' if f.object.errors.include?(:realname))
       =f.input_field :realname, class: "form-control", disabled: cannot_edit
       - if f.object.errors.include?(:realname)
