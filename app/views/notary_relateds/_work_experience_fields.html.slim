@@ -45,9 +45,9 @@ div.nested-fields
 
     div.col-xs-3
       - if f.object.scan_file?
-        = image_tag f.object.scan_file_url(:normal), class: "placeholder"
+        = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
       - else
-        = image_tag "two-line-placeholder.png", class: "placeholder"
+        = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
       div.file-upload.btn.btn-default.page-button-link
         span 上传扫描件

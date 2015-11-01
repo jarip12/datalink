@@ -55,7 +55,7 @@ $(document).on 'ready page:load', ->
 
 
         reader.onload = (e) ->
-          $(image_id).attr('src', e.target.result).width(86).height 81
+          $(image_id).attr('src', e.target.result)
 
 
         reader.readAsDataURL this.files[0]

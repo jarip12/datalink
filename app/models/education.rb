@@ -9,6 +9,7 @@
 #  enroll_day        :date
 #  graduation_day    :date
 #  notary_related_id :integer
+#  scan_file         :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

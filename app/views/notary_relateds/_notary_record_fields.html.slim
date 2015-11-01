@@ -16,9 +16,9 @@ div.nested-fields
 
     div.col-xs-3
       - if f.object.scan_file?
-        = image_tag f.object.scan_file_url(:normal), class: "placeholder"
+        = image_tag f.object.scan_file_url(:notary), class: "placeholder", width: 159, height: 116
       - else
-        = image_tag "notary_placeholder.png", class: "placeholder"
+        = image_tag "notary_placeholder.png", class: "placeholder", width: 159, height: 116
 
       div.file-upload.btn.btn-default.page-button-link
         span 上传扫描件

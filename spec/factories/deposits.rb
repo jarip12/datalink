@@ -8,6 +8,7 @@
 #  amount              :float(24)
 #  property_related_id :integer
 #  updated_once        :boolean          default(FALSE)
+#  scan_file           :string(255)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

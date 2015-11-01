@@ -67,9 +67,9 @@ class PropertyRelatedsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def property_related_params
       params.require(:property_related).permit(:has_crime_record, :has_testament,
-                                             loans_attributes: [:id, :_destroy, :start_day, :end_day, :notary_type, :description, :amount],
-                                             house_purchases_attributes: [:id, :_destroy, :trade_day, :trade_type, :house_type, :house_address, :house_amount],
-                                             deposits_attributes: [:id, :_destroy, :deposit_day, :receive_day, :amount]
+                                             loans_attributes: [:id, :_destroy, :start_day, :end_day, :notary_type, :description, :amount, :scan_file],
+                                             house_purchases_attributes: [:id, :_destroy, :trade_day, :trade_type, :house_type, :house_address, :house_amount, :scan_file],
+                                             deposits_attributes: [:id, :_destroy, :deposit_day, :receive_day, :amount, :scan_file]
       )
     end
 end

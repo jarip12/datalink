@@ -9,6 +9,7 @@
 #  archive_id        :integer
 #  notary_related_id :integer
 #  reservation_id    :integer
+#  scan_file         :string(255)
 #  synced            :boolean          default(FALSE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
