@@ -5,7 +5,7 @@ p.form-title-wrap
 
 tab
 
-table.table.table-striped
+table.table#family_relation_table
   tr
     th = FamilyRelation.human_attribute_name("relation_name")
     th = FamilyRelation.human_attribute_name("realname")
@@ -18,7 +18,7 @@ table.table.table-striped
       td = family_relation.realname
       td = family_relation.id_no
       - if family_relation.owner_archive_id
-        td = link_to "查看", family_relation
+        td = link_to "查看", family_relation, :class => "page-button-link btn btn-default"
       - else
-        td = link_to "创建档案", new_profile_path
+        td = link_to "创建档案", new_profile_path, :class => "page-button-link btn btn-default"
 

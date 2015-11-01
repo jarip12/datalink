@@ -30,3 +30,34 @@
   letter-spacing: 8px;
   line-height: 16px;
 }
+
+
+#family_relation_table {
+
+  /* Rectangle 357: */
+  background: #FAF9F9;
+  border: 1px solid #979797;
+
+  font-family: STHeiti;
+  font-size: 16px;
+  color: #212121;
+  line-height: 16px;
+
+  text-align: center;
+  margin: 54px 15px;
+
+  th {
+    /* Rectangle 358: */
+    background: #E0E0E0;
+    border: 1px solid #979797;
+    text-align: center;
+  }
+
+  td {
+    /* Rectangle 358 Copy 2: */
+    background: #E8E8E8;
+    border: 1px solid #979797;
+  }
+
+
+}
