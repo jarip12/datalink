@@ -100,6 +100,8 @@ zh-CN:
         father: "父亲"
         mother: "母亲"
         uncle: "叔叔"
+        cousinly: "堂兄"
+        cousin: "堂第"
     staff:
       role:
         admin: "管理员"

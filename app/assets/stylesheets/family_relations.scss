@@ -46,18 +46,21 @@
   text-align: center;
   margin: 54px 15px;
 
+
   th {
     /* Rectangle 358: */
     background: #E0E0E0;
     border: 1px solid #979797;
     text-align: center;
+    vertical-align: middle !important;
   }
 
-  td {
-    /* Rectangle 358 Copy 2: */
-    background: #E8E8E8;
-    border: 1px solid #979797;
-  }
 
+    tr:nth-child(odd){
+      background: #E8E8E8 !important;
+    }
+    tr:nth-child(even){
+      background: #F9F9F9 !important;
+    }
 
 }
