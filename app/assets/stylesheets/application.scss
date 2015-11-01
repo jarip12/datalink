@@ -24,6 +24,6 @@
   margin-top: 39px;
 }
 
-.form-with-border > .row {
+.form-with-border > .row:not(:last-of-type) {
   margin-top: 39px;
 }

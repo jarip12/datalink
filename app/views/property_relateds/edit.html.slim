@@ -28,8 +28,9 @@ p.form-title-wrap
       p.property-title = "提存情况"
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
-      .links.col-xs-offset-9.link-div
-        = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
+      .row
+        .links.col-xs-offset-9.link-div
+          = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.text-center.col-offset-2.profile-submit-div
       - if current_user.typer?
