@@ -23,13 +23,43 @@
   border: 1px solid #DEDEDE;
   border-radius: 3px;
 
+  li[role="presentation"] {
+    width: 141px;
+    height: 46px;
+    text-align: center;
+  }
+
+  nav.pagination {
+    margin: 0px 200px !important;
+  }
+
+  .inner-table {
+    margin: 0 70px;
+  }
+
   th, td {
     padding: 17px 0 !important;
   }
 
-  ul.pagination {
-    li.last, li.first, li.disabled {
+  nav.pagination {
+
+    span.page.gap, span.first, span.last {
       display: none;
+    }
+
+    span.prev, span.next {
+      /* Rectangle 217 Copy: */
+      background: #C4D4EB;
+      box-shadow: 1px 1px 2px 0px rgba(147,141,141,0.50);
+      border-radius: 6px;
+      /* 上一页: */
+      font-family: STHeiti;
+      font-size: 14px;
+      color: #0D0436;
+      line-height: 14px;
+
+      @extend .btn;
+      @extend .btn-default;
     }
 
   }
