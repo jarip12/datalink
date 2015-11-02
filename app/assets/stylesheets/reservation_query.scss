@@ -1,0 +1,15 @@
+
+
+.dataTables_wrapper {
+  div.dataTables_length, div.dataTables_info, div.dataTables_filter {
+    display: none;
+  }
+
+  .register-link {
+    width: auto !important;
+    float: none !important;
+    @extend .page-button-link;
+  }
+
+  @extend .reservation-table-wrap;
+}

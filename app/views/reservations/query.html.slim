@@ -1,17 +1,18 @@
 = include_gon(:init => true)
 
-form.form-horizontal#reservation-query-form action=reservations_query_path
+div.search-line
 
-  input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
+  form.form-horizontal#reservation-query-form action=reservations_query_path
 
-  div.form-group
-    label.control-label.col-sm-2 for="daterange" 选择时间范围
-    div.col-sm-10
-      input#reservation-daterange.daterange.form-control type="text" name="daterange"
+    input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
 
-  div.form-group
-    div.col-sm-offset-2.col-sm-2
-      button.btn.btn-default type="submit"  提交
+    div.form-group
+      label.control-label.col-xs-3 for="daterange" 选择预约时间
+      div.col-xs-6
+        input#reservation-daterange.daterange.form-control type="text" name="daterange"
+      div.col-xs-3
+        button.btn.btn-default type="submit"  提交
+
 
 br
 table.display#reservation-data-table width="100%"
