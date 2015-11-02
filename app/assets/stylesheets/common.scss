@@ -17,6 +17,9 @@
   font-size: 14px;
   color: #18ACD1;
   line-height: 14px;
+
+  @extend .btn-default;
+  @extend .btn;
 }
 
 div.col-xs-3 img {

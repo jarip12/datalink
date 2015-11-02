@@ -1,7 +1,7 @@
 h2.reset-dom 个人档案
 p.form-title-wrap
-  span.edit-list.pull-right.page-button-link.btn.btn-default 编列记录列表
-  span.edit-list-complete.pull-right.page-button-link.btn.btn-default 完成
+  span.edit-list.pull-right.page-button-link 编列记录列表
+  span.edit-list-complete.pull-right.page-button-link 完成
   span.form-title 资产相关
 
 = simple_form_for @property_related, html: {class: "form-wrap form-horizontal"} do |f|
@@ -15,21 +15,21 @@ p.form-title-wrap
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
       .links.row.link-div
-        = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.property-title = "购房情况"
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase, cannot_edit: false
       .links.row.link-div
-        = link_to_add_association '添加购房记录', f, :house_purchases, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加购房记录', f, :house_purchases, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.form-with-border
       p.property-title = "提存情况"
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
       .links.row.link-div
-        = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link btn btn-default pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
     div.text-center.col-offset-2.profile-submit-div
       - if current_user.typer?

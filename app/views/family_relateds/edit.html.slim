@@ -1,7 +1,7 @@
 h1.reset-dom 个人档案
 p.form-title-wrap
-  span.edit-list.pull-right.page-button-link.btn.btn-default 编列记录列表
-  span.edit-list-complete.pull-right.page-button-link.btn.btn-default 完成
+  span.edit-list.pull-right.page-button-link 编列记录列表
+  span.edit-list-complete.pull-right.page-button-link 完成
   span.form-title 家庭信息
 
 = simple_form_for @family_related, html: {class: "new-family-form-wrap form-horizontal"} do |f|
@@ -11,7 +11,7 @@ p.form-title-wrap
   = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
     = render 'family_relation_fields', f: family_relation, cannot_edit: false
   .links.row.link-div
-    = link_to_add_association '添加家庭成员', f, :family_relations, class: "page-button-link pull-right btn btn-default", render_options:  {locals: { cannot_edit: false }}
+    = link_to_add_association '添加家庭成员', f, :family_relations, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
   div.form-actions.text-center.col-offset-2
     - if current_user.typer?
