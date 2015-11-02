@@ -13,3 +13,25 @@
   line-height: 30px;
 }
 
+.reservation-table-wrap {
+  width: 839px;
+  height: 615px;
+  margin: 46px auto 46px;
+  /* Rectangle 202: */
+  opacity: 0.6;
+  background: #FFFFFF;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px;
+
+  th, td {
+    padding: 17px 0 !important;
+  }
+
+  ul.pagination {
+    li.last, li.first, li.disabled {
+      display: none;
+    }
+
+  }
+
+}

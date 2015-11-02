@@ -1,5 +1,5 @@
 - unless smart_listing.empty?
-  table.table.table-striped
+  table.table
     thead
       th.col-md-3= Reservation.human_attribute_name("user_realname")
       th.col-md-3= Reservation.human_attribute_name("notary_table_type")
@@ -11,13 +11,12 @@
           td = o.user_realname
           td = o.notary_table_type_text
           td = hour_minute_display(o.reserve_at)
-          td = link_to "查看申请表", edit_table_link(o)
-          td = link_to "处理预约", reservation_handle_path(o)
+          td = link_to "查看申请表", edit_table_link(o), class: "page-button-link btn btn-default"
+          td = link_to "处理预约", reservation_handle_path(o), class: "page-button-link btn btn-default"
 
 
 
   -# Render nice pagination links fitted for Bootstrap 3 by default
   = smart_listing.paginate
-  = smart_listing.pagination_per_page_links
 - else
   p.warning "没有预约记录"
