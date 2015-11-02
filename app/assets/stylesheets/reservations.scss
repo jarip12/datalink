@@ -14,7 +14,7 @@
 }
 
 .reservation-table-wrap {
-  width: 839px;
+  width: 838px;
   height: 615px;
   margin: 46px auto 46px;
   /* Rectangle 202: */
@@ -24,13 +24,9 @@
   border-radius: 3px;
 
   li[role="presentation"] {
-    width: 141px;
+    width: 167px;
     height: 46px;
     text-align: center;
-  }
-
-  nav.pagination {
-    margin: 0px 200px !important;
   }
 
   .inner-table {
@@ -43,25 +39,40 @@
 
   nav.pagination {
 
+    margin: 0 120px;
+
     span.page.gap, span.first, span.last {
       display: none;
     }
 
+    span.page.current {
+        margin: 0 30px;
+    }
+
     span.prev, span.next {
-      /* Rectangle 217 Copy: */
       background: #C4D4EB;
-      box-shadow: 1px 1px 2px 0px rgba(147,141,141,0.50);
+      box-shadow: 1px 1px 2px 0px rgba(147, 141, 141, 0.50);
       border-radius: 6px;
-      /* 上一页: */
       font-family: STHeiti;
       font-size: 14px;
       color: #0D0436;
       line-height: 14px;
-
       @extend .btn;
       @extend .btn-default;
     }
+  }
 
+  .return-link {
+    /* Rectangle 278 Copy: */
+    background: #C5EBC4;
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);
+    border-radius: 3px;
+    /* 返回: */
+    font-family: STHeitiSC-Light;
+    font-size: 16px;
+    color: #FFFFFF;
+    line-height: 16px;
+    @extend .button-right;
   }
 
 }

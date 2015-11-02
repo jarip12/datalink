@@ -22,6 +22,17 @@
   @extend .btn;
 }
 
+.page-button-link-right {
+  @extend .page-button-link;
+  @extend .pull-right;
+}
+
+.button-right {
+  @extend .pull-right;
+  @extend .btn-default;
+  @extend .btn;
+}
+
 div.col-xs-3 img {
   margin-bottom: 15px;
 }
