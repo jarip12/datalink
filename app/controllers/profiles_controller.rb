@@ -10,7 +10,14 @@ class ProfilesController < ApplicationController
   end
 
   def new_archive
-    @profile = Profile.new
+    ap params
+    if params.has_key?("family_relation_id") and FamilyRelation.exists?(params["family_relation_id"])
+      family_relation = FamilyRelation.find(params["family_relation_id"])
+      @profile = Profile.new(id_no: family_relation.id_no, realname: family_relation.realname)
+    else
+      @profile = Profile.new(id_no: para)
+    end
+
   end
 
 
