@@ -11,9 +11,6 @@
 
 FactoryGirl.define do
   factory :archive do
-    realname "MyString"
-id_no "MyString"
-user_id 1
   end
 
 end

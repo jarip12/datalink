@@ -47,8 +47,8 @@ class FamilyRelation < ActiveRecord::Base
     end
   end
 
-  def archive
-    Profile.find_by_id_no(self.id_no)
+  def profile
+    Profile.find_by_id_no(self.id_no) if id_no
   end
 
 end
