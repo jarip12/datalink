@@ -2,7 +2,7 @@ h1.reset-dom = "公证办理"
 p.form-title-wrap
   span.form-title 公证办理记录
 
-table.table.table-striped
+table.table#family_relation_table
   tr
     th = NotaryRecord.human_attribute_name("notary_id")
     th = NotaryRecord.human_attribute_name("notary_type")
@@ -12,4 +12,4 @@ table.table.table-striped
     tr
       td = record.notary_id
       td = record.notary_type_text
-      td = link_to "查看预约表", table_link(record)
+      td = link_to "查看预约表", table_link(record), :class => "page-button-link"
