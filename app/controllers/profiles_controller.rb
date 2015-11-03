@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
       family_relation = FamilyRelation.find(params["family_relation_id"])
       @profile = Profile.new(id_no: family_relation.id_no, realname: family_relation.realname)
     else
-      @profile = Profile.new(id_no: para)
+      @profile = Profile.new
     end
 
   end
