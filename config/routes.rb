@@ -45,6 +45,8 @@ Rails.application.routes.draw do
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
   post 'members', to: 'staffs#create'
 
+  get "/data/lwnotary-datalake-uploads/(*link)" => redirect("/uploads/%{link}.%{format}")
+
   mount Api::Dispatch => '/api'
   mount RailsSettingsUi::Engine, at: 'settings'
 

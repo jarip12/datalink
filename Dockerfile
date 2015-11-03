@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y nginx
 ADD unicorn-nginx.conf /etc/nginx/sites-enabled/default
 
 RUN mkdir /data
-RUN mkdir /data/lwnotary-datalake-uploads
 RUN mkdir /www
 WORKDIR /www
 RUN mkdir lwnotary-datalake
