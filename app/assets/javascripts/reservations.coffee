@@ -47,25 +47,9 @@ $(document).on 'ready page:load', ->
         moment().add(-1, 'day').format("YYYY-MM-DD"),
         moment().add(-1, 'day').format("YYYY-MM-DD"),
       ],
-      "最近7天": [
-        moment().add(-6, 'day').format("YYYY-MM-DD"),
+      "接下来7天": [
         moment().format("YYYY-MM-DD"),
-      ],
-      "最近30天": [
-        moment().add(-29, 'day').format("YYYY-MM-DD"),
-        moment().format("YYYY-MM-DD"),
-      ],
-      "这个月": [
-        moment().date(1).format("YYYY-MM-DD"),
-        moment().format("YYYY-MM-DD"),
-      ],
-      "上个月": [
-        moment().add(-1, 'month').date(1).format("YYYY-MM-DD"),
-        moment().date(1).add(-1, 'day').format("YYYY-MM-DD"),
-      ],
-      "今年": [
-        moment().dayOfYear(1).format("YYYY-MM-DD"),
-        moment().format("YYYY-MM-DD"),
+        moment().add(6, 'day').format("YYYY-MM-DD"),
       ],
     }
   })
