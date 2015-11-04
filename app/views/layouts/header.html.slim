@@ -6,8 +6,8 @@ div.user-header
       	  span.glyphicon.glyphicon-log-out
       	  |登出
     	a href="#" class="top-nav-link user-link" rel="nofollow"
-    	  span.glyphicon.glyphicon-user
-    	    = current_staff.realname
+          = image_tag 'user.png', size: "19x20", class: "header-icon"
+    	  = current_staff.realname
 
         - if current_staff.admin?
           = link_to '员工列表', staffs_path, class: "top-nav-link"
