@@ -25,24 +25,29 @@ FactoryGirl.define do
     email "staff@gmail.com"
     password "12345678"
 
+
     factory :admin do
       role :admin
       email "admin@gmail.com"
+      realname "管理员"
     end
 
     factory :audit do
       role :audit
       email "audit@gmail.com"
+      realname "审计"
     end
 
     factory :typer do
       role :typer
       email "typer@gmail.com"
+      realname "录入者"
     end
 
     factory :user_staff do
       role :user
       email "user@gmail.com"
+      realname "使用者"
     end
 
   end
