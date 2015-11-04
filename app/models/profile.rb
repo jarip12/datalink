@@ -34,9 +34,7 @@ class Profile < ActiveRecord::Base
   validates :id_no, id_no: true
   validates :email, email: true, allow_blank: true
 
-  validates :mobile, mobile: true, on: :update
+  validates :mobile, mobile: true, allow_blank: true, on: :update
   validates :sex, presence: true, on: :update
-  validates :birth_day, presence: true, on: :update
-  validates :address, presence: true, on: :update
 
 end
