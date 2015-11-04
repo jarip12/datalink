@@ -1,5 +1,5 @@
 
-div.reservation-table-wrap
+div.staff-table-wrap
   table.table#reservation-data-table
     tr
       th = Staff.human_attribute_name("email")
@@ -17,5 +17,7 @@ div.reservation-table-wrap
         td = link_to t('action.delete'), staff,  class: "page-button-link", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
 
   br
+
+  = paginate @staffs
 
   = link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "page-button-link col-xs-offset-9"

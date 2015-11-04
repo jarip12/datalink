@@ -1,11 +1,23 @@
-.staff-form-wrap {
-  margin: 100px auto 0;
-  width: 480px;
+.staff-table-wrap {
 
-  .inner-form {
-    background: #fff;
-    padding: 50px 80px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 6px #ccc;
+  @extend .reservation-table-wrap;
+
+  .staff-form-wrap {
+    margin: 100px auto 0;
+    width: 480px;
+
+    .inner-form {
+      background: #fff;
+      padding: 50px 80px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
   }
+
+  nav.pagination {
+    margin: 0 300px !important;
+  }
+
 }
+

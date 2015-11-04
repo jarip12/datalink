@@ -5,7 +5,7 @@ class StaffsController < ApplicationController
 
 
   def index
-    @staffs = Staff.all
+    @staffs = Staff.all.page params[:page]
   end
 
   def new
