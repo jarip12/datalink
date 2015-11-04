@@ -2,7 +2,15 @@
 
   @extend .reservation-table-wrap;
 
-  .staff-form-wrap {
+
+
+  nav.pagination {
+    margin: 0 300px !important;
+  }
+
+}
+
+.staff-form-wrap {
     margin: 100px auto 0;
     width: 480px;
 
@@ -13,11 +21,4 @@
       box-shadow: 2px 2px 6px #ccc;
     }
 
-  }
-
-  nav.pagination {
-    margin: 0 300px !important;
-  }
-
 }
-
