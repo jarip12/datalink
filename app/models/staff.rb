@@ -25,6 +25,8 @@ class Staff < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :realname, realname: true
+
   extend Enumerize
   enumerize :role, in: [:admin, :audit, :typer, :user], default: :typer
 

@@ -1,11 +1,28 @@
-= simple_form_for(@staff, url: submit_url) do |f|
-  = f.error_notification
+div.staff-form-wrap.form-horizontal
 
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-    = f.input :realname
-    = f.input_field :role
+  div.inner-form
 
-  .form-actions
-    = f.button :submit
+    = simple_form_for(@staff, url: submit_url) do |f|
+      = f.error_notification
+      = debug(f.object.errors)
+
+      .form-inputs
+        div.form-group
+          label.col-xs-3.control-label 邮箱
+          div.col-xs-9
+            = f.input_field :email, required: true, autofocus: true
+        div.form-group
+          label.col-xs-3.control-label 密码
+          div.col-xs-9
+            = f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+        div.form-group
+          label.col-xs-3.control-label 真实姓名
+          div.col-xs-9
+            = f.input_field :realname, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+        div.form-group
+          label.col-xs-3.control-label 角色
+          div.col-xs-9
+            = f.input_field :role
+
+      .form-actions
+          = f.button :submit, class: "page-button-link"
