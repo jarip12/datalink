@@ -32,12 +32,17 @@
 .top-nav{
   height:50px;
 }
-.top-nav-link{
-  float:right;
-  padding:0 10px;
-  line-height:32px;
-  color:#fff;
+.top-nav-link {
+  float: right;
+  padding: 0 10px;
+  line-height: 32px;
+  color: #fff;
 }
+
+.top-nav-link:visited {
+  color: #fff !important;
+}
+
 .top-nav-link:hover{
   background:none;
   text-decoration:none;

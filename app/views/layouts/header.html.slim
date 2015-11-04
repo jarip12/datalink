@@ -1,12 +1,16 @@
 div.user-header
   div.top-nav
     - if current_staff
+
       	a href="/staffs/sign_out" class="top-nav-link logout-link" data-method="delete" rel="nofollow"
       	  span.glyphicon.glyphicon-log-out
       	  |登出
     	a href="#" class="top-nav-link user-link" rel="nofollow"
     	  span.glyphicon.glyphicon-user
     	    = current_staff.realname
+
+        - if current_staff.admin?
+          = link_to '员工列表', staffs_path, class: "top-nav-link"
 
   a href="#{dashboard_index_path}"
     h2.header-title.text-center 上海市卢湾公证信息开放平台
