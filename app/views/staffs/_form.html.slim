@@ -4,25 +4,31 @@ div.staff-form-wrap.form-horizontal
 
     = simple_form_for(@staff, url: submit_url) do |f|
       = f.error_notification
-      = debug(f.object.errors)
 
       .form-inputs
         div.form-group
           label.col-xs-3.control-label 邮箱
-          div.col-xs-9
+          div.col-xs-9 class=('has-error' if @staff.errors.include?(:email))
             = f.input_field :email, required: true, autofocus: true
+            - if @staff.errors.include?(:email)
+              span class="help-block" #{@staff.errors.get(:email)[-1]}
         div.form-group
           label.col-xs-3.control-label 密码
-          div.col-xs-9
+          div.col-xs-9 class=('has-error' if @staff.errors.include?(:password))
             = f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+            - if @staff.errors.include?(:password)
+              span class="help-block" #{@staff.errors.get(:password)[-1]}
         div.form-group
           label.col-xs-3.control-label 真实姓名
-          div.col-xs-9
+          div.col-xs-9 class=('has-error' if @staff.errors.include?(:realname))
             = f.input_field :realname, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+            - if @staff.errors.include?(:realname)
+              span class="help-block" #{@staff.errors.get(:realname)[-1]}
         div.form-group
           label.col-xs-3.control-label 角色
           div.col-xs-9
             = f.input_field :role
 
-      .form-actions
-          = f.button :submit, class: "page-button-link"
+      .row
+          = f.button :submit, class: "page-button-link col-xs-offset-2"
+          = link_to t('action.back'), staffs_path, class: "page-button-link col-xs-offset-2"
