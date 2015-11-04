@@ -1,0 +1,30 @@
+.new-archive-form-wrap {
+  .new-profile-button {
+    /* Rectangle 278: */
+    background: #C4DAEB;
+    box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+    border-radius: 3px;
+    text-align: center;
+    width: 99px;
+    height: 36px;
+    @extend .btn;
+    @extend .btn-default;
+  }
+
+  .button-div {
+    margin-top: 48px;
+  }
+
+  .profile-return-button {
+
+    background: #C5EBC4;
+    box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.50);
+    border-radius: 3px;
+
+    text-align: center;
+    width: 99px;
+    height: 36px;
+    @extend .btn;
+    @extend .btn-default;
+  }
+}

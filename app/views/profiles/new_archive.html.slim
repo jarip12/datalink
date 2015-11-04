@@ -26,7 +26,7 @@
         span class="help-block" #{f.object.errors.get(:email)[-1]}
 
 
-  div.form-group
-    input.btn.btn-default.control-label.col-xs-offset-3.button-submit type="submit" name="commit" value="创建"
-    = link_to "返回", dashboard_index_path, class: "btn btn-default control-label col-xs-offset-2 button-return"
+  div.row.button-div
+    input.col-xs-offset-3.new-profile-button type="submit" name="commit" value="创建"
+    = link_to "返回", dashboard_index_path, class: "profile-return-button col-xs-offset-3"
 
