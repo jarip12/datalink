@@ -1,22 +1,22 @@
 p#notice = notice
-h1 = Staff.model_name.human
 
-table.table.table-striped
-  tr
-    th = Staff.human_attribute_name("email")
-    th = Staff.human_attribute_name("realname")
-    th = Staff.human_attribute_name("role")
-    th
-    th
-
-  - @staffs.each do |staff|
+div.reservation-table-wrap
+  table.table#reservation-data-table
     tr
-      td = staff.email
-      td = staff.realname
-      td = staff.role_text
-      td = link_to t('action.edit'), edit_staff_path(staff)
-      td = link_to t('action.delete'), staff, :data => {:confirm => t('action.confirm_delete')}, :method => :delete
+      th = Staff.human_attribute_name("email")
+      th = Staff.human_attribute_name("realname")
+      th = Staff.human_attribute_name("role")
+      th
+      th
 
-br
+    - @staffs.each do |staff|
+      tr
+        td = staff.email
+        td = staff.realname
+        td = staff.role_text
+        td = link_to t('action.edit'), edit_staff_path(staff),  class: "page-button-link"
+        td = link_to t('action.delete'), staff,  class: "page-button-link", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
 
-= link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "btn btn-default"
+  br
+
+  = link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "page-button-link-right"
