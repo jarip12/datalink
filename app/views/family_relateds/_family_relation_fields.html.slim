@@ -11,7 +11,7 @@ div.nested-fields
         optgroup label="兄弟姐妹"
           option value="cousinly"  class=('option_show' if f.object.relation_name == "cousinly" ) 堂兄
           option value="cousin"  class=('option_show' if f.object.relation_name == "cousin" ) 堂弟
-    div.col-xs-2 class=('has-error' if f.object.errors.include?(:realname))
+    div.col-xs-3 class=('has-error' if f.object.errors.include?(:realname))
       =f.input_field :realname, class: "form-control", disabled: cannot_edit
       - if f.object.errors.include?(:realname)
           span class="help-block" #{f.object.errors.get(:realname)[-1]}
