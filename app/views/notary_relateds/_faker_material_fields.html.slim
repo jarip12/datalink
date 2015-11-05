@@ -20,9 +20,9 @@ div.nested-fields
 
     div.col-xs-3
       - if f.object.scan_file?
-        = image_tag f.object.scan_file_url(:notary), class: "placeholder", width: 159, height: 116
+        = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
       - else
-        = image_tag "notary_placeholder.png", class: "placeholder", width: 159, height: 116
+        = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
       - unless cannot_edit
         div.file-upload.page-button-link
