@@ -4,7 +4,7 @@ div.nested-fields
       = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
 
   div.row.notary-row
-    div.col-xs-9.notary-fields
+    div.col-xs-9.row.notary-fields
       label.string.optional.control-label.col-xs-2 假材料编号
       div.col-xs-3 class=('has-error' if f.object.errors.include?(:faker_material_no))
         = f.input_field :faker_material_no,  disabled: cannot_edit

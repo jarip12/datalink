@@ -47,7 +47,7 @@ div.nested-fields
           - if f.object.errors.include?(:job_title)
             span class="help-block" #{f.object.errors.get(:job_title)[-1]}
 
-    div.col-xs-3
+    div.col-xs-3-img
       - if f.object.scan_file?
         = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
       - else

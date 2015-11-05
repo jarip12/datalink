@@ -24,6 +24,11 @@
     margin-bottom: 10px;
   }
 
+  .col-xs-3-img {
+    margin-left: -30px;
+    @extend .col-xs-3;
+  }
+
   span.radio.radio-inline:not(:first-child) {
     margin-left: 29px;
   }
