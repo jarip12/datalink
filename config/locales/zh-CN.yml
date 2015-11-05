@@ -41,11 +41,11 @@ zh-CN:
   enumerize:
     notary_related:
       has_crime_record:
-        yes: "有"
-        no: "无"
+        yes1: "有"
+        no1: "无"
       has_testament:
-        yes: "有"
-        no: "无"
+        yes1: "有"
+        no1: "无"
     faker_material:
       faker_material_type:
         foreign: "涉外公证"
@@ -115,6 +115,15 @@ zh-CN:
         audit: "审批人"
         user: "使用人"
         typer: "录入人"
+
+    notary_related:
+      has_testament:
+        has: "有"
+        hasnt: "无"
+      has_crime_record:
+        has: "有"
+        hasnt: "无"
+
   devise:
     failure:
       user:

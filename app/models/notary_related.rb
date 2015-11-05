@@ -22,8 +22,8 @@ class NotaryRelated < ActiveRecord::Base
   has_many :faker_materials
 
   extend Enumerize
-  enumerize :has_crime_record, in: [:yes, :no], default: :no
-  enumerize :has_testament, in: [:yes, :no], default: :no
+  enumerize :has_crime_record, in: [:hasnt, :has], default: :hasnt
+  enumerize :has_testament, in: [:hasnt, :has], default: :hasnt
 
   accepts_nested_attributes_for :educations, :work_experiences, :notary_records, :faker_materials, reject_if: :all_blank, allow_destroy: true
 
