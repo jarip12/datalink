@@ -60,7 +60,11 @@ $(document).on 'ready page:load', ->
 
         reader.readAsDataURL this.files[0]
 
+  $('#notary_related_has_crime_record_has').click ->
+    $('.col-xs-6-not').show()
 
+  $('#notary_related_has_crime_record_hasnt').click ->
+    $('.col-xs-6-not').hide()
 
   #set image id to input file's id + image
   $('img.placeholder').each ->

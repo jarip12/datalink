@@ -34,3 +34,8 @@
   }
 }
 
+.col-xs-6-not {
+  display: none;
+  @extend .col-xs-6;
+}
+
