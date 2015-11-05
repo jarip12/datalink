@@ -17,6 +17,13 @@
     margin-bottom: 42px;
   }
 
+  .radio,
+  .checkbox {
+    position: relative;
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+  }
+
   span.radio.radio-inline:not(:first-child) {
     margin-left: 29px;
   }
