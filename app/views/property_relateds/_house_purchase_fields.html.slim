@@ -51,13 +51,15 @@ div.nested-fields
           - if f.object.errors.include?(:house_amount)
             span class="help-block" #{f.object.errors.get(:house_amount)[-1]}
 
-    div.col-xs-3
+    div.col-xs-3-img
       - if f.object.scan_file?
         = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
       - else
         = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
-      - unless cannot_edit
+  - unless cannot_edit
+    div.row
+      div.col-xs-offset-9.col-xs-3
         div.file-upload.page-button-link
           span 上传扫描件
           = f.file_field :scan_file, class: "form-control"
