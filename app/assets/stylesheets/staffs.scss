@@ -20,8 +20,13 @@
       border-radius: 8px;
       box-shadow: 2px 2px 6px #ccc;
 
-      label.control-label {
+      label {
+        display: inline-block !important;
         vertical-align: middle !important;
+      }
+
+      input:not([type="submit"]) {
+        width: 100%;
       }
 
       .row {
