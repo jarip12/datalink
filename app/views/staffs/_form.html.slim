@@ -6,25 +6,25 @@ div.staff-form-wrap.form-horizontal
       = f.error_notification
 
       .form-inputs
-        div.form-group
+        div.form-group.row
           label.col-xs-3.control-label 邮箱
           div.col-xs-9 class=('has-error' if @staff.errors.include?(:email))
             = f.input_field :email, required: true, autofocus: true
             - if @staff.errors.include?(:email)
               span class="help-block" #{@staff.errors.get(:email)[-1]}
-        div.form-group
+        div.form-group.row
           label.col-xs-3.control-label 密码
           div.col-xs-9 class=('has-error' if @staff.errors.include?(:password))
             = f.input_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
             - if @staff.errors.include?(:password)
               span class="help-block" #{@staff.errors.get(:password)[-1]}
-        div.form-group
+        div.form-group.row
           label.col-xs-3.control-label 真实姓名
           div.col-xs-9 class=('has-error' if @staff.errors.include?(:realname))
             = f.input_field :realname, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
             - if @staff.errors.include?(:realname)
               span class="help-block" #{@staff.errors.get(:realname)[-1]}
-        div.form-group
+        div.form-group.row
           label.col-xs-3.control-label 角色
           div.col-xs-9
             = f.input_field :role
