@@ -22,8 +22,8 @@ p.form-title-wrap
         div.col-xs-6.vertical-align.row
           div.col-xs-4
             = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
-          div.col-xs-3
-            = f.input_field :crime_record_comment
+          div.col-xs-6
+            = f.input_field :crime_record_comment, class: "form-control"
 
         div.col-xs-4
           - if f.object.crime_record_file?
