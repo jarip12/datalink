@@ -19,7 +19,7 @@ p.form-title-wrap
     div.form-with-border
       p.first-title = NotaryRelated.human_attribute_name("has_crime_record")
       div.row.vertical-align-row
-        div.col-xs-6.vertical-align-row
+        div.col-xs-6.vertical-align.row
           div.col-xs-4
             = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
           div.col-xs-3
@@ -38,8 +38,8 @@ p.form-title-wrap
     div.form-with-border
 
       p.first-title = NotaryRelated.human_attribute_name("has_testament")
-      div.row.vertical-align
-        div.col-xs-6.vertical-align-row
+      div.row.vertical-align.vertical-align-row
+        div.col-xs-6.vertical-align.row
           div.col-xs-4
             = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
           div.col-xs-3
