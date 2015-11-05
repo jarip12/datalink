@@ -36,17 +36,17 @@ p.form-title-wrap
             = f.file_field :crime_record_file, class: "form-control"
 
     div.form-with-border
-      p.first-title = NotaryRelated.human_attribute_name("has_testament")
-      div.row
-        div.col-xs-6
-          div.row
-            div.col-xs-4
-              = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
-        eiv.col-xs-3
+
+      div.row-has-margin-top
+        div.col-xs-2.row
+          p = NotaryRelated.human_attribute_name("has_testament")
+          div
+            = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
+        div.col-xs-9
           - if f.object.testament_file?
-            = image_tag f.object.testament_file_url(:two_line), class: "placeholder", width: 159, height: 170
+            = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
           - else
-            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+            = image_tag "testament.png", class: "placeholder", width: 238, height: 116
 
           div.file-upload.page-button-link
             span 上传扫描件

@@ -1,8 +1,8 @@
 class CreateNotaryRelateds < ActiveRecord::Migration
   def change
     create_table :notary_relateds do |t|
-      t.boolean :has_crime_record, default: false
-      t.boolean :has_testament, default: false
+      t.string :has_crime_record
+      t.string :has_testament
       t.integer :archive_id
       t.boolean :updated_once, default: false
       t.string :crime_record_file

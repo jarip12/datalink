@@ -167,8 +167,8 @@ ActiveRecord::Schema.define(version: 20151025025104) do
   end
 
   create_table "notary_relateds", force: :cascade do |t|
-    t.boolean  "has_crime_record",                   default: false
-    t.boolean  "has_testament",                      default: false
+    t.string   "has_crime_record",     limit: 255
+    t.string   "has_testament",        limit: 255
     t.integer  "archive_id",           limit: 4
     t.boolean  "updated_once",                       default: false
     t.string   "crime_record_file",    limit: 255

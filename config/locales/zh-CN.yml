@@ -39,6 +39,13 @@ zh-CN:
       format:
         error: "真实姓名必须是2-10位合法汉字"
   enumerize:
+    notary_related:
+      has_crime_record:
+        yes: "有"
+        no: "无"
+      has_testament:
+        yes: "有"
+        no: "无"
     faker_material:
       faker_material_type:
         foreign: "涉外公证"

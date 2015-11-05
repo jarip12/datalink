@@ -1,3 +1,16 @@
 // Place all the styles related to the notary_relateds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_notary_related {
+
+  .row-has-margin-top {
+    margin: 42px 0 42px 0;
+    @extend .row;
+  }
+
+  span.radio.radio-inline:not(:first-child) {
+    margin-left: 29px;
+  }
+}
+
