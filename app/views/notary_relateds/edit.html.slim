@@ -42,11 +42,12 @@ p.form-title-wrap
         div.col-xs-6.vertical-align.row
           div.col-xs-4
             = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
-          div.col-xs-3
-            - if f.object.testament_file?
-              = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
-            - else
-              = image_tag "testament.png", class: "placeholder", width: 238, height: 116
+
+        div.col-xs-4
+          - if f.object.testament_file?
+            = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
+          - else
+            = image_tag "testament.png", class: "placeholder", width: 238, height: 116
 
         div.file-upload.page-button-link
           span 上传扫描件
