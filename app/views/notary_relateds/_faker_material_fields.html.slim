@@ -24,7 +24,9 @@ div.nested-fields
       - else
         = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
-      - unless cannot_edit
+  - unless cannot_edit
+    div.row
+      div.col-xs-offset-9.col-xs-3
         div.file-upload.page-button-link
           span 上传扫描件
           = f.file_field :scan_file, class: "form-control"
