@@ -60,7 +60,8 @@
 /***sidebar**/
 .profiles-wrap{
   background:asset_url('left-bar-bg.png') repeat-y left top;
-  min-height: 2000px;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
 }
 
 .sidebar-top{
