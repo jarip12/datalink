@@ -7,6 +7,22 @@
   text-align: left;
 }
 
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-align-row {
+  @extend .vertical-align;
+  @extend .row;
+}
+
 
 .page-button-link {
   /* BG: */

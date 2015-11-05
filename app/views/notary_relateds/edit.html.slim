@@ -18,18 +18,18 @@ p.form-title-wrap
 
     div.form-with-border
       p.first-title = NotaryRelated.human_attribute_name("has_crime_record")
-      div.row
+      div.row.vertical-align-row
+        div.col-xs-6.vertical-align-row
+          div.col-xs-4
+            = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
+          div.col-xs-3
+            = f.input_field :crime_record_comment
+
         div.col-xs-6
-          div.row
-            div.col-xs-4
-              = f.input_field :has_crime_record, as: :radio_buttons, item_wrapper_class: "radio-inline"
-            div.col-xs-4
-              = f.input_field :crime_record_comment
-        div.col-xs-3
           - if f.object.crime_record_file?
-            = image_tag f.object.crime_record_file_url(:two_line), class: "placeholder", width: 159, height: 170
+            = image_tag f.object.crime_record_file_url(:crime_record), class: "placeholder", width: 238, height: 116
           - else
-            = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+            = image_tag "crime_record.png", class: "placeholder", width: 238, height: 116
 
           div.file-upload.page-button-link
             span 上传扫描件
@@ -37,20 +37,20 @@ p.form-title-wrap
 
     div.form-with-border
 
-      div.row-has-margin-top
-        div.col-xs-2.row
-          p = NotaryRelated.human_attribute_name("has_testament")
-          div
+      p.first-title = NotaryRelated.human_attribute_name("has_testament")
+      div.row.vertical-align
+        div.col-xs-6.vertical-align-row
+          div.col-xs-4
             = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
-        div.col-xs-9
-          - if f.object.testament_file?
-            = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
-          - else
-            = image_tag "testament.png", class: "placeholder", width: 238, height: 116
+          div.col-xs-3
+            - if f.object.testament_file?
+              = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
+            - else
+              = image_tag "testament.png", class: "placeholder", width: 238, height: 116
 
-          div.file-upload.page-button-link
-            span 上传扫描件
-            = f.file_field :testament_file, class: "form-control"
+        div.file-upload.page-button-link
+          span 上传扫描件
+          = f.file_field :testament_file, class: "form-control"
 
 
     div.form-with-border

@@ -9,6 +9,14 @@
     @extend .row;
   }
 
+  .has_testament {
+    width: 30% !important;
+  }
+
+  .vertical-align-row {
+    margin-bottom: 42px;
+  }
+
   span.radio.radio-inline:not(:first-child) {
     margin-left: 29px;
   }
