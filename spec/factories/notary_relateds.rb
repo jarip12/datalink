@@ -16,8 +16,8 @@
 
 FactoryGirl.define do
   factory :notary_related do
-    has_crime_record false
-has_testament false
+    has_crime_record "has"
+    has_testament "hasnt"
   end
 
 end
