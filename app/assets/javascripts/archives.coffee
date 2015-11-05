@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  console.log("hello sidebar")
   $('dl dd a[href]').each ->
     if (this.href == window.location.href)
       $(this).addClass('current')
@@ -24,13 +23,11 @@ $(document).on 'ready page:load', ->
 
   $("#archieve_user_id").autocomplete('<%= users_path(:json) %>')
   $('body').on 'focus', ".date-input", ->
-    console.log("hello date-input")
     $(".date-input").datepicker({
       language: 'zh-CN',
       format: "yyyy/mm/dd",
     });
 
-  console.log ("hello readurl")
 
   $('.edit-list').click ->
     $('.remove-link').show()
@@ -46,22 +43,14 @@ $(document).on 'ready page:load', ->
 
   $('body').on 'focus', "input[type=file]", ->
     $('input[type=file]').change ->
-      console.log("hello file change")
-      console.log(this)
-      console.log($(this).val())
 
 
       if this.files and this.files[0]
-        console.log this.files[0]
         reader = new FileReader
 
         image_id = '#' + this.id + '_image'
-        console.log("image_id is")
-        console.log(image_id)
 
         input_id = '#' + this.id
-        console.log("文件路径")
-        console.log($(input_id).val())
 
 
 
@@ -71,14 +60,11 @@ $(document).on 'ready page:load', ->
 
         reader.readAsDataURL this.files[0]
 
-        console.log this.files[0]
 
 
   #set image id to input file's id + image
   $('img.placeholder').each ->
-    console.log this
     input_id = $(this.nextElementSibling).find('input').attr('id')
-    console.log(input_id)
     $(this).attr('id', input_id + '_image')
 
 
