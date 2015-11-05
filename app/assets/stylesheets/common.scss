@@ -76,6 +76,11 @@ div.col-xs-3 img {
     filter: alpha(opacity=0);
   }
 
+  &-right {
+    margin-left: 5%;
+    @extend .file-upload;
+  }
+
 }
 
 .remove-link {

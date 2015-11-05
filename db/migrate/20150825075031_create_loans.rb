@@ -9,7 +9,7 @@ class CreateLoans < ActiveRecord::Migration
       t.integer :property_related_id
       t.string :scan_file
 
-      t.boolean :repay_on_time
+      t.boolean :repay_on_time, default: true
 
       t.timestamps null: false
     end

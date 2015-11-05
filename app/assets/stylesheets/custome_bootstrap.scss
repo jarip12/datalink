@@ -29,5 +29,15 @@ input.form-control {
   }
 }
 
+span.btn.btn-default, input.radio-inline {
+  background: #EEF3F6 !important;
+  background-color: #EEF3F6 !important;
+}
+
+select, textarea.form-control {
+  background: #EEF3F6 !important;
+  @extend .form-control;
+}
+
 
 

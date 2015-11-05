@@ -106,9 +106,9 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.float    "amount",              limit: 24
     t.integer  "property_related_id", limit: 4
     t.string   "scan_file",           limit: 255
-    t.boolean  "repay_on_time"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.boolean  "repay_on_time",                   default: true
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "notaries", force: :cascade do |t|
