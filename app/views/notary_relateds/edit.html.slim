@@ -27,9 +27,9 @@ p.form-title-wrap
 
         div.col-xs-3
           - if f.object.crime_record_file?
-            = image_tag f.object.crime_record_file_url(:crime_record), class: "placeholder", width: 238, height: 116
+            = image_tag f.object.crime_record_file_url(:crime_record), id: "notary_related_crime_record_file_image", width: 238, height: 116
           - else
-            = image_tag "crime_record.png", class: "placeholder", width: 238, height: 116
+            = image_tag "crime_record.png", id: "notary_related_crime_record_file_image", width: 238, height: 116
 
         div.file-upload-right.page-button-link
           span 上传扫描件
@@ -45,9 +45,9 @@ p.form-title-wrap
 
         div.col-xs-3
           - if f.object.testament_file?
-            = image_tag f.object.testament_file_url(:testament), class: "placeholder", width: 238, height: 116
+            = image_tag f.object.testament_file_url(:testament), id: "notary_related_testament_file_image", width: 238, height: 116
           - else
-            = image_tag "testament.png", class: "placeholder", width: 238, height: 116
+            = image_tag "testament.png", id: "notary_related_testament_file_image", width: 238, height: 116
 
         div.file-upload-right.page-button-link
           span 上传扫描件
