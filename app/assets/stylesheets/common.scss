@@ -112,3 +112,20 @@ table {
     vertical-align: middle !important;
   }
 }
+
+.input-group {
+  display: inline-table;
+
+}
+
+.first-row {
+  margin-top: 23px !important;
+}
+
+.form-inputs > .row {
+  margin-top: 39px;
+}
+
+.form-with-border > .row:not(:last-of-type) {
+  margin-top: 39px;
+}
