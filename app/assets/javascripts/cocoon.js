@@ -76,12 +76,9 @@
       insertionNode.trigger('cocoon:after-insert', [contentNode]);
 
 
-        console.log("after insert");
       $('img.placeholder').each(function() {
             var input_id;
-            console.log(this);
-            input_id = $(this.nextElementSibling).find('input').attr('id');
-            console.log(input_id);
+          input_id = $(this).parent().parent().next().find( "input" ).attr('id')
             return $(this).attr('id', input_id + '_image');
       });
 
@@ -96,28 +93,19 @@
 
     e.preventDefault();
 
-      console.log($this.data('wrapper-class'));
-
-      console.log("after click remove_field");
 
     trigger_node.trigger('cocoon:before-remove', [node_to_delete]);
 
     var timeout = trigger_node.data('remove-timeout') || 0;
 
-      console.log(timeout);
 
     setTimeout(function() {
       if ($this.hasClass('dynamic')) {
-          console.log("has dynamic");
-          console.log(node_to_delete);
           node_to_delete.remove();
       } else {
-          console.log("has not dynamic");
-          console.log(node_to_delete);
           $this.prev("input[type=hidden]").val("1");
           node_to_delete.hide();
       }
-        console.log("try trigger");
       trigger_node.trigger('cocoon:after-remove', [node_to_delete]);
     }, timeout);
   });

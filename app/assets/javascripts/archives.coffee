@@ -68,7 +68,7 @@ $(document).on 'ready page:load', ->
 
   #set image id to input file's id + image
   $('img.placeholder').each ->
-    input_id = $(this.nextElementSibling).find('input').attr('id')
+    input_id = $(this).parent().parent().next().find( "input" ).attr('id')
     $(this).attr('id', input_id + '_image')
 
 
