@@ -24,4 +24,5 @@
 //= require archives
 //= require reservations
 //= require profiles
+//= require family_relation_tree
 //= require_tree .

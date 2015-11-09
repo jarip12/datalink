@@ -1,22 +1,8 @@
-h1.reset-dom = "家庭成员关系树"
-p.form-title-wrap
-  span.form-title 关系图
-  span.form-title 关系列表
+div.family_relation_header
+  h1.reset-dom = "家庭成员关系树"
+  p.form-title-wrap
+    = link_to "关系图", archive_family_relation_tree_path(@archive), :class => "form-title current-title"
+    = link_to "关系列表", archive_family_relations_path(@archive), :class => "form-title"
 
-table.table.table-striped
-  tr
-    th = FamilyRelation.human_attribute_name("relation_name")
-    th = FamilyRelation.human_attribute_name("realname")
-    th = FamilyRelation.human_attribute_name("id_no")
-    th = "查看公证信息"
-
-  - @family_relations.each do |family_relation|
-    tr
-      td = family_relation.relation_name_text
-      td = family_relation.realname
-      td = family_relation.id_no
-      - if family_relation.owner_archive_id
-        td = link_to "查看", family_relation
-      - else
-        td = link_to "创建档案", family_relation
+div#graph.family_relation_tree_body
 

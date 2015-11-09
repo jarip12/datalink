@@ -32,9 +32,12 @@
 }
 
 div.family_relation_header {
-  span.form-title:first-child {
+  a.form-title:first-child {
     margin-left: 31px;
     margin-right: 61px;
+  }
+  a.current-title {
+    border-bottom:2px solid #369;
   }
 }
 

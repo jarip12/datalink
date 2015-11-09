@@ -7,6 +7,7 @@ html
     == javascript_include_tag 'application'
     == csrf_meta_tags
   body class=((current_staff)? 'body-user-logined': 'body-user-not-login')
+    = include_gon(:init => true)
     div class=((current_staff)? 'container-logined': 'container-not-login')
       div.profiles-wrap.clearfix
         - if @archive
