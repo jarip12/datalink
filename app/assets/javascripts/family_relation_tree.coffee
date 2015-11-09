@@ -85,11 +85,6 @@ $(document).on 'ready page:load', ->
         hidden: true
         children: [
           {
-            job: '兄弟'
-            name: 'HenryPotter'
-            id: 12
-          }
-          {
             name: 'HarryPotter'
             id: 3
           }
@@ -100,19 +95,17 @@ $(document).on 'ready page:load', ->
             no_parent: true
             children: [
               {
-                job: '子'
-                name: 'JamesPotter'
-                id: 5
-              }
-              {
-                job: '子'
-                name: 'SiriusPotter'
-                id: 6
-              }
-              {
-                job: '女'
-                name: 'LilyPotter'
-                id: 7
+                job:"子",
+                name: "JamesPotter",
+                id: 5,
+              }, {
+                job:"子",
+                name: "SiriusPotter",
+                id: 6,
+              },{
+                job:"女",
+                name:"LilyPotter",
+                id:7
               }
             ]
           }
@@ -132,7 +125,9 @@ $(document).on 'ready page:load', ->
         children: []
       }
     ]
-  allNodes = flatten(root)
+
+  console.log(gon.tree_data)
+  allNodes = flatten(gon.tree_data)
   #This maps the siblings together mapping uses the ID using the blue line
   siblings = [
     {

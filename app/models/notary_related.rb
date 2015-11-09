@@ -3,8 +3,8 @@
 # Table name: notary_relateds
 #
 #  id                   :integer          not null, primary key
-#  has_crime_record     :boolean          default(FALSE)
-#  has_testament        :boolean          default(FALSE)
+#  has_crime_record     :string(255)
+#  has_testament        :string(255)
 #  archive_id           :integer
 #  updated_once         :boolean          default(FALSE)
 #  crime_record_file    :string(255)

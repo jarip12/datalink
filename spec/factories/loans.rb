@@ -10,7 +10,7 @@
 #  amount              :float(24)
 #  property_related_id :integer
 #  scan_file           :string(255)
-#  repay_on_time       :boolean
+#  repay_on_time       :boolean          default(TRUE)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

@@ -29,7 +29,9 @@ class Archive < ActiveRecord::Base
   delegate :realname, to: :profile, :allow_nil => true
   delegate :id_no, to: :profile, :allow_nil => true
 
-
+  def family_related_id
+    self.family_related.id
+  end
 
   def set_default_relations
     self.save!
