@@ -49,52 +49,53 @@ class FamilyRelation < ActiveRecord::Base
 
     def my_children(archive, tree_start_id)
       children = FamilyRelation.where(relation_name: ['son', 'daughter'], family_related_id: archive.family_related.id)
-      tree_data = children.each_with_index.map do | child, index |
+      node_data = children.each_with_index.map do | child, index |
         {
             job: child.relation_name_text,
             name: child.realname,
             id: tree_start_id + index
         }
       end
-      return tree_data, tree_start_id + children.count
+      return node_data, tree_start_id + children.count
     end
 
     def my_sibling(archive, tree_start_id)
       siblings = FamilyRelation.where(relation_name: ['young_sister', 'old_sister', 'young_brother', 'old_brother'], family_related_id: archive.family_related.id)
-      tree_data = siblings.each_with_index.map do | sibling, index |
+      node_data = siblings.each_with_index.map do | sibling, index |
         {
             job: sibling.relation_name_text,
             name: sibling.realname,
             id: tree_start_id + index
         }
       end
-      return tree_data, tree_start_id + siblings.count
+      return node_data, tree_start_id + siblings.count
     end
 
 
     def build_tree_data(archive)
-      family_relations = archive.family_related.family_relations
-      tree_data = {
+      node_data = {
           name: '',
           id: 1,
           hidden: true,
           children: []
       }
+      father_id = nil, mother_id = nil, mine_id = nil, spouse_id = nil
 
       tree_id = 2
 
       father = FamilyRelation.find_by(relation_name: 'father', family_related_id: archive.family_related.id)
       ap father
       if father
-        tree_data[:children].append({
+        node_data[:children].append({
           job: '父亲',
           name: father.realname,
           id: tree_id,
           no_parent: true })
-          tree_id += 1
+        father_id = tree_id
+        tree_id += 1
       end
 
-      tree_data[:children].append({
+      node_data[:children].append({
           name: '',
           id: tree_id,
           no_parent: true,
@@ -108,20 +109,21 @@ class FamilyRelation < ActiveRecord::Base
       ap "sibling_node is "
       ap my_sibling_data
       if new_tree_id > tree_id
-        tree_data[:children][-1][:children].concat(my_sibling_data)
+        node_data[:children][-1][:children].concat(my_sibling_data)
         tree_id = new_tree_id
       end
 
       #add self node
-      tree_data[:children][-1][:children].append({
+      node_data[:children][-1][:children].append({
           name: archive.profile.realname,
           id: tree_id,
           children: []
                                       })
+      mine_id = tree_id
       tree_id += 1
 
       #add empty node, used to concat children
-      tree_data[:children][-1][:children].append({
+      node_data[:children][-1][:children].append({
                                                      name: "",
                                                      id: tree_id,
                                                      children: []
@@ -131,7 +133,7 @@ class FamilyRelation < ActiveRecord::Base
       #add children
       my_children_data, new_tree_id = my_children(archive, tree_id)
       if new_tree_id > tree_id
-        tree_data[:children][-1][:children][-1][:children].concat(my_children_data)
+        node_data[:children][-1][:children][-1][:children].concat(my_children_data)
         tree_id = new_tree_id
       end
       ap "children data is "
@@ -141,11 +143,12 @@ class FamilyRelation < ActiveRecord::Base
       spouse = FamilyRelation.find_by(relation_name: 'spouse', family_related_id: archive.family_related.id)
       ap spouse
       if spouse
-        tree_data[:children][-1][:children].append({
+        node_data[:children][-1][:children].append({
                                          job: '配偶',
                                          name: spouse.realname,
                                          id: tree_id,
                                          no_parent: true })
+        spouse_id = tree_id
         tree_id += 1
       end
 
@@ -153,17 +156,46 @@ class FamilyRelation < ActiveRecord::Base
       mother = FamilyRelation.find_by(relation_name: 'mother', family_related_id: archive.family_related.id)
       ap mother
       if mother
-        tree_data[:children].append({
+        node_data[:children].append({
                                          job: '母亲',
                                          name: mother.realname,
                                          id: tree_id,
                                          no_parent: true })
+        mother_id = tree_id
         tree_id += 1
       end
 
-      ap tree_data
+      ap node_data
+      link_data = []
+      if father_id and mother_id
+       link_data.append({
+           source: {
+               id: father_id,
+               name: father.realname
+           },
+           target: {
+               id: mother_id,
+               name: mother.realname
+           }
+                        })
+      end
 
-      tree_data
+      if spouse_id
+       link_data.append({
+           source: {
+               id: mine_id,
+               name: archive.profile.realname
+           },
+           target: {
+               id: spouse_id,
+               name: spouse.realname
+           }
+                        })
+      end
+
+      ap link_data
+
+      return node_data, link_data
 
     end
 

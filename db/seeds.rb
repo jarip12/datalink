@@ -17,8 +17,8 @@ if User.count == 0
     id_no = "421081#{Faker::Number.number(12)}"
     Profile.create(realname: Faker::Name.name, id_no: id_no, archive_id: n + 1)
     archive = Archive.create
-    family_relation = FamilyRelation.new(realname: "父亲大人", relation_name: "father", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+
+    FamilyRelation.where(relation_name: "father", family_related_id: archive.family_related_id).update_all(:realname => "父亲大人")
 
     family_relation = FamilyRelation.new(realname: "母亲大人", relation_name: "mother", family_related_id: archive.family_related_id)
     family_relation.save(:validate => false)
