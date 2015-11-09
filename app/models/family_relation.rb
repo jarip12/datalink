@@ -16,7 +16,7 @@
 class FamilyRelation < ActiveRecord::Base
 
   extend Enumerize
-  enumerize :relation_name, in: [:stepfather, :stepmother, :adoptive_mother, :adoptive_father, :father, :mother, :uncle, :cousinly, :cousin, :old_sister, :young_sister, :old_brother, :young_brother, :son, :daughter], default: :father
+  enumerize :relation_name, in: [:spouse, :stepfather, :stepmother, :adoptive_mother, :adoptive_father, :father, :mother, :uncle, :cousinly, :cousin, :old_sister, :young_sister, :old_brother, :young_brother, :son, :daughter], default: :father
 
 
   validates :realname, realname: true
@@ -49,28 +49,26 @@ class FamilyRelation < ActiveRecord::Base
 
     def my_children(archive, tree_start_id)
       children = FamilyRelation.where(relation_name: ['son', 'daughter'], family_related_id: archive.family_related.id)
-      tree_data = children.each do | child |
+      tree_data = children.each_with_index.map do | child, index |
         {
             job: child.relation_name_text,
             name: child.realname,
-            id: tree_start_id
+            id: tree_start_id + index
         }
-        tree_start_id += 1
       end
-      return tree_data, tree_start_id
+      return tree_data, tree_start_id + children.count
     end
 
     def my_sibling(archive, tree_start_id)
-      siblings = FamilyRelation.where(relation_name: ['young-sister', 'old-sister', 'young-brother', 'old-brother'], family_related_id: archive.family_related.id)
-      tree_data = siblings.each do | sibling |
+      siblings = FamilyRelation.where(relation_name: ['young_sister', 'old_sister', 'young_brother', 'old_brother'], family_related_id: archive.family_related.id)
+      tree_data = siblings.each_with_index.map do | sibling, index |
         {
             job: sibling.relation_name_text,
             name: sibling.realname,
-            id: tree_start_id
+            id: tree_start_id + index
         }
-        tree_start_id += 1
       end
-      return tree_data, tree_start_id
+      return tree_data, tree_start_id + siblings.count
     end
 
 
@@ -107,10 +105,12 @@ class FamilyRelation < ActiveRecord::Base
 
       #add sibling nodes
       my_sibling_data, new_tree_id = my_sibling(archive, tree_id)
-      if new_tree_id > tree_id
-        tree_data[:children][-1][:children].append(my_sibling_data)
-      end
+      ap "sibling_node is "
       ap my_sibling_data
+      if new_tree_id > tree_id
+        tree_data[:children][-1][:children].concat(my_sibling_data)
+        tree_id = new_tree_id
+      end
 
       #add self node
       tree_data[:children][-1][:children].append({
@@ -120,12 +120,35 @@ class FamilyRelation < ActiveRecord::Base
                                       })
       tree_id += 1
 
-      my_children_data, new_tree_id = my_children(archive, tree_id)
-      tree_id = new_tree_id
+      #add empty node, used to concat children
+      tree_data[:children][-1][:children].append({
+                                                     name: "",
+                                                     id: tree_id,
+                                                     children: []
+                                                 })
+      tree_id += 1
 
+      #add children
+      my_children_data, new_tree_id = my_children(archive, tree_id)
+      if new_tree_id > tree_id
+        tree_data[:children][-1][:children][-1][:children].concat(my_children_data)
+        tree_id = new_tree_id
+      end
+      ap "children data is "
       ap my_children_data
 
-      tree_data[:children][-1]
+      #add wift or husband
+      spouse = FamilyRelation.find_by(relation_name: 'spouse', family_related_id: archive.family_related.id)
+      ap spouse
+      if spouse
+        tree_data[:children][-1][:children].append({
+                                         job: '配偶',
+                                         name: spouse.realname,
+                                         id: tree_id,
+                                         no_parent: true })
+        tree_id += 1
+      end
+
 
       mother = FamilyRelation.find_by(relation_name: 'mother', family_related_id: archive.family_related.id)
       ap mother
