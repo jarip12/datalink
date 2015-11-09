@@ -1,8 +1,8 @@
 div.family_relation_header
   h1.reset-dom = "家庭成员关系树"
   p.form-title-wrap
-    span.form-title 关系图
-    span.form-title.current-title 关系列表
+    = link_to "关系图", archive_family_relation_tree_path(@archive), :class => "form-title"
+    = link_to "关系列表", archive_family_relations_path(@archive), :class => "form-title current-title"
 
 table.table#family_relation_table
   tr

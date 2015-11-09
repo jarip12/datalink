@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get :autocomplete_user_email, :on => :collection
 
     get 'family_relations', to: 'family_relations#index'
-    get 'family_relations_tree', to: 'family_relations#index_tree'
+    get 'family_relation_tree', to: 'family_relations#index_tree'
 
     get 'notaries', to: 'notaries#index'
     get 'notary_records', to: 'archives#notary_records'
