@@ -17,16 +17,4 @@ require 'rails_helper'
 
 RSpec.describe FamilyRelation, type: :model do
 
-  it "after FamilyRelated create, the default family_relation has no profile" do
-
-    archive = create(:archive)
-    profile = Profile.new(id_no: nil)
-    profile.save(:validate => false)
-
-    family_related = archive.family_related
-
-    expect(family_related.family_relations[0].profile).to eq nil
-
-  end
-
 end
