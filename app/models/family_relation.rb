@@ -109,7 +109,6 @@ class FamilyRelation < ActiveRecord::Base
           children: []
       }
 
-
       tree_id = 2
 
       father = FamilyRelation.find_by(relation_name: 'father', family_related_id: archive.family_related.id)
@@ -226,9 +225,20 @@ class FamilyRelation < ActiveRecord::Base
       end
 
       ap link_data
+      node_ta = transform(node_data)
 
       return node_data, link_data
 
+    end
+
+    def transform(node_data)
+      if node_data[:children].count == 1 && node_data[:children][0][:hidden]
+        #remove blank parent
+        nodes = node_data[:children][0][:children]
+        node_data[:children] = nodes
+      end
+      ap node_data
+      node_data
     end
 
   end

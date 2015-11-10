@@ -61,64 +61,6 @@ $(document).on 'ready page:load', ->
   #My JSON note the
   #no_parent: true this ensures that the node will not be linked to its parent
   #hidden: true ensures that the nodes is not visible.
-  root =
-    name: ''
-    id: 1
-    hidden: true
-    children: [
-      {
-        job: '父亲'
-        name: 'JamesPotter'
-        id: 16
-        no_parent: true
-      }
-      {
-        name: ''
-        id: 2
-        no_parent: true
-        hidden: true
-        children: [
-          {
-            name: 'HarryPotter'
-            id: 3
-          }
-          {
-            name: ''
-            id: 4
-            hidden: true
-            no_parent: true
-            children: [
-              {
-                job:"子",
-                name: "JamesPotter",
-                id: 5,
-              }, {
-                job:"子",
-                name: "SiriusPotter",
-                id: 6,
-              },{
-                job:"女",
-                name:"LilyPotter",
-                id:7
-              }
-            ]
-          }
-          {
-            job: '配偶'
-            no_parent: true
-            name: 'GinnyPotter'
-            id: 11
-          }
-        ]
-      }
-      {
-        job: '母亲'
-        name: 'LilyPotter'
-        id: 10
-        no_parent: true
-        children: []
-      }
-    ]
 
   console.log(gon.node_data)
   allNodes = flatten(gon.node_data)
@@ -131,12 +73,7 @@ $(document).on 'ready page:load', ->
   ])
   nodes = tree.nodes(gon.node_data)
   links = tree.links(nodes)
-  # Create the link lines.
 
-  ###*
-  This defines teh line between siblings.
-  *
-  ###
 
   sblingLine = (d, i) ->
     #start point
@@ -170,11 +107,6 @@ $(document).on 'ready page:load', ->
       d.y
     ).interpolate('linear')
     fun linedata
-
-  ###To make the nodes in flat mode.
-  This gets all teh nodes in same level
-  ###
-
 
 
   ###*
