@@ -36,7 +36,7 @@ $(document).on 'ready page:load', ->
     d.x
 
   image_y = (d) ->
-    d.y
+    d.y + 10
 
   tx = (d) ->
     d.x - (d.name.length * 2)
