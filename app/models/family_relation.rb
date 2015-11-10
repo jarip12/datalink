@@ -72,8 +72,30 @@ class FamilyRelation < ActiveRecord::Base
       return node_data, tree_start_id + siblings.count
     end
 
+    def build_one_link(src_id, src_name, dest_id, dest_name)
+      {
+          source: {
+              id: src_id,
+              name: src_name
+          },
+          target: {
+              id: dest_id,
+              name: dest_name
+          }
+      }
+    end
+
 
     def build_tree_data(archive)
+      have_children = false
+      have_parent = false
+      invisble_parent_tree_id = -1
+      invisble_child_tree_id = -1
+      father_id = nil
+      mother_id = nil
+      mine_id = nil
+      spouse_id = nil
+
       node_data = {
           name: '',
           id: 1,
@@ -81,7 +103,7 @@ class FamilyRelation < ActiveRecord::Base
           hidden: true,
           children: []
       }
-      father_id = nil, mother_id = nil, mine_id = nil, spouse_id = nil
+
 
       tree_id = 2
 
@@ -96,6 +118,7 @@ class FamilyRelation < ActiveRecord::Base
           no_parent: true })
         father_id = tree_id
         tree_id += 1
+        have_parent = true
       end
 
       node_data[:children].append({
@@ -106,6 +129,7 @@ class FamilyRelation < ActiveRecord::Base
           avatar_link: '',
           children: []
                                    })
+      invisble_parent_tree_id = tree_id
       tree_id += 1
 
       #add sibling nodes
@@ -136,6 +160,7 @@ class FamilyRelation < ActiveRecord::Base
                                                      avatar_link: '',
                                                      children: []
                                                  })
+      invisble_child_tree_id = tree_id
       tree_id += 1
 
       #add children
@@ -143,6 +168,7 @@ class FamilyRelation < ActiveRecord::Base
       if new_tree_id > tree_id
         node_data[:children][-1][:children][-1][:children].concat(my_children_data)
         tree_id = new_tree_id
+        have_children = true
       end
       ap "children data is "
       ap my_children_data
@@ -173,34 +199,23 @@ class FamilyRelation < ActiveRecord::Base
                                          no_parent: true })
         mother_id = tree_id
         tree_id += 1
+        have_parent = true
       end
 
       ap node_data
       link_data = []
       if father_id and mother_id
-       link_data.append({
-           source: {
-               id: father_id,
-               name: father.realname
-           },
-           target: {
-               id: mother_id,
-               name: mother.realname
-           }
-                        })
+       link_data.append(build_one_link(father_id, father.realname, mother_id, mother.realname))
+      elsif father_id
+        link_data.append(build_one_link(father_id, father.realname, invisble_parent_tree_id, ''))
+      elsif mother_id
+        link_data.append(build_one_link(invisble_parent_tree_id, '', mother_id, mother.realname))
       end
 
       if spouse_id
-       link_data.append({
-           source: {
-               id: mine_id,
-               name: archive.profile.realname
-           },
-           target: {
-               id: spouse_id,
-               name: spouse.realname
-           }
-                        })
+       link_data.append(build_one_link(mine_id, archive.profile.realname, spouse_id, ''))
+      elsif have_children
+        link_data.append(build_one_link(mine_id, archive.profile.realname, invisble_child_tree_id, ''))
       end
 
       ap link_data
