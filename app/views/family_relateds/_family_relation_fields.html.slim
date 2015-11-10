@@ -9,8 +9,15 @@ div.nested-fields
         option value="father"  class=('option_show' if f.object.relation_name == "father" ) 父亲
         option value="mother"  class=('option_show' if f.object.relation_name == "mother" ) 母亲
         optgroup label="兄弟姐妹"
-          option value="cousinly"  class=('option_show' if f.object.relation_name == "cousinly" ) 堂兄
-          option value="cousin"  class=('option_show' if f.object.relation_name == "cousin" ) 堂弟
+          option value="old_brother"  class=('option_show' if f.object.relation_name == "old_brother" ) 哥哥
+          option value="young_brother"  class=('option_show' if f.object.relation_name == "young_brother" ) 弟弟
+          option value="old_sister"  class=('option_show' if f.object.relation_name == "old_sister" ) 姐姐
+          option value="young_sister"  class=('option_show' if f.object.relation_name == "young_sister" ) 妹妹
+        option value="spouse"  class=('option_show' if f.object.relation_name == "spouse" ) 配偶
+        option value="son"  class=('option_show' if f.object.relation_name == "son" ) 儿子
+        option value="daughter"  class=('option_show' if f.object.relation_name == "daughter" ) 女儿
+
+
     div.col-xs-3 class=('has-error' if f.object.errors.include?(:realname))
       =f.input_field :realname, class: "form-control", disabled: cannot_edit
       - if f.object.errors.include?(:realname)

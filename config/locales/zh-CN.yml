@@ -103,6 +103,16 @@ zh-CN:
         uncle: "叔叔"
         cousinly: "堂兄"
         cousin: "堂第"
+        young_brother: "弟弟"
+        old_brother: "弟弟"
+        old_sister: "姐姐"
+        young_sister: "妹妹"
+        young_sister: "妹妹"
+        spouse: "配偶"
+        stepfather: "继父"
+        stepmother: "继母"
+        adoptive_mother: "养母"
+        adoptive_father: "养父"
     staff:
       role:
         admin: "管理员"

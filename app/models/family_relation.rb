@@ -126,6 +126,8 @@ class FamilyRelation < ActiveRecord::Base
       node_data[:children][-1][:children].append({
                                                      name: "",
                                                      id: tree_id,
+                                                     hidden: true,
+                                                     no_parent: true,
                                                      children: []
                                                  })
       tree_id += 1

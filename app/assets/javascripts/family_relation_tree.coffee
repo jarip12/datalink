@@ -129,32 +129,13 @@ $(document).on 'ready page:load', ->
   console.log(gon.node_data)
   allNodes = flatten(gon.node_data)
   #This maps the siblings together mapping uses the ID using the blue line
-  siblings = [
-    {
-      source:
-        id: 3
-        name: 'HarryPotter'
-      target:
-        id: 11
-        name: 'GinnyPotter'
-    }
-    {
-      source:
-        id: 16
-        name: 'JamesPotter'
-      target:
-        id: 10
-        name: 'LilyPotter'
-    }
-  ]
-
   siblings = gon.link_data
   # Compute the layout.
   tree = d3.layout.tree().size([
     width
     height
   ])
-  nodes = tree.nodes(root)
+  nodes = tree.nodes(gon.node_data)
   links = tree.links(nodes)
   # Create the link lines.
 
