@@ -16,7 +16,10 @@
 class FamilyRelation < ActiveRecord::Base
 
   extend Enumerize
-  enumerize :relation_name, in: [:spouse, :stepfather, :stepmother, :adoptive_mother, :adoptive_father, :father, :mother, :uncle, :cousinly, :cousin, :old_sister, :young_sister, :old_brother, :young_brother, :son, :daughter], default: :father
+  enumerize :relation_name, in: [:spouse, :stepfather, :stepmother, :adoptive_mother, :adoptive_father, :father, :mother, :other, :old_sister, :young_sister, :old_brother, :young_brother,
+                                 :same_father_old_brother, :same_father_young_brother, :same_father_old_sister, :same_father_old_sister,
+                                 :same_mother_old_sister, :same_mother_old_brother, :same_mother_young_brother, :same_father_young_sister,
+                                 :stepson, :stepdaughter, :adaptive_son, :adaptive_daughter, :son, :daughter], default: :father
 
 
   validates :realname, realname: true
@@ -225,7 +228,7 @@ class FamilyRelation < ActiveRecord::Base
       end
 
       ap link_data
-      node_ta = transform(node_data)
+      node_data = transform(node_data)
 
       return node_data, link_data
 

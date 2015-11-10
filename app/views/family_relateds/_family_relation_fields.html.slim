@@ -7,15 +7,36 @@ div.nested-fields
     div.col-xs-2 class=('select_disable' if cannot_edit)
       = f.select :relation_name
         option value="father"  class=('option_show' if f.object.relation_name == "father" ) 父亲
+        option value="stepfather"  class=('option_show' if f.object.relation_name == "stepfather" ) 继父
+        option value="adoptive_father"  class=('option_show' if f.object.relation_name == "adoptive_father" ) 养父
         option value="mother"  class=('option_show' if f.object.relation_name == "mother" ) 母亲
+        option value="stepmother"  class=('option_show' if f.object.relation_name == "stepmother" ) 继母
+        option value="adoptive_mother"  class=('option_show' if f.object.relation_name == "adoptive_mother" ) 养母
+        option value="spouse"  class=('option_show' if f.object.relation_name == "spouse" ) 配偶
+        option value="adaptive_son"  class=('option_show' if f.object.relation_name == "adaptive_son" ) 养子
+        option value="adaptive_daughter"  class=('option_show' if f.object.relation_name == "adaptive_daughter" ) 养女
+        option value="son"  class=('option_show' if f.object.relation_name == "son" ) 儿子
+        option value="daughter"  class=('option_show' if f.object.relation_name == "daughter" ) 女儿
+        option value="stepson"  class=('option_show' if f.object.relation_name == "son" ) 继子
+        option value="stepdaughter"  class=('option_show' if f.object.relation_name == "daughter" ) 继女
+        option value="non_marry_child"  class=('option_show' if f.object.relation_name == "non_marry_child" ) 非婚生子女
         optgroup label="兄弟姐妹"
           option value="old_brother"  class=('option_show' if f.object.relation_name == "old_brother" ) 哥哥
           option value="young_brother"  class=('option_show' if f.object.relation_name == "young_brother" ) 弟弟
           option value="old_sister"  class=('option_show' if f.object.relation_name == "old_sister" ) 姐姐
           option value="young_sister"  class=('option_show' if f.object.relation_name == "young_sister" ) 妹妹
-        option value="spouse"  class=('option_show' if f.object.relation_name == "spouse" ) 配偶
-        option value="son"  class=('option_show' if f.object.relation_name == "son" ) 儿子
-        option value="daughter"  class=('option_show' if f.object.relation_name == "daughter" ) 女儿
+        optgroup label="同父异母的兄弟姐妹"
+          option value="same_father_old_brother"  class=('option_show' if f.object.relation_name == "same_father_old_brother" ) 哥哥
+          option value="same_father_young_brother"  class=('option_show' if f.object.relation_name == "same_father_young_brother" ) 弟弟
+          option value="same_father_old_sister"  class=('option_show' if f.object.relation_name == "same_father_old_sister" ) 姐姐
+          option value="same_father_young_sister"  class=('option_show' if f.object.relation_name == "same_father_young_sister" ) 妹妹
+        optgroup label="同母异父的兄弟姐妹"
+          option value="same_mother_old_brother"  class=('option_show' if f.object.relation_name == "same_mother_old_brother" ) 哥哥
+          option value="same_mother_young_brother"  class=('option_show' if f.object.relation_name == "same_mother_young_brother" ) 弟弟
+          option value="same_mother_old_sister"  class=('option_show' if f.object.relation_name == "same_mother_old_sister" ) 姐姐
+          option value="same_mother_young_sister"  class=('option_show' if f.object.relation_name == "same_mother_young_sister" ) 妹妹
+        option value="other"  class=('option_show' if f.object.relation_name == "other" ) 其它
+
 
 
     div.col-xs-3 class=('has-error' if f.object.errors.include?(:realname))
