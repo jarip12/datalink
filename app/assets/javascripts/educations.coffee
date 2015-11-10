@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  smart_listing_update
+  #smart_listing_update
