@@ -113,6 +113,8 @@ zh-CN:
         stepmother: "继母"
         adoptive_mother: "养母"
         adoptive_father: "养父"
+        son: "儿子"
+        daughter: "女儿"
     staff:
       role:
         admin: "管理员"

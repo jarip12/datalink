@@ -32,19 +32,13 @@ $(document).on 'ready page:load', ->
 
   #this place the text x axis adjust this to center align the text
 
+  image_x = (d) ->
+    d.x
+
+  image_y = (d) ->
+    d.y
+
   tx = (d) ->
-    if d.name == 'JamesPotter'
-      return d.x - 23
-    if d.name == 'LilyPotter'
-      return d.x - 8
-    if d.name == 'HenryPotter'
-      return d.x - 18
-    if d.name == 'HarryPotter'
-      return d.x - 16
-    if d.name == 'GinnyPotter'
-      return d.x - 18
-    if d.name == 'SiriusPotter'
-      return d.x - 18
     d.x - (d.name.length * 2)
 
   #thie place the text y axis adjust this to center align the text
@@ -236,3 +230,11 @@ $(document).on 'ready page:load', ->
   nodes.append('text').text((d) ->
     d.job
   ).attr('x', jx).attr 'y', jy
+
+  nodes.append("svg:image")
+  .attr('x', image_x)
+  .attr('y', image_y)
+  .attr('width', 50)
+  .attr('height', 54)
+  .attr("xlink:href", (d) ->
+    d.avatar_link)

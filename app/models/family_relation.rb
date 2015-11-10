@@ -27,6 +27,7 @@ class FamilyRelation < ActiveRecord::Base
 
   delegate :client_token, to: Setting
 
+
   class << self
     def sync_to_user_system
       family_relations = FamilyRelation.where(synced: false)
@@ -76,6 +77,7 @@ class FamilyRelation < ActiveRecord::Base
       node_data = {
           name: '',
           id: 1,
+          avatar_link: '',
           hidden: true,
           children: []
       }
@@ -90,6 +92,7 @@ class FamilyRelation < ActiveRecord::Base
           job: '父亲',
           name: father.realname,
           id: tree_id,
+          avatar_link: father.avatar_url,
           no_parent: true })
         father_id = tree_id
         tree_id += 1
@@ -100,6 +103,7 @@ class FamilyRelation < ActiveRecord::Base
           id: tree_id,
           no_parent: true,
           hidden: true,
+          avatar_link: '',
           children: []
                                    })
       tree_id += 1
@@ -116,6 +120,7 @@ class FamilyRelation < ActiveRecord::Base
       #add self node
       node_data[:children][-1][:children].append({
           name: archive.profile.realname,
+          avatar_link: archive.profile.avatar_url,
           id: tree_id,
           children: []
                                       })
@@ -128,6 +133,7 @@ class FamilyRelation < ActiveRecord::Base
                                                      id: tree_id,
                                                      hidden: true,
                                                      no_parent: true,
+                                                     avatar_link: '',
                                                      children: []
                                                  })
       tree_id += 1
@@ -148,6 +154,7 @@ class FamilyRelation < ActiveRecord::Base
         node_data[:children][-1][:children].append({
                                          job: '配偶',
                                          name: spouse.realname,
+                                         avatar_link: spouse.avatar_url,
                                          id: tree_id,
                                          no_parent: true })
         spouse_id = tree_id
@@ -161,6 +168,7 @@ class FamilyRelation < ActiveRecord::Base
         node_data[:children].append({
                                          job: '母亲',
                                          name: mother.realname,
+                                         avatar_link: mother.avatar_url,
                                          id: tree_id,
                                          no_parent: true })
         mother_id = tree_id
@@ -207,6 +215,14 @@ class FamilyRelation < ActiveRecord::Base
 
   def profile
     Profile.find_by_id_no(self.id_no) if id_no
+  end
+
+  def avatar_url
+    if profile
+      profile.avatar_url
+    else
+      ''
+    end
   end
 
 end
