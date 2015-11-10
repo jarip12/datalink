@@ -85,6 +85,11 @@ class FamilyRelation < ActiveRecord::Base
       }
     end
 
+    def have_at_least_one_parent(archive)
+      parents = FamilyRelation.where(relation_name: ['father', 'mother'], family_related_id: archive.family_related.id)
+      parents.count > 0
+    end
+
 
     def build_tree_data(archive)
       have_children = false
@@ -120,6 +125,8 @@ class FamilyRelation < ActiveRecord::Base
         tree_id += 1
         have_parent = true
       end
+
+
 
       node_data[:children].append({
           name: '',
