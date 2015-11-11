@@ -24,4 +24,6 @@
       = link_to "返回", root_path, class: "return-link"
 
 - else
-  p.page-button-link.no-records 没有预约记录
+  div.empty-button-links.row
+    div.col-xs-4.btn disabled="true" 没有预约记录
+    = link_to "查看历史预约记录", reservations_query_path, class: "page-button-link col-xs-offset-2"

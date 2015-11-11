@@ -87,7 +87,7 @@ $(document).on 'ready page:load', ->
                 "sInfoPostFix":  "",
                 "sSearch":       "搜索:",
                 "sUrl":          "",
-                "sEmptyTable":     "表中数据为空",
+                "sEmptyTable":     "无预约记录",
                 "sLoadingRecords": "载入中...",
                 "sInfoThousands":  ",",
                 "oPaginate": {
