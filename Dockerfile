@@ -1,7 +1,7 @@
 FROM ruby:2.1.6
 
 # see update.sh for why all "apt-get install"s have to stay as one long line
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y vim zsh nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
 #RUN apt-get install -y build-essential mysql-client postgresql-client sqlite3 --no-install-recommends
 
 ENV RAILS_VERSION 4.2.3
@@ -28,6 +28,15 @@ WORKDIR lwnotary-datalake
 RUN mkdir -p tmp/pids
 RUN mkdir log
 
+## for crontab
+RUN apt-get update && apt-get -y install rsyslog cron mysql-client nodejs
+ADD crontabfile /etc/crontab
+# important, if not, cron return system error
+RUN chmod 600 /etc/crontab
+RUN gem install bundler
+RUN gem install whenever
+RUN gem install minitest -v '5.8.0'
 RUN bundle install
+
 EXPOSE 3000
 CMD ["sh", "start.sh"]
