@@ -31,6 +31,7 @@
 #  user_id               :integer
 #  notary_use            :string(255)
 #  reserve_day           :string(255)
+#  reservation_id        :integer
 #  reserve_hour          :string(255)
 #  notary_record_id      :integer
 #  user_verified         :boolean          default(FALSE)
@@ -41,6 +42,7 @@
 
 class NotaryForeignTable < ActiveRecord::Base
   belongs_to :user
+  belongs_to :reservation
 
   extend Enumerize
   enumerize :require_notary, in: [:required, :not_required]
@@ -56,6 +58,7 @@ class NotaryForeignTable < ActiveRecord::Base
   accepts_nested_attributes_for :notary_relations, allow_destroy: true
 
   delegate :server_token, to: Setting
+
 
   class << self
     def sync_to_server

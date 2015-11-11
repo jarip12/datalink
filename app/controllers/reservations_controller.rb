@@ -25,6 +25,9 @@ class ReservationsController < ApplicationController
       #binding.pry
       @reservation.notary_table.update_attribute("notary_record_id", notary_record.id)
       @profile.save(:validate => false)
+
+      @reservation.archive_id = new_archive.id
+      @reservation.save!
       new_archive.save!
     end
     redirect_to edit_profile_url(@reservation.archive.profile)

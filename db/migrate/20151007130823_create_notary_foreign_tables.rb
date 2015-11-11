@@ -33,6 +33,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
 
       t.string :notary_use
       t.string :reserve_day
+      t.integer :reservation_id
       t.string :reserve_hour
 
       t.integer :notary_record_id

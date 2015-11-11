@@ -3,6 +3,7 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.integer :notary_table_id
       t.string :notary_table_type
+      t.integer :archive_id
 
       t.string :status
       t.integer :user_id

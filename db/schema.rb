@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.integer  "user_id",               limit: 4
     t.string   "notary_use",            limit: 255
     t.string   "reserve_day",           limit: 255
+    t.integer  "reservation_id",        limit: 4
     t.string   "reserve_hour",          limit: 255
     t.integer  "notary_record_id",      limit: 4
     t.boolean  "user_verified",                       default: false
@@ -221,6 +222,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
   create_table "reservations", force: :cascade do |t|
     t.integer  "notary_table_id",    limit: 4
     t.string   "notary_table_type",  limit: 255
+    t.integer  "archive_id",         limit: 4
     t.string   "status",             limit: 255
     t.integer  "user_id",            limit: 4
     t.string   "sync_user_verified", limit: 255, default: "0"

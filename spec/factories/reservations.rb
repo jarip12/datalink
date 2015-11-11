@@ -5,6 +5,7 @@
 #  id                 :integer          not null, primary key
 #  notary_table_id    :integer
 #  notary_table_type  :string(255)
+#  archive_id         :integer
 #  status             :string(255)
 #  user_id            :integer
 #  sync_user_verified :string(255)      default("0")

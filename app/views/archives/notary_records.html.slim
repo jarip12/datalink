@@ -12,4 +12,4 @@ table.table#family_relation_table
     tr
       td = record.notary_id
       td = record.notary_type_text
-      td = link_to "查看预约表", table_link(record), :class => "page-button-link"
+      td = link_to "查看预约表", edit_foreign_table_link(record), :class => "page-button-link"

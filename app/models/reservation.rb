@@ -19,6 +19,7 @@ class Reservation < ActiveRecord::Base
   enumerize :status, in: [:pending, :handled, :refused], default: :pending
 
   delegate :user_verified, :realname, :id_no, to: :notary_table, :allow_nil => true
+  has_one :notary_foreign_table
 
   by_star_field :reserve_at
 
