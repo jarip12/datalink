@@ -63,7 +63,7 @@ class ReservationsController < ApplicationController
     @results = @reservations.map do |reservation|
       #[reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S"), '<a class="col-xs-4 register-link" href="/users/sign_up">点此注册</a>']
       #[reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reserve_table_link_text(reservation)]
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reserve_table_link_text(reservation), handle_reserve_table_link_text(reservation)]
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), handle_reserve_table_link_text(reservation)]
     end
 
     render_success({data: @results})

@@ -12,9 +12,7 @@
             td = o.user_realname
             td = o.notary_table_type_text
             td = hour_minute_display(o.reserve_at)
-            td = link_to "查看申请表", edit_table_link(o), class: "page-button-link"
             td = link_to "处理预约", reservation_handle_path(o), class: "page-button-link"
-
 
 
     -# Render nice pagination links fitted for Bootstrap 3 by default
