@@ -17,7 +17,10 @@ table.table#family_relation_table
       td = family_relation.realname
       td = family_relation.id_no
       - if family_relation.profile
-        td = link_to "查看", family_relation, :class => "page-button-link"
+        - if can? :edit, family_relation.profile
+          td = link_to "查看", edit_profile_path(family_relation.profile), :class => "page-button-link"
+        - else
+          td = link_to "查看", profile_path(family_relation.profile), :class => "page-button-link"
       - else
         td = link_to "创建档案", new_profile_path(family_relation_id: family_relation.id), :class => "page-button-link"
 
