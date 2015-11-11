@@ -18,7 +18,6 @@
 //= require autocomplete-rails
 //= require moment
 
-//= require bootstrap
 //= require bootstrap-sprockets
 
 //= require archives
