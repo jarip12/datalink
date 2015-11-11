@@ -29,6 +29,9 @@
 #  sync_status           :string(255)
 #  purpose               :string(255)
 #  user_id               :integer
+#  notary_use            :string(255)
+#  reserve_day           :string(255)
+#  reserve_hour          :string(255)
 #  notary_record_id      :integer
 #  user_verified         :boolean          default(FALSE)
 #  reserve_at            :datetime
@@ -40,13 +43,17 @@ class NotaryForeignTable < ActiveRecord::Base
   belongs_to :user
 
   extend Enumerize
+  enumerize :require_notary, in: [:required, :not_required]
   enumerize :sync_status, in: [:wait_allow, :pending, :success], default: :wait_allow
-  enumerize :sex, in: [:male, :female], default: :male
+  enumerize :sex, in: [:male, :female]
+  enumerize :notary_use, in: [:settle, :visit_family, :work, :learn, :marry, :other], default: :settle
+  enumerize :notary_type, in: [:birth, :single, :tortured, :register_residence, :country, :remarry, :family_relation,
+                        :live, :residence, :death, :work_experience, :retire, :delegate, :declare, :guarantee,
+                        :fingerprint, :heath, :education, :degree, :grade, :marry, :divorce, :driver, :certificate,
+                        :owner, :deposit, :qualified, :translate, :other], default: :birth
 
   has_many :notary_relations
   accepts_nested_attributes_for :notary_relations, allow_destroy: true
-
-
 
   delegate :server_token, to: Setting
 
@@ -74,6 +81,11 @@ class NotaryForeignTable < ActiveRecord::Base
 
       end
 
+    end
+
+    def has_notary_type_info?(value)
+      ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver',
+       'certificate', 'owner', 'deposit', 'qualified', 'translate'].include?(value)
     end
   end
 

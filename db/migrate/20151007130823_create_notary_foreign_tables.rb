@@ -31,6 +31,10 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :purpose
       t.integer :user_id
 
+      t.string :notary_use
+      t.string :reserve_day
+      t.string :reserve_hour
+
       t.integer :notary_record_id
       t.boolean :user_verified, default: false
       t.datetime :reserve_at

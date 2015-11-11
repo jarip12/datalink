@@ -29,6 +29,9 @@
 #  sync_status           :string(255)
 #  purpose               :string(255)
 #  user_id               :integer
+#  notary_use            :string(255)
+#  reserve_day           :string(255)
+#  reserve_hour          :string(255)
 #  notary_record_id      :integer
 #  user_verified         :boolean          default(FALSE)
 #  reserve_at            :datetime

@@ -4,31 +4,32 @@
 
     div#foreign_table.top-border
       div#notary_foreign_table_person.row
-        div.col-xs-2
+        div.col-xs-2-long
           p.text-center 申请人
-        div.col-xs-10
+        div.col-xs-10-long
           div.row
             label.col-xs-2 公证使用国家/地区:
             div.col-xs-3
               = f.input_field :use_country, as: :string, disabled: cannot_edit
             label.col-xs-2.col-xs-offset-1 申请公证用途:
             div.col-xs-3
-              = f.input_field :purpose, disabled: cannot_edit
+              = f.input_field :notary_use, :include_blank => false, disabled: cannot_edit
 
           div.row
             label.col-xs-2 姓名:
             div.col-xs-3
               = f.input_field :realname, disabled: cannot_edit
             label.col-xs-2.col-xs-offset-1 性别:
-            div.col-xs-3
+            div.col-xs-4
               = f.input_field :sex, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
 
           div.row
             label.col-xs-2 出生日期:
             div.input-group.date.col-xs-3
-              = f.input_field :birth_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
-              span.input-group-addon
-                span.glyphicon.glyphicon-calendar
+              = f.input_field :birth_day, as: :string, class: "date-input form-control", disabled: cannot_edit
+              = f.label :birth_day, class: "input-group-btn"
+                span.btn.btn-default
+                  span.glyphicon.glyphicon-calendar
             label.col-xs-2.col-xs-offset-1 邮箱:
             div.col-xs-3
               = f.input_field :email, disabled: cannot_edit
@@ -44,38 +45,48 @@
           div.row
             label.col-xs-2 出境日期:
             div.input-group.date.col-xs-3
-              = f.input_field :abroad_day, as: :string, class: "single-datepicker form-control", disabled: cannot_edit
-              span.input-group-addon
-                span.glyphicon.glyphicon-calendar
+
+              = f.input_field :abroad_day, as: :string, class: "date-input form-control", disabled: cannot_edit
+              = f.label :abroad_day, class: "input-group-btn"
+                span.btn.btn-default
+                  span.glyphicon.glyphicon-calendar
+
             label.col-xs-2.col-xs-offset-1 出境前住址:
             div.col-xs-3
               = f.input_field :before_abroad_address, disabled: cannot_edit
+
+          div.row
+            label.col-xs-2 公证类型
+            div.col-xs-3
+              = f.input_field :notary_type, :include_blank => false, disabled: cannot_edit
+
+            div.col-xs-3.col-xs-offset-1
+              = f.input_field :notary_type_info, placeholder: "公证类型补充说明", disabled: cannot_edit
 
           div.row
             label.col-xs-6 工作单位名称、地址、电话（已出境的填写原工作单位):
             div.col-xs-6
               = f.input_field :work_unit, disabled: cannot_edit, rows: 3
 
-          div.row
-            label.col-xs-2 公证类型
-            div.col-xs-3
-              = f.input_field :notary_type, disabled: cannot_edit
-
-      div.row#notary_foreign_table_relation
-        div.col-xs-2
+      div.row.table-row#notary_foreign_table_relation
+        div.col-xs-2-long
           p.text-center 父母、配偶、亲属关系另一方情况
-        div.col-xs-10
-          div.row
-            = f.simple_fields_for :notary_relations, html: {class: "form-wrap form-horizontal"} do |notary_relation|
-              = render 'notary_relation_fields', f: notary_relation, cannot_edit: false
-            .links.col-xs-offset-9.link-div
-              = link_to_add_association '添加亲属关系', f, :notary_relations, class: "pull-right property-link", render_options: {locals: {cannot_edit: cannot_edit}}
+        div.col-xs-10-long.row
+          - if @notary_foreign_table.sync_status == "wait_allow"
+            div.edit-buttons
+              span.edit-list.pull-right.page-button-link 编辑记录列表
+              span.edit-list-complete.pull-right.page-button-link 完成
+          = f.simple_fields_for :notary_relations, html: {class: "form-wrap form-horizontal"} do |notary_relation|
+            = render 'notary_relation_fields', f: notary_relation, cannot_edit: false
+          - if @notary_foreign_table.sync_status == "wait_allow"
+            .links
+              = link_to_add_association '添加亲属关系', f, :notary_relations, class: "pull-right page-button-link", render_options: {locals: {cannot_edit: cannot_edit}}
 
 
       div.row#notary_foreign_table_others
-        div.col-xs-2
+        div.col-xs-2-long
           p.text-center 其它信息
-        div.col-xs-10
+        div.col-xs-10-long
           div.row
             label.col-xs-2 翻译成何种语种:
             div.col-xs-3
@@ -87,15 +98,15 @@
           div.row
             label.col-xs-2 是否要求认证:
             div.col-xs-3
-              = f.input_field :require_notary, disabled: cannot_edit
+              = f.input_field :require_notary, as: :radio_buttons, item_wrapper_class: "radio-inline", disabled: cannot_edit
             label.col-xs-2.col-xs-offset-1 申请人提交照片数量:
             div.col-xs-3
               = f.input_field :photo_num, disabled: cannot_edit
 
-      div#proxy_people.row
-        div.col-xs-2
+      div#proxy_people.row.table-row
+        div.col-xs-2.table-cell
           p.text-center 代理人
-        div.col-xs-10
+        div.col-xs-10.table-cell
           div.row
             label.col-xs-2 代办人姓名:
             div.col-xs-3
@@ -116,9 +127,12 @@
         p 其他需要说明的有关情况备注：
         = f.input_field :comment, disabled: cannot_edit, rows: 3
 
+
     - if @notary_foreign_table.sync_status == "wait_allow"
-      div.links.top-border
-        = link_to "选择预约办理时间", '/', class: "col-xs-4 btn btn-default"
+        label.col-xs-2 选择预约日期:
+        = f.select :reserve_day, @reserve_days, {}, { :class => 'col-xs-2' }
+        label.col-xs-2 选择预约时间:
+        = f.select :reserve_hour, ReserveDate.get_free_hours(@notary_foreign_table.reserve_day), {}, { :class => 'col-xs-2' }
         div.col-xs-2.col-xs-offset-4
           input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
         div.col-xs-2
