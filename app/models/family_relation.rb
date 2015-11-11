@@ -93,8 +93,23 @@ class FamilyRelation < ActiveRecord::Base
       parents.count > 0
     end
 
+    def has_no_family_relation(archive)
+      FamilyRelation.where(family_related_id: archive.family_related.id).count ==  0
+      return false
+    end
+
 
     def build_tree_data(archive)
+      if has_no_family_relation(archive)
+        node_data = {
+          name: archive.profile.realname,
+          id: 1,
+          depth: 1,
+          avatar_link: archive.profile.avatar_url,
+          children: []
+        }
+        return node_data, []
+      end
       have_children = false
       have_parent = false
       invisble_parent_tree_id = -1
