@@ -18,25 +18,25 @@ if User.count == 0
     Profile.create(realname: Faker::Name.name, id_no: id_no, archive_id: n + 1)
     archive = Archive.create
 
-    FamilyRelation.where(relation_name: "father", family_related_id: archive.family_related_id).update_all(:realname => "父亲大人")
+    #FamilyRelation.where(relation_name: "father", family_related_id: archive.family_related_id).update_all(:realname => "父亲大人")
 
-    family_relation = FamilyRelation.new(realname: "母亲大人", relation_name: "mother", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "母亲大人", relation_name: "mother", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
 
-    family_relation = FamilyRelation.new(realname: "哥哥", relation_name: "old_brother", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "哥哥", relation_name: "old_brother", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
 
-    family_relation = FamilyRelation.new(realname: "弟弟", relation_name: "young_brother", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "弟弟", relation_name: "young_brother", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
 
-    family_relation = FamilyRelation.new(realname: "儿子", relation_name: "son", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "儿子", relation_name: "son", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
 
-    family_relation = FamilyRelation.new(realname: "女儿", relation_name: "daughter", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "女儿", relation_name: "daughter", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
 
-    family_relation = FamilyRelation.new(realname: "配偶", relation_name: "spouse", family_related_id: archive.family_related_id)
-    family_relation.save(:validate => false)
+    #family_relation = FamilyRelation.new(realname: "配偶", relation_name: "spouse", family_related_id: archive.family_related_id)
+    #family_relation.save(:validate => false)
   end
 
 =begin
