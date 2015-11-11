@@ -40,7 +40,7 @@ div.nested-fields
           label.string.optional.control-label.col-xs-2
             = Deposit.human_attribute_name("amount")
           div.col-xs-3 class=('has-error' if f.object.errors.include?(:amount))
-            = f.input_field :amount, class: "form-control", disabled: cannot_edit
+            = f.input_field :amount, class: "form-control", :value => (number_with_precision(f.object.amount, :precision => 2) || ''), disabled: cannot_edit
             - if f.object.errors.include?(:amount)
                 span class="help-block" #{f.object.errors.get(:amount)[-1]}
 
