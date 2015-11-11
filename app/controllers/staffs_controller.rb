@@ -52,6 +52,6 @@ class StaffsController < ApplicationController
     end
 
     def staff_params
-      params.require(:staff).permit(:street, :city, :province, :district, :mobile, :realname, :staffname, :email, :password, :password_confirmation)
+      params.require(:staff).permit(:role, :street, :city, :province, :district, :mobile, :realname, :staffname, :email, :password, :password_confirmation)
     end
 end
