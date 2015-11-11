@@ -129,10 +129,8 @@
 
 
     - if @notary_foreign_table.sync_status == "wait_allow"
-        label.col-xs-2 选择预约日期:
-        = f.select :reserve_day, @reserve_days, {}, { :class => 'col-xs-2' }
-        label.col-xs-2 选择预约时间:
-        = f.select :reserve_hour, ReserveDate.get_free_hours(@notary_foreign_table.reserve_day), {}, { :class => 'col-xs-2' }
+        label.col-xs-2
+          = "预约时间: " + f.object.reserve_day + " " + f.object.reserve_hour
         div.col-xs-2.col-xs-offset-4
           input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
         div.col-xs-2

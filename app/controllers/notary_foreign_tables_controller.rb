@@ -12,25 +12,105 @@ class NotaryForeignTablesController < ApplicationController
 
   # GET /notary_foreign_tables/1
   def show
+    next_days = (0..6).to_a.map {|index| (Date.today + index)}
+    infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
+    @reserve_days = infos.map {|info| info.to_s}
+    @notary_foreign_table.reserve_day = @reserve_days[0]
+
     respond_to do |format|
       format.pdf do
+        Prawn::Font::AFM.hide_m17n_warning= true
         Prawn::Document.new do |pdf|
+
           pdf.font_families["chinese"] = {
-              :normal => { :file => "chinese.ttf" },
+              :normal => { :file => "app/assets/fonts/chinese.ttf" },
           }
           pdf.fallback_fonts ["chinese"]
 
-          pdf.table([["往 #{@notary_foreign_table.use_country} 国家/地区使用          申请公证用途: 定居/探亲/工作/学习/结婚/其它"]], :width => 540)
+          pdf.font_size = 11
 
+          pdf.font_size(20) {
+            pdf.text "公 证 申 请 表", :align => :center
+          }
+          pdf.move_down 15
+
+
+          pdf.table([["往   #{@notary_foreign_table.use_country}   国家/地区使用",  "申请公证用途: 定居/探亲/工作/学习/结婚/其它"]], :width => 540) do
+            column(0).borders = [:top, :bottom, :left]
+            column(1).borders = [:top, :bottom, :right]
+            column(1).padding = [5, 0, 5, 120]
+          end
           abroad_info = "申请人已于#{@notary_foreign_table.abroad_day}出境，出境前住址：\n#{@notary_foreign_table.before_abroad_address}"
 
-          person_info = pdf.make_table([["姓名", @notary_foreign_table.realname, "性别", @notary_foreign_table.sex_text, "出生日期", @notary_foreign_table.birth_day, "邮箱", @notary_foreign_table.email],
-                                        ["现住址", @notary_foreign_table.now_address, "电话", @notary_foreign_table.mobile], [abroad_info]], :width => 500)
-          pdf.table([["申请人", person_info]], :width => 540)
+          pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 90 do
+            y = pdf.cursor
+            pdf.text_box "申请人", :width => 20, :valign => :center, :at => [3, pdf.cursor]
+            pdf.bounding_box [20, y], :width => 520, :height => 90 do
+              pdf.table [["姓名", @notary_foreign_table.realname, "性别", @notary_foreign_table.sex_text, "出生日期", @notary_foreign_table.birth_day, "邮箱", @notary_foreign_table.email]], :width => 520, :column_widths => [50, 70, 40, 40, 60, 80] do
+                row(0).style :align => :center
+              end
+              pdf.table [["现住址", @notary_foreign_table.now_address, "电话", @notary_foreign_table.mobile]], :width => 520, :column_widths => [50, 210, 80, 180] do
+                row(0).style :align => :center
+              end
+              pdf.table [[abroad_info]], :width => 500, :cell_style => {:borders => []}
 
-          pdf.table([["工作单位名称、地址、电话（已出境的填写原工作单位）\n#{@notary_foreign_table.work_unit}"], ["请在下列需要办理公证事项"]], :width => 540)
-          pdf.table([["申办何种公证", "地址"]], :width => 540)
-          pdf.table([['如办出生、结婚、亲属关系分别填写（如办出生请在"备注"栏内写明本人出生地及父母结婚时间）']], :width => 540)
+              pdf.stroke_bounds
+            end
+            pdf.stroke_bounds
+          end
+
+          pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 20 do
+            pdf.move_down 5
+            pdf.text_box '请在下列需要办理公证事项', :at => [0, pdf.cursor]
+            pdf.font "app/assets/fonts/DejaVuSans.ttf" do
+              pdf.text_box "\u2610", :at => [143, pdf.cursor]
+            end
+            pdf.text_box '处打', :at => [160, pdf.cursor]
+            pdf.font "app/assets/fonts/DejaVuSans.ttf" do
+              pdf.text_box "\u2713", :at => [185, pdf.cursor]
+            end
+            pdf.text_box '标记', :at => [200, pdf.cursor]
+            pdf.stroke_bounds
+          end
+
+
+          pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 120 do
+            y = pdf.cursor
+            pdf.move_down 20
+            pdf.text_box "申办何种公证", :width => 20
+            pdf.bounding_box [20, y], :width => 520, :height => 120 do
+              ap "hello from chuck"
+              pdf.move_down 8
+              NotaryForeignTable.notary_type.options.each_slice(5) do |slice|
+                ap pdf.cursor
+                x = 5
+                slice.each_with_index do |option, index|
+                  checked = (option[1] == @notary_foreign_table.notary_type)
+                  checked_label = (checked)? "\u2611":  "\u2610"
+                  pdf.font "app/assets/fonts/DejaVuSans.ttf" do
+                    pdf.text_box checked_label, :at => [x, pdf.cursor]
+                  end
+                  x += 15
+                  pdf.text_box option[0], :at => [x, pdf.cursor]
+                  if checked and NotaryForeignTable.has_notary_type_info?(option[1])
+                    x += 80
+                    pdf.text_box "(" + @notary_foreign_table.notary_type_info.to_s + ")", :at => [x, pdf.cursor]
+                  end
+                  x += 80
+                  ap pdf.cursor
+                end
+
+                pdf.move_down 20
+
+              end
+              pdf.stroke_bounds
+            end
+            pdf.stroke_bounds
+          end
+
+          pdf.table([["工作单位名称、地址、电话（已出境的填写原工作单位）\n#{@notary_foreign_table.work_unit}"]], :width => 540, :cell_style => {height: 50})
+
+          pdf.table([['如办出生、结婚、亲属关系分别填写（如办出生请在"备注"栏内写明本人出生地及父母结婚时间）']], :width => 540, :cell_style => {:padding => [5, 0, 5, 20]})
 
           #relation_first_column = { content: "父母配偶", rowspan: 5, width: 20 }
 
@@ -38,18 +118,39 @@ class NotaryForeignTablesController < ApplicationController
             [notary_relation.relation, notary_relation.realname, notary_relation.english_name, notary_relation.sex_text, notary_relation.birth_day,
               notary_relation.now_address, notary_relation.before_abroad_address]
           end
-          relation = [["称谓", "姓名", "外文名", "性别", "出生日期", "先居住地", "未离境者现居地址或已离境者在上海的最后住址"]] + relation_details
-          relation_table = pdf.make_table(relation, :width => 500)
-          pdf.table([["父母、配偶、亲属关系另一方情况", relation_table]])
-          pdf.table([["翻译成何语种( #{@notary_foreign_table.translate_lang} )       公证书份数( #{@notary_foreign_table.file_num} )份"]], :width => 540)
-          pdf.table([["是否要求认证( #{@notary_foreign_table.require_notary} )       申请人提交照片( #{@notary_foreign_table.photo_num} )张"]], :width => 540)
+
+          if relation_details.count < 4
+            relation_details += [[" "] * 7] * (4 - relation_details.count)
+          end
+          relation = [["称谓", "姓名", "外文名", "性别", "出生日期", "现居住地", "未离境者现居地址或已离境者在上海的最后住址"]] + relation_details
+          relation_table = pdf.make_table(relation, :width => 500, :column_widths => {0 => 40, 1 => 60, 2 => 60, 3 => 35, 4 => 55, 5 => 120}   ) do
+            row(0..relation.count).style :align => :center
+          end
+          pdf.table [["父母、配偶、亲属关系另一方情况", relation_table]] do
+            row(0).style :align => :center
+          end
+
+          pdf.table([["翻译成何语种 (     #{@notary_foreign_table.translate_lang}     )", "公证书份数 (     #{@notary_foreign_table.file_num}     )份"]], :width => 540) do
+            column(0).borders = [:top, :bottom, :left]
+            column(1).borders = [:top, :bottom, :right]
+          end
+
+          pdf.table([["是否要求认证 (     #{@notary_foreign_table.require_notary_text}     )", "申请人提交照片 (     #{@notary_foreign_table.photo_num}     )张"]], :width => 540) do
+            column(0).borders = [:top, :bottom, :left]
+            column(1).borders = [:top, :bottom, :right]
+          end
 
           proxy = [["代办人姓名", "与申请人关系", "电话", "联系地址"]] + [[@notary_foreign_table.agent_name, @notary_foreign_table.agent_relation,
                                                          @notary_foreign_table.agent_mobile, @notary_foreign_table.agent_address ]]
-          pdf.table(proxy, :width => 540)
+          pdf.table(proxy, :width => 540, :column_widths => [80, 120, 90, 250], :cell_style => {:height => 30, :align => :center})
 
-          pdf.table([["其它需要说明的有关情况备注:\n#{@notary_foreign_table.comment}"]], :width => 540)
-          pdf.table([["申请日期:          申请人/代办人签名(盖章):    "]], :width => 540)
+          pdf.table([["其它需要说明的有关情况备注:\n#{@notary_foreign_table.comment}"]], :width => 540, :cell_style => {height: 70})
+          pdf.table([["申请日期:", "申请人/代办人签名 ( 盖章 ):    #{@notary_foreign_table.realname}"]], :width => 540) do
+            column(0).borders = [:top, :bottom, :left]
+            column(1).borders = [:top, :bottom, :right]
+          end
+          pdf.move_down 5
+          pdf.text "接 待 人:"
           send_data pdf.render, :filename => "x.pdf", :type => "application/pdf", :disposition => 'inline'
         end
       end
@@ -60,17 +161,45 @@ class NotaryForeignTablesController < ApplicationController
   # GET /notary_foreign_tables/new
   def new
     @notary_foreign_table = NotaryForeignTable.new
+    @notary_foreign_table.notary_relations << NotaryRelation.new
+
+    next_days = (0..6).to_a.map {|index| (Date.today + index)}
+    infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
+    @reserve_days = infos.map {|info| info.to_s}
+    @notary_foreign_table.reserve_day = @reserve_days[0]
+    ap @reserve_days
+
   end
 
   # GET /notary_foreign_tables/1/edit
   def edit
+    next_days = (0..6).to_a.map {|index| (Date.today + index)}
+    infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
+    @reserve_days = infos.map {|info| info.to_s}
+    ap @reserve_days
+  end
+
+  def already_being_book(notary_foreign_table)
+    ReserveDate.where(reserve_day: notary_foreign_table.reserve_day, reserve_hour: notary_foreign_table.reserve_hour).count > 0
   end
 
   # POST /notary_foreign_tables
   def create
     @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
+
+    if already_being_book(@notary_foreign_table)
+      flash[:notice] = {:class =>'danger', :body => t('already_booked')}
+      next_days = (0..6).to_a.map {|index| (Date.today + index)}
+      infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
+      @reserve_days = infos.map {|info| info.to_s}
+      render :new
+      return
+    end
+
+
     if params["commit"] == "提交"
       @notary_foreign_table.sync_status = "pending"
+      ReserveDate.create!(reserve_day: @notary_foreign_table.reserve_day, reserve_hour: @notary_foreign_table.reserve_hour)
     end
     @notary_foreign_table.user_id = current_user.id
     @notary_foreign_table.user_verified = current_user.verified
@@ -126,7 +255,7 @@ class NotaryForeignTablesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def notary_foreign_table_params
-      params.require(:notary_foreign_table).permit(:realname, :id_no, :age, :birth_day, :use_country, :sex, :email, :now_address, :mobile, :abroad_day, :before_abroad_address,
+      params.require(:notary_foreign_table).permit(:reserve_day, :reserve_hour, :notary_type_info, :notary_use, :realname, :id_no, :age, :birth_day, :use_country, :sex, :email, :now_address, :mobile, :abroad_day, :before_abroad_address,
                                                    :work_unit, :notary_type, :translate_lang, :file_num, :require_notary, :photo_num, :agent_name, :agent_relation,
                                                    :agent_mobile, :agent_address, :comment, :reserve_at,
                                                    notary_relations_attributes: [:id, :_destroy, :relation, :realname, :sex, :english_name, :birth_day, :now_address, :before_abroad_address]

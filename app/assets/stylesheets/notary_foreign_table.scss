@@ -17,6 +17,22 @@
 
 
 div#foreign_table {
+  .col-xs-2-long {
+    margin-bottom: -10000px;
+    padding-bottom: 10000px;
+    border-left: 1px solid #ccc;
+    @extend .col-xs-2;
+  }
+  .col-xs-10-long {
+    margin-bottom: -10000px;
+    padding-bottom: 10000px;
+    @extend .col-xs-10;
+  }
+  div.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
   div.col-xs-10 {
 
     div.row:first-child, div.row:last-child {
@@ -28,7 +44,7 @@ div#foreign_table {
     }
 
     div.row {
-      margin-top: 15px;
+      margin-top: 26px;
     }
 
   }
@@ -37,17 +53,37 @@ div#foreign_table {
     border-top: 1px solid #ccc;
   }
 
-  .notary_relation_container:not(:first-child) {
+  .notary_relation_container:nth-child(n + 3) {
     border-top: 1px solid #ccc;
   }
 
-
-   div#notary_foreign_table_person > div.col-xs-10, div#notary_foreign_table_relation > div.col-xs-10 {
-    border-left: 1px solid #ccc;
+  div.big-row {
+    overflow: hidden;
+    div.col-xs-2 {
+      border-right: 1px solid #ccc;
+    }
   }
 
-  div#notary_foreign_table_others > div.col-xs-2, div#proxy_people > div.col-xs-2{
-    border-right: 1px solid #ccc;
+  div#notary_foreign_table_relation {
+    @extend div.big-row;
+  }
+
+
+  div#notary_foreign_table_person {
+    .col-xs-2-long {
+      p {
+        margin-top: 200px;
+      }
+    }
+    @extend div.big-row;
+  }
+
+  div#notary_foreign_table_others {
+    @extend div.big-row;
+  }
+
+  div#proxy_people{
+    @extend div.big-row;
   }
 
 
