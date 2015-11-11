@@ -1,0 +1,42 @@
+
+form.new_notary_foreign_table, form.edit_notary_foreign_table {
+
+  .radio,
+  .checkbox {
+    margin-top: 0px !important;
+  }
+
+  .edit-list-complete {
+    display: none;
+    margin-bottom: 20px;
+  }
+
+  .add_fields {
+    margin-right: -15px;
+  }
+
+  .edit-buttons {
+    border-left: 1px solid #ccc;
+    margin-right: -15px;
+  }
+
+
+
+}
+
+a.remove-link {
+  display: none;
+}
+
+input#notary_foreign_table_notary_type_info {
+  display: none;
+}
+
+div.notary_relation_container:nth-child(2) a.remove-link {
+
+  margin-top: 40px;
+  margin-right: -40px;
+
+}
+
+

@@ -39,6 +39,10 @@ zh-CN:
       format:
         error: "真实姓名必须是2-10位合法汉字"
   enumerize:
+    notary_relation:
+      sex:
+        male: "男"
+        female: "女"
     faker_material:
       faker_material_type:
         foreign: "涉外公证"
@@ -63,10 +67,51 @@ zh-CN:
         foreign: "涉外公证"
         person: "个人公证"
         company: "单位公证"
+
     notary_foreign_table:
+      notary_use:
+        settle: "定居"
+        visit_family: "探亲"
+        work: "工作"
+        other: "其它"
+        marry: "结婚"
+        learn: "学习"
+      require_notary:
+        required: 是
+        not_required: 否
       sex:
         male: "男"
         female: "女"
+      notary_type:
+        birth: "出生"
+        single: "未婚"
+        tortured: "受或未受刑"
+        register_residence: "户籍地"
+        country: "国籍"
+        remarry: "未再婚"
+        family_relation: "亲属关系"
+        live: "生存"
+        residence: "居住"
+        death: "死亡"
+        work_experience: "工作经历"
+        retire: "离退休"
+        delegate: "委托书"
+        declare: "声明书"
+        guarantee: "保证书"
+        fingerprint: "指纹"
+        heath: "健康证"
+        education: "学历"
+        degree: "学位"
+        grade: "成绩"
+        marry: "结婚"
+        divorce: "离婚"
+        driver: "驾驶证"
+        certificate: "等级证书"
+        owner: "产权证"
+        deposit: "存款证明"
+        qualified: "合格证"
+        translate: "译文与中文相符"
+        other: "其他"
 
     profile:
       sex:
@@ -181,6 +226,14 @@ zh-CN:
       notary_related: notary_related
       staff: "内部员工"
     attributes:
+      notary_relation:
+        relation: 称谓
+        realname: 姓名
+        english_name: 外文名
+        sex: 性别
+        birth_day: 出生日期
+        now_address: 现居住地
+        before_abroad_address: 未离境者现住址或已离境者在上海的最后住址
       faker_material:
         faker_material_type: 假材料类型
       staff:
