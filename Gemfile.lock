@@ -258,6 +258,7 @@ GEM
     kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (3.16.14.7)
     listen (3.0.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -378,6 +379,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    ref (1.0.5)
     request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
@@ -468,6 +470,9 @@ GEM
     term-ansicolor (1.3.2)
       tins (~> 1.0)
     terminal-table (1.5.2)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread (0.2.2)
     thread_safe (0.3.5)
@@ -524,6 +529,7 @@ DEPENDENCIES
   enumerize
   exception_notification
   excon
+  execjs
   factory_girl_rails
   faker (~> 1.4.3)
   figaro
@@ -581,6 +587,7 @@ DEPENDENCIES
   smart_listing
   spring
   spring-commands-rspec
+  therubyracer
   timecop
   turbolinks
   uglifier (>= 1.3.0)
