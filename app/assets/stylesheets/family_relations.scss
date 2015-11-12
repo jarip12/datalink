@@ -4,6 +4,9 @@
 .new-family-form-wrap {
   overflow: hidden;
   display: block;
+  select {
+    @extend .form-control;
+  }
 }
 
 .form-wrap {
