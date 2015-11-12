@@ -2,7 +2,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
   def change
     create_table :notary_foreign_tables do |t|
       t.string :realname
-      t.integer :sex
+      t.string :sex
       t.integer :age
       t.integer :id_no
       t.string :use_country

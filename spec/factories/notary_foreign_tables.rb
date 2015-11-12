@@ -4,7 +4,7 @@
 #
 #  id                    :integer          not null, primary key
 #  realname              :string(255)
-#  sex                   :integer
+#  sex                   :string(255)
 #  age                   :integer
 #  id_no                 :integer
 #  use_country           :string(255)
