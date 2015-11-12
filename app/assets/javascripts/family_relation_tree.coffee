@@ -60,7 +60,7 @@ $(document).on 'ready page:load', ->
 
   #make an SVG
   $('#family_tree_graph').empty()
-  svg = d3.select('#family_tree_graph').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+  svg = d3.select('#family_tree_graph').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + gon.margin_left + ',' + gon.margin_top + ')')
   #My JSON note the
   #no_parent: true this ensures that the node will not be linked to its parent
   #hidden: true ensures that the nodes is not visible.

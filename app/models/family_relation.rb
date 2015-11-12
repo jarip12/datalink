@@ -95,7 +95,6 @@ class FamilyRelation < ActiveRecord::Base
 
     def has_no_family_relation(archive)
       FamilyRelation.where(family_related_id: archive.family_related.id).count ==  0
-      return false
     end
 
 
@@ -108,7 +107,7 @@ class FamilyRelation < ActiveRecord::Base
           avatar_link: archive.profile.avatar_url,
           children: []
         }
-        return node_data, []
+        return node_data, [], 10, 200
       end
       have_children = false
       have_parent = false
@@ -245,7 +244,7 @@ class FamilyRelation < ActiveRecord::Base
       ap link_data
       node_data = transform(node_data)
 
-      return node_data, link_data
+      return node_data, link_data, 10, -150
 
     end
 
