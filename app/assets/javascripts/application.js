@@ -25,4 +25,3 @@
 //= require profiles
 
 //= require_tree .
-//= stub family_relation_tree

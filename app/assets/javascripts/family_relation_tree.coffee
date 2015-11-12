@@ -1,4 +1,6 @@
 $(document).on 'ready page:load', ->
+  if $('#family_tree_graph').length == 0
+    return
   console.log "family_relation_coffee load"
   margin =
     top: -150
