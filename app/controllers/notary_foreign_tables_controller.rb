@@ -12,8 +12,6 @@ class NotaryForeignTablesController < ApplicationController
 
   # GET /notary_foreign_tables/1
   def show
-    @archive = @notary_foreign_table.reservation.archive
-
     next_days = (0..6).to_a.map {|index| (Date.today + index)}
     infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
     @reserve_days = infos.map {|info| info.to_s}
@@ -169,11 +167,8 @@ class NotaryForeignTablesController < ApplicationController
     infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
     @reserve_days = infos.map {|info| info.to_s}
     @notary_foreign_table.reserve_day = @reserve_days[0]
-    ap @reserve_days
-
   end
 
-  # GET /notary_foreign_tables/1/edit
   def edit
 
     @archive = @notary_foreign_table.reservation.archive
@@ -227,20 +222,9 @@ class NotaryForeignTablesController < ApplicationController
 
   # PATCH/PUT /notary_foreign_tables/1
   def update
-    if params["commit"] == "提交"
-      @notary_foreign_table.sync_status = "pending"
-    end
-    @notary_foreign_table.user_id = current_user.id
-    @notary_foreign_table.user_verified = current_user.verified
-    @notary_foreign_table.id_no = current_user.id_no
     if @notary_foreign_table.update(notary_foreign_table_params)
-      if @notary_foreign_table.sync_status == "wait_allow"
-        flash[:notice] = {:class =>'success', :body => t('wait_submit')}
-        redirect_to edit_notary_foreign_table_url(@notary_foreign_table)
-      else
-        flash[:notice] = {:class =>'success', :body => t('wait_audit')}
-        redirect_to notary_foreign_table_url(@notary_foreign_table)
-      end
+      flash[:notice] = {:class =>'success', :body => t('action.updated.successfully')}
+      redirect_to edit_notary_foreign_table_url(@notary_foreign_table)
     else
       render :edit
     end
