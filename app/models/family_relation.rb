@@ -88,11 +88,12 @@ class FamilyRelation < ActiveRecord::Base
     end
 
     def has_no_family_relation(archive)
-      FamilyRelation.where(family_related_id: archive.family_related.id).count ==  0
+      FamilyRelation.where(family_related_id: archive.family_related.id, relation_name: ['young_sister', 'old_sister', 'father', 'mother', 'son', 'daughter', 'young_brother', 'old_brother']).count ==  0
     end
 
 
     def build_tree_data(archive)
+
       if has_no_family_relation(archive)
         node_data = {
           name: archive.profile.realname,
