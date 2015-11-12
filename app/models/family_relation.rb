@@ -14,6 +14,8 @@
 
 class FamilyRelation < ActiveRecord::Base
 
+  belongs_to :family_related
+
   extend Enumerize
   enumerize :relation_name, in: [:spouse, :stepfather, :stepmother, :adoptive_mother, :adoptive_father, :father, :mother, :other, :old_sister, :young_sister, :old_brother, :young_brother,
                                  :same_father_old_brother, :same_father_young_brother, :same_father_old_sister, :same_father_old_sister,
@@ -26,9 +28,9 @@ class FamilyRelation < ActiveRecord::Base
   validates :id_no, id_no: true
   validates_uniqueness_of :id_no
 
-  before_destroy: :set_sync_tag
-  after_update: :set_sync_tag
-  after_create: :set_sync_tag
+  before_destroy :set_sync_tag
+  after_update :set_sync_tag
+  after_create :set_sync_tag
 
 
 

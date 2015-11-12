@@ -15,17 +15,24 @@ class FamilyRelated < ActiveRecord::Base
 
   accepts_nested_attributes_for :family_relations, reject_if: :all_blank, allow_destroy: true
 
+  def user_id
+    self.archive.user_id
+  end
+
   class << self
     def sync_to_user_system
-      family_relateds = FamilyRelated.where(synced: false)
-      family_related_ids = family_relateds.pluck('id')
 
-      family_related_ids.each do |family_related|
+      ap Setting.sync_family_relation_url
+
+      family_relateds = FamilyRelated.where(synced: false)
+
+      family_relateds.each do |family_related|
+        ap family_related
         ap family_related.family_relations.to_json
-        data = {"data": family_related.family_relations.as_json, client_token: Setting.client_token}
-        ap data
+        data = {user_id: family_related.user_id, family_related_id: family_related.id, data: family_related.family_relations.as_json, client_token: Setting.client_token}
+        ap data.to_json
         response = Excon.post(Setting.sync_family_relation_url,
-                              :body => data,
+                              :body => data.to_json,
                               :headers => { "Content-Type" => "application/json" })
 
         body = JSON.parse(response.body)
