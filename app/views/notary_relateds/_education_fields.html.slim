@@ -9,7 +9,7 @@ div.nested-fields
         label.string.optional.control-label.col-xs-2
           = Education.human_attribute_name("education_type")
         div.input-group.col-xs-3 class=('has-error' if f.object.errors.include?(:education_type))
-          = f.input_field :education_type, :include_blank => false, disabled: cannot_edit
+          = f.input_field :education_type, class: "form-control", :include_blank => false, disabled: cannot_edit
           - if f.object.errors.include?(:education_type)
               span class="help-block" #{f.object.errors.get(:education_type)[-1]}
 

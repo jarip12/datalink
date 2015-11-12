@@ -32,7 +32,7 @@ div.nested-fields
         label.string.optional.control-label.col-xs-2
           = HousePurchase.human_attribute_name("house_type")
         div.col-xs-3 class=('has-error' if f.object.errors.include?(:house_type))
-          = f.input_field :house_type, :include_blank => false, disabled: cannot_edit
+          = f.input_field :house_type, class: "form-control", :include_blank => false, disabled: cannot_edit
           - if f.object.errors.include?(:house_type)
             span class="help-block" #{f.object.errors.get(:house_type)[-1]}
 
