@@ -38,7 +38,7 @@ class NotaryRecord < ActiveRecord::Base
       ap "push new notary_record to user system"
       ap Setting.sync_notary_record_url
 
-      records = NotaryRecord.where(synced: false)
+      records = NotaryRecord.where(synced: false).where.not(user_id: nil)
 
       ap records.count
       records.each do |record|
