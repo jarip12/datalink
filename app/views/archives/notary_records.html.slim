@@ -6,7 +6,7 @@ table.table#family_relation_table
   tr
     th = NotaryRecord.human_attribute_name("notary_id")
     th = NotaryRecord.human_attribute_name("notary_type")
-    th
+    th = "查看预约表"
 
   - @notary_records.each do |record|
     tr
