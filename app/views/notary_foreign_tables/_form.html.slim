@@ -129,7 +129,7 @@
 
 
     - if @notary_foreign_table.sync_status == "wait_allow"
-        label.col-xs-2
+        p.btn.btn-default.col-xs-3.col-xs-offset-2 disabled="true"
           = "预约时间: " + f.object.reserve_day + " " + f.object.reserve_hour
         div.col-xs-2.col-xs-offset-4
           input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
