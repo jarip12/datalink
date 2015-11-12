@@ -14,5 +14,22 @@
     @extend .page-button-link;
   }
 
+  .show_button {
+    /* Rectangle 190 Copy 2: */
+    width: auto !important;
+    float: none !important;
+    background: #C4D4EB;
+    box-shadow: 1px 1px 2px 0px rgba(147,141,141,0.50);
+    border-radius: 3px;
+    /* 查看: */
+    font-family: HiraginoSansGB-W3;
+    font-size: 11.46px;
+    color: #1A0A60;
+    line-height: 17px;
+
+    @extend .btn;
+    @extend .btn-default;
+  }
+
   @extend .reservation-table-wrap;
 }

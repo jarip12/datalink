@@ -107,6 +107,7 @@ $(document).on 'ready page:load', ->
               { title: "申请人" },
               { title: "公证类型" },
               { title: "预约时间" },
+              { title: "查看" }
               { title: "处理预约" }
             ]
           } );
@@ -144,6 +145,7 @@ $(document).on 'ready page:load', ->
       { title: "申请人" },
       { title: "公证类型" },
       { title: "预约时间" },
+      { title: "查看" }
       { title: "处理预约" }
     ]
   } );

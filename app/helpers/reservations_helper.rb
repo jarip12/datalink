@@ -10,7 +10,7 @@ module ReservationsHelper
   def reserve_table_link_text(reservation)
     if reservation.notary_table_type == "foreign"
       link_text = notary_foreign_table_path(reservation.notary_table_id)
-      return "<a class='col-xs-4 register-link' href='#{link_text}'>查看</a>"
+      return "<a class='col-xs-4 show_button' href='#{link_text}'>查看</a>"
     else
       '/'
     end
@@ -19,7 +19,7 @@ module ReservationsHelper
   def handle_reserve_table_link_text(reservation)
     if reservation.notary_table_type == "foreign"
       link_text = reservation_handle_path(reservation)
-      return "<a class='col-xs-4 register-link' href='#{link_text}'>处理预约</a>"
+      return "<a class='col-xs-4 show_button' href='#{link_text}'>已验证身份</a>"
     else
       '/'
     end
