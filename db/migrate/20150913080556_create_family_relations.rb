@@ -5,7 +5,6 @@ class CreateFamilyRelations < ActiveRecord::Migration
       t.string :realname
       t.string :relation_name
       t.integer :family_related_id
-      t.boolean :synced, default: false
       t.boolean :updated_once, default: false
 
       t.timestamps null: false

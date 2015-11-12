@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
   create_table "family_relateds", force: :cascade do |t|
     t.boolean  "updated_once",           default: false
     t.integer  "archive_id",   limit: 4
+    t.boolean  "synced",                 default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "realname",          limit: 255
     t.string   "relation_name",     limit: 255
     t.integer  "family_related_id", limit: 4
-    t.boolean  "synced",                        default: false
     t.boolean  "updated_once",                  default: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
