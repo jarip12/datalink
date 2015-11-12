@@ -126,7 +126,7 @@ class FamilyRelation < ActiveRecord::Base
       ap father
       if father
         node_data[:children].append({
-          job: '父亲',
+          job: father.relation_name_text,
           name: father.realname,
           id: tree_id,
           avatar_link: father.avatar_url,
@@ -195,7 +195,7 @@ class FamilyRelation < ActiveRecord::Base
       ap spouse
       if spouse
         node_data[:children][-1][:children].append({
-                                         job: '配偶',
+                                         job: spouse.relation_name_text,
                                          name: spouse.realname,
                                          avatar_link: spouse.avatar_url,
                                          id: tree_id,
@@ -209,7 +209,7 @@ class FamilyRelation < ActiveRecord::Base
       ap mother
       if mother
         node_data[:children].append({
-                                         job: '母亲',
+                                         job: mother.relation_name_text,
                                          name: mother.realname,
                                          avatar_link: mother.avatar_url,
                                          id: tree_id,
