@@ -9,6 +9,8 @@ zh-CN:
       last: "最后一页"
   settings:
     attributes:
+      email_regex_format:
+        name: 邮件正则表达式
       mobile_regex_format:
         name: 手机号码正则表达式
       realname_regex_format:

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  class AdminConstraint
+    def self.matches?(request)
+      Login.current_staff(request.session)
+    end
+  end
+
   resources :family_relations
 
   resources :notary_relateds
@@ -49,6 +55,8 @@ Rails.application.routes.draw do
   get "/data/lwnotary-datalake-uploads/(*link)" => redirect("/upload_files/%{link}.%{format}")
 
   mount Api::Dispatch => '/api'
-  mount RailsSettingsUi::Engine, at: 'settings'
+  constraints(AdminConstraint) do
+    mount RailsSettingsUi::Engine, at: 'settings'
+  end
 
 end

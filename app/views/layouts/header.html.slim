@@ -11,6 +11,7 @@ div.user-header
 
         - if current_staff.admin?
           = link_to '员工列表', staffs_path, class: "top-nav-link"
+          = link_to '配置', rails_settings_ui_path, class: "top-nav-link"
 
   a href="#{dashboard_index_path}"
     h2.header-title.text-center 上海市卢湾公证信息开放平台
