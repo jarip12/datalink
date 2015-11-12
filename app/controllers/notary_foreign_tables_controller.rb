@@ -91,10 +91,11 @@ class NotaryForeignTablesController < ApplicationController
                     pdf.text_box checked_label, :at => [x, pdf.cursor]
                   end
                   x += 15
-                  pdf.text_box option[0], :at => [x, pdf.cursor]
                   if checked and NotaryForeignTable.has_notary_type_info?(option[1])
-                    x += 80
-                    pdf.text_box "(" + @notary_foreign_table.notary_type_info.to_s + ")", :at => [x, pdf.cursor]
+                    pdf.text_box option[0] + " (  " + @notary_foreign_table.notary_type_info.to_s + "  )" , :at => [x, pdf.cursor]
+                    x += 60
+                  else
+                    pdf.text_box option[0], :at => [x, pdf.cursor]
                   end
                   x += 80
                   ap pdf.cursor
