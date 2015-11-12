@@ -34,12 +34,33 @@ class NotaryForeignTablesController < ApplicationController
           }
           pdf.move_down 15
 
+          pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 20 do
 
-          pdf.table([["往   #{@notary_foreign_table.use_country}   国家/地区使用",  "申请公证用途: 定居/探亲/工作/学习/结婚/其它"]], :width => 540) do
-            column(0).borders = [:top, :bottom, :left]
-            column(1).borders = [:top, :bottom, :right]
-            column(1).padding = [5, 0, 5, 120]
+            pdf.move_down 4
+
+            pdf.text_box "往   #{@notary_foreign_table.use_country}   国家/地区使用", :at => [0, pdf.cursor]
+
+            pdf.text_box "申请公证用途：", :at => [260, pdf.cursor]
+            x = 340
+
+            NotaryForeignTable.notary_use.options.each do |option|
+              checked = (option[1] == @notary_foreign_table.notary_use)
+              checked_label = (checked)? "\u2611":  "\u2610"
+              if checked
+                pdf.font "app/assets/fonts/DejaVuSans.ttf" do
+                  pdf.text_box checked_label, :at => [x, pdf.cursor]
+                end
+                x += 10
+              end
+              pdf.text_box option[0], :at => [x, pdf.cursor]
+              x += 25
+
+            end
+
+            pdf.stroke_bounds
+
           end
+
           abroad_info = "申请人已于#{@notary_foreign_table.abroad_day}出境，出境前住址：\n#{@notary_foreign_table.before_abroad_address}"
 
           pdf.bounding_box [0, pdf.cursor], :width => 540, :height => 90 do
