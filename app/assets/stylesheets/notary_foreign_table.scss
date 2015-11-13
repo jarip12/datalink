@@ -53,7 +53,7 @@ div#foreign_table {
     border-top: 1px solid #ccc;
   }
 
-  .notary_relation_container:nth-child(n + 3) {
+  .notary_relation_container:not([style*="display: none"]) ~  .notary_relation_container:not([style*="display: none"]) {
     border-top: 1px solid #ccc;
   }
 
