@@ -73,7 +73,7 @@
           p.text-center 父母、配偶、亲属关系另一方情况
         div.col-xs-10-long.row
           - if @notary_foreign_table.sync_status == "wait_allow"
-            div.edit-buttons
+            div.edit-buttons.clearfix
               span.edit-list.pull-right.page-button-link 编辑记录列表
               span.edit-list-complete.pull-right.page-button-link 完成
           = f.simple_fields_for :notary_relations, html: {class: "form-wrap form-horizontal"} do |notary_relation|
