@@ -5,6 +5,8 @@
 $(document).on 'ready page:load', ->
   console.log("hello daterange")
   $('.daterange').daterangepicker({
+    "startDate": gon.start_date,
+    "endDate": gon.end_date,
     "locale": {
       "format": "YYYY/MM/DD",
       "separator": " - ",
@@ -111,6 +113,14 @@ $(document).on 'ready page:load', ->
               { title: "处理预约" }
             ]
           } );
+          $('.show_table_button').each ->
+            range = $('#reservation-daterange').val().split('-')
+            console.log("after fill table")
+            console.log range
+            start_date = range[0].replace(/\//g, '-').replace(' ', '')
+            end_date = range[1].replace(/\//g, '-').replace(' ', '')
+            href = $(this).attr('href') + "?start_date=" + start_date + "&end_date=" + end_date
+            $(this).attr('href', href)
         else
           console.log(json)
 

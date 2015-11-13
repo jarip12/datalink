@@ -130,6 +130,7 @@
   div.button_row
     p.reserve_time.col-xs-4 disabled="true"
       = "预约办理时间: " + date_display((f.object.reserve_day + " " + f.object.reserve_hour).to_datetime)
-    =link_to "打印", notary_foreign_table_path(format: :pdf), class: "print_pdf col-xs-3 col-xs-offset-2"
-    div.col-xs-2.col-xs-offset-2
+    = link_to "打印", notary_foreign_table_path(format: :pdf), class: "print_pdf col-xs-2 col-xs-offset-1"
+    div.col-xs-2
       input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
+    = link_to "返回", return_back_link, class: "btn btn-danger col-xs-2 "

@@ -35,15 +35,27 @@ class ReservationsController < ApplicationController
   end
 
   def query
+    if params.has_key?("start_date") and params.has_key?("end_date")
+      gon.start_date = params["start_date"]
+      gon.end_date = params["end_date"]
+    else
+      gon.start_date = Date.today.to_s
+      gon.end_date = (Date.today + 7).to_s
+    end
 
-   @reservations = Reservation.by_day.order(:reserve_at)
+    ap gon.start_date
+    ap gon.end_date
 
-   @results = @reservations.map do |reservation|
-    #[reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S"), '<a class="col-xs-4 register-link" href="/users/sign_up">点此注册</a>']
-    [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reserve_table_link_text(reservation), handle_reserve_table_link_text(reservation)]
-   end
+    start_date = Chronic.parse(gon.start_date + " 00:00:00")
+    end_date = Chronic.parse(gon.end_date + " 23:59:59")
 
-   gon.results = @results
+    @reservations = Reservation.where(reserve_at: start_date..end_date).order(:reserve_at)
+    ap @reservations
+    @results = @reservations.map do |reservation|
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), edit_reserve_table_link_text(reservation), handle_reserve_table_link_text(reservation)]
+    end
+
+    gon.results = @results
 
   end
 
