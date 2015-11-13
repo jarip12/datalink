@@ -99,4 +99,21 @@ div#foreign_table {
 
 }
 
+.print_pdf {
+  /* Rectangle 37: */
+  background: #849EE1;
+  border-radius: 7px;
+  /* 打印: */
+  font-family: STXihei;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 8px;
+  line-height: 16px;
+  width: 121px;
+  height: 41px;
+  @extend .btn;
+  @extend .btn-default;
+}
+
+
 
