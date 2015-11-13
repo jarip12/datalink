@@ -101,6 +101,7 @@ div#foreign_table {
 
 .print_pdf {
   /* Rectangle 37: */
+  padding: 12px 12px;
   background: #849EE1;
   border-radius: 7px;
   /* 打印: */
@@ -131,7 +132,26 @@ div#foreign_table {
 
 .button_row {
   margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 15px;
   @extend .row;
 }
 
+.print_pdf_red {
+  background-color: #c9302c;
+  border-color: #ac2925;
+  padding: 12px 12px;
+  @extend .print_pdf;
 
+  &_margin {
+    margin-left: 10px;
+    @extend .print_pdf_red;
+  }
+}
+
+.table_return_btn {
+  height: 41px;
+  @extend .btn;
+  @extend .btn-default;
+  @extend .btn-danger;
+}
