@@ -35,6 +35,11 @@
   color: #18ACD1;
   line-height: 14px;
 
+  &:hover {
+    background: #F8FAFA;
+    border: 1px solid #1EBAD9;
+  }
+
   @extend .btn-default;
   @extend .btn;
 }

@@ -112,6 +112,9 @@ div#foreign_table {
   line-height: 16px;
   width: 121px;
   height: 41px;
+  &:hover {
+    background: #849EE1;
+  }
   @extend .btn;
   @extend .btn-default;
 }
@@ -146,6 +149,10 @@ div#foreign_table {
   &_margin {
     margin-left: 10px;
     @extend .print_pdf_red;
+  }
+
+  &:hover {
+    background: #c9302c;
   }
 }
 
