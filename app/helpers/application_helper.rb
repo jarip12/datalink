@@ -6,4 +6,8 @@ module ApplicationHelper
       return "上午#{a_date.strftime('%k:%M')}"
     end
   end
+
+  def date_display(a_date)
+    a_date.month.to_s + "月" + a_date.day.to_s + "日" + hour_minute_display(a_date)
+  end
 end

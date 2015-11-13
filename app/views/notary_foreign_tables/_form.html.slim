@@ -127,9 +127,9 @@
         p 其他需要说明的有关情况备注：
         = f.input_field :comment, disabled: cannot_edit, rows: 3
 
-      div.row
-        p.btn.btn-default.col-xs-3 disabled="true"
-          = "预约时间: " + f.object.reserve_day + " " + f.object.reserve_hour
-        =link_to "打印", notary_foreign_table_path(format: :pdf), class: "print_pdf col-xs-3 col-xs-offset-2"
-        div.col-xs-2.col-xs-offset-2
-          input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
+  div.button_row
+    p.reserve_time.col-xs-4 disabled="true"
+      = "预约办理时间: " + date_display((f.object.reserve_day + " " + f.object.reserve_hour).to_datetime)
+    =link_to "打印", notary_foreign_table_path(format: :pdf), class: "print_pdf col-xs-3 col-xs-offset-2"
+    div.col-xs-2.col-xs-offset-2
+      input type="submit" class="btn btn-danger btn-block" value="保存" name="commit"
