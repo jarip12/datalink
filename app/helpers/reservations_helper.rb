@@ -13,7 +13,13 @@ module ReservationsHelper
     link = url_for(:back)
     ap request.original_url.split('?')
     ap link.split('?')
-    link.split('?')[0] + '?' + request.original_url.split('?')[-1]
+    originals = request.original_url.split('?')
+    ap originals.length
+    if originals.length >= 2
+      link.split('?')[0] + '?' + request.original_url.split('?')[-1]
+    else
+      link
+    end
   end
 
   def edit_reserve_table_link_text(reservation)
