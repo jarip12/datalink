@@ -19,6 +19,7 @@ class StaffsController < ApplicationController
   end
 
   def create
+    raise AuthorizationError unless current_staff.admin?
     ap staff_params
     @staff = Staff.new(staff_params)
     ap @staff

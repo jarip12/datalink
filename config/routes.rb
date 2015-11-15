@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :property_relateds
   resources :family_relateds
   resources :notary_foreign_tables do
-    get 'as_pdf'
   end
 
   get 'profiles/search', to: 'profiles#search', as: :search_profiles
@@ -41,10 +40,6 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
   get 'dashboard/index'
-
-  #for users
-  devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
-  resources :users
 
   #for staffs
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
