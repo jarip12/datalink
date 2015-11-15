@@ -166,7 +166,7 @@ class NotaryForeignTablesController < ApplicationController
                                                          @notary_foreign_table.agent_mobile, @notary_foreign_table.agent_address ]]
           pdf.table(proxy, :width => 540, :column_widths => [80, 120, 90, 250], :cell_style => {:height => 30, :align => :center})
 
-          pdf.table([["其它需要说明的有关情况备注:\n#{@notary_foreign_table.comment}"]], :width => 540, :cell_style => {height: 70})
+          pdf.table([["其它需要说明的有关情况备注:\n#{@notary_foreign_table.comment}"]], :width => 540, :cell_style => {height: 60})
           pdf.table([["申请日期:", "申请人/代办人签名 ( 盖章 ):    #{@notary_foreign_table.realname}"]], :width => 540) do
             column(0).borders = [:top, :bottom, :left]
             column(1).borders = [:top, :bottom, :right]
