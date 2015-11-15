@@ -17,7 +17,7 @@
 #  email                 :string(255)
 #  mobile                :string(255)
 #  file_num              :integer
-#  require_notary        :boolean          default(TRUE)
+#  require_notary        :string(255)
 #  photo_num             :integer
 #  work_unit             :text(65535)
 #  birth_day             :date

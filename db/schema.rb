@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "email",                 limit: 255
     t.string   "mobile",                limit: 255
     t.integer  "file_num",              limit: 4
-    t.boolean  "require_notary",                      default: true
+    t.string   "require_notary",        limit: 255
     t.integer  "photo_num",             limit: 4
     t.text     "work_unit",             limit: 65535
     t.date     "birth_day"

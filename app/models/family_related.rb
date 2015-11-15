@@ -5,6 +5,7 @@
 #  id           :integer          not null, primary key
 #  updated_once :boolean          default(FALSE)
 #  archive_id   :integer
+#  synced       :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

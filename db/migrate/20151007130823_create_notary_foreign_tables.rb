@@ -17,7 +17,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :email
       t.string :mobile
       t.integer :file_num
-      t.boolean :require_notary, default: true
+      t.string :require_notary
       t.integer :photo_num
       t.text :work_unit
 

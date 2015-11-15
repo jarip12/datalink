@@ -20,7 +20,8 @@ module Api
       end
       post "notary_foreign_tables" do
 
-        notary_foreign_table_params = ActionController::Parameters.new(params).permit(:reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no, :apply_context, :proxy_people_name, :apply_date, :reserve_at)
+        notary_foreign_table_params = ActionController::Parameters.new(params).permit(:sex, :use_country, :now_address, :before_abroad_address, :abroad_day, :notary_type, :notary_type_info, :translate_lang, :email, :mobile, :file_num,
+                                                                                      :require_notary, :photo_num, :work_unit, :comment, :agent_name, :agent_relation, :agent_mobile, :agent_address, :notary_use, :reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no,  :reserve_at)
 
         @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
 
