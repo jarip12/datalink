@@ -38,6 +38,14 @@ module Api
           @notary_foreign_table.reservation_id = reservation.id
           @notary_foreign_table.save
 
+          params["notary_relations"].each do |info|
+            ap info
+            notary_relation_params = ActionController::Parameters.new(info).permit(:relation, :realname, :english_name, :sex, :birth_day, :now_address, :before_abroad_address)
+            notary_relation_params["notary_foreign_table_id"] = @notary_foreign_table.id
+            NotaryRelation.create!(notary_relation_params)
+          end
+
+
           render_success(data)
         else
 
