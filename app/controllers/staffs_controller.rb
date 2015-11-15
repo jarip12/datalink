@@ -33,6 +33,7 @@ class StaffsController < ApplicationController
 
   # PATCH/PUT /staffs/1
   def update
+    raise AuthorizationError unless current_staff.admin?
     ap staff_params
     if @staff.update(staff_params)
       redirect_to staffs_url,  notice: t('action.updated.successfully')
@@ -42,6 +43,7 @@ class StaffsController < ApplicationController
   end
 
   def destroy
+    raise AuthorizationError unless current_staff.admin?
     @staff.destroy
     redirect_to staffs_url, notice: t('action.destroyed.successfully')
   end
