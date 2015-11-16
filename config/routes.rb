@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   root 'dashboard#index'
   get 'dashboard/index'
 
+  devise_for :users, controllers: { passwords: "users/passwords", sessions: "users/sessions", registrations: "users/registrations"}
+  resources :users
+
+
   #for staffs
   devise_for :staffs, controllers: { passwords: "staffs/passwords", sessions: "staffs/sessions", registrations: "staffs/registrations"}
   resources :staffs, except: [:show]
