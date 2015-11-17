@@ -161,6 +161,7 @@ class FamilyRelation < ActiveRecord::Base
       ap my_sibling_data
       if new_tree_id > tree_id
         node_data[:children][-1][:children].concat(my_sibling_data)
+        tree_id = new_tree_id
       end
 
       #add self node
@@ -182,7 +183,6 @@ class FamilyRelation < ActiveRecord::Base
             link_data.append(build_one_link(my_sibling_data[index - 1][:id], my_sibling_data[index - 1][:name], sibling[:id], sibling[:name]))
           end
         end
-        tree_id = new_tree_id
       end
 
 
@@ -238,8 +238,6 @@ class FamilyRelation < ActiveRecord::Base
 
       if spouse_id
        link_data.append(build_one_link(mine_id, archive.profile.realname, spouse_id, ''))
-      elsif have_children
-        link_data.append(build_one_link(mine_id, archive.profile.realname, invisble_child_tree_id, ''))
       end
 
       ap link_data
