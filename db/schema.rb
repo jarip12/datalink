@@ -111,14 +111,6 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.datetime "updated_at",                                     null: false
   end
 
-  create_table "notaries", force: :cascade do |t|
-    t.string   "no",                limit: 255
-    t.string   "notary_type",       limit: 255
-    t.integer  "notary_related_id", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
   create_table "notary_foreign_tables", force: :cascade do |t|
     t.string   "realname",              limit: 255
     t.string   "sex",                   limit: 255
