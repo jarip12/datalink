@@ -52,10 +52,8 @@ class FamilyRelation < ActiveRecord::Base
             job: child.relation_name_text,
             name: child.realname,
             id: tree_start_id + index,
-            no_parent: true
         }
       end
-      node_data[0][:no_parent] = false
       return node_data, tree_start_id + children.count
     end
 
@@ -194,12 +192,6 @@ class FamilyRelation < ActiveRecord::Base
         node_data[:children][-1][:children][-1][:children].concat(my_children_data)
         tree_id = new_tree_id
         have_children = true
-
-        my_children_data.each_with_index do |child, index|
-          if index > 0
-            link_data.append(build_one_link(my_children_data[index - 1][:id], my_children_data[index - 1][:name], child[:id], child[:name]))
-          end
-        end
 
       end
       ap "children data is "
