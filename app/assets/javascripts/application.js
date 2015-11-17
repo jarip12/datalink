@@ -21,7 +21,6 @@
 //= require bootstrap-sprockets
 
 //= require archives
-//= require reservations
 //= require profiles
 
 //= require_tree .

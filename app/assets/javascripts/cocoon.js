@@ -78,7 +78,7 @@
 
       $('img.placeholder').each(function() {
             var input_id;
-          input_id = $(this).parent().parent().next().find( "input" ).attr('id')
+          input_id = $(this).parent().parent().parent().next().find( "input" ).attr('id')
             return $(this).attr('id', input_id + '_image');
       });
 

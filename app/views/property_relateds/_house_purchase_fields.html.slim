@@ -53,9 +53,11 @@ div.nested-fields
 
     div.col-xs-3-img
       - if f.object.scan_file?
-        = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
+        a.fancybox href="#{f.object.scan_file_url}"
+          = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
       - else
-        = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+        a.fancybox href="/assets/two-line-placeholder.png"
+          = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
 
   - unless cannot_edit
     div.row
