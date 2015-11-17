@@ -46,14 +46,16 @@ class FamilyRelation < ActiveRecord::Base
 
 
     def my_children(archive, tree_start_id)
-      children = FamilyRelation.where(relation_name: ['son', 'daughter'], family_related_id: archive.family_related.id)
+      children = FamilyRelation.where(relation_name: ['stepson', 'stepdaughter', 'adaptive_son', 'adaptive_daughter', 'son', 'daughter'], family_related_id: archive.family_related.id)
       node_data = children.each_with_index.map do | child, index |
         {
             job: child.relation_name_text,
             name: child.realname,
-            id: tree_start_id + index
+            id: tree_start_id + index,
+            no_parent: true
         }
       end
+      node_data[0][:no_parent] = false
       return node_data, tree_start_id + children.count
     end
 
@@ -185,17 +187,6 @@ class FamilyRelation < ActiveRecord::Base
         tree_id = new_tree_id
       end
 
-      #add empty node, used to concat children
-      node_data[:children][-1][:children].append({
-                                                     name: "",
-                                                     id: tree_id,
-                                                     hidden: true,
-                                                     no_parent: true,
-                                                     avatar_link: '',
-                                                     children: []
-                                                 })
-      invisble_child_tree_id = tree_id
-      tree_id += 1
 
       #add children
       my_children_data, new_tree_id = my_children(archive, tree_id)
@@ -203,6 +194,13 @@ class FamilyRelation < ActiveRecord::Base
         node_data[:children][-1][:children][-1][:children].concat(my_children_data)
         tree_id = new_tree_id
         have_children = true
+
+        my_children_data.each_with_index do |child, index|
+          if index > 0
+            link_data.append(build_one_link(my_children_data[index - 1][:id], my_children_data[index - 1][:name], child[:id], child[:name]))
+          end
+        end
+
       end
       ap "children data is "
       ap my_children_data
