@@ -1,5 +1,5 @@
-* * * * * root /bin/bash -l -c 'cd /www/lwnotary-datalake && PATH=/usr/local/bin:/usr/local/bundle/bin GEM_PATH=/root/.gem/ruby/2.1.0:/usr/local/lib/ruby/gems/2.1.0:/usr/local/bundle bundle exec rails runner -e production "NotaryRecord.push_to_user_system" >> /var/log/cron.log 2>&1 '
-* * * * * root /bin/bash -l -c 'cd /www/lwnotary-datalake && PATH=/usr/local/bin:/usr/local/bundle/bin GEM_PATH=/root/.gem/ruby/2.1.0:/usr/local/lib/ruby/gems/2.1.0:/usr/local/bundle bundle exec rails runner -e production "FamilyRelated.sync_to_user_system" >> /var/log/cron.log 2>&1 '
+* * * * * root /bin/bash -l -c '. $HOME/.profile; cd /www/lwnotary-datalake && PATH=/usr/local/bin:/usr/local/bundle/bin GEM_PATH=/root/.gem/ruby/2.1.0:/usr/local/lib/ruby/gems/2.1.0:/usr/local/bundle bundle exec rails runner -e production "NotaryRecord.push_to_user_system" >> /var/log/cron.log 2>&1 '
+* * * * * root /bin/bash -l -c '. $HOME/.profile; cd /www/lwnotary-datalake && PATH=/usr/local/bin:/usr/local/bundle/bin GEM_PATH=/root/.gem/ruby/2.1.0:/usr/local/lib/ruby/gems/2.1.0:/usr/local/bundle bundle exec rails runner -e production "FamilyRelated.sync_to_user_system" >> /var/log/cron.log 2>&1 '
 
 
 
