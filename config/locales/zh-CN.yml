@@ -193,6 +193,10 @@ zh-CN:
         adoptive_father: "养父"
         son: "儿子"
         daughter: "女儿"
+        stepdaughter: "继女"
+        stepson: "继子"
+        adaptive_son: "养子"
+        adaptive_daughter: "养女"
     staff:
       role:
         admin: "管理员"

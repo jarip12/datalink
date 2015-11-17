@@ -63,7 +63,9 @@ class FamilyRelation < ActiveRecord::Base
         {
             job: sibling.relation_name_text,
             name: sibling.realname,
-            id: tree_start_id + index
+            id: tree_start_id + index,
+            no_parent: true,
+            avatar_link: sibling.avatar_url
         }
       end
       return node_data, tree_start_id + siblings.count
@@ -93,6 +95,8 @@ class FamilyRelation < ActiveRecord::Base
 
 
     def build_tree_data(archive)
+
+      link_data = []
 
       if has_no_family_relation(archive)
         node_data = {
@@ -150,13 +154,13 @@ class FamilyRelation < ActiveRecord::Base
       invisble_parent_tree_id = tree_id
       tree_id += 1
 
+
       #add sibling nodes
       my_sibling_data, new_tree_id = my_sibling(archive, tree_id)
       ap "sibling_node is "
       ap my_sibling_data
       if new_tree_id > tree_id
         node_data[:children][-1][:children].concat(my_sibling_data)
-        tree_id = new_tree_id
       end
 
       #add self node
@@ -168,6 +172,18 @@ class FamilyRelation < ActiveRecord::Base
                                       })
       mine_id = tree_id
       tree_id += 1
+
+
+      if my_sibling_data.count > 0
+        my_sibling_data.each_with_index do |sibling, index|
+          if index == 0
+            link_data.append(build_one_link(sibling[:id], sibling[:name], mine_id, archive.profile.realname))
+          else
+            link_data.append(build_one_link(my_sibling_data[index - 1][:id], my_sibling_data[index - 1][:name], sibling[:id], sibling[:name]))
+          end
+        end
+        tree_id = new_tree_id
+      end
 
       #add empty node, used to concat children
       node_data[:children][-1][:children].append({
@@ -221,7 +237,7 @@ class FamilyRelation < ActiveRecord::Base
       end
 
       ap node_data
-      link_data = []
+
       if father_id and mother_id
        link_data.append(build_one_link(father_id, father.realname, mother_id, mother.realname))
       elsif father_id
