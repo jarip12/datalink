@@ -24,4 +24,6 @@
 //= require reservations
 //= require profiles
 
+//= require lightbox
+
 //= require_tree .

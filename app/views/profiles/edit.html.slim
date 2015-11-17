@@ -20,7 +20,7 @@ p.form-title-wrap
         = Profile.human_attribute_name("avatar")
       div.col-xs-3
         - if @profile.avatar?
-          a href="#{@profile.avatar_url(:normal)}" data-lightbox="image-1" data-title="My caption"
+          a.fancybox href="#{@profile.avatar_url(:normal)}"  data-title="My caption"
             = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image", width: 86, height: 81
         - else
           = image_tag "image-placeholder.png", :id => "profile_avatar_image", width: 86, height: 81
