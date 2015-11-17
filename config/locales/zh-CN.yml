@@ -143,6 +143,13 @@ zh-CN:
       sex:
         male: "男"
         female: "女"
+      marry_status:
+        first_time: "初婚"
+        single: "单身"
+        divorse_no_marry: "离婚后未再婚"
+        divorse_again_marry: "离婚后再婚"
+        soul_die_no_marry: "丧偶后未再婚"
+        soul_die_again_marry: "丧偶后再婚"
     house_purchase:
       house_type:
         villa: "别墅"

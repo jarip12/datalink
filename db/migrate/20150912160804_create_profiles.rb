@@ -10,6 +10,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :address
       t.integer :archive_id
       t.string :email
+      t.string :marry_status
       t.boolean :updated_once, default: false
 
       t.timestamps null: false

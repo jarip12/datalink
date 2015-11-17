@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "address",      limit: 255
     t.integer  "archive_id",   limit: 4
     t.string   "email",        limit: 255
+    t.string   "marry_status", limit: 255
     t.boolean  "updated_once",             default: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false

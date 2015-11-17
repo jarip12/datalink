@@ -24,6 +24,7 @@ class Profile < ActiveRecord::Base
 
   extend Enumerize
   enumerize :sex, in: [:male, :female], default: :male
+  enumerize :marry_status, in: [:first_time, :single, :divorse_no_marry, :soul_die_no_marry, :divorse_again_marry, :soul_die_again_marry], default: :single
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :id_no_img, AvatarUploader
