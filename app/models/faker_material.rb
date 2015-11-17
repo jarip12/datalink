@@ -13,7 +13,7 @@
 
 class FakerMaterial < ActiveRecord::Base
   extend Enumerize
-  enumerize :faker_material_type, in: [:company, :person, :foreign], default: :person
+  enumerize :faker_material_type, in: [:neijing, :neimin, :waimin, :waijing, :exec, :taimin, :gangmin, :aomin, :gangjing, :taijing, :yibao], default: :neijing
 
   mount_uploader :scan_file, AvatarUploader
 

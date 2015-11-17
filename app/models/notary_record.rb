@@ -18,7 +18,7 @@
 class NotaryRecord < ActiveRecord::Base
   belongs_to :archive
   extend Enumerize
-  enumerize :notary_type, in: [:company, :person, :foreign], default: :person
+  enumerize :notary_type, in: [:neijing, :neimin, :waimin, :waijing, :exec, :taimin, :gangmin, :aomin, :gangjing, :taijing, :yibao], default: :neijing
 
   mount_uploader :scan_file, AvatarUploader
 

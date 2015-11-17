@@ -12,7 +12,7 @@
 #
 
 class Setting < RailsSettings::CachedSettings
-  defaults[:mobile_regex_format] = '^1[3|4|5|8][0-9]\\d{8}$'
+  defaults[:mobile_regex_format] = '^1[3|4|5|7|8][0-9]\\d{8}$'
   defaults[:realname_regex_format] = '^[\u4E00-\u9FA5]{2,10}$'
   defaults[:id_no_regex_format] = '^[0-9xX]{15,18}$'
   defaults[:email_regex_format] = '^[^@]+@[^@]+\.[^@]+$'

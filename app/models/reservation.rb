@@ -16,7 +16,7 @@
 
 class Reservation < ActiveRecord::Base
   extend Enumerize
-  enumerize :notary_table_type, in: [:foreign], default: :foreign
+  enumerize :notary_table_type, in: [:neijing, :neimin, :waimin, :waijing, :exec, :taimin, :gangmin, :aomin, :gangjing, :taijing, :yibao], default: :neijing
   enumerize :status, in: [:pending, :handled, :refused], default: :pending
 
   delegate :user_verified, :realname, :id_no, to: :notary_table, :allow_nil => true
