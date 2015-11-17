@@ -380,6 +380,7 @@ zh-CN:
         created_at: "创建时间"
         updated_at: "更新时间"
       profile:
+        marry_status: "婚姻状况"
         id_no_img: "身份证扫描件"
         avatar: 照片
         realname: "姓名"
