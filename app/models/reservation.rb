@@ -42,7 +42,12 @@ class Reservation < ActiveRecord::Base
   end
 
   def archive
-    Archive.find_by(user_id: self.user_id)
+    profile = Profile.find_by(id_no: self.id_no)
+    if profile
+      profile.archive
+    else
+      nil
+    end
   end
 
   def notary_table
