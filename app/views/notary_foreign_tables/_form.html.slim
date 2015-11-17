@@ -64,6 +64,11 @@
               = f.input_field :notary_type_info, placeholder: "公证类型补充说明", disabled: cannot_edit
 
           div.row
+            label.col-xs-2 身份证号码
+            div.col-xs-3
+              = f.input_field :id_no, disabled: cannot_edit
+
+          div.row
             label.col-xs-6 工作单位名称、地址、电话（已出境的填写原工作单位):
             div.col-xs-6
               = f.input_field :work_unit, disabled: cannot_edit, rows: 3
