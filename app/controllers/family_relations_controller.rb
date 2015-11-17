@@ -12,7 +12,7 @@ class FamilyRelationsController < ApplicationController
 
   def index_tree
     @family_relations = @archive.family_relations
-    gon.node_data, gon.link_data, gon.margin_left, gon.margin_top = FamilyRelation.build_tree_data(@archive)
+    gon.node_data, gon.link_data, gon.margin_left, gon.margin_top, gon.invisble_parent_tree_id = FamilyRelation.build_tree_data(@archive)
   end
 
   # GET /family_relations/1

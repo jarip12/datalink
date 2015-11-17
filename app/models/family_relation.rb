@@ -106,7 +106,7 @@ class FamilyRelation < ActiveRecord::Base
           avatar_link: archive.profile.avatar_url,
           children: []
         }
-        return node_data, [], 10, 200
+        return node_data, [], 10, 200, -1
       end
       have_children = false
       have_parent = false
@@ -243,7 +243,7 @@ class FamilyRelation < ActiveRecord::Base
       ap link_data
       node_data = transform(node_data)
 
-      return node_data, link_data, 10, -150
+      return node_data, link_data, 10, -150, invisble_parent_tree_id
 
     end
 

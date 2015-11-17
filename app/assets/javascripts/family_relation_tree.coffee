@@ -61,15 +61,12 @@ $(document).on 'ready page:load', ->
   #make an SVG
   $('#family_tree_graph').empty()
   svg = d3.select('#family_tree_graph').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + gon.margin_left + ',' + gon.margin_top + ')')
-  #My JSON note the
-  #no_parent: true this ensures that the node will not be linked to its parent
-  #hidden: true ensures that the nodes is not visible.
 
   console.log(gon.node_data)
   allNodes = flatten(gon.node_data)
-  #This maps the siblings together mapping uses the ID using the blue line
+
   siblings = gon.link_data
-  # Compute the layout.
+
   tree = d3.layout.tree().size([
     width
     height
@@ -96,12 +93,12 @@ $(document).on 'ready page:load', ->
     #define teh start coordinate and end co-ordinate
     linedata = [
       {
-        x: start[0].x
-        y: start[0].y
+        x: start[0].x + 25
+        y: start[0].y + 37
       }
       {
-        x: end[0].x
-        y: end[0].y
+        x: end[0].x + 25
+        y: end[0].y + 37
       }
     ]
     fun = d3.svg.line().x((d) ->
@@ -109,6 +106,11 @@ $(document).on 'ready page:load', ->
     ).y((d) ->
       d.y
     ).interpolate('linear')
+
+    console.log("compute line")
+    console.log(start[0])
+    console.log(end[0])
+
     fun linedata
 
 
@@ -121,23 +123,31 @@ $(document).on 'ready page:load', ->
     `var nodes`
     if d.target.no_parent
       return 'M0,0L0,0'
+    console.log("hello line between node")
+    console.log(d.source);
+    console.log(d.target);
+
     diff = d.source.y - (d.target.y)
     #0.40 defines the point from where you need the line to break out change is as per your choice.
-    ny = d.target.y + diff * 0.40
+    ny = d.target.y + diff * 0.30
     linedata = [
       {
-        x: d.target.x
+        x: d.target.x + 25
         y: d.target.y
       }
       {
-        x: d.target.x
+        x: d.target.x + 25
         y: ny
       }
       {
-        x: d.source.x
+        x: d.source.x + 25
         y: d.source.y
       }
     ]
+
+    if d.source.id == gon.invisble_parent_tree_id
+      linedata[2]['y'] += 37
+
     fun = d3.svg.line().x((d) ->
       d.x
     ).y((d) ->
@@ -161,7 +171,7 @@ $(document).on 'ready page:load', ->
   # Create the node text label.
   nodes.append('text').text((d) ->
     d.name
-  ).attr('x', tx).attr 'y', ty
+  ).attr('x', jx).attr 'y', ty
   nodes.append('text').text((d) ->
     d.job
   ).attr('x', jx).attr 'y', jy
