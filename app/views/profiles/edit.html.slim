@@ -20,7 +20,8 @@ p.form-title-wrap
         = Profile.human_attribute_name("avatar")
       div.col-xs-3
         - if @profile.avatar?
-          = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image", width: 86, height: 81
+          a href="#{@profile.avatar_url(:normal)}" data-lightbox="image-1" data-title="My caption"
+            = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image", width: 86, height: 81
         - else
           = image_tag "image-placeholder.png", :id => "profile_avatar_image", width: 86, height: 81
         div.file-upload.page-button-link
@@ -82,6 +83,7 @@ p.form-title-wrap
       label.col-xs-2.control-label = Profile.human_attribute_name("id_no_img")
       div.col-xs-5
         - if @profile.id_no_img?
+          a href="#{@profile.id_no_img_url(:normal)}" data-lightbox="image-1" data-title="My caption" Image #1
           = image_tag @profile.id_no_img_url(:normal), :id => "profile_id_no_img_image", width: 86, height: 81
         - else
           = image_tag "image-placeholder.png", :id => "profile_id_no_img_image", width: 86, height: 81

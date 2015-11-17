@@ -63,13 +63,7 @@ class NotaryForeignTable < ActiveRecord::Base
   class << self
     def sync_to_server
       ap "exec sync_to_server"
-      ap "env variable"
-      ap ENV['MYSQL_USERNAME']
-      ap ENV['MYSQL_PASSWORD']
-      ap ENV['MYSQL_PORT_3306_TCP_PORT']
-      ap ENV['MYSQL_PORT_3306_TCP_ADDR']
-      ap ENV['MYSQL_INSTANCE_NAME']
-      ap Setting.sync_notary_foreign_table_url
+
 
       pending_tables = NotaryForeignTable.where(sync_status: "pending")
       ap pending_tables.count
