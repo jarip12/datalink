@@ -1,7 +1,6 @@
 $(document).on 'ready page:load', ->
   if $('#family_tree_graph').length == 0
     return
-  console.log "family_relation_coffee load"
   margin =
     top: -150
     right: 10
@@ -62,7 +61,6 @@ $(document).on 'ready page:load', ->
   $('#family_tree_graph').empty()
   svg = d3.select('#family_tree_graph').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + gon.margin_left + ',' + gon.margin_top + ')')
 
-  console.log(gon.node_data)
   allNodes = flatten(gon.node_data)
 
   siblings = gon.link_data
@@ -107,9 +105,6 @@ $(document).on 'ready page:load', ->
       d.y
     ).interpolate('linear')
 
-    console.log("compute line")
-    console.log(start[0])
-    console.log(end[0])
 
     fun linedata
 
@@ -123,9 +118,6 @@ $(document).on 'ready page:load', ->
     `var nodes`
     if d.target.no_parent
       return 'M0,0L0,0'
-    console.log("hello line between node")
-    console.log(d.source);
-    console.log(d.target);
 
     diff = d.source.y - (d.target.y)
     #0.40 defines the point from where you need the line to break out change is as per your choice.

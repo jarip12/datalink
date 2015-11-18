@@ -4,9 +4,7 @@
 
 $(document).on 'ready page:load', ->
 
-
   $('#notary_foreign_table_notary_type').on 'change', ->
-    console.log this.value
     if ($.inArray(this.value, ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver',
           'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1)
       $('#notary_foreign_table_notary_type_info').show()

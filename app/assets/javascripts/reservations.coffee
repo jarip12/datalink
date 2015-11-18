@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'ready page:load', ->
-  console.log("hello daterange")
   $('.daterange').daterangepicker({
     "startDate": gon.start_date,
     "endDate": gon.end_date,
@@ -57,27 +56,19 @@ $(document).on 'ready page:load', ->
   })
 
   $('#reservation-query-form').submit (event) ->
-    console.log("hello query form")
-    console.log("hello query form")
     event.preventDefault()
     form_data = {
       daterange: $('#reservation-daterange').val()
     }
-    console.log(form_data)
     $.ajax
       url: $(this).attr('action')
       type: 'POST'
       dataType: 'json'
       data: form_data
       success: (json) ->
-        console.log("hello")
         if json.success
-          console.log(json)
           table = $("#reservation-data-table").dataTable()
           table.fnDestroy()
-          console.log("table removed")
-          console.log(json['data'])
-          console.log(json)
           $('#reservation-data-table').DataTable( {
             language: {
                 "sProcessing":   "处理中...",
@@ -115,14 +106,12 @@ $(document).on 'ready page:load', ->
           } );
           $('.show_table_button').each ->
             range = $('#reservation-daterange').val().split('-')
-            console.log("after fill table")
-            console.log range
             start_date = range[0].replace(/\//g, '-').replace(' ', '')
             end_date = range[1].replace(/\//g, '-').replace(' ', '')
             href = $(this).attr('href') + "?start_date=" + start_date + "&end_date=" + end_date
             $(this).attr('href', href)
         else
-          console.log(json)
+          return
 
   $('#reservation-data-table').DataTable( {
     language: {
@@ -161,9 +150,6 @@ $(document).on 'ready page:load', ->
   } );
 
   $("input#profile_avatar").change ->
-    console.log("change a profile avatar")
-    console.log(self)
-    console.log(self.files)
     if self.files && self.files[0]
       reader = new FileReader();
 

@@ -42,7 +42,6 @@ class NotaryRecord < ActiveRecord::Base
 
       ap records.count
       records.each do |record|
-        ap record.to_json
         response = Excon.post(Setting.sync_notary_record_url,
                               :body => record.to_json(:methods => :client_token),
                               :headers => { "Content-Type" => "application/json" })
