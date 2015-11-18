@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.string   "realname",              limit: 255
     t.string   "sex",                   limit: 255
     t.integer  "age",                   limit: 4
-    t.integer  "id_no",                 limit: 4
+    t.string   "id_no",                 limit: 255
     t.string   "use_country",           limit: 255
     t.text     "now_address",           limit: 65535
     t.text     "before_abroad_address", limit: 65535

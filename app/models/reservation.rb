@@ -22,7 +22,13 @@ class Reservation < ActiveRecord::Base
   delegate :user_verified, :realname, :id_no, to: :notary_table, :allow_nil => true
   has_one :notary_foreign_table
 
+  before_save :set_reserve_at
+
   by_star_field :reserve_at
+
+  def set_reserve_at
+    self.reserve_at = (self.reserve_day + " " + self.reserve_hour + ":00").to_datetime
+  end
 
   class << self
     def verified_in_user_system

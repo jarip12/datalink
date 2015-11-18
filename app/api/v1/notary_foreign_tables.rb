@@ -21,20 +21,18 @@ module Api
       post "notary_foreign_tables" do
 
         notary_foreign_table_params = ActionController::Parameters.new(params).permit(:sex, :use_country, :now_address, :before_abroad_address, :abroad_day, :notary_type, :notary_type_info, :translate_lang, :email, :mobile, :file_num,
-                                                                                      :require_notary, :photo_num, :work_unit, :comment, :agent_name, :agent_relation, :agent_mobile, :agent_address, :notary_use, :reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :company_location, :residence, :paperwork_name, :paperwork_no,  :reserve_at)
+                                                                                      :require_notary, :photo_num, :work_unit, :comment, :agent_name, :agent_relation, :agent_mobile, :agent_address, :notary_use, :reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :residence)
 
         @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
 
         ap notary_foreign_table_params
-
-        @notary_foreign_table.reserve_at = Time.now + rand(1...7).days
 
         data = {}
 
         if @notary_foreign_table.save
           ap params
 
-          reservation = Reservation.create(user_id: @notary_foreign_table.user_id, reserve_at: @notary_foreign_table.reserve_at, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
+          reservation = Reservation.create(user_id: @notary_foreign_table.user_id, notary_table_id: @notary_foreign_table.id, notary_table_type: "foreign")
           @notary_foreign_table.reservation_id = reservation.id
           @notary_foreign_table.save
 

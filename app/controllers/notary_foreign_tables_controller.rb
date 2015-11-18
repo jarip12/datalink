@@ -268,7 +268,7 @@ class NotaryForeignTablesController < ApplicationController
     def notary_foreign_table_params
       params.require(:notary_foreign_table).permit(:reserve_day, :reserve_hour, :notary_type_info, :notary_use, :realname, :id_no, :age, :birth_day, :use_country, :sex, :email, :now_address, :mobile, :abroad_day, :before_abroad_address,
                                                    :work_unit, :notary_type, :translate_lang, :file_num, :require_notary, :photo_num, :agent_name, :agent_relation,
-                                                   :agent_mobile, :agent_address, :comment, :reserve_at,
+                                                   :agent_mobile, :agent_address, :comment,
                                                    notary_relations_attributes: [:id, :_destroy, :relation, :realname, :sex, :english_name, :birth_day, :now_address, :before_abroad_address]
       )
     end
