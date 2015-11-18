@@ -39,4 +39,4 @@ RUN gem install minitest -v '5.8.0'
 RUN bundle install
 
 EXPOSE 3000
-CMD ["sh", "start.sh"]
+CMD env > /root/env.txt && sh "start.sh"

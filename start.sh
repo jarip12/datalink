@@ -1,3 +1,5 @@
+sed -i.bak s/=/: /g /root/env.txt
+
 rsyslogd
 cron
 
