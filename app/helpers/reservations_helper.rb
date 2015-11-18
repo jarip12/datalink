@@ -1,6 +1,6 @@
 module ReservationsHelper
   def edit_table_link(reservation)
-    if reservation.notary_table_type == "foreign"
+    if reservation.notary_table_type == "waimin"
       edit_notary_foreign_table_path(reservation.notary_table_id)
     else
       '/'
@@ -23,7 +23,7 @@ module ReservationsHelper
   end
 
   def edit_reserve_table_link_text(reservation)
-    if reservation.notary_table_type == "foreign"
+    if reservation.notary_table_type == "waimin"
       link_text = edit_notary_foreign_table_path(reservation.notary_table_id)
       return "<a class='col-xs-4 show_table_button show_button' href='#{link_text}'>查看</a>"
     else
@@ -32,7 +32,7 @@ module ReservationsHelper
   end
 
   def handle_reserve_table_link_text(reservation)
-    if reservation.notary_table_type == "foreign"
+    if reservation.notary_table_type == "waimin"
       link_text = reservation_handle_path(reservation)
       return "<a class='col-xs-4 show_button' href='#{link_text}'>已验证身份</a>"
     else
@@ -42,7 +42,7 @@ module ReservationsHelper
 
 
   def reserve_table_link(reservation)
-    if reservation.notary_table_type == "foreign"
+    if reservation.notary_table_type == "waimin"
       notary_foreign_table_path(reservation.notary_table_id)
     else
       '/'

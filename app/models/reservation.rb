@@ -27,7 +27,7 @@ class Reservation < ActiveRecord::Base
   by_star_field :reserve_at
 
   def set_reserve_at
-    self.reserve_at = (self.reserve_day + " " + self.reserve_hour + ":00").to_datetime
+    self.reserve_at = (self.notary_table.reserve_day + " " + self.notary_table.reserve_hour + ":00").to_datetime
   end
 
   class << self
@@ -57,7 +57,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def notary_table
-    if self.notary_table_type == 'foreign'
+    if self.notary_table_type == 'waimin'
       NotaryForeignTable.find(self.notary_table_id)
     else
       nil
