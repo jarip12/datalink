@@ -70,7 +70,7 @@ class NotaryForeignTablesController < ApplicationController
               pdf.table [["姓名", @notary_foreign_table.realname, "性别", @notary_foreign_table.sex_text, "出生日期", @notary_foreign_table.birth_day, "邮箱", @notary_foreign_table.email]], :width => 520, :column_widths => [50, 70, 40, 40, 60, 80] do
                 row(0).style :align => :center
               end
-              pdf.table [["现住址", @notary_foreign_table.now_address, "电话", @notary_foreign_table.mobile]], :width => 520, :column_widths => [50, 210, 80, 180] do
+              pdf.table [["现住址", @notary_foreign_table.now_address, "电话", @notary_foreign_table.mobile, "身份证号码", @notary_foreign_table.id_no]], :width => 520, :column_widths => [50, 110, 40, 100, 80, 140] do
                 row(0).style :align => :center
               end
               pdf.table [[abroad_info]], :width => 500, :cell_style => {:borders => []}
