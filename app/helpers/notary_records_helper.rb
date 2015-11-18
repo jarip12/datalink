@@ -1,7 +1,7 @@
 module NotaryRecordsHelper
   def table_link(notary_record)
     ap notary_record
-    if notary_record.notary_type == "foreign"
+    if notary_record.notary_type == "waimin"
       notary_foreign_table_path(notary_record.notary_table_id)
     else
       '/'
@@ -10,7 +10,7 @@ module NotaryRecordsHelper
 
   def edit_foreign_table_link(notary_record)
     ap notary_record
-    if notary_record.notary_type == "foreign"
+    if notary_record.notary_type == "waimin"
       edit_notary_foreign_table_path(notary_record.notary_table_id)
     else
       '/'
