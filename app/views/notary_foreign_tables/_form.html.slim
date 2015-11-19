@@ -56,14 +56,6 @@
               = f.input_field :before_abroad_address, disabled: cannot_edit
 
           div.row
-            label.col-xs-2 公证类型
-            div.col-xs-3
-              = f.input_field :notary_type, :include_blank => false, disabled: cannot_edit
-
-            div.col-xs-3.col-xs-offset-1
-              = f.input_field :notary_type_info, placeholder: "公证类型补充说明", disabled: cannot_edit
-
-          div.row
             label.col-xs-2 身份证号码
             div.col-xs-3
               = f.input_field :id_no, disabled: cannot_edit
@@ -72,6 +64,20 @@
             label.col-xs-6 工作单位名称、地址、电话（已出境的填写原工作单位):
             div.col-xs-6
               = f.input_field :work_unit, disabled: cannot_edit, rows: 3
+
+      div.row.table-row.notary_type_table#notary_foreign_table_relation
+        div.col-xs-2-long
+          p.text-center 公证类型
+        div.col-xs-10-long.row
+          - if @notary_foreign_table.sync_status == "wait_allow"
+            div.edit-buttons.clearfix
+              span.edit-list.pull-right.page-button-link 编辑记录列表
+              span.edit-list-complete.pull-right.page-button-link 完成
+          = f.simple_fields_for :notary_types, html: {class: "form-wrap form-horizontal"} do |notary_type|
+            = render 'notary_type_fields', f: notary_type, cannot_edit: false
+          - if @notary_foreign_table.sync_status == "wait_allow"
+            .links
+              = link_to_add_association '添加公证类型', f, :notary_types, class: "pull-right page-button-link", render_options: {locals: {cannot_edit: cannot_edit}}
 
       div.row.table-row#notary_foreign_table_relation
         div.col-xs-2-long

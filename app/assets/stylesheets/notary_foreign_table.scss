@@ -172,3 +172,11 @@ div#foreign_table {
   @extend .btn-default;
   @extend .btn-danger;
 }
+
+.type_info {
+  display: none;
+}
+
+.div#foreign_table div.notary_type_table .notary_relation_container {
+  border-top: none !important;
+}

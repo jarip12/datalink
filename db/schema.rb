@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025025104) do
+ActiveRecord::Schema.define(version: 20151119101951) do
 
   create_table "archives", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -120,8 +120,6 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.text     "now_address",           limit: 65535
     t.text     "before_abroad_address", limit: 65535
     t.date     "abroad_day"
-    t.string   "notary_type",           limit: 255
-    t.string   "notary_type_info",      limit: 255
     t.string   "translate_lang",        limit: 255
     t.string   "email",                 limit: 255
     t.string   "mobile",                limit: 255
@@ -185,6 +183,14 @@ ActiveRecord::Schema.define(version: 20151025025104) do
     t.integer  "notary_foreign_table_id", limit: 4
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "notary_types", force: :cascade do |t|
+    t.string   "type_name",               limit: 255
+    t.integer  "notary_foreign_table_id", limit: 4
+    t.string   "type_info",               limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "profiles", force: :cascade do |t|

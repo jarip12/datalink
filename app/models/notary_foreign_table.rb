@@ -11,8 +11,6 @@
 #  now_address           :text(65535)
 #  before_abroad_address :text(65535)
 #  abroad_day            :date
-#  notary_type           :string(255)
-#  notary_type_info      :string(255)
 #  translate_lang        :string(255)
 #  email                 :string(255)
 #  mobile                :string(255)
@@ -50,13 +48,10 @@ class NotaryForeignTable < ActiveRecord::Base
 
   enumerize :sex, in: [:male, :female]
   enumerize :notary_use, in: [:settle, :visit_family, :work, :learn, :marry, :other], default: :settle
-  enumerize :notary_type, in: [:birth, :single, :tortured, :register_residence, :country, :remarry, :family_relation,
-                        :live, :residence, :death, :work_experience, :retire, :delegate, :declare, :guarantee,
-                        :fingerprint, :heath, :education, :degree, :grade, :marry, :divorce, :driver, :certificate,
-                        :owner, :deposit, :qualified, :translate, :other], default: :birth
 
   has_many :notary_relations
-  accepts_nested_attributes_for :notary_relations, allow_destroy: true
+  has_many :notary_types
+  accepts_nested_attributes_for :notary_relations, :notary_types, allow_destroy: true
 
   delegate :server_token, to: Setting
 

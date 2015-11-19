@@ -108,7 +108,8 @@ zh-CN:
       sex:
         male: "男"
         female: "女"
-      notary_type:
+    notary_type:
+      type_name:
         birth: "出生"
         single: "未婚"
         tortured: "受或未受刑"

@@ -4,15 +4,23 @@
 
 $(document).on 'ready page:load', ->
 
-  $('#notary_foreign_table_notary_type').on 'change', ->
+  console.log("hello my world")
+  $('.type_name').on 'change', ->
+    console.log("type name change")
+    console.log(this.value)
     if ($.inArray(this.value, ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver',
-          'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1)
-      $('#notary_foreign_table_notary_type_info').show()
+                               'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1)
+      $(this).parent().next().next().show()
+      $(this).parent().next().show()
     else
-      $('#notary_foreign_table_notary_type_info').hide()
+      $(this).parent().next().next().hide()
+      $(this).parent().next().hide()
 
-  notary_type = $('#notary_foreign_table_notary_type').val()
-  if ($.inArray(notary_type, ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver',
-    'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1)
-    $('#notary_foreign_table_notary_type_info').show()
-
+  $('.type_name').each ->
+    if ($.inArray(this.value, ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver',
+                               'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1)
+      $(this).parent().next().next().show()
+      $(this).parent().next().show()
+    else
+      $(this).parent().next().next().hide()
+      $(this).parent().next().hide()

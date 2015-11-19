@@ -1,0 +1,13 @@
+div.notary_type_container.nested-fields
+
+  - unless cannot_edit
+    div.remove-link-div.clearfix
+      = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
+
+  div.row
+    label.col-xs-2 公证类型:
+    div.col-xs-3
+      = f.input_field :type_name, disabled: cannot_edit, include_blank: false, class: "type_name"
+    label.col-xs-2.col-xs-offset-1.type_info 公证类型补充说明:
+    div.col-xs-3.type_info
+      = f.input_field :type_info, disabled: cannot_edit

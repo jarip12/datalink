@@ -11,8 +11,6 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.text :before_abroad_address
       t.date :abroad_day
 
-      t.string :notary_type
-      t.string :notary_type_info
       t.string :translate_lang
       t.string :email
       t.string :mobile

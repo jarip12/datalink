@@ -42,6 +42,12 @@ module Api
             NotaryRelation.create!(notary_relation_params)
           end
 
+          params["notary_types"].each do |info|
+            ap info
+            notary_type_params = ActionController::Parameters.new(info).permit(:type_name, :type_info)
+            notary_type_params["notary_foreign_table_id"] = @notary_foreign_table.id
+            NotaryType.create!(notary_type_params)
+          end
 
           render_success(data)
         else

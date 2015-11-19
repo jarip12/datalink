@@ -11,8 +11,6 @@
 #  now_address           :text(65535)
 #  before_abroad_address :text(65535)
 #  abroad_day            :date
-#  notary_type           :string(255)
-#  notary_type_info      :string(255)
 #  translate_lang        :string(255)
 #  email                 :string(255)
 #  mobile                :string(255)
