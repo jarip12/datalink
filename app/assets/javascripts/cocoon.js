@@ -79,8 +79,19 @@
       $('img.placeholder').each(function() {
             var input_id;
           input_id = $(this).parent().parent().parent().next().find( "input" ).attr('id')
-            return $(this).attr('id', input_id + '_image');
+            $(this).attr('id', input_id + '_image');
       });
+
+        $('.type_name').on('change', function() {
+            if ($.inArray(this.value, ['family_relation', 'retire', 'health', 'education', 'degree', 'grade', 'marry', 'divorce', 'driver', 'certificate', 'owner', 'deposit', 'qualified', 'translate']) > -1) {
+                $(this).parent().next().next().show();
+                return $(this).parent().next().show();
+            } else {
+                $(this).parent().next().next().hide();
+                return $(this).parent().next().hide();
+            }
+        });
+
 
     });
   });
