@@ -17,7 +17,7 @@ describe Ability, :type => :model do
     it { is_expected.to be_able_to(:show, Archive) }
     it { is_expected.not_to be_able_to([:edit, :new], Archive) }
 
-    it { is_expected.not_to be_able_to([:all], Reservation) }
+    it { is_expected.to be_able_to([:all], Reservation) }
 
     it { is_expected.to be_able_to(:search, Profile) }
     it { is_expected.to be_able_to(:show, Profile) }
