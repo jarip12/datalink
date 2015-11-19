@@ -33,7 +33,7 @@ class Ability
     def basic_read_only
       can :search, Profile
       can :show, :all
-      can :index, Reservation
+      can :manage, Reservation
       cannot :manage, Staff
       can :index, FamilyRelation
       can :index_tree, FamilyRelation
