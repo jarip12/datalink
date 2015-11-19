@@ -33,7 +33,10 @@ div.search-table-wrap
     div.empty-wrap
       div.empty-title 未搜索到相关公证居民
       div.row
-        = link_to '创建新档案', new_profile_path, class: "control-label btn btn-default new-profile-button col-xs-offset-2"
+        - if can? :new, Profile
+          = link_to '创建新档案', new_profile_path, class: "control-label btn btn-default new-profile-button col-xs-offset-2"
+        - else
+          = link_to '创建新档案', new_profile_path, class: "control-label btn btn-default new-profile-button col-xs-offset-2 click-disabled"
         = link_to '返回', root_path, class: "btn btn-default return-button col-xs-offset-2"
 
 

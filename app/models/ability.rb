@@ -11,6 +11,7 @@ class Ability
       basic_read_only
 
       cannot :manage, Reservation
+      cannot :manage, NotaryForeignTable
       can [:new, :create], Archive
 
       can [:create, :new_archive], Profile
@@ -34,6 +35,7 @@ class Ability
       can :search, Profile
       can :show, :all
       can :manage, Reservation
+      can :manage, NotaryForeignTable
       cannot :manage, Staff
       can :index, FamilyRelation
       can :index_tree, FamilyRelation
