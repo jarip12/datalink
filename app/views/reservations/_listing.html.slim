@@ -2,9 +2,10 @@
   div.inner-table
     table.table
       thead
-        th.col-md-3= Reservation.human_attribute_name("user_realname")
-        th.col-md-3= Reservation.human_attribute_name("notary_table_type")
-        th.col-md-4= Reservation.human_attribute_name("reserve_at")
+        th.col-md-3 = Reservation.human_attribute_name("user_realname")
+        th.col-md-3 = Reservation.human_attribute_name("notary_table_type")
+        th.col-md-4 = Reservation.human_attribute_name("reserve_at")
+        th.col-md-2 = Reservation.human_attribute_name("status")
         th.col-md-2
       tbody
         - smart_listing.collection.each do |o|
@@ -12,9 +13,8 @@
             td = o.user_realname
             td = o.notary_table_type_text
             td = hour_minute_display(o.reserve_at)
+            td = o.status_text
             td = link_to "查看申请表", edit_table_link(o), class: "show_button"
-            td = link_to "身份已认证", reservation_handle_path(o), class: "show_button"
-
 
 
     -# Render nice pagination links fitted for Bootstrap 3 by default

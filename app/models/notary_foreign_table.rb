@@ -6,7 +6,7 @@
 #  realname              :string(255)
 #  sex                   :string(255)
 #  age                   :integer
-#  id_no                 :integer
+#  id_no                 :string(255)
 #  use_country           :string(255)
 #  now_address           :text(65535)
 #  before_abroad_address :text(65535)
@@ -47,6 +47,7 @@ class NotaryForeignTable < ActiveRecord::Base
   extend Enumerize
   enumerize :require_notary, in: [:required, :not_required]
   enumerize :sync_status, in: [:wait_allow, :pending, :success], default: :wait_allow
+
   enumerize :sex, in: [:male, :female]
   enumerize :notary_use, in: [:settle, :visit_family, :work, :learn, :marry, :other], default: :settle
   enumerize :notary_type, in: [:birth, :single, :tortured, :register_residence, :country, :remarry, :family_relation,

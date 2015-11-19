@@ -140,6 +140,16 @@ div#foreign_table {
   @extend .row;
 }
 
+.print_pdf_verify {
+  width: auto;
+  @extend .print_pdf;
+}
+
+.pull_right_margin {
+  margin-right: 15px;
+  @extend .pull-right;
+}
+
 .print_pdf_red {
   background-color: #c9302c;
   border-color: #ac2925;

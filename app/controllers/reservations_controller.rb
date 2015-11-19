@@ -52,7 +52,7 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.where(reserve_at: start_date..end_date).order(:reserve_at)
     ap @reservations
     @results = @reservations.map do |reservation|
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), edit_reserve_table_link_text(reservation), handle_reserve_table_link_text(reservation)]
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reservation.status_text, edit_reserve_table_link_text(reservation)]
     end
 
     gon.results = @results
@@ -64,12 +64,8 @@ class ReservationsController < ApplicationController
       times = params["daterange"].split(' - ')
       times[0] += " 00:00:00"
       times[1] += " 23:59:59"
-      ap times[0]
-      ap times[1]
       start_at = Chronic.parse(times[0])
       end_at = Chronic.parse(times[1])
-      ap start_at.strftime("%H:%M:%S")
-      ap end_at.strftime("%H:%M:%S")
       @reservations = Reservation.where(reserve_at: start_at..end_at).order(:reserve_at)
     else
       @reservations = Reservation.by_day.order(:reserve_at)
@@ -78,7 +74,7 @@ class ReservationsController < ApplicationController
     @results = @reservations.map do |reservation|
       #[reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d  %H:%M:%S"), '<a class="col-xs-4 register-link" href="/users/sign_up">点此注册</a>']
       #[reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reserve_table_link_text(reservation)]
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), edit_reserve_table_link_text(reservation), handle_reserve_table_link_text(reservation)]
+      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reservation.status_text, edit_reserve_table_link_text(reservation)]
     end
 
     render_success({data: @results})
@@ -90,7 +86,7 @@ class ReservationsController < ApplicationController
     @current_day_idx = Time.now.strftime("%u").to_i
     #binding.pry
     for i in 1..5
-      smart_listing_create("reservation#{i}", Reservation.where(status: "pending").by_day(offset:  (i - @current_day_idx).days).order(:reserve_at), partial: "reservations/listing")
+      smart_listing_create("reservation#{i}", Reservation.by_day(offset:  (i - @current_day_idx).days).order(:reserve_at), partial: "reservations/listing")
     end
     if @current_day_idx > 5 or @current_day_idx < 1
       @current_day_idx = 1

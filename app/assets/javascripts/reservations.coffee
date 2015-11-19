@@ -100,8 +100,8 @@ $(document).on 'ready page:load', ->
               { title: "申请人" },
               { title: "公证类型" },
               { title: "预约时间" },
+              { title: "状态" }
               { title: "查看" }
-              { title: "处理预约" }
             ]
           } );
           $('.show_table_button').each ->
@@ -144,8 +144,8 @@ $(document).on 'ready page:load', ->
       { title: "申请人" },
       { title: "公证类型" },
       { title: "预约时间" },
+      { title: "状态" }
       { title: "查看" }
-      { title: "处理预约" }
     ]
   } );
 
