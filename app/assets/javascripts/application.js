@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.fancybox
 //= require jquery_ujs
 //= require turbolinks
 //= require smart_listing
@@ -19,6 +20,8 @@
 //= require moment
 
 //= require bootstrap-sprockets
+
+//= require lightbox
 
 //= require archives
 //= require profiles

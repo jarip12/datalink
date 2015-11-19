@@ -132,3 +132,4 @@ end
 
 gem 'mina-unicorn', require: false
 gem 'unicorn'
+gem 'lightbox2-rails'

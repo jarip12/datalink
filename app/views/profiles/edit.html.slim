@@ -20,10 +20,10 @@ p.form-title-wrap
         = Profile.human_attribute_name("avatar")
       div.col-xs-3
         - if @profile.avatar?
-          a.fancybox href="#{@profile.avatar_url}"
+          a href="#{@profile.avatar_url}" data-lightbox="#{@profile.avatar_url}"
             = image_tag @profile.avatar_url(:normal), :id => "profile_avatar_image", width: 86, height: 81
         - else
-          a.fancybox href="/assets/image-placeholder.png"
+          a href="/assets/image-placeholder.png" data-lightbox="profile_avatar"
             = image_tag "image-placeholder.png", :id => "profile_avatar_image", width: 86, height: 81
         div.file-upload.page-button-link
           span 上传照片
@@ -84,10 +84,10 @@ p.form-title-wrap
       label.col-xs-2.control-label = Profile.human_attribute_name("id_no_img")
       div.col-xs-5
         - if @profile.id_no_img?
-          a.fancybox href="#{@profile.id_no_img_url}"
+          a href="#{@profile.id_no_img_url}" data-lightbox="#{@profile.id_no_img_url}"
             = image_tag @profile.id_no_img_url(:normal), :id => "profile_id_no_img_image", width: 86, height: 81
         - else
-          a.fancybox href="/assets/image-placeholder.png"
+          a href="/assets/image-placeholder.png" data-lightbox="profile_id_no_imge_url"
             = image_tag "image-placeholder.png", :id => "profile_id_no_img_image", width: 86, height: 81
         div.file-upload.page-button-link
           span 上传扫描件

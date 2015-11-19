@@ -27,10 +27,10 @@ p.form-title-wrap
 
         div.col-xs-3
           - if f.object.crime_record_file?
-            a.fancybox href="#{f.object.crime_record_file_url}"
+            a href="#{f.object.crime_record_file_url}" data-lightbox="#{f.object.crime_record_file_url}"
               = image_tag f.object.crime_record_file_url(:crime_record), id: "notary_related_crime_record_file_image", width: 238, height: 116
           - else
-            a.fancybox href="/assets/crime_record.png"
+            a href="/assets/crime_record.png" data-lightbox="crime_record_file"
               = image_tag "crime_record.png", id: "notary_related_crime_record_file_image", width: 238, height: 116
 
         div.file-upload-right.page-button-link
@@ -47,10 +47,10 @@ p.form-title-wrap
 
         div.col-xs-3
           - if f.object.testament_file?
-            a.fancybox href="#{f.object.crime_record_file_url}"
+            a href="#{f.object.testament_file_url}" data-lightbox="#{f.object.testament_file_url}"
               = image_tag f.object.testament_file_url(:testament), id: "notary_related_testament_file_image", width: 238, height: 116
           - else
-            a.fancybox href="/assets/testament.png"
+            a href="/assets/testament.png" data-lightbox="testament_file"
               = image_tag "testament.png", id: "notary_related_testament_file_image", width: 238, height: 116
 
         div.file-upload-right.page-button-link
