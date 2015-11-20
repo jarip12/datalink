@@ -5,6 +5,7 @@ class CreateNotaryForeignTables < ActiveRecord::Migration
       t.string :sex
       t.integer :age
       t.string :id_no
+      t.string :table_no
       t.string :use_country
       t.text :now_address
 

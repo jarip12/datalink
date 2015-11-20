@@ -7,6 +7,7 @@
 #  sex                   :string(255)
 #  age                   :integer
 #  id_no                 :string(255)
+#  table_no              :string(255)
 #  use_country           :string(255)
 #  now_address           :text(65535)
 #  before_abroad_address :text(65535)
