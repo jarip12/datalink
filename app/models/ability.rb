@@ -12,6 +12,7 @@ class Ability
 
       cannot :manage, Reservation
       cannot :manage, NotaryForeignTable
+      cannot :notary_records, Archive
       can [:new, :create], Archive
 
       can [:create, :new_archive], Profile
