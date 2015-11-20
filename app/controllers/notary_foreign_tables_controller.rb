@@ -106,14 +106,18 @@ class NotaryForeignTablesController < ApplicationController
                 ap pdf.cursor
                 x = 5
                 slice.each_with_index do |option, index|
-                  checked = (option[1] == @notary_foreign_table.notary_type)
+                  checked = false
+                  try_notary_type = NotaryType.where(notary_foreign_table_id: @notary_foreign_table.id, type_name: option[1]).first
+                  if try_notary_type
+                    checked = true
+                  end
                   checked_label = (checked)? "\u2611":  "\u2610"
                   pdf.font "app/assets/fonts/DejaVuSans.ttf" do
                     pdf.text_box checked_label, :at => [x, pdf.cursor]
                   end
                   x += 15
                   if checked and NotaryForeignTable.has_notary_type_info?(option[1])
-                    pdf.text_box option[0] + " (  " + @notary_foreign_table.notary_type_info.to_s + "  )" , :at => [x, pdf.cursor]
+                    pdf.text_box option[0] + " (  " + try_notary_type.type_info.to_s + "  )" , :at => [x, pdf.cursor]
                     x += 60
                   else
                     pdf.text_box option[0], :at => [x, pdf.cursor]
