@@ -20,7 +20,10 @@ module Api
       end
       post "notary_foreign_tables" do
 
-        NotaryForeignTable.where(table_no: params[:table_no]).destroy_all
+        tables = NotaryForeignTable.where(table_no: params[:table_no])
+        if tables.count > 0
+          return render_success({})
+        end
         notary_foreign_table_params = ActionController::Parameters.new(params).permit(:table_no, :sex, :use_country, :now_address, :before_abroad_address, :abroad_day, :notary_type, :notary_type_info, :translate_lang, :email, :mobile, :file_num,
                                                                                       :require_notary, :photo_num, :work_unit, :comment, :agent_name, :agent_relation, :agent_mobile, :agent_address, :notary_use, :reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :residence)
         @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
