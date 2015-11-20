@@ -102,7 +102,7 @@ class NotaryForeignTablesController < ApplicationController
             pdf.bounding_box [20, y], :width => 520, :height => 120 do
               ap "hello from chuck"
               pdf.move_down 8
-              NotaryForeignTable.notary_type.options.each_slice(5) do |slice|
+              NotaryType.type_name.options.each_slice(5) do |slice|
                 ap pdf.cursor
                 x = 5
                 slice.each_with_index do |option, index|
