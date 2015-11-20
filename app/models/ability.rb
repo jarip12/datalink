@@ -39,5 +39,6 @@ class Ability
       cannot :manage, Staff
       can :index, FamilyRelation
       can :index_tree, FamilyRelation
+      can :notary_records, Archive
     end
 end

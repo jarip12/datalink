@@ -30,7 +30,12 @@ class ReservationsController < ApplicationController
       @reservation.save!
       new_archive.save!
     end
-    redirect_to edit_profile_url(@reservation.archive.profile)
+
+    if can? :edit, @reservation.archive.profile
+      redirect_to edit_profile_url(@reservation.archive.profile)
+    else
+      redirect_to profile_url(@reservation.archive.profile)
+    end
 
   end
 

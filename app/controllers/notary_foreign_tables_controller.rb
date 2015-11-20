@@ -12,6 +12,7 @@ class NotaryForeignTablesController < ApplicationController
 
   # GET /notary_foreign_tables/1
   def show
+    @archive = @notary_foreign_table.reservation.archive
     next_days = (0..6).to_a.map {|index| (Date.today + index)}
     infos = next_days.select {|day| [1, 2, 3, 4, 5].include?(day.wday)}
     @reserve_days = infos.map {|info| info.to_s}
