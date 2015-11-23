@@ -20,6 +20,8 @@ module Api
       end
       post "notary_foreign_tables" do
 
+        ap "random_token: " + params[:random_token]
+
         tables = NotaryForeignTable.where(table_no: params[:table_no])
         if tables.count > 0
           return render_success({})
