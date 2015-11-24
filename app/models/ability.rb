@@ -5,6 +5,9 @@ class Ability
 
     if staff.has_role?(:admin)
       can :manage, :all
+      cannot [:edit, :update], NotaryForeignTable do |table|
+        table.reservation.status == "handled"
+      end
     elsif staff.has_role?(:user)
       basic_read_only
     elsif staff.has_role?(:typer)
@@ -25,6 +28,9 @@ class Ability
     elsif staff.has_role?(:audit)
       can :manage, :all
       cannot :manage, Staff
+      cannot [:edit, :update], NotaryForeignTable do |table|
+        table.reservation.status == "handled"
+      end
     else
       cannot :manage, :all
     end
@@ -37,6 +43,9 @@ class Ability
       can :show, :all
       can :manage, Reservation
       can :manage, NotaryForeignTable
+      cannot [:edit, :update], NotaryForeignTable do |table|
+        table.reservation.status == "handled"
+      end
       cannot :manage, Staff
       can :index, FamilyRelation
       can :index_tree, FamilyRelation

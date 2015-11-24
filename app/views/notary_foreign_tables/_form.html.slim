@@ -69,13 +69,13 @@
         div.col-xs-2-long
           p.text-center 公证类型
         div.col-xs-10-long.row
-          - if @notary_foreign_table.sync_status == "wait_allow"
+          - if @notary_foreign_table.reservation.status != "handled"
             div.edit-buttons.clearfix
               span.edit-list.pull-right.page-button-link 编辑记录列表
               span.edit-list-complete.pull-right.page-button-link 完成
           = f.simple_fields_for :notary_types, html: {class: "form-wrap form-horizontal"} do |notary_type|
-            = render 'notary_type_fields', f: notary_type, cannot_edit: false
-          - if @notary_foreign_table.sync_status == "wait_allow"
+            = render 'notary_type_fields', f: notary_type, cannot_edit: cannot_edit
+          - if @notary_foreign_table.reservation.status != "handled"
             .links
               = link_to_add_association '添加公证类型', f, :notary_types, class: "pull-right page-button-link", render_options: {locals: {cannot_edit: cannot_edit}}
 
@@ -83,13 +83,13 @@
         div.col-xs-2-long
           p.text-center 父母、配偶、亲属关系另一方情况
         div.col-xs-10-long.row
-          - if @notary_foreign_table.sync_status == "wait_allow"
+          - if @notary_foreign_table.reservation.status != "handled"
             div.edit-buttons.clearfix
               span.edit-list.pull-right.page-button-link 编辑记录列表
               span.edit-list-complete.pull-right.page-button-link 完成
           = f.simple_fields_for :notary_relations, html: {class: "form-wrap form-horizontal"} do |notary_relation|
-            = render 'notary_relation_fields', f: notary_relation, cannot_edit: false
-          - if @notary_foreign_table.sync_status == "wait_allow"
+            = render 'notary_relation_fields', f: notary_relation, cannot_edit: cannot_edit
+          - if @notary_foreign_table.reservation.status != "handled"
             .links
               = link_to_add_association '添加亲属关系', f, :notary_relations, class: "pull-right page-button-link", render_options: {locals: {cannot_edit: cannot_edit}}
 
