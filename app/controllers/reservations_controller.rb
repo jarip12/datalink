@@ -54,7 +54,10 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.where(reserve_at: start_date..end_date).order(:reserve_at)
     ap @reservations
     @results = @reservations.map do |reservation|
-      [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reservation.status_text, edit_reserve_table_link_text(reservation)]
+      if reservation.status == "handled"
+        [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reservation.status_text, reserve_table_link_text(reservation)]
+      else
+        [reservation.realname, reservation.notary_table_type_text, reservation.reserve_at.strftime("%Y-%m-%d %H:%M:%S"), reservation.status_text, edit_reserve_table_link_text(reservation)]
     end
 
     gon.results = @results
