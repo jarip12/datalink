@@ -7,6 +7,14 @@ module ReservationsHelper
     end
   end
 
+  def show_table_link(reservation)
+    if reservation.notary_table_type == "waimin"
+      notary_foreign_table_path(reservation.notary_table_id)
+    else
+      '/'
+    end
+  end
+
   def return_back_link
     ap request.original_url
     ap url_for(:back)
@@ -19,6 +27,15 @@ module ReservationsHelper
       link.split('?')[0] + '?' + request.original_url.split('?')[-1]
     else
       link
+    end
+  end
+
+  def reserve_table_link_text(reservation)
+    if reservation.notary_table_type == "waimin"
+      link_text = notary_foreign_table_path(reservation.notary_table_id)
+      return "<a class='col-xs-4 show_table_button show_button' href='#{link_text}'>查看</a>"
+    else
+      '/'
     end
   end
 

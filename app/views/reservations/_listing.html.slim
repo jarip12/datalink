@@ -14,7 +14,11 @@
             td = o.notary_table_type_text
             td = hour_minute_display(o.reserve_at)
             td = o.status_text
-            td = link_to "查看申请表", edit_table_link(o), class: "show_button"
+            - if o.status == "handled"
+              td = link_to "查看申请表", show_table_link(o), class: "show_button"
+            - else
+              td = link_to "查看申请表", edit_table_link(o), class: "show_button"
+
 
 
     -# Render nice pagination links fitted for Bootstrap 3 by default
