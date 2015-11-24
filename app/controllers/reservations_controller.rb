@@ -31,11 +31,8 @@ class ReservationsController < ApplicationController
       new_archive.save!
     end
 
-    if can? :edit, @reservation.archive.profile
-      redirect_to edit_profile_url(@reservation.archive.profile)
-    else
-      redirect_to profile_url(@reservation.archive.profile)
-    end
+    flash[:notice] = {:class =>'success', :body => t('verify_successfully')}
+    redirect_to notary_foreign_table_path(@reservation.notary_table)
 
   end
 

@@ -1,5 +1,6 @@
 ---
 zh-CN:
+  verify_successfully: 公民身份验证成功
   views:
     pagination:
       previous: "上一页"
