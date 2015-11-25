@@ -28,7 +28,13 @@ module Api
         end
         notary_foreign_table_params = ActionController::Parameters.new(params).permit(:table_no, :sex, :use_country, :now_address, :before_abroad_address, :abroad_day, :notary_type, :notary_type_info, :translate_lang, :email, :mobile, :file_num,
                                                                                       :require_notary, :photo_num, :work_unit, :comment, :agent_name, :agent_relation, :agent_mobile, :agent_address, :notary_use, :reserve_hour, :reserve_day, :user_id, :id_no, :user_verified, :realname, :age, :birth_day, :residence)
+
         @notary_foreign_table = NotaryForeignTable.new(notary_foreign_table_params)
+        reserve_at = (@notary_foreign_table.reserve_day + " " + @notary_foreign_table.reserve_hour + ":00").to_datetime
+        ap @notary_foreign_table.reserve_hour.split(':')[-1]
+        if Reservation.where(reserve_at: reserve_at).count > 0 or (@notary_foreign_table.reserve_hour.split(':')[-1] != '00' and @notary_foreign_table.reserve_hour.split(':')[-1] != '30')
+          return render_fail('预约时间已经存在或者不合法', {})
+        end
 
         ap notary_foreign_table_params
 
