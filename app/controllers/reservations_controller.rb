@@ -32,6 +32,10 @@ class ReservationsController < ApplicationController
     end
 
     flash[:notice] = {:class =>'success', :body => t('verify_successfully')}
+    session['return_link'] = session['edit_return_link']
+    session.delete(:edit_return_link)
+    ap "in reserve handle, link is "
+    ap session['return_link']
     redirect_to notary_foreign_table_path(@reservation.notary_table)
 
   end

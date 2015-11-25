@@ -2,6 +2,7 @@ class NotaryForeignTablesController < ApplicationController
   before_action :set_notary_foreign_table, only: [:show, :edit, :update, :destroy]
 
   load_and_authorize_resource
+  include ReservationsHelper
 
   layout "with_left_sidebar"
 
@@ -197,6 +198,8 @@ class NotaryForeignTablesController < ApplicationController
   end
 
   def edit
+
+    session["edit_return_link"] = return_back_link
 
     @archive = @notary_foreign_table.reservation.archive
 

@@ -16,9 +16,16 @@ module ReservationsHelper
   end
 
   def return_back_link
+    ap "return_link is "
+    ap session['return_link']
+    if session['return_link']
+      return_link = session['return_link']
+      session.delete(:return_link)
+      return return_link
+    end
     ap request.original_url
-    ap url_for(:back)
-    link = url_for(:back)
+    ap request.referer
+    link = request.referer
     ap request.original_url.split('?')
     ap link.split('?')
     originals = request.original_url.split('?')
