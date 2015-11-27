@@ -1,10 +1,10 @@
 div.sidebar-top.text-center
   a href="#{root_path}"
     h5.sidebar-title.text-center 公证信息开放平台
-  span
-    | 公民档案数 #{Profile.count}
-  span
-    | 档案纪录数 #{NotaryRecord.count}
+  span class="sidebar-text"
+    | 公民档案数 #{Profile.count}|
+  span class="sidebar-text"
+    | &nbsp;档案纪录数 #{NotaryRecord.count}
 
 div.btn-group.user-box
 	div.dropdown-toggle.user-box-name  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
