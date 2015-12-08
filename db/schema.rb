@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119101951) do
+ActiveRecord::Schema.define(version: 20151125025739) do
 
   create_table "archives", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -212,6 +212,9 @@ ActiveRecord::Schema.define(version: 20151119101951) do
     t.string   "id_no_img",    limit: 255
   end
 
+  add_index "profiles", ["id_no"], name: "index_profiles_on_id_no", using: :btree
+  add_index "profiles", ["realname"], name: "index_profiles_on_realname", using: :btree
+
   create_table "property_relateds", force: :cascade do |t|
     t.boolean  "updated_once",           default: false
     t.integer  "archive_id",   limit: 4
@@ -230,6 +233,8 @@ ActiveRecord::Schema.define(version: 20151119101951) do
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
+
+  add_index "reservations", ["reserve_at"], name: "index_reservations_on_reserve_at", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",        limit: 255,   null: false
