@@ -25,7 +25,7 @@ class FamilyRelation < ActiveRecord::Base
 
   validates :realname, realname: true
   validates :relation_name, presence: true
-  validates :id_no, id_no: true
+  validates :id_no, id_no: true, allow_blank: true
 
   before_destroy :set_sync_tag
   after_update :set_sync_tag
