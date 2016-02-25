@@ -11,6 +11,33 @@
   margin-right: 5px;
 }
 
+.user_logined_header {
+  height: 90px;
+  background-image: linear-gradient(to top, #2482d7, #40a3e6);
+
+  .left_nav {
+    width: 135px;
+    height: 47px;
+    font-size: 36px;
+    letter-spacing: 9px;
+    color: #ffffff;
+    margin: 35px 0 24px 56px;
+    display: inline-block;
+  }
+
+  .right_nav {
+    display: inline-block;
+    float: right;
+
+    margin-top: 35px;
+    margin-right: 59px;
+
+    font-size: 14px;
+    color: #ffffff;
+
+  }
+}
+
 
 .user-header {
   height: 122px;

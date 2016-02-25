@@ -1,17 +1,11 @@
-div.user-header
-  div.top-nav
+div.user_logined_header
+  = link_to "藏宝湾", dashboard_index_path, class: "left_nav"
+  div.right_nav
     - if current_staff
 
       	a href="/staffs/sign_out" class="top-nav-link logout-link" data-method="delete" rel="nofollow"
       	  span.glyphicon.glyphicon-log-out
-      	  |登出
+      	  | 退出
     	a href="#" class="top-nav-link user-link" rel="nofollow"
           = image_tag 'user.png', size: "19x20", class: "header-icon"
     	  = current_staff.realname
-
-        - if current_staff.admin?
-          = link_to '员工列表', staffs_path, class: "top-nav-link"
-          = link_to '配置', rails_settings_ui_path, class: "top-nav-link"
-
-  a href="#{dashboard_index_path}"
-    h2.header-title.text-center 上海市卢湾公证信息开放平台
