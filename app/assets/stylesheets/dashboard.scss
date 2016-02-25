@@ -21,7 +21,13 @@
   }
 
   .search_profile_btn {
-    @extend .fix_in_center;
+    height: 40px;
+    border-radius: 30px;
+    background-image: linear-gradient(to top, #2482d7, #2e8fe3 9%, #40a3e6);
+    width: 148.8px;
+    margin-top: 25px;
+    margin-left: 126px;
+    margin-bottom: 113px;
   }
 
   .block_list {
@@ -40,8 +46,6 @@
         margin-top: 26px !important;
         @include horizontal_align(60px, true);
 
-
-
       }
 
       p {
@@ -57,10 +61,10 @@
         @extend .text-center;
       }
 
-      &:not(:first) {
+      &:not(:first-child) {
         margin-left: 80px;
         img {
-          margin-top: 42px;
+          margin-top: 42px !important;
         }
       }
 

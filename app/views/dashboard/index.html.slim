@@ -4,9 +4,10 @@ div.dashboard_container
   form.search_profile_form.form-horizontal action="#{search_profiles_path}" method="get"
     input#search-input.form-control type="text" placeholder="输入姓名/身份证件号" name="q"
 
-  button.search_profile_btn type="submit"
-    span.glyphicon.glyphicon-search
-    | 搜索
+  div.fix_in_center
+    button.search_profile_btn type="submit"
+      span.glyphicon.glyphicon-search
+      | 搜索
 
 
   div.block_list
