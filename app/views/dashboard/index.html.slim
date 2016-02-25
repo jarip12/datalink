@@ -1,22 +1,19 @@
-h1#dashboard-search-title.text-center.search-user-title 搜索公证居民
-p#record-number-info.text-center
-    | 公民档案数 #{Profile.count} | 档案纪录数 #{NotaryRecord.count}
+div.dashboard_container
+  h1.search_profile_title 搜索公民档案
 
-div.text-center.search-line
-  form.form-horizontal action="#{search_profiles_path}" method="get"
-    div.form-inputs.form-group.row
-      div.col-xs-10
-        input#search-input.form-control type="text" placeholder="输入姓名/身份证件号" name="q"
-      button#search-button.col-xs-2.btn.btn-default type="submit"
-        span.glyphicon.glyphicon-search
-        | 搜索
+  form.search_profile_form.form-horizontal action="#{search_profiles_path}" method="get"
+    input#search-input.form-control type="text" placeholder="输入姓名/身份证件号" name="q"
+
+  button.search_profile_btn type="submit"
+    span.glyphicon.glyphicon-search
+    | 搜索
 
 
-div.row.block-row
-    a.dashboard-block.text-center href="#{new_profile_path}" class=('click-disabled' unless can? :new, Archive)
-      div 新 建
-      div 档 案
+  div.block_list
+    a.dashboard-block href="#{new_profile_path}" class=('click-disabled' unless can? :new, Archive)
+      = image_tag "new_profile"
+      div 新建档案
 
-    a.dashboard-block.text-center.right-link-block href="#{reservations_path}" class=('click-disabled' unless can? :index, Reservation)
-      div 查 看
-      div 预 约
+    a.dashboard-block href="#{reservations_path}" class=('click-disabled' unless can? :index, Reservation)
+      = image_tag "show_reserve"
+      div 查看预约
