@@ -3,7 +3,7 @@
 </p>
 <div class="login-wrap form-horizontal">
 	<p class="text-center login-title">
-		信息公证系统登陆
+		信息公证系统登录
 	</p>
   <hr></hr>
 	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
@@ -15,9 +15,7 @@
 		<label class="login_label control-label" for="staff_password">密码</label>
     <input class="password optional login_input" name="staff[password]" id="staff_password" type="password">
 	</div>
-	<div class="form-actions text-center">
-		<input type="submit" class="login_button" value="登录" name="commit">
-	</div>
+  <input type="submit" class="login_button" value="登录" name="commit">
 	<% end %>
 	<!--form class="form-inline">
 
