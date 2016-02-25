@@ -7,7 +7,7 @@
 	</p>
 	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name) ) do |f| %>
 	<div class="form-group">
-		<label class="col-xs-2 control-label" for="staff_email">邮箱</label>
+		<label class="col-xs-2 control-label" for="staff_email">账号</label>
 		<div class="col-xs-10">
 			<input class="string email optional form-control" autofocus="autofocus" value="" name="staff[email]" id="staff_email" type="email">
 		</div>
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="form-actions text-center">
-		<input type="submit" class="btn btn-danger btn-block" value="登录" name="commit">
+		<input type="submit" class="login_button" value="登录" name="commit">
 	</div>
 	<% end %>
 	<!--form class="form-inline">
