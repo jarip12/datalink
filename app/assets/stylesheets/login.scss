@@ -1,14 +1,63 @@
-.login_button {
-  /* Rectangle 9 Copy: */
-  background-image: linear-gradient(0deg, #2482D7 0%, #2E8FE3 9%, #40A3E6 100%);
-  border-radius: 30px;
-  /* 保存: */
-  font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: #FFFFFF;
-  letter-spacing: 10px;
-  line-height: 17px;
+
+
+
+
+
+.login-wrap{
+  /* Rectangle 2: */
+  background: #FFFFFF;
+  border: 1px solid #ABABB0;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.30);
+  border-radius: 2px;
+  width: 480px;
+  height: 350px;
+
+  .login-title {
+
+      /* 信息公证系统登录: */
+      font-family: PingFangSC-Regular;
+      font-size: 18px;
+      color: #9B9B9B;
+      line-height: 19px;
+      margin-top: 34px;
+      margin-bottom: 30px;
+  }
+
+  hr {
+    margin: 30px 60px 46px;
+  }
+
+  #new_staff {
+
+
+    .login_button {
+      /* Rectangle 9 Copy: */
+      background-image: linear-gradient(0deg, #2482D7 0%, #2E8FE3 9%, #40A3E6 100%);
+      border-radius: 30px;
+      /* 保存: */
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #FFFFFF;
+      letter-spacing: 10px;
+      line-height: 17px;
+    }
+
+    .login_label {
+      margin-left: 85px;
+      display: inline-block;
+    }
+
+    .login_input {
+      margin-left: 22px;
+      display: inline-block;
+    }
+
+
+  }
+
+
 }
+
 
 body {
   p {
