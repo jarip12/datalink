@@ -1,0 +1,5 @@
+@mixin horizontal_align ($value, $display_block: false) {
+  margin: 0 auto;
+  width: $value;
+  @if $display_block{ display: block; }
+}

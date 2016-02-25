@@ -34,14 +34,34 @@
       background-color: #ffffff;
       border: solid 1px rgba(63, 162, 230, 0.5);
       display: inline-block;
+      position: relative;
 
       img {
-        margin: 26px 42px 0px 46px;
+        margin-top: 26px !important;
+        @include horizontal_align(60px, true);
 
-        :not(:first) {
-          margin-right: 80px;
+
+
+      }
+
+      p {
+        height: 19px;
+        font-size: 14px;
+        letter-spacing: 0.8px;
+        color: #40a3e6;
+        left: 50px;
+        bottom: 31px;
+        position: absolute;
+
+        @include horizontal_align(60px);
+        @extend .text-center;
+      }
+
+      &:not(:first) {
+        margin-left: 80px;
+        img {
+          margin-top: 42px;
         }
-
       }
 
     }

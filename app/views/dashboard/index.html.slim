@@ -12,8 +12,8 @@ div.dashboard_container
   div.block_list
     a.dashboard-block href="#{new_profile_path}" class=('click-disabled' unless can? :new, Archive)
       = image_tag "new_profile"
-      div 新建档案
+      p 新建档案
 
     a.dashboard-block href="#{reservations_path}" class=('click-disabled' unless can? :index, Reservation)
       = image_tag "show_reserve"
-      div 查看预约
+      p 查看预约
