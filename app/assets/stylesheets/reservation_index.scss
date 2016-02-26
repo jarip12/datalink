@@ -4,18 +4,85 @@
     @include title_before_container(70px);
   }
 
-  .reservation_table_wrap {
+
+  .reservation-table-wrap {
+    width: $reservation_table_width;
+    height: $reservation_table_height;
+    margin: 46px auto 46px;
+    /* Rectangle 202: */
+    opacity: 0.6;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    border-radius: 3px;
+
+    //height: $reservation_table_height;
+    background-color: #ffffff;
+    border: solid 1px #ababb0;
+    //@include title_before_container($reservation_table_width);
 
     .show_reservation_button {
-      @include title_before_container(140px);
-      width: 140px;
       height: 30px;
       border-radius: 40px;
       border: solid 1px #65b321;
+      @extend .btn;
+      @extend .btn-default;
+      @include title_before_container(140px);
+      font-size: 12px;
+    }
+
+    li[role="presentation"] {
+      width: 111px;
+      height: 46px;
+      text-align: center;
+    }
+
+    .inner-table {
+      margin: 0 70px;
+    }
+
+    th, td {
+      padding: 17px 0 !important;
+    }
+
+    nav.pagination {
+
+      margin: 0 120px;
+
+      span.page.gap, span.first, span.last {
+        display: none;
+      }
+
+      span.page.current {
+        margin: 0 30px;
+      }
+
+      span.prev, span.next {
+        background: #C4D4EB;
+        box-shadow: 1px 1px 2px 0px rgba(147, 141, 141, 0.50);
+        border-radius: 6px;
+        font-family: STHeiti;
+        font-size: 14px;
+        color: #0D0436;
+        line-height: 14px;
+        @extend .btn;
+        @extend .btn-default;
+      }
+    }
+
+    .return-link {
+      /* Rectangle 278 Copy: */
+      background: #C5EBC4;
+      box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);
+      border-radius: 3px;
+      /* 返回: */
+      font-family: STHeitiSC-Light;
+      font-size: 16px;
+      color: #FFFFFF;
+      line-height: 16px;
+      @extend .button-right;
     }
 
   }
-
 }
 
 .no_record_text {
