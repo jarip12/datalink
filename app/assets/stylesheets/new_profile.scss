@@ -53,8 +53,11 @@
         }
       }
 
-      img {
-        margin-bottom: 15px;
+      div.image {
+        display: inline-block;
+        img {
+          margin-bottom: 22px;
+        }
       }
 
       .input_list {

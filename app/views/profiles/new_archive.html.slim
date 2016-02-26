@@ -11,7 +11,8 @@
         div.label_list
           label for="archive_profile_attributes_realname" 姓&nbsp;名
           label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
-        = image_tag "down.png"
+        div.image
+          = image_tag "down.png"
         div.input_list
           div class=('has-error' if f.object.errors.include?(:realname))
             =f.input_field :realname
@@ -24,6 +25,6 @@
               span class="help-block" #{f.object.errors.get(:id_no)[-1]}
 
       div.button_list
-        input.new_profile_button type="submit" name="commit" value="创建"
         = link_to "返回", dashboard_index_path, class: "new_profile_button"
+        input.new_profile_button type="submit" name="commit" value="创建"
 
