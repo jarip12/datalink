@@ -6,22 +6,23 @@
       p 请输入公民姓名与身份证号
     hr
     = f.error_notification
-    div.form-group
-      label for="archive_profile_attributes_realname" = Profile.human_attribute_name("realname")
-      div  class=('has-error' if f.object.errors.include?(:realname))
-        =f.input_field :realname
-        - if f.object.errors.include?(:realname)
-          span class="help-block" #{f.object.errors.get(:realname)[-1]}
+    div.input_container
+      div
+        div.label_list
+          label for="archive_profile_attributes_realname" 姓&nbsp;名
+          label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
+        div.input_list
+          div class=('has-error' if f.object.errors.include?(:realname))
+            =f.input_field :realname
+            - if f.object.errors.include?(:realname)
+              span class="help-block" #{f.object.errors.get(:realname)[-1]}
 
-    div.form-group
-      label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
-      div  class=('has-error' if f.object.errors.include?(:id_no))
-        =f.input_field :id_no
-        - if f.object.errors.include?(:id_no)
-          span class="help-block" #{f.object.errors.get(:id_no)[-1]}
+          div class=('has-error' if f.object.errors.include?(:id_no))
+            =f.input_field :id_no
+            - if f.object.errors.include?(:id_no)
+              span class="help-block" #{f.object.errors.get(:id_no)[-1]}
 
-
-    div.button_list
-      input.new_profile_button type="submit" name="commit" value="创建"
-      = link_to "返回", dashboard_index_path, class: "new_profile_button"
+      div.button_list
+        input.new_profile_button type="submit" name="commit" value="创建"
+        = link_to "返回", dashboard_index_path, class: "new_profile_button"
 

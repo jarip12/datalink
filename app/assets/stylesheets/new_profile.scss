@@ -29,12 +29,66 @@
       color: #9b9b9b;
     }
 
+    .input_container {
+
+      padding-left: $new_profile_input_container_padding_left;
+      padding-right : $new_profile_input_container_padding_right;
+
+
+      .label_list {
+        display: inline-block;
+        label {
+          display: block;
+          &:not(:first-child) {
+            margin-top: $new_profile_input_container_padding;
+          }
+        }
+      }
+
+      .input_list {
+        display: inline-block;
+        float: right;
+
+        div {
+          input {
+            border-radius: 2px;
+            background-color: #ffffff;
+            border: solid 1px #ababb0;
+            display: inline-block;
+          }
+
+          &:not(:first-child) {
+            margin-top: $new_profile_input_container_padding;
+          }
+        }
+
+      }
+
+
+
+      .button_list {
+        margin-top: $new_profile_button_list_margin_top;
+        @extend .row;
+
+        .new_profile_button {
+          width: 120px;
+          height: 40px;
+          border-radius: 30px;
+          background-image: linear-gradient(to bottom, #d4d4d4, #c1c1c1 91%, #a8a8a8);
+          @extend .btn;
+          @extend .btn-default;
+
+          &:not(:first-child) {
+            margin-left: 93px;
+          }
+        }
+     }
+    }
+
+
+
     .form-group {
 
-      label {
-        margin-left: $new_profile_label_margin_left;
-        display: inline-block;
-      }
 
       div {
         display: inline-block;
@@ -43,33 +97,11 @@
         height: 40px;
       }
 
-      input:not[type="submit"] {
-        border-radius: 2px;
-        background-color: #ffffff;
-        border: solid 1px #ababb0;
-        display: inline-block;
-      }
 
     }
 
-    .button_list {
-      @extend .row;
-    }
 
-    .new_profile_button {
-      width: 120px;
-      height: 40px;
-      border-radius: 30px;
-      background-image: linear-gradient(to bottom, #d4d4d4, #c1c1c1 91%, #a8a8a8);
-      @extend .btn;
-      @extend .btn-default;
 
-      margin-left: $new_profile_label_margin_left;
-
-      &:not(:first-child) {
-        margin-left: 93px;
-      }
-    }
 
 
   }
