@@ -27,7 +27,7 @@
     width: 148.8px;
     margin-top: 25px;
     margin-left: 126px;
-    margin-bottom: 113px;
+
 
     letter-spacing: 10px;
     color: #ffffff;
@@ -35,6 +35,7 @@
 
   .block_list {
     @extend .fix_in_center;
+    margin-top: 113px;
 
     .dashboard-block {
       width: 160px;

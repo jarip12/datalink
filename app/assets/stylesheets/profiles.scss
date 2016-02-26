@@ -7,14 +7,14 @@ abbr[title="required"] {
 }
 
 .search-table-wrap {
-  width: 739px;
-  height: 615px;
-  margin: 46px auto 46px;
+  margin: 40px auto;
   /* Rectangle 202: */
   opacity: 0.6;
-  background: #FFFFFF;
-  border: 1px solid #DEDEDE;
-  border-radius: 3px;
+  width: 640px;
+  height: 470px;
+  background-color: #ffffff;
+  border: solid 1px #ababb0;
+
 
   nav.pagination {
 
@@ -70,8 +70,8 @@ abbr[title="required"] {
     padding: 27px;
   }
 
-  tr {
 
+  tbody tr{
     border-bottom: 1px solid #D8D8D8;
   }
 

@@ -1,0 +1,13 @@
+.search_profile_container {
+  @extend .dashboard_container;
+
+  .show_profile_btn {
+    width: 70px;
+    height: 28px;
+    border-radius: 25px;
+    border: solid 1px #65b30f;
+    vertical-align: middle !important;
+    @extend .btn;
+    @extend .btn-default;
+  }
+}
