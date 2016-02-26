@@ -15,11 +15,12 @@ div.staff_container
           td = staff.email
           td = staff.realname
           td = staff.role_text
-          td = link_to t('action.edit'), edit_staff_path(staff),  class: "page-button-link"
-          td = link_to t('action.delete'), staff,  class: "page-button-link", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
+          td = link_to t('action.edit'), edit_staff_path(staff),  class: "edit_button"
+          td = link_to t('action.delete'), staff,  class: "delete_button", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
 
     br
 
     = paginate @staffs
 
-    = link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "page-button-link col-xs-offset-9"
+    = link_to (t('action.new') + Staff.model_name.human), new_staff_path
+    = link_to "返回系统首页", root_path, class: "return_link"
