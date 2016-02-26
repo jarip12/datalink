@@ -3,3 +3,13 @@
   width: $value;
   @if $display_block{ display: block; }
 }
+
+@mixin title_before_container ($margin-top: 0, $margin-bottom: 0) {
+  width: 144px;
+  height: 31px;
+  font-size: 24px;
+  color: #6f6f6f;
+  @include horizontal_align(144px);
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+}

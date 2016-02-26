@@ -1,33 +1,10 @@
-- unless smart_listing.empty?
-  div.inner-table
-    table.table
-      thead
-        th.col-md-3 = Reservation.human_attribute_name("user_realname")
-        th.col-md-3 = Reservation.human_attribute_name("notary_table_type")
-        th.col-md-4 = Reservation.human_attribute_name("reserve_at")
-        th.col-md-2 = Reservation.human_attribute_name("status")
-        th.col-md-2
-      tbody
-        - smart_listing.collection.each do |o|
-          tr
-            td = o.user_realname
-            td = o.notary_table_type_text
-            td = hour_minute_display(o.reserve_at)
-            td = o.status_text
-            - if o.status == "handled"
-              td = link_to "查看申请表", show_table_link(o), class: "show_button"
-            - else
-              td = link_to "查看申请表", edit_table_link(o), class: "show_button"
-
-
-
-    -# Render nice pagination links fitted for Bootstrap 3 by default
-    div.bottom-line
-      = link_to "查看历史预约记录", reservations_query_path, class: "show_button"
-      = smart_listing.paginate
-      = link_to "返回", root_path, class: "return-link"
-
+- if smart_listing.empty?
+  = render partial: 'reservations/reservation_table', locals: {smart_listing: smart_listing}
+  div.no_record_text disabled="true" 无预约记录
+  = link_to "查看历史预约记录", reservations_query_path, class: "show_reservation_button"
 - else
-  div.empty-button-links.row
-    div.col-xs-4.btn disabled="true" 没有预约记录
-    = link_to "查看历史预约记录", reservations_query_path, class: "show_button col-xs-offset-2"
+  = render partial: 'reservations/reservation_table', locals: {smart_listing: smart_listing}
+  div.bottom-line
+    = link_to "查看历史预约记录", reservations_query_path, class: "show_button"
+    = smart_listing.paginate
+    = link_to "返回", root_path, class: "return-link"

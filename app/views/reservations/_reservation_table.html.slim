@@ -1,0 +1,19 @@
+div.inner-table
+  table.table
+    thead
+      th.col-md-3 = Reservation.human_attribute_name("user_realname")
+      th.col-md-3 = Reservation.human_attribute_name("notary_table_type")
+      th.col-md-4 = Reservation.human_attribute_name("reserve_at")
+      th.col-md-2 = Reservation.human_attribute_name("status")
+      th.col-md-2
+    tbody
+      - smart_listing.collection.each do |o|
+        tr
+          td = o.user_realname
+          td = o.notary_table_type_text
+          td = hour_minute_display(o.reserve_at)
+          td = o.status_text
+          - if o.status == "handled"
+            td = link_to "查看申请表", show_table_link(o), class: "show_button"
+          - else
+            td = link_to "查看申请表", edit_table_link(o), class: "show_button"

@@ -1,0 +1,26 @@
+.reservation_index_container {
+
+  .reservation_title {
+    @include title_before_container(70px);
+  }
+
+  .reservation_table_wrap {
+
+    .show_reservation_button {
+      @include title_before_container(140px);
+      width: 140px;
+      height: 30px;
+      border-radius: 40px;
+      border: solid 1px #65b321;
+    }
+
+  }
+
+}
+
+.no_record_text {
+  @include title_before_container(70px);
+  height: 19px;
+  font-size: 14px;
+  color: #ababb0;
+}
