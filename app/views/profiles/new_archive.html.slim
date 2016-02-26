@@ -11,6 +11,7 @@
         div.label_list
           label for="archive_profile_attributes_realname" 姓&nbsp;名
           label for="archive_profile_attributes_id_no" = Profile.human_attribute_name("id_no")
+        = image_tag "down.png"
         div.input_list
           div class=('has-error' if f.object.errors.include?(:realname))
             =f.input_field :realname
