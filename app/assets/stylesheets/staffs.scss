@@ -71,7 +71,7 @@
       border: solid 1px #65b321;
       margin-left: 290px - $staff_table_padding_left;
       position: absolute;
-      bottom: $staff_table_create_margin_bottom;
+      #bottom: $staff_table_create_margin_bottom;
 
       @extend .btn;
       @extend .btn-default;
@@ -85,7 +85,7 @@
       color: #ababb0;
       margin-left: 589px - $staff_table_padding_left;
       position: absolute;
-      bottom: $staff_table_return_text_bottom;
+      #bottom: $staff_table_return_text_bottom;
     }
 
   }
