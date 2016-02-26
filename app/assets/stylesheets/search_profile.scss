@@ -10,4 +10,27 @@
     @extend .btn;
     @extend .btn-default;
   }
+
+  .empty_title {
+    height: 24px;
+    font-size: 18px;
+    color: #9b9b9b;
+    margin-top: 87px !important;
+    margin-bottom: 42px !important;
+    text-align: center;
+    @include horizontal_align(144px);
+  }
+
+  .new_profile_div {
+    @include horizontal_align(100px);
+  }
+
+  .new_profile_button {
+    height: 28px;
+    border-radius: 25px;
+    border: solid 1px #65b30f;
+    padding: 4px 24px 8px 25px ;
+    @extend .btn;
+    @extend .btn-default;
+  }
 }

@@ -3,30 +3,14 @@ div.search_profile_container
 
   div.search-table-wrap
     - if @profiles.count > 0
-      div.inner-table
-        table.table
-          thead
-            th = User.human_attribute_name("realname")
-            th = User.human_attribute_name("id_no")
-            th 查看
-          tbody
-            - @profiles.each do |profile|
-              tr
-                td = profile.realname
-                td = profile.id_no
-                - if can? :edit, profile
-                  td = link_to '查看', edit_profile_path(profile.archive_id), class: "show_profile_btn"
-                - else
-                  td = link_to '查看', profile_path(profile.archive_id), class: "show_profile_btn"
-              = paginate @profiles
+      = render partial: 'profiles/search_profile_table', locals: {profiles: @profiles}
     - else
-      div.empty-wrap
-      div.empty-title 未搜索到相关公证居民
-      div.row
+      = render partial: 'profiles/search_profile_table', locals: {profiles: @profiles}
+      div.empty_title 未搜索到相关居民
+      div.new_profile_div
         - if can? :new, Profile
-          = link_to '创建新档案', new_profile_path, class: "control-label btn btn-default new-profile-button col-xs-offset-2"
+          = link_to '创建新档案', new_profile_path, class: "new_profile_button"
         - else
-          = link_to '创建新档案', new_profile_path, class: "control-label btn btn-default new-profile-button col-xs-offset-2 click-disabled"
-        = link_to '返回', root_path, class: "btn btn-default return-button col-xs-offset-2"
+          = link_to '创建新档案', new_profile_path, class: "new_profile_button"
 
 
