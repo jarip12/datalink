@@ -24,7 +24,12 @@
             - if f.object.errors.include?(:id_no)
               span class="help-block" #{f.object.errors.get(:id_no)[-1]}
 
+
       div.button_list
         = link_to "返回", dashboard_index_path, class: "new_profile_button"
         input.new_profile_button type="submit" name="commit" value="创建"
+    div.name_error_tip
+      = image_tag "triangle.png"
+    div.id_error_tip
+      = image_tag "triangle.png"
 

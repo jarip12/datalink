@@ -4,14 +4,14 @@
   background-color: #ffffff;
   margin-top: $new_profile_form_margin !important;
 
-  @include horizontal_align(640px);
+  @include horizontal_align($new_profile_form_width);
   @extend .form-horizontal;
 
   .form_inner {
 
     position: relative;
-    margin-left: 59px;
-    margin-right: 61px;
+    margin-left: $new_profile_form_inner_margin_left;
+    margin-right: $new_profile_form_inner_margin_right;
 
     hr {
       margin-bottom: 72.5px;
@@ -100,29 +100,29 @@
           &:not(:first-child) {
             margin-left: 93px;
           }
+
+          &.can_submit {
+            color: #ffffff;
+            background-image: linear-gradient(to top, #2482d7, #2e8fe3 9%, #40a3e6);
+          }
         }
      }
     }
 
-
-
-    .form-group {
-
-
-      div {
-        display: inline-block;
-        margin-left: 24px;
-        width: 250px;
-        height: 40px;
-      }
-
-
+    .name_error_tip {
+      top: $new_profile_name_error_top;
+      @extend .error_tip;
     }
 
+    .id_error_tip {
+      top: $new_profile_id_error_top;
+      @extend .error_tip;
+    }
 
-
-
-
+    .error_tip {
+      position: absolute;
+      left: $new_profile_error_left;
+    }
   }
 
 
