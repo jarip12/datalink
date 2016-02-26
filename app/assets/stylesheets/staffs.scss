@@ -25,6 +25,8 @@
 
     table {
 
+      position: relative;
+
       tbody {
         tr:first-child {
           padding-top: $staff_table_thead_margin_top;
@@ -68,7 +70,9 @@
       border-radius: 40px;
       border: solid 1px #65b321;
       margin-left: 290px - $staff_table_padding_left;
-      margin-top: $staff_table_create_margin_top;
+      position: absolute;
+      bottom: $staff_table_create_margin_bottom;
+
       @extend .btn;
       @extend .btn-default;
     }
@@ -80,6 +84,8 @@
       font-size: 12px;
       color: #ababb0;
       margin-left: 589px - $staff_table_padding_left;
+      position: absolute;
+      bottom: $staff_table_return_text_bottom;
     }
 
   }
