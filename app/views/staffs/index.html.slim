@@ -1,23 +1,25 @@
-
-div.staff-table-wrap
-  table.table
-    tr
-      th = Staff.human_attribute_name("email")
-      th = Staff.human_attribute_name("realname")
-      th = Staff.human_attribute_name("role")
-      th
-      th
-
-    - @staffs.each do |staff|
+div.staff_container
+  div.staff_title
+    p 员工列表管理
+  div.staff-table-wrap
+    table.table
       tr
-        td = staff.email
-        td = staff.realname
-        td = staff.role_text
-        td = link_to t('action.edit'), edit_staff_path(staff),  class: "page-button-link"
-        td = link_to t('action.delete'), staff,  class: "page-button-link", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
+        th = Staff.human_attribute_name("email")
+        th = Staff.human_attribute_name("realname")
+        th = Staff.human_attribute_name("role")
+        th
+        th
 
-  br
+      - @staffs.each do |staff|
+        tr
+          td = staff.email
+          td = staff.realname
+          td = staff.role_text
+          td = link_to t('action.edit'), edit_staff_path(staff),  class: "page-button-link"
+          td = link_to t('action.delete'), staff,  class: "page-button-link", :data => {:confirm => t('action.confirm_delete')}, :method => :delete
 
-  = paginate @staffs
+    br
 
-  = link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "page-button-link col-xs-offset-9"
+    = paginate @staffs
+
+    = link_to (t('action.new') + Staff.model_name.human), new_staff_path, class: "page-button-link col-xs-offset-9"

@@ -1,14 +1,30 @@
-.staff-table-wrap {
+.staff-container {
 
-  @extend .reservation-table-wrap;
+  .staff_title {
+    height: 31px;
+    font-size: 24px;
+    color: #6f6f6f;
+    @include horizontal_align(144px);
+    margin-top: 74px;
+  }
 
 
 
-  nav.pagination {
-    margin: 0 300px !important;
+ .staff-table-wrap {
+
+    height: $staff_table_height;
+    background-color: #ffffff;
+    border: solid 1px #ababb0;
+    @include horizontal_align($staff_table_width);
+
+    nav.pagination {
+      margin: 0 300px !important;
+    }
+
   }
 
 }
+
 
 .staff-form-wrap {
     margin: 100px auto 0;
