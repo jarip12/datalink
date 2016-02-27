@@ -100,6 +100,37 @@
     border: solid 1px $main_hr_color;
   }
 
+  .save_btn {
+    width: 120.8px;
+    height: 40px;
+    border-radius: 30px;
+    background-image: linear-gradient(to top, #2482d7, #2e8fe3 9%, #40a3e6);
+    margin-left: $main_btn_space;
+    @extend .btn;
+    @extend .btn-default;
+
+
+    font-size: 14px;
+    letter-spacing: 10px;
+    color: #ffffff;
+
+  }
+
+  .return_btn {
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom, #d4d4d4, #c1c1c1 91%, #a8a8a8);
+    @extend .btn;
+    @extend .btn-default;
+
+
+
+    font-size: 14px;
+    letter-spacing: 10px;
+    color: #ffffff;
+  }
+
 
 }
 
