@@ -301,7 +301,7 @@ zh-CN:
         password: "密码"
         password_confirmation: "确认密码"
       loan:
-        start_day: "开始时间"
+        start_day: "起止时间"
         end_day: "结束时间"
         notary_type: "公证类型"
         description: "信贷描述"

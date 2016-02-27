@@ -100,6 +100,15 @@
     border: solid 1px $main_hr_color;
   }
 
+  .form-wrap {
+    .form-inputs {
+      margin-top: 7px;
+      .row:not(:first-child) {
+        margin-top: 39px;
+      }
+    }
+  }
+
   .save_btn {
     width: 120.8px;
     height: 40px;
