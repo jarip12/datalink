@@ -1,15 +1,16 @@
-h1.main_title 办理记录
+p.main_title 办理记录
 hr
 
-table.table#family_relation_table
+table.table.notary_record_table#family_relation_table
   tr
     th = NotaryRecord.human_attribute_name("notary_type")
     th = NotaryRecord.human_attribute_name("notary_id")
-    Mth = NotaryRecord.human_attribute_name("notary_id")
-    th = "查看申请表"
+    th 公证日期
+    th 查看申请表
 
   - @notary_records.each do |record|
     tr
       td = record.notary_type_text
       td = record.notary_id
-      td = link_to "查看记录", table_link(record), :class => "page-button-link"
+      td = record.notary_id
+      td = link_to "查看记录", table_link(record), :class => "show_link"
