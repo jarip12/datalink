@@ -12,7 +12,7 @@ html
       div.profiles-wrap.clearfix
         = render template: 'layouts/header'
         - if @archive
-          div.sidebar.pull-left
+          div.sidebar
             == render 'layouts/sidebar'
         div.main
           - if flash["notice"] and (not flash["notice"].is_a?(String))

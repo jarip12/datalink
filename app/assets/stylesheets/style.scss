@@ -56,18 +56,6 @@
   margin:0;
 }
 
-/***sidebar**/
-.profiles-wrap{
-  background:asset_url('left-bar-bg.png') repeat-y left top;
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-}
-
-.sidebar-top{
-  border-bottom:1px solid #999;
-  font-size:22px;
-  padding: 48px 0;
-}
 .user-box{
   width:168px;
   margin:50px auto 0;
@@ -75,6 +63,7 @@
   border:1px solid #999;
   border-radius:6px;
 }
+
 .user-box-name{
   padding:0 10px;
   display:block;
@@ -86,29 +75,7 @@
 .user-box-name .caret{
   margin-top:18px;
 }
-.sidebar dl{
-  margin-top:20px;
-}
-.sidebar dt{
-  padding:6px 0 6px 40px;
-}
-.sidebar dd{
-  line-height:40px;
-  font-size:12px;
-  font-weight:normal;
-}
-.sidebar dd a{
-  display:block;
-  background:none;
-  color:#fff;
-}
-.sidebar dd a{
-  font-size:12px;
-  padding-left:60px;
-}
-.sidebar dd a span{
-  margin-right:4px;
-}
+
 .sidebar dd a.current,.sidebar dd a.current:hover{
   background:rgba(255,255,255,0.3);
   color:#333;

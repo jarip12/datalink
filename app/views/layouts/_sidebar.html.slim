@@ -1,15 +1,15 @@
-div.sidebar-top.text-center
 
-  = image_tag @archive.profile.avatar_url
-  p = @archive.realname
+.sidebar_container
 
-div.btn-group.user-box
-	div.dropdown-toggle.user-box-name  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-      = image_tag 'user.png', size: "19x20", class: "sidebar-icon"
-      span = @archive.realname
-dl
+  div.sidebar-top
+    = image_tag @archive.profile.avatar_url
+    p = @archive.realname
+
+  hr
+
+  dl
 	dt class="sidebar-text"
-	  |个人档案
+	  |个人信息
 	dd
       - if can? :edit, @archive.profile
 		a href="#{edit_profile_path(@archive.profile)}"
@@ -26,12 +26,12 @@ dl
 	    a href="#{edit_property_related_path(@archive.property_related)}"
           = image_tag 'property_related.png', size: "19x20", class: "sidebar-icon"
           span class="sidebar-text"
-            | 资产相关
+            | 资产证明
       - else
         a href="#{property_related_path(@archive.property_related)}"
           = image_tag 'property_related.png', size: "19x20", class: "sidebar-icon"
           span class="sidebar-text"
-            | 资产相关
+            | 资产证明
 	dd
       - if can? :edit, @archive.notary_related
 		a href="#{edit_notary_related_path(@archive.notary_related)}"
