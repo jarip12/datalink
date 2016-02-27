@@ -47,32 +47,20 @@
     line-height: 3.4;
     letter-spacing: 1px;
     color: #4a90e2;
+    margin-bottom: $sidebar_dt_space;
   }
 
   dd {
     margin-left: 30px;
-
-    &:not(:first-child):not(:last-child) {
-      margin-top: $sidebar_dd_space;
+    margin-bottom: $sidebar_dd_space;
+    a {
+      img {
+        margin-right: $sidebar_image_space;
+      }
     }
   }
 }
 
-
-
-
-.sidebar-icon {
-  margin-right: 20px;
-}
-
-.sidebar-text {
-  /* 关系图: */
-  font-family: HiraginoSansGB-W3;
-  font-size: 10.29px;
-  color: #BCBED0;
-  letter-spacing: 0.85px;
-  line-height: 20px;
-}
 
 .sidebar-title {
   /* 公证信息开放平台: */
