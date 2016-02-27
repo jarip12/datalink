@@ -1,11 +1,8 @@
-h1.reset-dom = "个人档案"
-p.form-title-wrap
-  span.form-title 基本信息
-
+p.main_title 基本信息
+hr
 
 = simple_form_for(@profile, html: {class: "form-wrap form-horizontal"}) do |f|
   = f.error_notification
-
 
   .form-inputs
     div.row

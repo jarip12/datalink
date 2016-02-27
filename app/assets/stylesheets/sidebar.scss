@@ -16,7 +16,6 @@
 
   margin-left: $sidebar_margin_left;
   margin-right: $sidebar_margin_right;
-  position: relative;
 
   font-size: 14px;
   line-height: 3.4;
@@ -24,18 +23,17 @@
   color: #6f7781;
   color: var(--battleship-grey);
 
-  .sidebar-top {
-    margin-top: 32.7px;
-    img {
-      margin-right: 21.7px;
-    }
-    p {
-      display: inline-block;
-      width: 42px;
-      height: 19px;
-      font-size: 14px;
-      color: #747781;
-    }
+  img {
+    margin-right: 21.7px;
+  }
+
+  p {
+    display: inline-block;
+    width: 42px;
+    height: 19px;
+    font-size: 14px;
+    color: #747781;
+    margin-top: $main_title_margin_top;
   }
 
   hr {

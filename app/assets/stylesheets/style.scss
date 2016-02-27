@@ -87,8 +87,20 @@
   text-decoration:none;
 }
 .main{
-  margin-left:250px;
-  padding:0 20px;
+  margin-left: $sidebar_width;
+  padding-left: $main_padding_left;
+  padding-right: $main_padding_right;
+
+  .main_title {
+    margin-top: $main_title_margin_top;
+    height:32px;
+  }
+
+  hr {
+    border: solid 1px $main_hr_color;
+  }
+
+
 }
 
 .reset-dom{
@@ -102,11 +114,8 @@
   line-height: 24px;
 }
 /***form list**/
-.form-title-wrap{
-  margin-top: 35px;
-  border-bottom:1px solid #ccc;
-  height:32px;
-}
+
+
 .form-title {
   float: left;
   line-height: 30px;

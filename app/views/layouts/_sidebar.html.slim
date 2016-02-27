@@ -1,9 +1,8 @@
 
 .sidebar_container
 
-  div.sidebar-top
-    = image_tag @archive.profile.avatar_url
-    p = @archive.realname
+  = image_tag @archive.profile.avatar_url
+  p = @archive.realname
 
   hr
 
@@ -46,14 +45,14 @@
         a href="#{family_related_path(@archive.family_related)}"
           = image_tag 'family_related.png'
           span 家庭信息
-    dt class="sidebar-text"
+    dt
       | 家庭成员关系树
 	dd
 		a href="#{archive_family_relation_tree_path(@archive)}"
           = image_tag 'relation_tree.png'
           span 关系图
 
-    dt class="sidebar-text"
+    dt
       | 公证卷宗扫描件
 	dd
 		a
@@ -61,7 +60,7 @@
           span 扫描件
 
     - if can? :notary_records, Archive
-      dt class="sidebar-text"
+      dt
 	    | 公证办理
 	  dd
         a href="#{archive_notary_records_path(@archive)}"
