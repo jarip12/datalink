@@ -10,6 +10,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path([version_name, "default_avatar.png"].compact.join('_'))
+  end
+
   version :normal do
     process resize_to_fit: [86, 81]
   end
