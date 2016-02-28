@@ -44,23 +44,27 @@
     border: solid 1px $main_hr_color;
   }
 
-  dt {
-    font-size: 14px;
-    line-height: 3.4;
-    letter-spacing: 1px;
-    color: #4a90e2;
-    margin-bottom: $sidebar_dt_space;
-  }
+  dl {
+    margin-top: $sidebar_title_margin_top;
 
-  dd {
-    margin-left: 30px;
-    margin-bottom: $sidebar_dd_space;
-    a {
-      img {
-        margin-right: $sidebar_image_space;
+    dt {
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #4a90e2;
+      margin-bottom: $sidebar_dt_space;
+    }
+
+    dd {
+      margin-left: 30px;
+      margin-bottom: $sidebar_dd_space;
+      a {
+        img {
+          margin-right: $sidebar_image_space;
+        }
       }
     }
   }
+
 }
 
 
