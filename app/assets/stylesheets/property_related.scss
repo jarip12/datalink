@@ -11,10 +11,7 @@
   .form-inputs {
     & > div {
 
-      &:not(:last-child) {
-        @include border_bottom;
-      }
-
+      @include border_bottom;
       margin-bottom: 30px;
 
       .links {

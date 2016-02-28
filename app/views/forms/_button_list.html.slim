@@ -1,4 +1,4 @@
-  div.text-center.col-offset-2.profile-submit-div
+  div.button_group
     = link_to "返回", root_path, class: "return_btn"
     - if current_user.typer?
       = f.submit '保存', class: "btn profile-submit", data: { confirm: '提交之后，将不能再次进行编辑，请慎重' }

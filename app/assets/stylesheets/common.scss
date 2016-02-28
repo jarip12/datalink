@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.button_group {
+  margin-left: $return_btn_margin_left;
+}
 
 .form-wrap .control-label {
   text-align: left;
