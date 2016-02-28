@@ -11,7 +11,13 @@
 
       .links {
         float: left;
-        @extend .row;
+        a {
+          width: 72px;
+          height: 16px;
+          font-size: 12px;
+          color: #7eb63d;
+          //margin: 0px 20px 0 20px;
+        }
       }
     }
   }
@@ -27,6 +33,10 @@
 
       &:first-child {
         width: $property_content_width;
+        .long_string {
+          display: inline-block;
+          width: $property_long_string_width;
+        }
       }
 
       &:last-child {

@@ -12,23 +12,23 @@ hr
   .form-inputs
     div
       p.first-title = "信贷情况"
-      = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
+      = f.simple_fields_for :loans do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
       .links
-        = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加信贷记录', f, :loans, render_options:  {locals: { cannot_edit: false }}
 
     div
       p.property-title = "购房情况"
-      = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
+      = f.simple_fields_for :house_purchases do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase, cannot_edit: false
       .links
-        = link_to_add_association '添加购房记录', f, :house_purchases, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加购房记录', f, :house_purchases, render_options:  {locals: { cannot_edit: false }}
 
     div
       p.property-title = "提存情况"
-      = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
+      = f.simple_fields_for :deposits do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
       .links
-        = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
+        = link_to_add_association '添加提存记录', f, :deposits, render_options:  {locals: { cannot_edit: false }}
 
         = render partial: "forms/button_list", locals: {f: f}
