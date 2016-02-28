@@ -44,11 +44,4 @@ div.nested-fields.property_related_container
             - if f.object.errors.include?(:amount)
                 span class="help-block" #{f.object.errors.get(:amount)[-1]}
 
-      div.col-xs-3-img
-        a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
-          = image_tag f.object.scan_file_url, class: "placeholder"
-
-  - unless cannot_edit
-    div.upload_btn
-      span 上传扫描件
-      = f.file_field :scan_file, class: "form-control"
+      = render partial: 'forms/upload_scan_file', locals: {f: f, cannot_edit: cannot_edit}

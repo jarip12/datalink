@@ -1,0 +1,8 @@
+div
+  a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
+    = image_tag f.object.scan_file_url, class: "placeholder"
+
+  - unless cannot_edit
+    div.upload_btn
+      span 上传扫描件
+      = f.file_field :scan_file, class: "form-control"
