@@ -36,7 +36,7 @@ class NotaryRelated < ActiveRecord::Base
   def set_default_related
     Education.create!(notary_related_id: self.id)
     WorkExperience.create!(notary_related_id: self.id)
-    NotaryRecord.create!(notary_related_id: self.id, notary_id: '')
+    NotaryRecord.create!(notary_related_id: self.id)
     FakerMaterial.create!(notary_related_id: self.id)
 
   end

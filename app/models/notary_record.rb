@@ -23,6 +23,7 @@ class NotaryRecord < ActiveRecord::Base
   mount_uploader :scan_file, AvatarUploader
 
   delegate :notary_table_id, to: :reservation
+  delegate :notary_table, to: :reservation
   delegate :client_token, to: Setting
 
 
@@ -59,7 +60,7 @@ class NotaryRecord < ActiveRecord::Base
   end
 
   def set_notary_id
-    self.notary_id = Time.now.to_i.to_s + self.user_id.to_s unless self.notary_id
+    self.notary_id = Time.now.to_i.to_s + self.user_id.to_s unless self.notary_id.present?
   end
 
 end
