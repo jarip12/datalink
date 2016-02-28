@@ -23,6 +23,10 @@
   color: #6f7781;
   color: var(--battleship-grey);
 
+  div:first-child {
+    @include title_line($sidebar_title_line_padding_bottom);
+  }
+
   img {
     margin-right: 21.7px;
   }

@@ -18,6 +18,11 @@
   margin-bottom: $margin-bottom;
 }
 
+@mixin title_line ($padding-bottom: 10px) {
+  padding-bottom: $padding-bottom;
+  @include border_bottom
+}
+
 @mixin file_upload ($margin-top: 10px) {
 
   position: relative;

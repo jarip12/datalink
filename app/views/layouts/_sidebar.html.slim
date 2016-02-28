@@ -1,10 +1,9 @@
 
 .sidebar_container
 
-  = image_tag @archive.profile.avatar_url
-  p = @archive.realname
-
-  hr
+  .title_line
+    = image_tag @archive.profile.avatar_url
+    p = @archive.realname
 
   dl
 	dt

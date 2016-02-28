@@ -34,7 +34,7 @@ div.nested-fields.property_related_container
             div.has-error
               span class="help-block" #{f.object.errors.get(:end_day)[-1]}
 
-      div.row.row-with-margin
+      div.row
         label.string.optional.control-label.col-xs-2
           = Loan.human_attribute_name("notary_type")
         div.col-xs-3
@@ -48,7 +48,7 @@ div.nested-fields.property_related_container
             span class="help-block" #{f.object.errors.get(:description)[-1]}
 
 
-      div.row.row-with-margin
+      div.row
         label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:amount))
           = Loan.human_attribute_name("amount")
         div.col-xs-3 class=('has-error' if f.object.errors.include?(:amount))

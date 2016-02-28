@@ -3,10 +3,12 @@
 }
 
 .property_related_form {
+  padding-top: $property_subtitle_padding_top;
+  padding-bottom: $property_subtitle_padding_bottom;
+
   .form-inputs {
     & > div {
-      padding-top: $property_subtitle_padding_top;
-      padding-bottom: $property_subtitle_padding_bottom;
+
       @include border_bottom;
 
       .links {
@@ -36,6 +38,10 @@
         .long_string {
           display: inline-block;
           width: $property_long_string_width;
+        }
+
+        & > div:not(:first-child) {
+          margin-top: $property_line_space;
         }
       }
 

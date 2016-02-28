@@ -2,6 +2,8 @@
 
 // for global
 $main_hr_color: #979797;
+$title_line_padding_bottom: 29px;
+$sidebar_title_line_padding_bottom: $title_line_padding_bottom - 7px;
 
 //for new_profile
 $new_profile_form_width: 640px;
@@ -67,6 +69,7 @@ $property_subtitle_padding_top: 28px;
 $property_subtitle_padding_bottom: 27px;
 $property_upload_btn_margin_top: 23px;
 $property_long_string_width: 200px;
+$property_line_space: 19px;
 
 
 
