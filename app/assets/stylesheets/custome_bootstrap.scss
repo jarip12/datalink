@@ -32,3 +32,8 @@ select, textarea {
   display: inline-table;
 
 }
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-left: $radio_space;
+}

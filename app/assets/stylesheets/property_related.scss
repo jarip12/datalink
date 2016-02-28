@@ -13,8 +13,9 @@
 
       @include border_bottom;
 
+      margin-bottom: 30px;
+
       .links {
-        float: left;
         a {
           width: 72px;
           height: 16px;
@@ -28,6 +29,11 @@
 }
 
 .property_related_container {
+
+  &:nth-child(n + 3) {
+    margin-top: 39px;
+  }
+
   .content_container {
 
     @extend .clearfix;
@@ -40,6 +46,7 @@
         .long_string {
           display: inline-block;
           width: $property_long_string_width;
+          margin-left: 15px;
         }
 
         & > div:not(:first-child) {

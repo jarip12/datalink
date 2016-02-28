@@ -5,7 +5,7 @@ div.nested-fields.property_related_container
     div.clearfix
 
   div.content_container
-    div.col-xs-9
+    div
       div.row
         label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:trade_day))
           = HousePurchase.human_attribute_name("trade_day")
@@ -55,7 +55,7 @@ div.nested-fields.property_related_container
       a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
         = image_tag f.object.scan_file_url, class: "placeholder"
 
-  - unless cannot_edit
-    div.upload_btn
-      span 上传扫描件
-      = f.file_field :scan_file, class: "form-control"
+    - unless cannot_edit
+      div.upload_btn
+        span 上传扫描件
+        = f.file_field :scan_file, class: "form-control"

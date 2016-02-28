@@ -5,7 +5,7 @@ div.nested-fields.property_related_container
     div.clearfix
 
   div.content_container
-      div.col-xs-9
+      div
         div.row
           label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:deposit_day))
             = Deposit.human_attribute_name("deposit_day")
