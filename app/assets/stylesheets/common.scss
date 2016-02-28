@@ -64,30 +64,6 @@ div.col-xs-3 img {
   margin: 20px 20px 0 20px;
 }
 
-.file-upload {
-  position: relative;
-  overflow: hidden;
-  margin: 10px 0 0 0;
-
-
-  input {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-  }
-
-  &-right {
-    margin-left: 5%;
-    @extend .file-upload;
-  }
-
-}
 
 .remove-link {
   /* BG: */

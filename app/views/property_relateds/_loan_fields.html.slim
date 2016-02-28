@@ -69,6 +69,6 @@ div.nested-fields.property_related_container
         = image_tag f.object.scan_file_url, class: "placeholder"
 
       - unless cannot_edit
-      div.file-upload.upload_btn
+      div.upload_btn
         span 上传扫描件
         = f.file_field :scan_file, class: "form-control"

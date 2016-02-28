@@ -8,6 +8,11 @@
       padding-top: $property_subtitle_padding_top;
       padding-bottom: $property_subtitle_padding_bottom;
       @include border_bottom;
+
+      .links {
+        float: left;
+        @extend .row;
+      }
     }
   }
 }
@@ -33,6 +38,7 @@
         }
 
         .upload_btn {
+          @include file_upload($property_upload_btn_margin_top);
           height: 30px;
           border-radius: 2px;
           background-image: linear-gradient(to bottom, #ffffff, #d8d8d8);
