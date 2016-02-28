@@ -1,10 +1,10 @@
-div.nested-fields
+div.nested-fields.property_related_container
   - unless cannot_edit
     div.pull-right.remove-link-div
       = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
     div.clearfix
 
-  div.row.first-row
+  div.content_container
       div.col-xs-9
         div.row
           label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:deposit_day))
@@ -36,7 +36,7 @@ div.nested-fields
               div.has-error
                 span class="help-block" #{f.object.errors.get(:receive_day)[-1]}
 
-        div.row.row-with-margin
+        div.row
           label.string.optional.control-label.col-xs-2
             = Deposit.human_attribute_name("amount")
           div.col-xs-3 class=('has-error' if f.object.errors.include?(:amount))
@@ -49,8 +49,6 @@ div.nested-fields
           = image_tag f.object.scan_file_url, class: "placeholder"
 
   - unless cannot_edit
-    div.row
-      div.col-xs-offset-9.col-xs-3
-        div.file-upload.page-button-link
-          span 上传扫描件
-          = f.file_field :scan_file, class: "form-control"
+    div.upload_btn
+      span 上传扫描件
+      = f.file_field :scan_file, class: "form-control"
