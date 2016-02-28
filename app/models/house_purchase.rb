@@ -19,6 +19,6 @@ class HousePurchase < ActiveRecord::Base
   enumerize :trade_type, in: [:buy, :sell], default: :buy
   enumerize :house_type, in: [:shop, :apartment, :villa], default: :shop
 
-  mount_uploader :scan_file, AvatarUploader
+  mount_uploader :scan_file, ScanFileUploader
 
 end

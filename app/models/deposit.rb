@@ -15,6 +15,6 @@
 
 class Deposit < ActiveRecord::Base
 
-  mount_uploader :scan_file, AvatarUploader
+  mount_uploader :scan_file, ScanFileUploader
 
 end
