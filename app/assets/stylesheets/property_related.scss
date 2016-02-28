@@ -1,3 +1,29 @@
 .edit-list-complete {
   display: none;
 }
+
+.property_related_container {
+  & > div{
+    float: left;
+
+    &:first-child {
+      width: $property_content_width;
+    }
+
+    &:last-child {
+      margin-left: $property_image_margin_left;
+      margin-right: $property_image_margin_right;
+
+      & > a {
+        display: block;
+      }
+
+      .upload_btn {
+        height: 30px;
+        border-radius: 2px;
+        background-image: linear-gradient(to bottom, #ffffff, #d8d8d8);
+        border: solid 1px #d4d4d4;
+      }
+    }
+  }
+}
