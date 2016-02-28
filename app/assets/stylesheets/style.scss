@@ -93,15 +93,8 @@
 
   .main_title {
     margin-top: $main_title_margin_top;
-    height:32px;
-
+    height: $sidebar_title_height;
   }
-
-  hr {
-    border: solid 1px $main_hr_color;
-  }
-
-
 
   .save_btn {
     width: 120.8px;
