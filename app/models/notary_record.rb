@@ -20,7 +20,7 @@ class NotaryRecord < ActiveRecord::Base
   extend Enumerize
   enumerize :notary_type, in: [:neijing, :neimin, :waimin, :waijing, :exec, :taimin, :gangmin, :aomin, :gangjing, :taijing, :yibao], default: :neijing
 
-  mount_uploader :scan_file, AvatarUploader
+  mount_uploader :scan_file, ScanFileUploader
 
   delegate :notary_table_id, to: :reservation
   delegate :notary_table, to: :reservation

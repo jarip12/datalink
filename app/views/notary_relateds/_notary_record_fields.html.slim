@@ -19,12 +19,8 @@ div.nested-fields
           span class="help-block" #{f.object.errors.get(:notary_type)[-1]}
 
     div.col-xs-3
-      - if f.object.scan_file?
-        a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
-          = image_tag f.object.scan_file_url(:two_line), class: "placeholder", width: 159, height: 170
-      - else
-        a href="/assets/two-line-placeholder.png" data-lightbox="notary_record_scan_file"
-          = image_tag "two-line-placeholder.png", class: "placeholder", width: 159, height: 170
+      a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
+        = image_tag f.object.scan_file_url, class: "placeholder", width: 159, height: 170
 
   - unless cannot_edit
     div.row

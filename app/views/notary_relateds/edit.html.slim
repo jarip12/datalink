@@ -7,17 +7,16 @@ hr
 = simple_form_for(@notary_related) do |f|
   = f.error_notification
 
-
   .form-inputs
-    div.form-with-border
-      p.first-title = "学历情况"
+    div
+      p 学历情况
       = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
         = render 'education_fields', f: education, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加学位记录', f, :educations, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
 
-    div.form-with-border
-      p.first-title = NotaryRelated.human_attribute_name("has_crime_record")
+    div
+      p = NotaryRelated.human_attribute_name("has_crime_record")
       div.row.vertical-align-row
         div.col-xs-6.vertical-align.row
           div.col-xs-4
@@ -25,55 +24,30 @@ hr
           div.col-xs-6-not
             = f.input_field :crime_record_comment, placeholder: "说明文字", class: "form-control"
 
-        div.col-xs-3
-          - if f.object.crime_record_file?
-            a href="#{f.object.crime_record_file_url}" data-lightbox="#{f.object.crime_record_file_url}"
-              = image_tag f.object.crime_record_file_url(:crime_record), id: "notary_related_crime_record_file_image", width: 238, height: 116
-          - else
-            a href="/assets/crime_record.png" data-lightbox="crime_record_file"
-              = image_tag "crime_record.png", id: "notary_related_crime_record_file_image", width: 238, height: 116
+    div
 
-        div.file-upload-right.page-button-link
-          span 上传扫描件
-          = f.file_field :crime_record_file, class: "form-control"
-
-    div.form-with-border
-
-      p.first-title = NotaryRelated.human_attribute_name("has_testament")
+      p = NotaryRelated.human_attribute_name("has_testament")
       div.row.vertical-align.vertical-align-row
         div.col-xs-6.vertical-align.row
           div.col-xs-4
             = f.input_field :has_testament, as: :radio_buttons, item_wrapper_class: "radio-inline"
 
-        div.col-xs-3
-          - if f.object.testament_file?
-            a href="#{f.object.testament_file_url}" data-lightbox="#{f.object.testament_file_url}"
-              = image_tag f.object.testament_file_url(:testament), id: "notary_related_testament_file_image", width: 238, height: 116
-          - else
-            a href="/assets/testament.png" data-lightbox="testament_file"
-              = image_tag "testament.png", id: "notary_related_testament_file_image", width: 238, height: 116
-
-        div.file-upload-right.page-button-link
-          span 上传扫描件
-          = f.file_field :testament_file, class: "form-control"
-
-
-    div.form-with-border
-      p.first-title = "工作经历"
+    div
+      p 工作经历
       = f.simple_fields_for :work_experiences do |work_experience|
         = render 'work_experience_fields', f: work_experience, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
 
-    div.form-with-border
-      p.first-title = "公证办理"
+    div
+      p 公证办理
       = f.simple_fields_for :notary_records do |notary_record|
         = render 'notary_record_fields', f: notary_record, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加公证记录', f, :notary_records, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
 
-    div.form-with-border
-      p.first-title = "假材料通报"
+    div
+      p 假材料通报
       = f.simple_fields_for :faker_materials do |faker_material|
         = render 'faker_material_fields', f: faker_material, cannot_edit: false
       .links.row.link-div

@@ -4,6 +4,10 @@
 
 .edit_notary_related {
 
+  .remove-link-div {
+    display: none;
+  }
+
   .row-has-margin-top {
     margin: 42px 0 42px 0;
     @extend .row;

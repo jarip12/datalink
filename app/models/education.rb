@@ -20,6 +20,6 @@ class Education < ActiveRecord::Base
   extend Enumerize
   enumerize :education_type, in: [:bachelor, :master, :doctor, :college, :highschool, :junior_highschool, :primary_school, :unknown], default: :bachelor
 
-  mount_uploader :scan_file, AvatarUploader
+  mount_uploader :scan_file, ScanFileUploader
 
 end
