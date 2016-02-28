@@ -4,6 +4,10 @@
   @if $display_block{ display: block; }
 }
 
+@mixin border_bottom {
+  border-bottom: solid 1px $main_hr_color;
+}
+
 @mixin title_before_container ($margin-top: 0, $margin-bottom: 0) {
   width: 144px;
   height: 31px;

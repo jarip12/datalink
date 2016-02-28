@@ -4,31 +4,31 @@ p.main_title
   span.form-title 资产证明
 hr
 
-= simple_form_for @property_related, html: {class: "form-wrap form-horizontal"} do |f|
+= simple_form_for @property_related, html: {class: "property_related_form form-wrap form-horizontal"} do |f|
   = f.error_notification
   - if f.object.errors.any?
     = debug(f.object.errors)
 
   .form-inputs
-    div.form-with-border
+    div
       p.first-title = "信贷情况"
       = f.simple_fields_for :loans, html: {class: "form-with-border"} do |loan|
         = render 'loan_fields', f: loan, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加信贷记录', f, :loans, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
-    div.form-with-border
+    div
       p.property-title = "购房情况"
       = f.simple_fields_for :house_purchases, html: {class: "form-with-border"}  do |house_purchase|
         = render 'house_purchase_fields', f: house_purchase, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加购房记录', f, :house_purchases, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
-    div.form-with-border
+    div
       p.property-title = "提存情况"
       = f.simple_fields_for :deposits, html: {class: "form-with-border"} do |deposit|
         = render 'deposit_fields', f: deposit, cannot_edit: false
       .links.row.link-div
         = link_to_add_association '添加提存记录', f, :deposits, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
 
-    = render partial: "forms/button_list", locals: {f: f}
+        = render partial: "forms/button_list", locals: {f: f}
