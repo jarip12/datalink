@@ -11,8 +11,8 @@ p.main_title
       p 学历情况
       = f.simple_fields_for :educations, html: {class: "form-wrap form-horizontal"} do |education|
         = render 'education_fields', f: education, cannot_edit: false
-      .links.row.link-div
-        = link_to_add_association '添加学位记录', f, :educations, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
+      .links
+        = link_to_add_association '添加学位记录', f, :educations, render_options:  {locals: { cannot_edit: false }}
 
     div
       p = NotaryRelated.human_attribute_name("has_crime_record")
@@ -35,21 +35,21 @@ p.main_title
       p 工作经历
       = f.simple_fields_for :work_experiences do |work_experience|
         = render 'work_experience_fields', f: work_experience, cannot_edit: false
-      .links.row.link-div
-        = link_to_add_association '添加工作记录', f, :work_experiences, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
+      .links
+        = link_to_add_association '添加工作记录', f, :work_experiences, render_options:  {locals: { cannot_edit: false }}
 
     div
       p 公证办理
       = f.simple_fields_for :notary_records do |notary_record|
         = render 'notary_record_fields', f: notary_record, cannot_edit: false
-      .links.row.link-div
-        = link_to_add_association '添加公证记录', f, :notary_records, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
+      .links
+        = link_to_add_association '添加公证记录', f, :notary_records, render_options:  {locals: { cannot_edit: false }}
 
     div
       p 假材料通报
       = f.simple_fields_for :faker_materials do |faker_material|
         = render 'faker_material_fields', f: faker_material, cannot_edit: false
-      .links.row.link-div
-        = link_to_add_association '添加假材料记录', f, :faker_materials, class: "pull-right page-button-link", render_options:  {locals: { cannot_edit: false }}
+      .links
+        = link_to_add_association '添加假材料记录', f, :faker_materials, render_options:  {locals: { cannot_edit: false }}
 
     = render partial: "forms/button_list", locals: {f: f}

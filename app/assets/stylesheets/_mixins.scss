@@ -15,7 +15,8 @@
   .form-inputs {
     & > div {
 
-      @if $with_bottom { @include border_bottom; margin-bottom: $margin-bottom }
+      @if $with_bottom { @include border_bottom; }
+      margin-bottom: $margin-bottom;
 
       .links {
         margin-bottom: $links_margin_bottom;

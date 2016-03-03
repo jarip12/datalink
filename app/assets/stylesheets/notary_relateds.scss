@@ -5,6 +5,7 @@
 .edit_notary_related {
 
   @include basic_edit_form;
+  @include form_common;
 
   .remove-link-div {
     display: none;
