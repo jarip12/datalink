@@ -4,6 +4,13 @@
   @if $display_block{ display: block; }
 }
 
+@mixin basic_edit_form {
+  padding-top: $property_subtitle_padding_top;
+  padding-bottom: $property_subtitle_padding_bottom;
+  margin-top: $main_title_margin_top;
+  @include border_top;
+}
+
 @mixin border_bottom {
   border-bottom: solid 1px $main_hr_color;
 }

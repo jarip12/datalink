@@ -1,5 +1,7 @@
 .family_relation_tree_body {
 
+  @include basic_edit_form;
+
   svg {
     margin-bottom: 30px;
   }

@@ -6,6 +6,12 @@ abbr[title="required"] {
   display: none;
 }
 
+.profile_edit_form {
+  @include basic_edit_form;
+  @extend .form-wrap;
+  @extend .form-horizontal;
+}
+
 .search-table-wrap {
   margin: 40px auto;
   /* Rectangle 202: */

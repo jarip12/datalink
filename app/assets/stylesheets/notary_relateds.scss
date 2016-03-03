@@ -4,6 +4,8 @@
 
 .edit_notary_related {
 
+  @include basic_edit_form;
+
   .remove-link-div {
     display: none;
   }
