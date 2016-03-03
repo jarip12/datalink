@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .new-family-form-wrap {
   @include basic_edit_form;
-  @include form_common;
+  @include form_common($family_with_bottom, $family_margin_bottom);
 
   .links {
     margin-top: 19px;

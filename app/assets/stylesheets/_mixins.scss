@@ -1,7 +1,7 @@
 @mixin horizontal_align ($value, $display_block: false) {
   margin: 0 auto;
   width: $value;
-  @if $display_block{ display: block; }
+  @if $display_block { display: block; }
 }
 
 @mixin basic_edit_form {
@@ -11,12 +11,11 @@
   @include border_top;
 }
 
-@mixin form_common {
+@mixin form_common($with_bottom: true, $margin-bottom: 30px) {
   .form-inputs {
     & > div {
 
-      @include border_bottom;
-      margin-bottom: 30px;
+      @if $with_bottom { @include border_bottom; margin-bottom: $margin-bottom }
 
       .links {
         margin-bottom: $links_margin_bottom;
