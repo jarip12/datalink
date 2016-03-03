@@ -1,0 +1,10 @@
+div.nested-fields.property_related_container
+  - unless cannot_edit
+    div.remove-link-div.clearfix
+      = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
+
+  div.content_container
+    div
+      = yield
+    - if with_scan
+      = render partial: 'forms/upload_scan_file', locals: {f: f, cannot_edit: cannot_edit}

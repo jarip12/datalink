@@ -1,10 +1,4 @@
-div.nested-fields
-  - unless cannot_edit
-    div.remove-link-div.clearfix
-      = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
-
-  div.row
-    div.col-xs-9
+= render layout: 'form_common/form_field_layout', :locals => {:f => f, :cannot_edit => cannot_edit, :with_scan => true} do
       div.row
         label.string.optional.control-label.col-xs-2
           = Education.human_attribute_name("education_type")
@@ -56,13 +50,5 @@ div.nested-fields
               span class="help-block" #{f.object.errors.get(:degree)[-1]}
 
 
-    div.col-xs-3-img
-      a href="#{f.object.scan_file_url}" data-lightbox="#{f.object.scan_file_url}"
-        = image_tag f.object.scan_file_url, class: "placeholder", width: 159, height: 170
 
-  - unless cannot_edit
-    div.row
-      div.col-xs-offset-9.col-xs-3
-        div.file-upload.page-button-link
-          span 上传扫描件
-          = f.file_field :scan_file, class: "form-control"
+end

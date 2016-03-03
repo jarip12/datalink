@@ -1,48 +1,44 @@
-div.nested-fields
-  - unless cannot_edit
-    div.remove-link-div.clearfix
-      = link_to_remove_association image_tag("close.png"), f, class: "remove-link pull-right"
-
+= render layout: 'form_common/form_field_layout', :locals => {:f => f, :cannot_edit => cannot_edit, :with_scan => false} do
   div.row
-    div.col-xs-9
-      div.row
-        label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:start_day))
-          = WorkExperience.human_attribute_name("start_day")
-        div.col-xs-3
-          div.input-group.date class=('has-error' if f.object.errors.include?(:start_day))
-            = f.input_field :start_day, as: :string, class: "date-input form-control", disabled: cannot_edit
-            = f.label :start_day, class: "input-group-btn"
-              span.btn.btn-default
-                span.glyphicon.glyphicon-calendar
-          - if f.object.errors.include?(:start_day)
-            div.has-error
-              span class="help-block" #{f.object.errors.get(:start_day)[-1]}
+    label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:start_day))
+      = WorkExperience.human_attribute_name("start_day")
+    div.col-xs-3
+      div.input-group.date class=('has-error' if f.object.errors.include?(:start_day))
+        = f.input_field :start_day, as: :string, class: "date-input form-control", disabled: cannot_edit
+        = f.label :start_day, class: "input-group-btn"
+        span.btn.btn-default
+          span.glyphicon.glyphicon-calendar
+        - if f.object.errors.include?(:start_day)
+        div.has-error
+          span class="help-block" #{f.object.errors.get(:start_day)[-1]}
 
-        label.string.optional.control-label.col-xs-2.col-xs-offset-1 class=('has-error' if f.object.errors.include?(:end_day))
-          = WorkExperience.human_attribute_name("end_day")
-        div.col-xs-3
-          div.input-group.date class=('has-error' if f.object.errors.include?(:end_day))
+    label.string.optional.control-label.col-xs-2.col-xs-offset-1 class=('has-error' if f.object.errors.include?(:end_day))
+      = WorkExperience.human_attribute_name("end_day")
+    div.col-xs-3
+      div.input-group.date class=('has-error' if f.object.errors.include?(:end_day))
 
-            = f.input_field :end_day, as: :string, class: "date-input form-control", disabled: cannot_edit
-            = f.label :end_day, class: "input-group-btn"
-              span.btn.btn-default
-                span.glyphicon.glyphicon-calendar
+        = f.input_field :end_day, as: :string, class: "date-input form-control", disabled: cannot_edit
+        = f.label :end_day, class: "input-group-btn"
+        span.btn.btn-default
+          span.glyphicon.glyphicon-calendar
 
-          - if f.object.errors.include?(:end_day)
-            div.has-error
-              span class="help-block" #{f.object.errors.get(:end_day)[-1]}
+        - if f.object.errors.include?(:end_day)
+        div.has-error
+          span class="help-block" #{f.object.errors.get(:end_day)[-1]}
 
-      div.row.row-with-margin
-        label.string.optional.control-label.col-xs-2
-          = WorkExperience.human_attribute_name("company_name")
-        div.col-xs-3 class=('has-error' if f.object.errors.include?(:company_name))
-          = f.input_field :company_name, class: "form-control", disabled: cannot_edit
-          - if f.object.errors.include?(:company_name)
-            span class="help-block" #{f.object.errors.get(:company_name)[-1]}
+    div.row.row-with-margin
+      label.string.optional.control-label.col-xs-2
+        = WorkExperience.human_attribute_name("company_name")
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:company_name))
+        = f.input_field :company_name, class: "form-control", disabled: cannot_edit
+        - if f.object.errors.include?(:company_name)
+          span class="help-block" #{f.object.errors.get(:company_name)[-1]}
 
-        label.string.optional.control-label.col-xs-2.col-xs-offset-1
-          = WorkExperience.human_attribute_name("job_title")
-        div.col-xs-3 class=('has-error' if f.object.errors.include?(:job_title))
-          = f.input_field :job_title, class: "form-control", disabled: cannot_edit
-          - if f.object.errors.include?(:job_title)
-            span class="help-block" #{f.object.errors.get(:job_title)[-1]}
+      label.string.optional.control-label.col-xs-2.col-xs-offset-1
+        = WorkExperience.human_attribute_name("job_title")
+      div.col-xs-3 class=('has-error' if f.object.errors.include?(:job_title))
+        = f.input_field :job_title, class: "form-control", disabled: cannot_edit
+        - if f.object.errors.include?(:job_title)
+          span class="help-block" #{f.object.errors.get(:job_title)[-1]}
+end
+
