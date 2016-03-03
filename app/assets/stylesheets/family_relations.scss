@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .new-family-form-wrap {
   @include basic_edit_form;
+  @include form_common;
+
+  .links {
+    margin-top: 19px;
+  }
+
   overflow: hidden;
   display: block;
   select {

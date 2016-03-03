@@ -11,6 +11,27 @@
   @include border_top;
 }
 
+@mixin form_common {
+  .form-inputs {
+    & > div {
+
+      @include border_bottom;
+      margin-bottom: 30px;
+
+      .links {
+        margin-bottom: $links_margin_bottom;
+        & > a {
+          width: 72px;
+          height: 16px;
+          font-size: 12px;
+          color: #7eb63d;
+          //margin: 0px 20px 0 20px;
+        }
+      }
+    }
+  }
+}
+
 @mixin border_bottom {
   border-bottom: solid 1px $main_hr_color;
 }

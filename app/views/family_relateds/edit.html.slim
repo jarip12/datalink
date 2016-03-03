@@ -7,9 +7,11 @@ p.main_title
 
   = f.error_notification
 
-  = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
-    = render 'family_relation_fields', f: family_relation, cannot_edit: false
-  .links.row.link-div
-    = link_to_add_association '添加家庭成员', f, :family_relations, class: "page-button-link pull-right", render_options:  {locals: { cannot_edit: false }}
+  .form-inputs
+    div
+      = f.simple_fields_for :family_relations, html: {class: "form-with-border"} do |family_relation|
+        = render 'family_relation_fields', f: family_relation, cannot_edit: false
+      .links
+        = link_to_add_association '添加家庭成员', f, :family_relations, render_options:  {locals: { cannot_edit: false }}
 
   = render partial: "forms/button_list", locals: {f: f}
