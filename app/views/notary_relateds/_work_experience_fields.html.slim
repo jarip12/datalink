@@ -1,4 +1,4 @@
-= render layout: 'form_common/form_field_layout', :locals => {:f => f, :cannot_edit => cannot_edit, :with_scan => false} do
+= render layout: 'form_common/form_field_layout', :locals => {:form_class => 'work_experience_form', :f => f, :cannot_edit => cannot_edit, :with_scan => false} do
   div.row
     label.string.optional.control-label.col-xs-2 class=('has-error' if f.object.errors.include?(:start_day))
       = WorkExperience.human_attribute_name("start_day")

@@ -1,4 +1,4 @@
-= render layout: 'form_common/form_field_layout', :locals => {:f => f, :cannot_edit => cannot_edit, :with_scan => true} do
+= render layout: 'form_common/form_field_layout', :locals => {:form_class => 'education_form', :f => f, :cannot_edit => cannot_edit, :with_scan => true} do
       div.row
         label.string.optional.control-label.col-xs-2
           = Education.human_attribute_name("education_type")
